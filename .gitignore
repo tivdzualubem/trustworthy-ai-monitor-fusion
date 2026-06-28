@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Raw and generated data
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Generated results
+results/metrics/*
+results/figures/*
+results/tables/*
+!results/metrics/.gitkeep
+!results/figures/.gitkeep
+!results/tables/.gitkeep
+
+# Models and caches
+models/
+cache/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.vscode/
