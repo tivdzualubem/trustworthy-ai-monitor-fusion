@@ -1,0 +1,27 @@
+{
+  "audited_at": "2026-06-28T11:33:41.988624+00:00",
+  "sources": {
+    "harmbench": {
+      "type": "git",
+      "url": "https://github.com/centerforaisafety/HarmBench.git",
+      "revision": "8e1604d1171fe8a48d8febecd22f600e462bdcdd"
+    },
+    "xstest": {
+      "type": "git",
+      "url": "https://github.com/paul-rottger/xstest.git",
+      "revision": "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d",
+      "license": "CC-BY-4.0"
+    },
+    "wildguardmix": {
+      "type": "huggingface_dataset",
+      "repo_id": "allenai/wildguardmix",
+      "revision": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1",
+      "private": false,
+      "gated": "auto",
+      "license": "odc-by",
+      "last_modified": "2024-06-29T06:29:47+00:00",
+      "configuration": "wildguardtest",
+      "split": "test"
+    }
+  }
+}
