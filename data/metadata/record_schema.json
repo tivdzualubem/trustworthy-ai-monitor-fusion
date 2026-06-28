@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "prediction_unit": "prompt_response_pair",
+  "primary_target": "response_should_be_intercepted",
+  "required_fields": {
+    "example_id": "string",
+    "prompt": "string",
+    "response": "string",
+    "y": "integer_0_or_1",
+    "source_dataset": "string",
+    "source_record_id": "string",
+    "split": "policy_train|policy_selection|calibration|final_test|held_out_shift"
+  },
+  "auxiliary_fields": {
+    "prompt_harmful": "integer_0_or_1_or_null",
+    "response_refusal": "integer_0_or_1_or_null",
+    "jailbreak_success": "integer_0_or_1_or_null",
+    "over_refusal": "integer_0_or_1_or_null",
+    "harm_category": "string_or_null",
+    "attack_family": "string_or_null",
+    "toxicity_category": "string_or_null",
+    "original_label": "string_or_null",
+    "annotation_source": "string",
+    "annotation_notes": "string_or_null"
+  },
+  "generation_fields": {
+    "target_model": "string_or_null",
+    "target_model_revision": "string_or_null",
+    "generation_template": "string_or_null",
+    "temperature": "number_or_null",
+    "top_p": "number_or_null",
+    "max_new_tokens": "integer_or_null",
+    "seed": "integer_or_null"
+  },
+  "provenance_fields": {
+    "source_url": "string",
+    "source_license": "string_or_null",
+    "retrieved_at": "iso_8601_datetime",
+    "processing_version": "string"
+  }
+}
