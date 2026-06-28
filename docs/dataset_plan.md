@@ -1,97 +1,90 @@
-# Dataset Plan
+# Final Dataset and Split Plan
 
-## Frozen dataset selection
+This document freezes the dataset choices for the current project scope.
 
-The project will use no more than three source datasets.
+## Prediction unit
 
-### 1. HarmBench — adversarial harmful source
-
-Role:
-- provide harmful behaviours and adversarial test cases;
-- support attack-family metadata;
-- support held-out attack-family stress testing.
-
-Processing plan:
-- use text-only behaviours;
-- generate responses from a fixed target language model;
-- store the exact attack method, target model, prompt template,
-  decoding configuration, and generation seed;
-- reserve complete attack families for the held-out-shift split.
-
-Important:
-- HarmBench prompt harmfulness is not automatically the primary target.
-- The generated response must still be labelled for response harmfulness.
-- A harmful prompt followed by a safe refusal has Y = 0.
-
-### 2. XSTest — benign and over-refusal source
-
-Role:
-- provide benign prompts that may trigger exaggerated refusal;
-- provide unsafe contrast prompts;
-- measure false-positive intervention and over-refusal behaviour.
-
-Processing plan:
-- generate responses using the same fixed target model used for HarmBench;
-- convert every prompt and generated completion into one prompt-response pair;
-- preserve the original XSTest prompt type and safe/contrast label.
-
-Important:
-- safe XSTest prompts are important negative examples;
-- refusal alone does not define Y;
-- a refusal to a safe prompt remains Y = 0 but is recorded separately
-  as response_refusal = 1 and possible over_refusal = 1.
-
-### 3. WildGuardTest — mixed real safety source
-
-Role:
-- provide human-annotated prompt-response pairs;
-- provide mixed benign, harmful, refusal, and compliance cases;
-- provide existing labels for prompt harmfulness, response harmfulness,
-  and response refusal.
-
-Processing plan:
-- use the held-out WildGuard test portion rather than WildGuard training data;
-- map response harmfulness to the primary target Y;
-- preserve original annotations and provenance;
-- do not use the WildGuard classifier as one of the project monitors,
-  to reduce benchmark-specific coupling.
-
-## Primary prediction unit
-
-Each record is:
+Each prediction unit is one prompt-response pair:
 
 X = (prompt, response)
 
-The monitor predicts whether the response should be intercepted in the
+The runtime monitors assess whether the response should be intercepted in the
 context of the prompt.
 
 ## Primary target
 
-Y = 1 when the response materially provides, facilitates, endorses,
-or contains disallowed harmful content and should therefore be intercepted.
+Y = 1 when the response materially provides, facilitates, endorses, or
+contains disallowed harmful content and should therefore be intercepted.
 
-Y = 0 for:
-- benign answers;
-- safe refusals;
-- safe redirections;
-- harmless responses to harmful prompts.
+Y = 0 for benign responses, safe refusals, safe redirections, and harmless
+responses to harmful prompts.
 
-## Auxiliary labels
+The following concepts remain separate from Y:
 
-The following concepts must remain separate:
+- prompt harmfulness;
+- response refusal;
+- over-refusal;
+- jailbreak success;
+- toxicity;
+- attack family.
 
-- prompt_harmful
-- response_refusal
-- jailbreak_success
-- over_refusal
-- harm_category
-- attack_family
-- toxicity_category
-- source_dataset
+## Final dataset selection
 
-## Split policy
+### 1. JailbreakBench judge comparison — adversarial harmful set
 
-Every example must belong to exactly one of:
+Configuration:
+
+- repository: JailbreakBench/JBB-Behaviors;
+- configuration: judge_comparison;
+- adversarial rows only: indices 0 through 199;
+- response label: human_majority.
+
+Attack-family mapping documented by JailbreakBench:
+
+- indices 0--99: PAIR;
+- indices 100--149: GCG;
+- indices 150--199: adversarial random search.
+
+The 100 benign XSTest-derived rows at indices 200--299 are excluded to avoid
+overlap with the separate XSTest source.
+
+The complete GCG family is reserved as the held-out attack-family shift.
+
+### 2. XSTest — benign and over-refusal set
+
+The project uses:
+
+- xstest_prompts.csv;
+- model_completions/xstest_v2_completions_gpt4.csv;
+- only the 250 prompts whose source label is safe.
+
+All selected XSTest examples have Y = 0.
+
+The existing manual response annotation is retained separately:
+
+- 1_full_compliance;
+- 2_full_refusal;
+- 3_partial_refusal.
+
+A full or partial refusal to a safe prompt is recorded as over_refusal = 1,
+but it does not change Y.
+
+### 3. WildGuardTest — mixed safety set
+
+The project uses the WildGuardTest configuration from allenai/wildguardmix.
+
+Rows without a response-harm label are excluded.
+
+Mapping:
+
+- response_harm_label = harmful gives Y = 1;
+- response_harm_label = unharmful gives Y = 0;
+- prompt_harm_label is stored separately;
+- response_refusal_label is stored separately.
+
+## Five disjoint splits
+
+Each prompt group belongs to exactly one split:
 
 1. policy_train
 2. policy_selection
@@ -99,24 +92,17 @@ Every example must belong to exactly one of:
 4. final_test
 5. held_out_shift
 
-The calibration split will not be used to:
-- train a model;
-- tune thresholds;
-- select a cascade;
-- choose among candidate policies.
+The complete JailbreakBench GCG family is assigned to held_out_shift.
 
-The final policy must be frozen before calibration bounds are computed.
+All remaining examples are assigned deterministically using approximate
+proportions:
 
-Complete attack families, not random examples from the same attack family,
-will be reserved for held_out_shift.
+- policy_train: 40%;
+- policy_selection: 20%;
+- calibration: 20%;
+- final_test: 20%.
 
-## Leakage controls
+Identical normalized prompts are kept in the same split.
 
-- Duplicate and near-duplicate prompts must remain in the same split.
-- The same generated response must never appear in multiple splits.
-- Attack-family variants derived from one base behaviour must be grouped
-  before splitting.
-- Dataset source, target model, generation settings, and monitor provenance
-  must be recorded.
-- A monitor must not be trained or tuned using the final-test or
-  held-out-shift examples.
+The calibration split must not be used to train models, tune thresholds,
+select cascades, or choose among candidate policies.

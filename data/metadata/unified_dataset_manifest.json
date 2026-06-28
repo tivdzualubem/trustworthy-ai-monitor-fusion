@@ -1,0 +1,66 @@
+{
+  "created_at": "2026-06-28T19:26:16.935766+00:00",
+  "processing_version": "0.1.0",
+  "prediction_unit": "prompt_response_pair",
+  "primary_target": "response_should_be_intercepted",
+  "selected_datasets": [
+    "JailbreakBench judge_comparison adversarial subset",
+    "XSTest safe subset with GPT-4 completions",
+    "WildGuardTest"
+  ],
+  "source_revisions": {
+    "jailbreakbench": "886acc352a31533ffbcf4ef22c744658688086fc",
+    "xstest": "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d",
+    "wildguardmix": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1"
+  },
+  "held_out_attack_family": "GCG",
+  "total_rows": 2159,
+  "duplicates_removed": 0,
+  "source_counts": {
+    "jailbreakbench_judge_comparison": 200,
+    "wildguardtest": 1709,
+    "xstest_safe_gpt4": 250
+  },
+  "label_counts": {
+    "0": 1765,
+    "1": 394
+  },
+  "split_counts": {
+    "calibration": 422,
+    "final_test": 422,
+    "held_out_shift": 50,
+    "policy_selection": 421,
+    "policy_train": 844
+  },
+  "split_label_counts": {
+    "calibration": {
+      "0": 350,
+      "1": 72
+    },
+    "final_test": {
+      "0": 350,
+      "1": 72
+    },
+    "held_out_shift": {
+      "0": 16,
+      "1": 34
+    },
+    "policy_selection": {
+      "0": 349,
+      "1": 72
+    },
+    "policy_train": {
+      "0": 700,
+      "1": 144
+    }
+  },
+  "attack_family_counts": {
+    "GCG": 50,
+    "PAIR": 100,
+    "random_search": 50
+  },
+  "outputs": {
+    "parquet": "data/processed/unified_dataset.parquet",
+    "csv": "data/processed/unified_dataset.csv"
+  }
+}

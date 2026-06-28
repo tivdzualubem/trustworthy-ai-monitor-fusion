@@ -1,15 +1,25 @@
 {
-  "audited_at": "2026-06-28T11:33:41.988624+00:00",
+  "audited_at": "2026-06-28T19:26:02.429796+00:00",
+  "selected_dataset_count": 3,
   "sources": {
-    "harmbench": {
-      "type": "git",
-      "url": "https://github.com/centerforaisafety/HarmBench.git",
-      "revision": "8e1604d1171fe8a48d8febecd22f600e462bdcdd"
+    "jailbreakbench": {
+      "type": "huggingface_dataset",
+      "repo_id": "JailbreakBench/JBB-Behaviors",
+      "revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+      "private": false,
+      "gated": false,
+      "license": "mit",
+      "last_modified": "2024-09-26T11:05:44+00:00",
+      "configuration": "judge_comparison",
+      "subset": "adversarial_indices_0_199",
+      "held_out_attack_family": "GCG"
     },
     "xstest": {
       "type": "git",
       "url": "https://github.com/paul-rottger/xstest.git",
       "revision": "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d",
+      "selected_file": "model_completions/xstest_v2_completions_gpt4.csv",
+      "selected_subset": "safe_prompts_only",
       "license": "CC-BY-4.0"
     },
     "wildguardmix": {
