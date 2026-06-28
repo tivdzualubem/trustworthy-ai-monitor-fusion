@@ -1,0 +1,466 @@
+{
+  "harmbench": {
+    "revision": "8e1604d1171fe8a48d8febecd22f600e462bdcdd",
+    "candidate_tabular_files": [
+      {
+        "path": "baselines/gptfuzz/GPTFuzzer.csv",
+        "size_bytes": 158982,
+        "suffix": ".csv",
+        "rows": 77,
+        "columns": [
+          "id",
+          "text"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/2_behaviors.csv",
+        "size_bytes": 1499,
+        "suffix": ".csv",
+        "rows": 2,
+        "columns": [
+          "Behavior",
+          "SemanticCategory",
+          "Category",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/extra_behavior_datasets/adv_training_behaviors.csv",
+        "size_bytes": 10031,
+        "suffix": ".csv",
+        "rows": 100,
+        "columns": [
+          "Behavior",
+          "Category",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/extra_behavior_datasets/advbench_behaviors.csv",
+        "size_bytes": 47291,
+        "suffix": ".csv",
+        "rows": 520,
+        "columns": [
+          "Behavior",
+          "Category",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/extra_behavior_datasets/tdc2023_test_phase_behaviors.csv",
+        "size_bytes": 7023,
+        "suffix": ".csv",
+        "rows": 50,
+        "columns": [
+          "Behavior",
+          "Category",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/harmbench_behaviors_multimodal_all.csv",
+        "size_bytes": 137713,
+        "suffix": ".csv",
+        "rows": 110,
+        "columns": [
+          "Behavior",
+          "BehaviorID",
+          "FunctionalCategory",
+          "SemanticCategory",
+          "ImageFileName",
+          "Source",
+          "ImageDescription",
+          "RedactedImageDescription",
+          "Tags"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/harmbench_behaviors_text_all.csv",
+        "size_bytes": 198850,
+        "suffix": ".csv",
+        "rows": 400,
+        "columns": [
+          "Behavior",
+          "FunctionalCategory",
+          "SemanticCategory",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/harmbench_behaviors_text_test.csv",
+        "size_bytes": 160828,
+        "suffix": ".csv",
+        "rows": 320,
+        "columns": [
+          "Behavior",
+          "FunctionalCategory",
+          "SemanticCategory",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      },
+      {
+        "path": "data/behavior_datasets/harmbench_behaviors_text_val.csv",
+        "size_bytes": 38024,
+        "suffix": ".csv",
+        "rows": 80,
+        "columns": [
+          "Behavior",
+          "FunctionalCategory",
+          "SemanticCategory",
+          "Tags",
+          "ContextString",
+          "BehaviorID"
+        ]
+      }
+    ]
+  },
+  "xstest": {
+    "revision": "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d",
+    "candidate_tabular_files": [
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_gpt4_gpteval.csv",
+        "size_bytes": 266197,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "gpt4_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_gpt4_streval.csv",
+        "size_bytes": 266102,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "strmatch_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_llama2new_gpteval.csv",
+        "size_bytes": 524610,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "gpt4_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_llama2new_streval.csv",
+        "size_bytes": 524368,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "strmatch_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_llama2orig_gpteval.csv",
+        "size_bytes": 477824,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "gpt4_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_llama2orig_streval.csv",
+        "size_bytes": 477615,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "strmatch_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_mistralguard_gpteval.csv",
+        "size_bytes": 310914,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "gpt4_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_mistralguard_streval.csv",
+        "size_bytes": 310876,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "strmatch_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_mistralinstruct_gpteval.csv",
+        "size_bytes": 379905,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "gpt4_label"
+        ]
+      },
+      {
+        "path": "evaluation/automated_evaluation_labels/xstest_v2_completions_mistralinstruct_streval.csv",
+        "size_bytes": 379544,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label",
+          "strmatch_label"
+        ]
+      },
+      {
+        "path": "model_completions/xstest_v2_completions_gpt4.csv",
+        "size_bytes": 259111,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label"
+        ]
+      },
+      {
+        "path": "model_completions/xstest_v2_completions_llama2new.csv",
+        "size_bytes": 517476,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label"
+        ]
+      },
+      {
+        "path": "model_completions/xstest_v2_completions_llama2orig.csv",
+        "size_bytes": 470900,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label"
+        ]
+      },
+      {
+        "path": "model_completions/xstest_v2_completions_mistralguard.csv",
+        "size_bytes": 303726,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label"
+        ]
+      },
+      {
+        "path": "model_completions/xstest_v2_completions_mistralinstruct.csv",
+        "size_bytes": 371935,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "type",
+          "prompt",
+          "completion",
+          "annotation_1",
+          "annotation_2",
+          "agreement",
+          "final_label"
+        ]
+      },
+      {
+        "path": "xstest_prompts.csv",
+        "size_bytes": 38719,
+        "suffix": ".csv",
+        "rows": 450,
+        "columns": [
+          "id",
+          "prompt",
+          "type",
+          "label",
+          "focus",
+          "note"
+        ]
+      }
+    ]
+  },
+  "wildguardtest": {
+    "revision": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1",
+    "configuration": "wildguardtest",
+    "split": "test",
+    "num_rows": 1725,
+    "columns": [
+      "prompt",
+      "response",
+      "adversarial",
+      "prompt_harm_label",
+      "response_refusal_agreement",
+      "response_refusal_label",
+      "response_harm_label",
+      "subcategory",
+      "prompt_harm_agreement",
+      "response_harm_agreement"
+    ],
+    "features": {
+      "prompt": "Value('string')",
+      "response": "Value('string')",
+      "adversarial": "Value('bool')",
+      "prompt_harm_label": "Value('string')",
+      "response_refusal_agreement": "Value('float64')",
+      "response_refusal_label": "Value('string')",
+      "response_harm_label": "Value('string')",
+      "subcategory": "Value('string')",
+      "prompt_harm_agreement": "Value('float64')",
+      "response_harm_agreement": "Value('float64')"
+    },
+    "label_counts": {
+      "adversarial": {
+        "False": 915,
+        "True": 810
+      },
+      "prompt_harm_label": {
+        "<NULL>": 26,
+        "harmful": 754,
+        "unharmful": 945
+      },
+      "response_refusal_label": {
+        "<NULL>": 5,
+        "compliance": 1157,
+        "refusal": 563
+      },
+      "response_harm_label": {
+        "<NULL>": 16,
+        "harmful": 284,
+        "unharmful": 1425
+      },
+      "subcategory": {
+        "benign": 971,
+        "causing_material_harm_by_disseminating_misinformation": 45,
+        "copyright_violations": 31,
+        "cyberattack": 48,
+        "defamation_encouraging_unethical_or_unsafe_actions": 46,
+        "disseminating_false_or_misleading_information_encouraging_disinformation_campaigns": 44,
+        "fraud_assisting_illegal_activities": 60,
+        "mental_health_over-reliance_crisis": 47,
+        "others": 98,
+        "private_information_individual": 81,
+        "sensitive_information_organization_government": 50,
+        "sexual_content": 47,
+        "social_stereotypes_and_unfair_discrimination": 76,
+        "toxic_language_hate_speech": 41,
+        "violence_and_physical_harm": 40
+      }
+    }
+  }
+}
