@@ -1,0 +1,64 @@
+{
+  "registry_version": "0.1.0",
+  "prediction_unit": "prompt_response_pair",
+  "primary_score_semantics": "probability_or_strength_of_response_interception",
+  "monitors": [
+    {
+      "monitor_id": "rule_filter_v1",
+      "monitor_type": "deterministic_weighted_lexical_filter",
+      "model_repo": null,
+      "execution_environment": "cpu",
+      "continuous_score_field": "rule_score",
+      "latency_field": "rule_latency_ms",
+      "threshold_frozen": false,
+      "model_access_required": false,
+      "model_revision": null
+    },
+    {
+      "monitor_id": "koala_text_moderation",
+      "monitor_type": "compact_discriminative_safety_classifier",
+      "model_repo": "KoalaAI/Text-Moderation",
+      "execution_environment": "google_colab_gpu_or_cpu",
+      "continuous_score_field": "compact_unsafe_score",
+      "latency_field": "compact_latency_ms",
+      "threshold_frozen": false,
+      "model_access_required": true,
+      "model_access_verified": true,
+      "model_revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c",
+      "model_revision_pinned_at": "2026-07-09T07:42:02.854102+00:00"
+    },
+    {
+      "monitor_id": "qwen3guard_gen_4b",
+      "monitor_type": "stronger_generative_safety_judge",
+      "model_repo": "Qwen/Qwen3Guard-Gen-4B",
+      "execution_environment": "google_colab_gpu",
+      "continuous_score_field": "judge_unsafe_score",
+      "latency_field": "judge_latency_ms",
+      "threshold_frozen": false,
+      "model_access_required": true,
+      "model_access_verified": true,
+      "model_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+      "model_revision_pinned_at": "2026-07-09T07:42:07.625590+00:00"
+    }
+  ],
+  "cost_definition": {
+    "primary": "wall_clock_latency_ms",
+    "normalized": "median_monitor_latency_divided_by_median_rule_latency",
+    "same_runtime_required_for_learned_monitors": true
+  },
+  "leakage_controls": {
+    "monitor_input_fields": [
+      "example_id",
+      "prompt",
+      "response"
+    ],
+    "forbidden_during_inference": [
+      "y",
+      "split",
+      "source_dataset",
+      "attack_family",
+      "original_label"
+    ],
+    "threshold_selection_during_scoring": false
+  }
+}
