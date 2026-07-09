@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-07-09T11:12:23.697130+00:00",
+  "input_cache": "data/processed/monitor_score_cache.parquet",
+  "input_cache_sha256": "0fd460e403d35ad6a1b3fee8f8114b895d78aa5243e05ea50b2ffbc54ce1a2d7",
+  "training_split": "policy_train",
+  "selection_split": "policy_selection",
+  "target_fpr_for_selected_baselines": 0.05,
+  "calibration_final_and_shift_splits_used": false,
+  "families": [
+    "all_monitors_always_on",
+    "cheapest_monitor_only",
+    "cost_tuned_cascade",
+    "fixed_cascade",
+    "learned_stacker_router",
+    "strongest_single_monitor"
+  ],
+  "num_candidate_policies": 940,
+  "num_pareto_frontier_policies": 301,
+  "rule_median_latency_ms_from_train": 0.9711990000482729
+}
