@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-07-09T11:24:48.441325+00:00",
+  "input_cache": "data/processed/monitor_score_cache.parquet",
+  "input_cache_sha256": "0fd460e403d35ad6a1b3fee8f8114b895d78aa5243e05ea50b2ffbc54ce1a2d7",
+  "frozen_policy_artifact": "reports/frozen_policy/frozen_policies.json",
+  "frozen_policy_artifact_sha256": "948633f3546c00f92b3fb7fd5011ad59911ade27e83b9f8da7f16de0934dc0c8",
+  "frozen_policy_id": "cascade_rl0_rh0.7498_cl0.005781_ch0.4674_j0.52",
+  "splits_evaluated": [
+    "calibration",
+    "final_test",
+    "held_out_shift"
+  ],
+  "policy_selection_used_in_this_stage": false,
+  "finite_sample_method": "exact Clopper-Pearson binomial intervals and one-sided upper bounds",
+  "validity_scope": "Calibration bounds are in-distribution/exchangeability statements after policy freeze. Held-out GCG shift comparisons are diagnostic only.",
+  "alpha": 0.05
+}
