@@ -212,3 +212,7 @@ If diagnostic monitoring is later added, it must use a sentinel-audit protocol:
 a small random fraction of examples runs all monitors, while the remaining
 examples follow the normal budget-aware policy. Sentinel examples are used for
 diagnostics only and do not provide arbitrary-shift guarantees.
+
+### Compact monitor score mapping note
+
+`KoalaAI/Text-Moderation` emits compact category labels. The benign label is `OK`; the moderation-category labels are `H`, `H2`, `HR`, `S`, `S3`, `SH`, `V`, and `V2`. The cached `compact_unsafe_score` is therefore defined as the total probability assigned to those non-`OK` labels. This mapping is fixed before policy learning and does not use calibration, final-test, or held-out-shift labels.

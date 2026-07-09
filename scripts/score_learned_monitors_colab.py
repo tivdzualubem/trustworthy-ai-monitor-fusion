@@ -86,27 +86,19 @@ def append_parquet(path: Path, new_rows: list[dict[str, Any]]) -> None:
 
 
 def compact_unsafe_from_probs(label_probs: dict[str, float]) -> float:
-    unsafe_keywords = [
-        "toxic",
-        "unsafe",
-        "harm",
-        "hate",
-        "harassment",
-        "violence",
-        "sexual",
-        "self",
-        "illicit",
-        "offensive",
-        "threat",
-    ]
+    """Map KoalaAI/Text-Moderation labels to interception strength.
 
+    The model emits compact category codes:
+    OK is benign; H/H2/HR/S/S3/SH/V/V2 are moderation categories.
+    We use total non-OK moderation-category probability as the compact unsafe score.
+    """
+    unsafe_labels = {"H", "H2", "HR", "S", "S3", "SH", "V", "V2"}
     score = 0.0
-    for label, probability in label_probs.items():
-        normalized = label.lower().replace(" ", "_").replace("-", "_")
-        if any(keyword in normalized for keyword in unsafe_keywords):
-            score += float(probability)
-
-    return max(0.0, min(1.0, score))
+    for label, prob in label_probs.items():
+        normalized = str(label).strip().upper()
+        if normalized in unsafe_labels:
+            score += float(prob)
+    return float(min(max(score, 0.0), 1.0))
 
 
 def score_compact_classifier(

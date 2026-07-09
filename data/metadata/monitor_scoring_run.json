@@ -1,0 +1,17 @@
+{
+  "scoring_run_id": "colab_learned_monitor_scoring_v1",
+  "created_at": "2026-07-09T10:12:08.595144+00:00",
+  "num_examples": 2159,
+  "input_dataset": "/content/trustworthy-ai-monitor-fusion/data/processed/unified_dataset.parquet",
+  "outputs": {
+    "compact": "/content/trustworthy-ai-monitor-fusion/data/interim/compact_scores.parquet",
+    "judge": "/content/trustworthy-ai-monitor-fusion/data/interim/judge_scores.parquet",
+    "final_cache": "/content/trustworthy-ai-monitor-fusion/data/processed/monitor_score_cache.parquet"
+  },
+  "hardware_metadata": {
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "python_version": "3.12.13",
+    "cuda_available": true,
+    "cuda_device_name": "Tesla T4"
+  }
+}

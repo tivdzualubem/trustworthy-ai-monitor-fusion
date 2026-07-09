@@ -1,0 +1,9 @@
+{
+  "basis_split": "policy_train",
+  "max_fpr": 0.05,
+  "thresholds": {
+    "rule_filter_v1": 0.6629419135063457,
+    "koala_text_moderation": 0.04184977733530104,
+    "qwen3guard_gen_4b": 0.37479159235954285
+  }
+}

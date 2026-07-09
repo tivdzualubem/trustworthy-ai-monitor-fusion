@@ -1,0 +1,4 @@
+monitor_id,description,split,n,positives,negatives,roc_auc,average_precision,score_mean,score_std
+rule_filter_v1,cheap deterministic rule filter,policy_train,844,144,700,0.6479017857142857,0.31548597873068773,0.17645749164828212,0.2587896786846101
+koala_text_moderation,compact learned moderation classifier,policy_train,844,144,700,0.6487202380952382,0.27437973667816246,0.02752177296931882,0.10765481215535916
+qwen3guard_gen_4b,stronger generative safety judge,policy_train,844,144,700,0.8951190476190477,0.7563354110520509,0.21418732942757307,0.20142900598107782

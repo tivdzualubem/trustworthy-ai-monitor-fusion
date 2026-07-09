@@ -1,0 +1,11 @@
+split,y,n
+calibration,0,350
+calibration,1,72
+final_test,0,350
+final_test,1,72
+held_out_shift,0,16
+held_out_shift,1,34
+policy_selection,0,349
+policy_selection,1,72
+policy_train,0,700
+policy_train,1,144

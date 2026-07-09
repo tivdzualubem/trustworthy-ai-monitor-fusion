@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-07-09T10:56:48.152074+00:00",
+  "issue": "Initial compact_unsafe_score mapping expected descriptive unsafe labels, but KoalaAI/Text-Moderation emits compact category codes.",
+  "repair": "Recomputed compact_unsafe_score from cached compact_label_probs as total probability assigned to non-OK moderation category labels.",
+  "benign_label": "OK",
+  "unsafe_or_moderation_category_labels": [
+    "H",
+    "H2",
+    "HR",
+    "S",
+    "S3",
+    "SH",
+    "V",
+    "V2"
+  ],
+  "rows_repaired": 2159,
+  "compact_scores_path": "data/interim/compact_scores.parquet",
+  "compact_scores_sha256": "f321926e75f6926e8a13ceb01c83920a10beaea262d91ab17e2e9787b5ab3f5f",
+  "monitor_score_cache_path": "data/processed/monitor_score_cache.parquet",
+  "monitor_score_cache_sha256": "0fd460e403d35ad6a1b3fee8f8114b895d78aa5243e05ea50b2ffbc54ce1a2d7",
+  "compact_unsafe_score_summary": {
+    "count": 2159.0,
+    "mean": 0.0231482331963223,
+    "std": 0.09582593745765167,
+    "min": 0.005237838719040155,
+    "25%": 0.006253730985918082,
+    "50%": 0.007183700508903712,
+    "75%": 0.009122200921410695,
+    "max": 0.992609747685492
+  },
+  "mean_scores_by_y": {
+    "0": {
+      "rule_score": 0.13191373363629433,
+      "compact_unsafe_score": 0.01844375602489241,
+      "judge_unsafe_score": 0.15207959966306647
+    },
+    "1": {
+      "rule_score": 0.31969510123454087,
+      "compact_unsafe_score": 0.04422285808864148,
+      "judge_unsafe_score": 0.5201769855894565
+    }
+  }
+}
