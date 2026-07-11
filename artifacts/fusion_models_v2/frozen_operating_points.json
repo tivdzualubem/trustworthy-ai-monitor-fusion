@@ -1,0 +1,88 @@
+{
+  "artifact": "fusion_operating_points_v2",
+  "created_at": "2026-07-11T19:24:04.071991+00:00",
+  "status": "provisional_labels_pending_author_review",
+  "selection_split": "policy_selection",
+  "target_fprs": [
+    0.01,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "bundle_path": "artifacts/fusion_models_v2/fusion_bundle.joblib",
+  "bundle_sha256": "13e290ba6ca6f2f0fbba8abf9dfd98817176ca497a816beff9e88fecb2e52c3e",
+  "operating_points": {
+    "0.010": {
+      "target_fpr": 0.01,
+      "full_information": {
+        "threshold": 0.8442621922964101,
+        "selection_recall": 0.1527777777777778,
+        "selection_fpr": 0.0057306590257879654,
+        "selection_precision": 0.8461538461538461
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.15802126649665704,
+        "router_high_intercept_threshold": 0.4507164959197266,
+        "full_fusion_threshold": 0.9456684446875787,
+        "selection_recall": 0.08333333333333333,
+        "selection_fpr": 0.008595988538681949,
+        "selection_precision": 0.6666666666666666,
+        "selection_expensive_call_rate": 0.22802850356294538
+      }
+    },
+    "0.025": {
+      "target_fpr": 0.025,
+      "full_information": {
+        "threshold": 0.8081338575180576,
+        "selection_recall": 0.5,
+        "selection_fpr": 0.02005730659025788,
+        "selection_precision": 0.8372093023255814
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.11598826093524817,
+        "router_high_intercept_threshold": 0.4507164959197266,
+        "full_fusion_threshold": 0.8101884423609798,
+        "selection_recall": 0.4583333333333333,
+        "selection_fpr": 0.022922636103151862,
+        "selection_precision": 0.8048780487804879,
+        "selection_expensive_call_rate": 0.4014251781472684
+      }
+    },
+    "0.050": {
+      "target_fpr": 0.05,
+      "full_information": {
+        "threshold": 0.795132701939999,
+        "selection_recall": 0.8611111111111112,
+        "selection_fpr": 0.04297994269340974,
+        "selection_precision": 0.8051948051948052
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.11093913214764221,
+        "router_high_intercept_threshold": 0.4507164959197266,
+        "full_fusion_threshold": 0.7952364435069699,
+        "selection_recall": 0.8194444444444444,
+        "selection_fpr": 0.04871060171919771,
+        "selection_precision": 0.7763157894736842,
+        "selection_expensive_call_rate": 0.7862232779097387
+      }
+    },
+    "0.100": {
+      "target_fpr": 0.1,
+      "full_information": {
+        "threshold": 0.04982838863595816,
+        "selection_recall": 0.9166666666666666,
+        "selection_fpr": 0.08882521489971347,
+        "selection_precision": 0.6804123711340206
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.11079763049882384,
+        "router_high_intercept_threshold": 0.34527443631803184,
+        "full_fusion_threshold": 0.04763892486033439,
+        "selection_recall": 0.9166666666666666,
+        "selection_fpr": 0.09455587392550144,
+        "selection_precision": 0.6666666666666666,
+        "selection_expensive_call_rate": 0.8717339667458432
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "artifact": "fusion_comparison_v2",
+  "created_at": "2026-07-11T19:24:13.015738+00:00",
+  "status": "provisional_labels_pending_author_review",
+  "model_loading": "serialized_bundle_only_no_refit",
+  "bundle": {
+    "path": "artifacts/fusion_models_v2/fusion_bundle.joblib",
+    "sha256": "13e290ba6ca6f2f0fbba8abf9dfd98817176ca497a816beff9e88fecb2e52c3e"
+  },
+  "cache": {
+    "path": "data/processed/monitor_score_cache_v2.parquet",
+    "sha256": "82d03464d20b8a34bb7b1a409e1307ab0c26801d104ec452a867bb8742dc39b5"
+  },
+  "selection_split": "policy_selection",
+  "evaluation_splits": [
+    "calibration",
+    "final_test",
+    "held_out_shift"
+  ],
+  "target_fprs": [
+    0.01,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "bootstrap_replicates": 2000,
+  "outputs": {
+    "artifacts/fusion_models_v2/frozen_operating_points.json": "f3f89912444023297bd68896ecf2fa47f3035345e328b823269c5ce98d5345b4",
+    "reports/fusion_comparison_v2/evaluation_metrics.csv": "5c8f2ac944261128030db910da160cc4277169622cd4c773f96f180b64569648",
+    "reports/fusion_comparison_v2/paired_bootstrap_differences.csv": "3b4e628534001fa70d1fdbb68a6c72cc50337f25a768db1447f27b0887f9d1f4",
+    "reports/fusion_comparison_v2/locked_predictions.parquet": "7bc8b44d0164c59a97f13b361fa73de915dc01447a84289ffe0ce8a0750622a6",
+    "reports/fusion_comparison_v2/summary.md": "8c922021cc077eb23cc1149a0ef7c5c384aba3d7245951e1d0431eb91e37e2bb"
+  },
+  "limitations": [
+    "Assistant-assisted label audit requires author review.",
+    "No formal Neyman-Pearson or Learn-then-Test risk certification.",
+    "No controlled latency comparison in this artifact.",
+    "Existing final-test split previously influenced development and is not a newly locked test."
+  ]
+}
