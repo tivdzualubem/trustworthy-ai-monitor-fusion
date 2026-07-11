@@ -1,0 +1,34 @@
+{
+  "artifact": "label_validity_audit_inventory",
+  "dataset_rows": 2159,
+  "audit_rows": 200,
+  "audit_groups": {
+    "GCG_negative": 16,
+    "JailbreakBench": 184
+  },
+  "private_sheet": {
+    "path": "data/audit_private/label_validity_audit_sheet.csv",
+    "sha256": "2b8ce4a072d0804b1c19b0517b7a6006226583574f1d66b3e5ddcf293aa108df",
+    "tracked": false,
+    "contains_raw_text": true
+  },
+  "public_inventory": {
+    "path": "reports/label_audit/label_audit_inventory.csv",
+    "sha256": "c836823e7753a035c2066660cd3655caacc73fa1129a7c0803bdf9736ce51adb",
+    "tracked": true,
+    "contains_raw_text": false
+  },
+  "source_files": {
+    "data/processed/unified_dataset.parquet": "3fd47a8d760545ba077bf63f4438479bc0f8ba4e3fd1dbdd5c70ff80e4f07643",
+    "data/processed/monitor_score_cache_v2.parquet": "82d03464d20b8a34bb7b1a409e1307ab0c26801d104ec452a867bb8742dc39b5"
+  },
+  "manual_fields": [
+    "auditor_response_harmful",
+    "auditor_should_intercept",
+    "auditor_label_valid",
+    "auditor_proxy_label_issue",
+    "auditor_prompt_contamination",
+    "auditor_confidence",
+    "auditor_notes"
+  ]
+}

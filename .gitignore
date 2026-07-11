@@ -46,3 +46,6 @@ cache/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Private manual-audit worksheets with raw prompt/response text
+data/audit_private/
