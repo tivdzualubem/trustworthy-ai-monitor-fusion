@@ -1,0 +1,52 @@
+{
+  "artifact_version": "fusion_models_v2",
+  "created_at": "2026-07-11T19:16:42.117891+00:00",
+  "status": "provisional_labels_pending_author_review",
+  "training_split": "policy_train",
+  "selection_split_reserved_for_threshold_selection": "policy_selection",
+  "cache_path": "data/processed/monitor_score_cache_v2.parquet",
+  "cache_sha256": "82d03464d20b8a34bb7b1a409e1307ab0c26801d104ec452a867bb8742dc39b5",
+  "train_rows": 844,
+  "train_positive_n": 144,
+  "train_negative_n": 700,
+  "train_example_id_sha256": "dce8b4180d76515044e4db3361d51a59601dd2093aadfe1fbe7168c56d3b7478",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "random_state": 0,
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/fusion_models_v2/cheap_router.joblib",
+      "sha256": "ca94809a442769e1da693aa3817055618b90380460defbf6d9c734d2d2ee9fdd"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/fusion_models_v2/full_information_fusion.joblib",
+      "sha256": "3a7a2bb37ee9ba1ef41c1f5b35f962be7c45a01832fea21a71a0eaefa8f9cdb6"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/fusion_models_v2/fusion_bundle.joblib",
+      "sha256": "13e290ba6ca6f2f0fbba8abf9dfd98817176ca497a816beff9e88fecb2e52c3e"
+    }
+  },
+  "verification": {
+    "reloaded_from_disk": true,
+    "exact_probability_match": true,
+    "evaluation_reconstruction_required": false
+  },
+  "notes": [
+    "The bundle contains fitted scalers, logistic estimators, and calibration folds.",
+    "Evaluation must load this bundle rather than refit or reconstruct models.",
+    "No thresholds were selected in this step.",
+    "The artifact must be refit after author-approved label corrections are locked."
+  ]
+}
