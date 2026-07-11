@@ -1,0 +1,4 @@
+left_mode,right_mode,n,exact_label_agreement,unsafe_only_prediction_disagreement,left_unsafe_right_safe_n,left_safe_right_unsafe_n
+prompt_only,response_only,2159,0.6961556276053729,0.24965261695229274,418,4
+prompt_only,prompt_response,2159,0.7401574803149606,0.21028253821213524,391,2
+response_only,prompt_response,2159,0.905511811023622,0.05604446503010653,8,30
