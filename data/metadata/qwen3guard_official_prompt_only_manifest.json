@@ -1,0 +1,20 @@
+{
+  "artifact": "official_qwen3guard_prompt_only_scores",
+  "model_id": "Qwen/Qwen3Guard-Gen-4B",
+  "model_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+  "inference_method": "official_chat_template_generate_parse",
+  "mode": "prompt_only",
+  "rows": 2159,
+  "unique_example_id": 2159,
+  "parse_ok_rate": 1.0,
+  "label_counts": {
+    "Safe": 1224,
+    "Unsafe": 815,
+    "Controversial": 120
+  },
+  "files": {
+    "data/interim/qwen3guard_official_prompt_only/qwen3guard_official_prompt_only/prompt_only_scores.parquet": "2067297e837c56c946d09731080a2cb69dee7546c4c1b9e8a5133408d76c8a0e",
+    "data/interim/qwen3guard_official_prompt_only/qwen3guard_official_prompt_only/raw_generations.jsonl": "15078890811a79d9af5822148391a10b1458d1e3bb8aec78d36cae55265d2e27",
+    "data/interim/qwen3guard_official_prompt_only/qwen3guard_official_prompt_only/run_manifest.json": "fc08d2e19c99016711c212c8e1c307ecc1f192c2f4570ba6eba69b9d5ca62b11"
+  }
+}
