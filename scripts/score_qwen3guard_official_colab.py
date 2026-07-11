@@ -16,8 +16,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 MODEL_ID = "Qwen/Qwen3Guard-Gen-4B"
 MODES = ("prompt_only", "response_only", "prompt_response")
 
-SAFETY_RE = re.compile(r"Safety:\\s*(Safe|Unsafe|Controversial)", re.IGNORECASE)
-REFUSAL_RE = re.compile(r"Refusal:\\s*(Yes|No)", re.IGNORECASE)
+SAFETY_RE = re.compile(r"Safety:\s*(Safe|Unsafe|Controversial)", re.IGNORECASE)
+REFUSAL_RE = re.compile(r"Refusal:\s*(Yes|No)", re.IGNORECASE)
 
 KNOWN_CATEGORIES = [
     "Violent",
@@ -124,7 +124,7 @@ def infer_batch(
     messages_list = [build_messages(r.prompt, r.response, mode) for r in batch.itertuples(index=False)]
 
     t0 = time.perf_counter()
-    templated = [tokenizer.apply_chat_template(m, tokenize=False) for m in messages_list]
+    templated = [tokenizer.apply_chat_template(m, tokenize=False, add_generation_prompt=True) for m in messages_list]
     inputs = tokenizer(templated, return_tensors="pt", padding=True, truncation=True).to(model.device)
     t1 = time.perf_counter()
 

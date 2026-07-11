@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-07-11T09:51:00.937253+00:00",
+  "model_id": "Qwen/Qwen3Guard-Gen-4B",
+  "model_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+  "dataset": "data/processed/unified_dataset.parquet",
+  "modes": [
+    "prompt_response"
+  ],
+  "batch_size": 1,
+  "max_new_tokens": 128,
+  "warmup_examples": 2,
+  "cuda_available": true,
+  "cuda_device": "Tesla T4",
+  "method": "official_chat_template_generate_parse"
+}

@@ -1,0 +1,26 @@
+{
+  "artifact": "official_qwen3guard_prompt_response_scores",
+  "status": "validity_repair",
+  "model_id": "Qwen/Qwen3Guard-Gen-4B",
+  "model_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+  "inference_method": "official_chat_template_generate_parse",
+  "mode": "prompt_response",
+  "rows": 2159,
+  "unique_example_id": 2159,
+  "parse_ok_rate": 1.0,
+  "label_counts": {
+    "Safe": 1694,
+    "Unsafe": 389,
+    "Controversial": 76
+  },
+  "files": {
+    "data/interim/qwen3guard_official_prompt_response/qwen3guard_official_prompt_response/prompt_response_scores.parquet": "4c71654d7e48113080f6a14443f7d960cff817340a2f72d49772d84d6ffc5152",
+    "data/interim/qwen3guard_official_prompt_response/qwen3guard_official_prompt_response/raw_generations.jsonl": "4163b63981730c280b8c3697cc1fd7cea6f84fb41049eb2a7f70338b56794416",
+    "data/interim/qwen3guard_official_prompt_response/qwen3guard_official_prompt_response/run_manifest.json": "cde6d6f890fabf7311349fc4e51eb6113780d0fefdc0776118ac030c14283816"
+  },
+  "notes": [
+    "This cache supersedes the earlier first-token-logit Qwen judge scores.",
+    "Raw generated guard outputs are preserved for audit.",
+    "Downstream policy selection and evaluation must be regenerated from this cache."
+  ]
+}
