@@ -1,0 +1,70 @@
+{
+  "artifact": "controlled_timing_benchmark_v2",
+  "created_at": "2026-07-12T20:29:52.725881+00:00",
+  "repository_commit": "479ab50c4f769984038d91f68f6fc4c6363342c7",
+  "dataset_path": "/kaggle/input/datasets/lubemtivdzua/qwen3guard-official-inputs/qwen3guard_official_colab_package/qwen3guard_official_colab_package/data/processed/unified_dataset.parquet",
+  "benchmark_split": "calibration",
+  "benchmark_rows": 128,
+  "benchmark_sample_id_sha256": "58a3b2ee946871e97c56c58571031e450ac3f41fb90732771b33d59979dba454",
+  "selection_method": "first 128 calibration rows after SHA256 ordering of seed:example_id",
+  "seed": 20260711,
+  "batch_size": 1,
+  "warmup_rows_per_monitor_mode": 8,
+  "policy_warmup_rows": 8,
+  "warmup_excluded_from_results": true,
+  "max_new_tokens": 128,
+  "gpu": {
+    "visible_device": 0,
+    "name": "Tesla T4",
+    "total_memory_bytes": 15636037632,
+    "multi_gpu_disabled": true
+  },
+  "software": {
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "cuda_runtime": "12.8",
+    "transformers": "5.13.1",
+    "pandas": "2.3.3",
+    "numpy": "2.0.2",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "models": {
+    "compact": {
+      "model_id": "KoalaAI/Text-Moderation",
+      "revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c",
+      "dtype": "torch.float32",
+      "device": "cuda:0"
+    },
+    "qwen": {
+      "model_id": "Qwen/Qwen3Guard-Gen-4B",
+      "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "method": "official_chat_template_generate_parse"
+    }
+  },
+  "timing_method": {
+    "clock": "time.perf_counter_ns",
+    "cuda_synchronize": true,
+    "model_load_time_included": false,
+    "package_install_time_included": false,
+    "tokenization_and_transfer_in_total": true,
+    "decode_and_parse_in_qwen_total": true,
+    "policy_decision_logic_in_policy_total": true,
+    "policy_order": "alternated per example"
+  },
+  "serialized_policy": {
+    "bundle_path": "artifacts/fusion_models_v2/fusion_bundle.joblib",
+    "operating_points_path": "artifacts/fusion_models_v2/frozen_operating_points.json",
+    "target_fpr_key": "0.050",
+    "model_refit_during_timing": false
+  },
+  "limitations": [
+    "This is a fixed-run latency benchmark, not a formal real-time systems guarantee.",
+    "Results are specific to the recorded Kaggle hardware and software environment.",
+    "The benchmark uses 128 deterministic calibration examples.",
+    "Canonical labels are still provisional pending author review."
+  ]
+}

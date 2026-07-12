@@ -1,0 +1,54 @@
+{
+  "artifact": "controlled_timing_benchmark_v2",
+  "status": "validated_fixed_hardware_measurement",
+  "repository_commit_benchmarked": "479ab50c4f769984038d91f68f6fc4c6363342c7",
+  "gpu": {
+    "visible_device": 0,
+    "name": "Tesla T4",
+    "total_memory_bytes": 15636037632,
+    "multi_gpu_disabled": true
+  },
+  "benchmark_split": "calibration",
+  "benchmark_rows": 128,
+  "batch_size": 1,
+  "warmup_excluded": true,
+  "cuda_synchronize": true,
+  "model_refit_during_timing": false,
+  "selective_expensive_call_rate": 0.78125,
+  "policy_comparison": {
+    "full_mean_ms": 1528.8425821328126,
+    "selective_mean_ms": 1268.8653666015623,
+    "mean_reduction_ms": 259.9772155312503,
+    "mean_reduction_rate": 0.17004838730261487,
+    "full_p50_ms": 1449.023926,
+    "selective_p50_ms": 1321.902758,
+    "p50_reduction_ms": 127.12116800000013,
+    "p50_reduction_rate": 0.08772882608703048,
+    "full_p95_ms": 2290.992964499999,
+    "selective_p95_ms": 2299.3319762999986,
+    "p95_difference_selective_minus_full_ms": 8.339011799999753,
+    "full_p99_ms": 3470.975696560005,
+    "selective_p99_ms": 3470.896044460005,
+    "p99_difference_selective_minus_full_ms": -0.07965209999974832
+  },
+  "files": {
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/README.md": "9a9f8d904fda42e32a729e87f877d135ba4b396f1b8fe9df916546eb0b5b1ef6",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/benchmark_sample.parquet": "37f6da59adec989af10c56f2189891adaa9d46b5095a14b17e8e766293cebf44",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/benchmark_sample_inventory.csv": "7d6b152e7cf9403d7e5f490d36fd163352941898cdb90ab54dfb0d6077028eb0",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/compact_latency.parquet": "cc7eaab4bcabe58252fb7c10facae55b36d2549f428226a5c3a1f5918cb08d13",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/latency_summary.csv": "a3bd7e92dc4f46e56bfd9e9b14a006abaf60909e363785c5312bcb251b850b4d",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/nvidia_smi.txt": "401de7d3826f6be1f8aa1707a4cfbb702a964cc049e0151450af110204e94e44",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/policy_latency.parquet": "6b13569aeeb50ef237ca1e01f73ec44c2d291bec90f85f0e8be05e7b851bc63c",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_latency.parquet": "edaa1eb4a231b7a12eaf405dcb94f05fedc0e0cd2090143142a1e21fa27c55a0",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_raw_generations.jsonl": "28835b7b43652808dfa53e75c90f8da4850ba7ff13d98902b8937c287c7e45cb",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_stage_latency_summary.csv": "5c8fe4a61ad4c6a4c1dcf86c2882e561ab1382933a9c57cb498d85f9d210d03b",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/rule_latency.parquet": "ead7d4d60c466842b8e04c51535a578118a3d7514b21a0542f3348bebedc117e",
+    "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/run_manifest.json": "029fd17aaddf74e13052001010f7e70e25c6324244e4b28c3a57e8176c48318f"
+  },
+  "limitations": [
+    "Results are specific to the recorded Tesla T4 environment.",
+    "The benchmark contains 128 deterministic calibration examples.",
+    "This is not a formal real-time latency guarantee.",
+    "Label corrections remain provisional pending author review."
+  ]
+}
