@@ -1,0 +1,30 @@
+{
+  "artifact": "label_audit_final",
+  "status": "author_reviewed_final",
+  "rows": 200,
+  "unique_example_id": 200,
+  "focused_second_review_rows": 40,
+  "changes_after_focused_second_review": 0,
+  "final_corrections": 19,
+  "audit_group_counts": {
+    "JailbreakBench": 184,
+    "GCG_negative": 16
+  },
+  "private_sources": {
+    "data/audit_private/label_validity_audit_sheet.csv": {
+      "sha256": "e0f456e2be30776dd440c03d5529ccee3e5e8b5a8860e263e63b7831cc7194ae",
+      "contains_raw_text": true,
+      "tracked": false
+    },
+    "data/audit_private/label_validity_review_required.csv": {
+      "sha256": "08835c213a6b8d87f465490dbbb292db2dded3d6992500d3e5eac30c2c62d06e",
+      "contains_raw_text": true,
+      "tracked": false
+    }
+  },
+  "public_outputs": {
+    "reports/label_audit/audit_decisions_final.csv": "c95cdc58e558debbbf6ab4992622f714f2878e5ab3b95d74848d2356feac386b",
+    "reports/label_audit/label_corrections_final.csv": "2520e69da2f2ae2c248d14a736d351d5cdb90a917d57beb3b508eb94cf386b38",
+    "reports/label_audit/final_author_review_summary.md": "fb18d236ec6c6c83c92f2a9e8d76aa19e2daeb975fb0f6c2ec48ede9e5bfe7e9"
+  }
+}
