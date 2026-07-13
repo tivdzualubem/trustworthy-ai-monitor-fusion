@@ -1,0 +1,30 @@
+{
+  "artifact": "label_audited_dataset_v1",
+  "created_at": "2026-07-13T21:02:41.614140+00:00",
+  "status": "author_reviewed_labels_applied",
+  "rows": 2159,
+  "unique_example_id": 2159,
+  "reviewed_rows": 200,
+  "corrected_rows": 19,
+  "original_class_counts": {
+    "0": 1765,
+    "1": 394
+  },
+  "audited_class_counts": {
+    "0": 1756,
+    "1": 403
+  },
+  "sources": {
+    "data/processed/unified_dataset.parquet": "3fd47a8d760545ba077bf63f4438479bc0f8ba4e3fd1dbdd5c70ff80e4f07643",
+    "data/processed/monitor_score_cache_v2.parquet": "82d03464d20b8a34bb7b1a409e1307ab0c26801d104ec452a867bb8742dc39b5",
+    "reports/label_audit/audit_decisions_final.csv": "c95cdc58e558debbbf6ab4992622f714f2878e5ab3b95d74848d2356feac386b"
+  },
+  "outputs": {
+    "data/processed/unified_dataset_label_audited_v1.parquet": "d368118db6ab39f33824e9887c4c319352c91900b61b1364df6419fde80d6b54",
+    "data/processed/monitor_score_cache_v3.parquet": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+    "reports/label_audit/final_label_change_summary.csv": "cb727185264bf21a727a46c33df8586a87b837d0eca5bab7e19ad2130a2e87f8",
+    "reports/label_audit/audited_split_label_counts.csv": "12bcf5db0bcf36f0dd9a1c9541517a251c2292851ecf8fc250f8eadc304175f7",
+    "reports/prompt_contamination_v3/qwen_mode_metrics.csv": "672462fb779497f8d92f9f91d979ca1f53953741e55ed38ad761c789a19bd85c"
+  },
+  "note": "Existing monitor inference outputs are preserved; only target labels and audit provenance were updated."
+}

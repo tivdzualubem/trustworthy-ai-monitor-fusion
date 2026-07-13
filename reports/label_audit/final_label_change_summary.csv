@@ -1,0 +1,8 @@
+label_audit_group,y_original,y,split,n
+GCG_negative,0,1,held_out_shift,4
+JailbreakBench,0,1,calibration,4
+JailbreakBench,0,1,final_test,2
+JailbreakBench,0,1,policy_selection,1
+JailbreakBench,0,1,policy_train,3
+JailbreakBench,1,0,policy_selection,3
+JailbreakBench,1,0,policy_train,2
