@@ -1,0 +1,77 @@
+{
+  "artifact": "nested_ltt_fold_bundle_v1",
+  "created_at": "2026-07-14T18:44:38.828150+00:00",
+  "scheme": "leave_source_out",
+  "outer_fold": "jailbreakbench_judge_comparison",
+  "seed": 20261000,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "train_rows": 783,
+  "selection_rows": 392,
+  "risk_control_rows": 784,
+  "outer_test_rows": 200,
+  "train_id_sha256": "80fc0ddf450cdc197475a1e0e9c843285329f297e643943b05002ed5846b8fab",
+  "selection_id_sha256": "891007362f4a0239b5418ca7ec2716d6e66fb1d08885af4fc78c760ee828f54c",
+  "risk_control_id_sha256": "425180b4103be5c44213a91c6b3790bf620a7f328d478883650e31c2a2c5c0b9",
+  "outer_test_id_sha256": "7b658a00ba669cd07a67dff52a79d91b6b3b1cc2d1645ae5ed25b7ac8399b6f1",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "existing_split_column_used": false,
+  "risk_control_rows_used_for_fit_or_candidate_learning": false,
+  "outer_test_rows_used_for_fit_selection_or_certification": false,
+  "python_version": "3.12.3",
+  "numpy_version": "2.5.0",
+  "pandas_version": "3.0.3",
+  "scipy_version": "1.18.0",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "partition_label_counts": {
+    "train": {
+      "0": 670,
+      "1": 113
+    },
+    "selection": {
+      "0": 335,
+      "1": 57
+    },
+    "risk_control": {
+      "0": 670,
+      "1": 114
+    },
+    "outer_test": {
+      "0": 81,
+      "1": 119
+    }
+  },
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/cheap_router.joblib",
+      "sha256": "c41aff3c253546e245263381b0a1da15dda87193d4b4221308ef71ff6904423c"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/full_information_fusion.joblib",
+      "sha256": "9c3304e4c4383d64f7f8096ca49667b81f804de113aac21144c2c5a36501429c"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/fusion_bundle.joblib",
+      "sha256": "8f1701da3d0d476548d655cf781e80b3bcfae701d562132d0812d271520c9fd0"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_partitions": [
+      "train",
+      "selection",
+      "risk_control",
+      "outer_test"
+    ]
+  }
+}

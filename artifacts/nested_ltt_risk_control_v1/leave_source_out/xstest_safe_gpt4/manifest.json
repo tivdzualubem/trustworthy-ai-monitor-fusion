@@ -1,0 +1,76 @@
+{
+  "artifact": "nested_ltt_fold_bundle_v1",
+  "created_at": "2026-07-14T18:45:50.870719+00:00",
+  "scheme": "leave_source_out",
+  "outer_fold": "xstest_safe_gpt4",
+  "seed": 20261002,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "train_rows": 763,
+  "selection_rows": 382,
+  "risk_control_rows": 764,
+  "outer_test_rows": 250,
+  "train_id_sha256": "f307f6c7ccfbf2620e8f19437d37180bce3a9f164828452045330ebcdc9772b8",
+  "selection_id_sha256": "2e1b4e8c3473d91e3c99d27bc1da26429b2188784fe1c0b2db653f38a1b1fb05",
+  "risk_control_id_sha256": "511e3be0bf29e97d4f2ce9ac4243f2be89c952e40d3910b361014fc0be7a01a0",
+  "outer_test_id_sha256": "709fefa69385b03ce75f80a15dc88def2cef1f75d5d302e115f2fa85ef012c07",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "existing_split_column_used": false,
+  "risk_control_rows_used_for_fit_or_candidate_learning": false,
+  "outer_test_rows_used_for_fit_selection_or_certification": false,
+  "python_version": "3.12.3",
+  "numpy_version": "2.5.0",
+  "pandas_version": "3.0.3",
+  "scipy_version": "1.18.0",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "partition_label_counts": {
+    "train": {
+      "0": 602,
+      "1": 161
+    },
+    "selection": {
+      "0": 301,
+      "1": 81
+    },
+    "risk_control": {
+      "0": 603,
+      "1": 161
+    },
+    "outer_test": {
+      "0": 250
+    }
+  },
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/cheap_router.joblib",
+      "sha256": "abfe4b3d4d1f9dbda4e4ee6767a1db6cbf93881636dea2974139938e8ac4366a"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/full_information_fusion.joblib",
+      "sha256": "f7de4518fa2921d432aed27b1b1a6166e7b4f79ff8f6ea7bc8db8cea73297ed3"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/fusion_bundle.joblib",
+      "sha256": "6935ec219a79dbc4b82224a89933b32d90e606a7249d095e5ee07217a05e26f4"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_partitions": [
+      "train",
+      "selection",
+      "risk_control",
+      "outer_test"
+    ]
+  }
+}

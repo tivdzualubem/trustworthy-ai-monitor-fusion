@@ -1,0 +1,564 @@
+{
+  "artifact": "nested_ltt_risk_control_v1",
+  "created_at": "2026-07-14T18:47:40.835952+00:00",
+  "status": "completed_per_fold_ltt_certification",
+  "cache": {
+    "path": "data/processed/monitor_score_cache_v3.parquet",
+    "sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+    "rows": 2159,
+    "unique_example_id": 2159
+  },
+  "policy_implementation": {
+    "path": "scripts/run_policy_evaluation_v3.py",
+    "sha256": "6f6fac3bba5e2ba77caecece64757988d92e25bf36cdb693f09704f17540d497"
+  },
+  "risk_control": {
+    "risk_metric": "false positive rate",
+    "risk_limit": 0.05,
+    "confidence_delta": 0.05,
+    "confidence_level": 0.95,
+    "null_hypothesis": "FPR >= 0.05",
+    "p_value": "exact Binomial(n, 0.05) lower-tail CDF at observed false-positive count",
+    "multiple_testing": "fixed-sequence testing within each fold and method; stop at first non-rejection",
+    "candidate_order": [
+      "trivial_zero_intercept",
+      "selection_target_fpr_0.005",
+      "selection_target_fpr_0.010",
+      "selection_target_fpr_0.020",
+      "selection_target_fpr_0.030",
+      "selection_target_fpr_0.040",
+      "selection_target_fpr_0.050"
+    ],
+    "per_sequence_not_global": true
+  },
+  "partitioning": {
+    "risk_control_fraction": 0.4,
+    "selection_fraction_of_remaining": 0.3333333333333333,
+    "effective_train_fraction": 0.4,
+    "effective_selection_fraction": 0.2,
+    "effective_risk_control_fraction": 0.4,
+    "existing_split_column_used": false,
+    "risk_control_used_for_fit_or_candidate_learning": false,
+    "outer_test_used_for_fit_selection_or_certification": false
+  },
+  "schemes": {
+    "leave_source_out": [
+      "jailbreakbench_judge_comparison",
+      "wildguardtest",
+      "xstest_safe_gpt4"
+    ],
+    "leave_family_out": [
+      "GCG",
+      "PAIR",
+      "random_search"
+    ]
+  },
+  "base_seed": 20261000,
+  "timing": {
+    "timing_directory": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2",
+    "fallback_values_ms": {
+      "rule": 1.035,
+      "compact": 38.087,
+      "qwen_prompt_response": 1368.64
+    },
+    "parsed_files": {
+      "compact": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/compact_latency.parquet",
+        "column": "compact_total_latency_ms",
+        "sha256": "cc7eaab4bcabe58252fb7c10facae55b36d2549f428226a5c3a1f5918cb08d13"
+      },
+      "qwen_prompt_response": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_latency.parquet",
+        "column": "total_latency_ms",
+        "mode_column": "mode",
+        "sha256": "edaa1eb4a231b7a12eaf405dcb94f05fedc0e0cd2090143142a1e21fa27c55a0"
+      },
+      "rule": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/rule_latency.parquet",
+        "column": "external_total_latency_ms",
+        "sha256": "ead7d4d60c466842b8e04c51535a578118a3d7514b21a0542f3348bebedc117e"
+      }
+    },
+    "fallback_used_for": [],
+    "selected_p50_ms": {
+      "rule": 1.035116,
+      "compact": 38.086505,
+      "qwen_prompt_response": 1368.6388044999999
+    }
+  },
+  "fold_artifacts": {
+    "leave_source_out/jailbreakbench_judge_comparison": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:44:38.828150+00:00",
+      "scheme": "leave_source_out",
+      "outer_fold": "jailbreakbench_judge_comparison",
+      "seed": 20261000,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 783,
+      "selection_rows": 392,
+      "risk_control_rows": 784,
+      "outer_test_rows": 200,
+      "train_id_sha256": "80fc0ddf450cdc197475a1e0e9c843285329f297e643943b05002ed5846b8fab",
+      "selection_id_sha256": "891007362f4a0239b5418ca7ec2716d6e66fb1d08885af4fc78c760ee828f54c",
+      "risk_control_id_sha256": "425180b4103be5c44213a91c6b3790bf620a7f328d478883650e31c2a2c5c0b9",
+      "outer_test_id_sha256": "7b658a00ba669cd07a67dff52a79d91b6b3b1cc2d1645ae5ed25b7ac8399b6f1",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 670,
+          "1": 113
+        },
+        "selection": {
+          "0": 335,
+          "1": 57
+        },
+        "risk_control": {
+          "0": 670,
+          "1": 114
+        },
+        "outer_test": {
+          "0": 81,
+          "1": 119
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/cheap_router.joblib",
+          "sha256": "c41aff3c253546e245263381b0a1da15dda87193d4b4221308ef71ff6904423c"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/full_information_fusion.joblib",
+          "sha256": "9c3304e4c4383d64f7f8096ca49667b81f804de113aac21144c2c5a36501429c"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/jailbreakbench_judge_comparison/fusion_bundle.joblib",
+          "sha256": "8f1701da3d0d476548d655cf781e80b3bcfae701d562132d0812d271520c9fd0"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    },
+    "leave_source_out/wildguardtest": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:45:12.826422+00:00",
+      "scheme": "leave_source_out",
+      "outer_fold": "wildguardtest",
+      "seed": 20261001,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 180,
+      "selection_rows": 90,
+      "risk_control_rows": 180,
+      "outer_test_rows": 1709,
+      "train_id_sha256": "9c1d5babaf7a32a9232600829ef3af2c86ae88f7a84d0563fbae92bcd6ddccc9",
+      "selection_id_sha256": "f0707af44ebb19a525099dc406f3065555be4f04013ef4eb18750115046a0eed",
+      "risk_control_id_sha256": "c86c5bb3edfcc872f770d9832dbfa3e935f8dd30b781676c39a7156d70a5d04b",
+      "outer_test_id_sha256": "60f0064839f232efca9169b447c9db964347275675908f69daafae174ee78bfa",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 133,
+          "1": 47
+        },
+        "selection": {
+          "0": 66,
+          "1": 24
+        },
+        "risk_control": {
+          "0": 132,
+          "1": 48
+        },
+        "outer_test": {
+          "0": 1425,
+          "1": 284
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/wildguardtest/cheap_router.joblib",
+          "sha256": "774f8e9b7f6ed6139e89495825d4b9525fbd2d1118f62fd50395b9ff2272b5f6"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/wildguardtest/full_information_fusion.joblib",
+          "sha256": "fb06cf518f07a2003663eb38f7db4ce4fdeddfd1fa1644bb74164166c9d87d13"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/wildguardtest/fusion_bundle.joblib",
+          "sha256": "d25f38d643b8535701021c2940be05fc7f6afc37ff384d7b2a93c92c6482e906"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    },
+    "leave_source_out/xstest_safe_gpt4": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:45:50.870719+00:00",
+      "scheme": "leave_source_out",
+      "outer_fold": "xstest_safe_gpt4",
+      "seed": 20261002,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 763,
+      "selection_rows": 382,
+      "risk_control_rows": 764,
+      "outer_test_rows": 250,
+      "train_id_sha256": "f307f6c7ccfbf2620e8f19437d37180bce3a9f164828452045330ebcdc9772b8",
+      "selection_id_sha256": "2e1b4e8c3473d91e3c99d27bc1da26429b2188784fe1c0b2db653f38a1b1fb05",
+      "risk_control_id_sha256": "511e3be0bf29e97d4f2ce9ac4243f2be89c952e40d3910b361014fc0be7a01a0",
+      "outer_test_id_sha256": "709fefa69385b03ce75f80a15dc88def2cef1f75d5d302e115f2fa85ef012c07",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 602,
+          "1": 161
+        },
+        "selection": {
+          "0": 301,
+          "1": 81
+        },
+        "risk_control": {
+          "0": 603,
+          "1": 161
+        },
+        "outer_test": {
+          "0": 250
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/cheap_router.joblib",
+          "sha256": "abfe4b3d4d1f9dbda4e4ee6767a1db6cbf93881636dea2974139938e8ac4366a"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/full_information_fusion.joblib",
+          "sha256": "f7de4518fa2921d432aed27b1b1a6166e7b4f79ff8f6ea7bc8db8cea73297ed3"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_source_out/xstest_safe_gpt4/fusion_bundle.joblib",
+          "sha256": "6935ec219a79dbc4b82224a89933b32d90e606a7249d095e5ee07217a05e26f4"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    },
+    "leave_family_out/GCG": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:46:28.643117+00:00",
+      "scheme": "leave_family_out",
+      "outer_fold": "GCG",
+      "seed": 20261100,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 843,
+      "selection_rows": 422,
+      "risk_control_rows": 844,
+      "outer_test_rows": 50,
+      "train_id_sha256": "66813d6019a192a79c7e9c6eadd5f9a211dda6cda4df6c15fe9a7e28acb1c428",
+      "selection_id_sha256": "948f6a14f41fd3142500303d6ecf861cd9d2b2fd62175e8acb21d46cbe661293",
+      "risk_control_id_sha256": "c8fd46891a53ab130e73b9cdb4a38370d88b7ee6166a75586c051f18cab503d0",
+      "outer_test_id_sha256": "9b470a0d316e29b8727a037ef35cea6cecfdbc21adc30b92296bccf2a9511531",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 697,
+          "1": 146
+        },
+        "selection": {
+          "0": 349,
+          "1": 73
+        },
+        "risk_control": {
+          "0": 698,
+          "1": 146
+        },
+        "outer_test": {
+          "0": 12,
+          "1": 38
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/cheap_router.joblib",
+          "sha256": "b91c4f43f2588b8b771f9b56ee56823fe53de31dac9a1b5a5f394fad02acb58b"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/full_information_fusion.joblib",
+          "sha256": "75d47a13fe2b479ef8cf704bbcbec20cd0bd757862eb843303c574e877fba03b"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/fusion_bundle.joblib",
+          "sha256": "6044e5ccf45b384b4c3e70cdb8c76fb64f61ff4bad1f51706f207d666ad0c286"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    },
+    "leave_family_out/PAIR": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:46:54.313399+00:00",
+      "scheme": "leave_family_out",
+      "outer_fold": "PAIR",
+      "seed": 20261101,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 823,
+      "selection_rows": 412,
+      "risk_control_rows": 824,
+      "outer_test_rows": 100,
+      "train_id_sha256": "8a966c6bf2738fe29efa3e66798080a64a4c4a1d2b9d9c9696355a5b5bd28d65",
+      "selection_id_sha256": "655f28064bc65391d7e38e2093baa8fb57339a646212e14aceda43ddebc73608",
+      "risk_control_id_sha256": "35ddb7ebacedb1583bdbcba8250d5c88f65b58057880e9a38094f1fa92021639",
+      "outer_test_id_sha256": "6af6a9c967711d6c97e98dad1e7b0fa57525d2399202d5598e002a6494f572b1",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 679,
+          "1": 144
+        },
+        "selection": {
+          "0": 340,
+          "1": 72
+        },
+        "risk_control": {
+          "0": 680,
+          "1": 144
+        },
+        "outer_test": {
+          "0": 57,
+          "1": 43
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/PAIR/cheap_router.joblib",
+          "sha256": "6a67b1f74009a239b69e8e173d8c71a4d52d930a22f4802b7b045ca7e47492b2"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/PAIR/full_information_fusion.joblib",
+          "sha256": "7e40862ee7a24c8e23924ea148d90cc660d778f8d6503692ef87d917462069d3"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/PAIR/fusion_bundle.joblib",
+          "sha256": "0e07530df2259530d8255891279250ab3487821b92088fa288da269fb8201146"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    },
+    "leave_family_out/random_search": {
+      "artifact": "nested_ltt_fold_bundle_v1",
+      "created_at": "2026-07-14T18:47:16.196580+00:00",
+      "scheme": "leave_family_out",
+      "outer_fold": "random_search",
+      "seed": 20261102,
+      "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+      "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+      "train_rows": 843,
+      "selection_rows": 422,
+      "risk_control_rows": 844,
+      "outer_test_rows": 50,
+      "train_id_sha256": "28a8af9a27044090f0a100323006f4e2aaa09dbb691d6b7ab162d63299903e6e",
+      "selection_id_sha256": "a64c03c1bb1c6957d3418a9c7dff4e195864c8d4721fa75e166eafbcbe14bf39",
+      "risk_control_id_sha256": "1e4d6808f72b94eb8fcb1aac146418e3fbdfed07c5be33cf5f739df6c73b0fbe",
+      "outer_test_id_sha256": "447afbb05af455dda9246ff00436c5d42460e78812757f25154a0ef411954c06",
+      "cheap_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "full_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+      "existing_split_column_used": false,
+      "risk_control_rows_used_for_fit_or_candidate_learning": false,
+      "outer_test_rows_used_for_fit_selection_or_certification": false,
+      "python_version": "3.12.3",
+      "numpy_version": "2.5.0",
+      "pandas_version": "3.0.3",
+      "scipy_version": "1.18.0",
+      "sklearn_version": "1.9.0",
+      "joblib_version": "1.5.3",
+      "partition_label_counts": {
+        "train": {
+          "0": 697,
+          "1": 146
+        },
+        "selection": {
+          "0": 349,
+          "1": 73
+        },
+        "risk_control": {
+          "0": 698,
+          "1": 146
+        },
+        "outer_test": {
+          "0": 12,
+          "1": 38
+        }
+      },
+      "artifacts": {
+        "cheap_router": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/random_search/cheap_router.joblib",
+          "sha256": "9c85ce390594871998e167d11657132708ff9305f003342af1e67df95f69e20a"
+        },
+        "full_information_fusion": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/random_search/full_information_fusion.joblib",
+          "sha256": "4cfe60192f4cf4644a72359a60b82bf51241cb221c9d517bca4a1c373985fd69"
+        },
+        "fusion_bundle": {
+          "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/random_search/fusion_bundle.joblib",
+          "sha256": "c01cc29e11c4846b64b3fe5f982ee4ac18f27f1bca5c8906855d3fe00209f9f6"
+        }
+      },
+      "serialization_verification": {
+        "exact_probability_match": true,
+        "checked_partitions": [
+          "train",
+          "selection",
+          "risk_control",
+          "outer_test"
+        ]
+      }
+    }
+  },
+  "certificate_count": 12,
+  "all_sequences_returned_a_certificate": true,
+  "outputs": {
+    "reports/nested_ltt_risk_control_v1/fold_manifest.csv": "420789a5b60568add8cdf46054bb14537c5a2423f11a38d5a3c8cb640e1b4f7d",
+    "reports/nested_ltt_risk_control_v1/fixed_sequence_candidate_tests.csv": "e1080248d9625a9e9b33698bc95869ec0dc680469b3e0104d5a9dde088d13aa2",
+    "reports/nested_ltt_risk_control_v1/certificates.csv": "a1c65a9c87a8f1c5d577c1b57ad153f2873252628ffedc333426fcada29d7421",
+    "reports/nested_ltt_risk_control_v1/outer_metrics_by_fold.csv": "234466eed526e38d905fc013ea0852264712af34d1fa28b8841a4e93ab6988e2",
+    "reports/nested_ltt_risk_control_v1/outer_predictions.csv": "bc2de950dce56a9cb5a87822e0b3dc2c92c15584a7c79f023c0a64dca130a9d6",
+    "reports/nested_ltt_risk_control_v1/pooled_outer_metrics.csv": "2082438b846c5f1f1895766fe1440fb5fbb0ad9ac8d12522c3b3ee82c2cbddfa",
+    "reports/nested_ltt_risk_control_v1/summary.md": "b25050309099bece9d8b6842ccc19f886b1c9f4f851944d68cdc509c433688f2"
+  },
+  "scope_statement": "Certificates apply to each untouched risk-control partition under its sampling distribution; excluded outer groups are shift diagnostics and are not covered by the certificate."
+}

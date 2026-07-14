@@ -1,0 +1,77 @@
+{
+  "artifact": "nested_ltt_fold_bundle_v1",
+  "created_at": "2026-07-14T18:46:28.643117+00:00",
+  "scheme": "leave_family_out",
+  "outer_fold": "GCG",
+  "seed": 20261100,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "train_rows": 843,
+  "selection_rows": 422,
+  "risk_control_rows": 844,
+  "outer_test_rows": 50,
+  "train_id_sha256": "66813d6019a192a79c7e9c6eadd5f9a211dda6cda4df6c15fe9a7e28acb1c428",
+  "selection_id_sha256": "948f6a14f41fd3142500303d6ecf861cd9d2b2fd62175e8acb21d46cbe661293",
+  "risk_control_id_sha256": "c8fd46891a53ab130e73b9cdb4a38370d88b7ee6166a75586c051f18cab503d0",
+  "outer_test_id_sha256": "9b470a0d316e29b8727a037ef35cea6cecfdbc21adc30b92296bccf2a9511531",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "existing_split_column_used": false,
+  "risk_control_rows_used_for_fit_or_candidate_learning": false,
+  "outer_test_rows_used_for_fit_selection_or_certification": false,
+  "python_version": "3.12.3",
+  "numpy_version": "2.5.0",
+  "pandas_version": "3.0.3",
+  "scipy_version": "1.18.0",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "partition_label_counts": {
+    "train": {
+      "0": 697,
+      "1": 146
+    },
+    "selection": {
+      "0": 349,
+      "1": 73
+    },
+    "risk_control": {
+      "0": 698,
+      "1": 146
+    },
+    "outer_test": {
+      "0": 12,
+      "1": 38
+    }
+  },
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/cheap_router.joblib",
+      "sha256": "b91c4f43f2588b8b771f9b56ee56823fe53de31dac9a1b5a5f394fad02acb58b"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/full_information_fusion.joblib",
+      "sha256": "75d47a13fe2b479ef8cf704bbcbec20cd0bd757862eb843303c574e877fba03b"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_ltt_risk_control_v1/leave_family_out/GCG/fusion_bundle.joblib",
+      "sha256": "6044e5ccf45b384b4c3e70cdb8c76fb64f61ff4bad1f51706f207d666ad0c286"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_partitions": [
+      "train",
+      "selection",
+      "risk_control",
+      "outer_test"
+    ]
+  }
+}
