@@ -1,0 +1,6 @@
+split,rows,cheap_standalone_exact,cheap_bundle_exact,full_standalone_exact,full_bundle_exact
+calibration,422,True,True,True,True
+final_test,422,True,True,True,True
+held_out_shift,50,True,True,True,True
+policy_selection,421,True,True,True,True
+policy_train,844,True,True,True,True

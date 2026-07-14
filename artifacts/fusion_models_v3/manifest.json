@@ -1,0 +1,82 @@
+{
+  "artifact_version": "fusion_models_v3",
+  "created_at": "2026-07-14T15:10:35.858051+00:00",
+  "status": "author_reviewed_labels_locked",
+  "supersedes": "artifacts/fusion_models_v2",
+  "training_split": "policy_train",
+  "selection_split_reserved_for_threshold_selection": "policy_selection",
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "train_rows": 844,
+  "train_positive_n": 145,
+  "train_negative_n": 699,
+  "train_example_id_sha256": "dce8b4180d76515044e4db3361d51a59601dd2093aadfe1fbe7168c56d3b7478",
+  "selection_rows": 421,
+  "selection_example_id_sha256": "b1ff16fcddd36e4dbae1546ce5531876cca20542d837cfbb2cb7ba3df007229a",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "calibration_method": "sigmoid",
+  "calibration_folds": 5,
+  "calibration_ensemble": true,
+  "random_state": 0,
+  "thresholds_selected": false,
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "input_manifests": {
+    "rule_scores": {
+      "path": "data/metadata/rule_scores_v2_manifest.json",
+      "sha256": "9b5ef450b69da39aec4dd49d6b5b15248247bd71daeccbd63abeae1066d73608"
+    },
+    "compact_scores": {
+      "path": "data/metadata/compact_scores_v2_manifest.json",
+      "sha256": "97e303e265e82ec9f8f31843221ba20fc81dad98a6e0f58ca5cc280dab9fce4a"
+    },
+    "qwen_and_cache_v2": {
+      "path": "data/metadata/monitor_score_cache_v2_manifest.json",
+      "sha256": "18ceb0023c5453e684e7556a03871ecbc33b1516cccb2f1f2eb38ef04ca495c6"
+    },
+    "final_label_audit": {
+      "path": "data/metadata/label_audited_dataset_v1_manifest.json",
+      "sha256": "9c9a5d7794638dfc0a0f2ad04887d23845cc8b7dff333c5d1674a53303e15218"
+    }
+  },
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/fusion_models_v3/cheap_router.joblib",
+      "sha256": "c15af50bca8d3b9ad83d56561613db466bb830e0f369ed4adfcf9eeaf56cb0ec"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/fusion_models_v3/full_information_fusion.joblib",
+      "sha256": "9721b3c8240d7523a6f855a20b667b06a404ece36e5056dfc4e5ffa00d542a54"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/fusion_models_v3/fusion_bundle.joblib",
+      "sha256": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee"
+    }
+  },
+  "verification": {
+    "reloaded_standalone_artifacts": true,
+    "reloaded_bundle": true,
+    "exact_probability_match_all_splits": true,
+    "verification_table": {
+      "path": "reports/fusion_models_v3/serialization_verification.csv",
+      "sha256": "a64c06afd70191a0dcf7ed716cfe04aa37c01ce40d4b43204fdaa03e1c5c122e"
+    },
+    "evaluation_reconstruction_required": false
+  },
+  "notes": [
+    "The bundle contains fitted standardizers, logistic estimators, five calibration folds, feature order, and provenance.",
+    "Downstream evaluation must load this bundle and must not refit or reconstruct either pipeline.",
+    "No operating threshold was selected during this step.",
+    "Final-test and held-out labels were not used for fitting or threshold selection."
+  ]
+}
