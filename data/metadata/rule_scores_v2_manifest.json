@@ -1,0 +1,52 @@
+{
+  "artifact": "rule_scores_v2",
+  "created_at": "2026-07-14T06:09:25.266664+00:00",
+  "monitor_id": "rule_filter_v1",
+  "monitor_type": "deterministic_weighted_lexical_filter",
+  "prediction_unit": "prompt_response_pair",
+  "rows": 2159,
+  "unique_example_id": 2159,
+  "input_fields": [
+    "example_id",
+    "prompt",
+    "response"
+  ],
+  "forbidden_fields_used_during_inference": [],
+  "threshold_selection_during_scoring": false,
+  "rule_count": 11,
+  "implementation": {
+    "source_path": "src/monitor_fusion/monitors/rule_filter.py",
+    "source_sha256": "097fc85a16e527003cc79863858140c5e19dd94ff09c6019c1ee6e5c6a6697af",
+    "regeneration_script_path": "scripts/regenerate_rule_scores_v2.py",
+    "regeneration_script_sha256": "08b45bd06112527f143abe3a35c938dcd8064aefcf1c8ec203c76a085d3d3e98",
+    "python_version": "3.12.3"
+  },
+  "input": {
+    "path": "data/processed/unified_dataset_label_audited_v1.parquet",
+    "sha256": "d368118db6ab39f33824e9887c4c319352c91900b61b1364df6419fde80d6b54"
+  },
+  "outputs": {
+    "parquet": {
+      "path": "data/interim/rule_scores_v2/rule_scores_v2.parquet",
+      "sha256": "84ccc4cd5ae14a67207fa9bd26529f32bbbf0d3aaa7283ca4389e40d3f5fb447"
+    },
+    "csv": {
+      "path": "data/interim/rule_scores_v2/rule_scores_v2.csv",
+      "sha256": "704d9802b26f760f07e1e501e2ef60fd04d559b178e98ffa8922691d85cde6a8"
+    }
+  },
+  "score_validation": {
+    "min": 0.0,
+    "max": 0.9999984848558878,
+    "nonmissing": 2159
+  },
+  "old_cache_exact_reproduction": {
+    "available": true,
+    "rows_compared": 2159,
+    "exact_score_match": true,
+    "max_abs_rule_score_difference": 0.0,
+    "exact_weighted_sum_match": true,
+    "exact_match_count_match": true
+  },
+  "timing_note": "rule_latency_ms_uncontrolled is score-generation provenance only. Use the controlled timing benchmark for latency claims."
+}
