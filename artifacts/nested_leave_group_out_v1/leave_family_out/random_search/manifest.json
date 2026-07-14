@@ -1,0 +1,64 @@
+{
+  "artifact": "nested_fold_fusion_bundle_v1",
+  "created_at": "2026-07-14T16:05:16.992885+00:00",
+  "scheme": "leave_family_out",
+  "outer_fold": "random_search",
+  "seed": 20260916,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "inner_train_rows": 1406,
+  "inner_selection_rows": 703,
+  "outer_test_rows": 50,
+  "inner_train_label_counts": {
+    "0": 1163,
+    "1": 243
+  },
+  "inner_selection_label_counts": {
+    "0": 581,
+    "1": 122
+  },
+  "outer_test_label_counts": {
+    "0": 12,
+    "1": 38
+  },
+  "inner_train_id_sha256": "c0d39d04946c0b4391bb1ddcc2639cfed43d0c04746c3285d9a64ef73852265e",
+  "inner_selection_id_sha256": "7d9afee83a4f2dd9b6b5767be68a60d19437723741f7db5494bb6d54f70bb4ee",
+  "outer_test_id_sha256": "447afbb05af455dda9246ff00436c5d42460e78812757f25154a0ef411954c06",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "outer_rows_used_for_fit_or_selection": false,
+  "existing_split_column_used": false,
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/random_search/cheap_router.joblib",
+      "sha256": "88891372d20c3d6a4609a14fa1610cd676fa3ff08f5c329ca4361d7e1cea4088"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/random_search/full_information_fusion.joblib",
+      "sha256": "493cd5eb035a28f68853b52bfce9030525d173ea75e8c998cbe5ba44891ff90d"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/random_search/fusion_bundle.joblib",
+      "sha256": "1f9fee2e6736e94a9c16f93e1174e17168cdf2b3bc3a4c65ec8acaeebf5b44f4"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_on": [
+      "inner_train",
+      "inner_selection",
+      "outer_test"
+    ]
+  }
+}

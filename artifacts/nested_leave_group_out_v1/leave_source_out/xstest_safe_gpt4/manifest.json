@@ -1,0 +1,63 @@
+{
+  "artifact": "nested_fold_fusion_bundle_v1",
+  "created_at": "2026-07-14T16:04:05.433844+00:00",
+  "scheme": "leave_source_out",
+  "outer_fold": "xstest_safe_gpt4",
+  "seed": 20260816,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "inner_train_rows": 1272,
+  "inner_selection_rows": 637,
+  "outer_test_rows": 250,
+  "inner_train_label_counts": {
+    "0": 1003,
+    "1": 269
+  },
+  "inner_selection_label_counts": {
+    "0": 503,
+    "1": 134
+  },
+  "outer_test_label_counts": {
+    "0": 250
+  },
+  "inner_train_id_sha256": "11aeac950f3172fc7f4bb5d76e11e4baf9f676ee8953e9af8f00ca1b8ab41a12",
+  "inner_selection_id_sha256": "240a4d68b7361e46c609caef4b880fa9118b25b65d8d184b1dffdfaac205dacd",
+  "outer_test_id_sha256": "709fefa69385b03ce75f80a15dc88def2cef1f75d5d302e115f2fa85ef012c07",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "outer_rows_used_for_fit_or_selection": false,
+  "existing_split_column_used": false,
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_source_out/xstest_safe_gpt4/cheap_router.joblib",
+      "sha256": "a9a4f1f8e93e4a93f2d717fd3dfd79dd22c5d85d40956c291f6c8b4ac4b949c4"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_source_out/xstest_safe_gpt4/full_information_fusion.joblib",
+      "sha256": "950456307bb3cd9f3b1ff38258109f24d47f47b19b81e805498d6b9f78f056ae"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_source_out/xstest_safe_gpt4/fusion_bundle.joblib",
+      "sha256": "886644ecf0309f6af812085832c4cfcbe2d148287aadba52c68ba9b6fc75a2bb"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_on": [
+      "inner_train",
+      "inner_selection",
+      "outer_test"
+    ]
+  }
+}

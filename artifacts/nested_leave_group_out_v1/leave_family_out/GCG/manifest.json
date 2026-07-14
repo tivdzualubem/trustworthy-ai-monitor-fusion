@@ -1,0 +1,64 @@
+{
+  "artifact": "nested_fold_fusion_bundle_v1",
+  "created_at": "2026-07-14T16:04:24.938650+00:00",
+  "scheme": "leave_family_out",
+  "outer_fold": "GCG",
+  "seed": 20260914,
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "inner_train_rows": 1406,
+  "inner_selection_rows": 703,
+  "outer_test_rows": 50,
+  "inner_train_label_counts": {
+    "0": 1163,
+    "1": 243
+  },
+  "inner_selection_label_counts": {
+    "0": 581,
+    "1": 122
+  },
+  "outer_test_label_counts": {
+    "0": 12,
+    "1": 38
+  },
+  "inner_train_id_sha256": "127a66ede3946c8fbd7898f28ff8ed0717b675aec8edce89ffa4607a7dff1d4f",
+  "inner_selection_id_sha256": "af9537ea4df2d64237a581b5fa33a23974b7fd640bc4328ee786de1d36c91c7d",
+  "outer_test_id_sha256": "9b470a0d316e29b8727a037ef35cea6cecfdbc21adc30b92296bccf2a9511531",
+  "cheap_features": [
+    "rule_score",
+    "compact_unsafe_score"
+  ],
+  "full_features": [
+    "rule_score",
+    "compact_unsafe_score",
+    "qwen_prompt_response_score"
+  ],
+  "model_family": "5-fold sigmoid-calibrated class-balanced logistic regression",
+  "outer_rows_used_for_fit_or_selection": false,
+  "existing_split_column_used": false,
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.0",
+  "joblib_version": "1.5.3",
+  "artifacts": {
+    "cheap_router": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/GCG/cheap_router.joblib",
+      "sha256": "3c72cec4487a710bf7f3c065bfde6848ba03edd45dad0ef580cd37e8646c4f20"
+    },
+    "full_information_fusion": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/GCG/full_information_fusion.joblib",
+      "sha256": "40982a864778e35c2b32a3522f89aeafc44d35b967afb664a71bbcd3d7ef9103"
+    },
+    "fusion_bundle": {
+      "path": "artifacts/nested_leave_group_out_v1/leave_family_out/GCG/fusion_bundle.joblib",
+      "sha256": "352cf57f9b3020985ec5bf56f49d90641590622bb1f69553e27fc8593f4f2566"
+    }
+  },
+  "serialization_verification": {
+    "exact_probability_match": true,
+    "checked_on": [
+      "inner_train",
+      "inner_selection",
+      "outer_test"
+    ]
+  }
+}
