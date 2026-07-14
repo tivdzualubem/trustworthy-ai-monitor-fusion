@@ -1,0 +1,94 @@
+{
+  "artifact": "policy_evaluation_v3",
+  "created_at": "2026-07-14T15:31:41.266823+00:00",
+  "status": "completed_not_risk_certified",
+  "cache": {
+    "path": "data/processed/monitor_score_cache_v3.parquet",
+    "sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+    "rows": 2159,
+    "unique_example_id": 2159,
+    "split_counts": {
+      "policy_train": 844,
+      "final_test": 422,
+      "calibration": 422,
+      "policy_selection": 421,
+      "held_out_shift": 50
+    }
+  },
+  "bundle": {
+    "path": "artifacts/fusion_models_v3/fusion_bundle.joblib",
+    "sha256": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
+    "status": "author_reviewed_labels_locked"
+  },
+  "selection": {
+    "training_split": "policy_train",
+    "selection_split": "policy_selection",
+    "evaluation_splits_used": false,
+    "learned_models_refit": false
+  },
+  "prespecified_families": [
+    "all_monitors_always_on",
+    "cheapest_monitor_only",
+    "cost_tuned_cascade",
+    "fixed_cascade",
+    "learned_stacker_router",
+    "strongest_single_monitor"
+  ],
+  "baseline_target_fpr": 0.05,
+  "common_fusion_target_fprs": [
+    0.01,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20260714,
+  "controlled_timing": {
+    "timing_directory": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2",
+    "fallback_values_ms": {
+      "rule": 1.035,
+      "compact": 38.087,
+      "qwen_prompt_response": 1368.64
+    },
+    "parsed_files": {
+      "compact": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/compact_latency.parquet",
+        "column": "compact_total_latency_ms",
+        "sha256": "cc7eaab4bcabe58252fb7c10facae55b36d2549f428226a5c3a1f5918cb08d13"
+      },
+      "qwen_prompt_response": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_latency.parquet",
+        "column": "total_latency_ms",
+        "mode_column": "mode",
+        "sha256": "edaa1eb4a231b7a12eaf405dcb94f05fedc0e0cd2090143142a1e21fa27c55a0"
+      },
+      "rule": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/rule_latency.parquet",
+        "column": "external_total_latency_ms",
+        "sha256": "ead7d4d60c466842b8e04c51535a578118a3d7514b21a0542f3348bebedc117e"
+      }
+    },
+    "fallback_used_for": [],
+    "selected_p50_ms": {
+      "rule": 1.035116,
+      "compact": 38.086505,
+      "qwen_prompt_response": 1368.6388044999999
+    }
+  },
+  "risk_control_status": "not certified; formal risk control is a later stage",
+  "outputs": {
+    "reports/policy_selection_v3/all_candidate_policies.csv": "0d622018c760568a7c8e29870662c3ca3f574cb1255f5e29e1634c253e7e8123",
+    "reports/policy_selection_v3/selected_baselines_fpr05.csv": "82cdeec57ede85c2c7321d1c8bccf976d53ac290a42929e4099bd7d4335ce040",
+    "reports/policy_selection_v3/policy_selection_manifest.json": "afc20b086c1b00b50e9a6bb844f4a28d6ce6558b33e704e8b79374ac139082f4",
+    "artifacts/frozen_policies_v3/frozen_policies.json": "1b63a51c5befb900946eb579949fba47c03bdb0839e261075a03a0025c0391e8",
+    "reports/policy_evaluation_v3/metrics_by_split.csv": "537a6359f5637df9b835da1c7ccd04936777a554434ae44a50cab5e036d5c702",
+    "reports/policy_evaluation_v3/predictions.csv": "3e411fbdae9624455402091795a72e65c841514edfc7d86ad1b8573c77d28561",
+    "reports/policy_evaluation_v3/calibration_diagnostic_bounds.csv": "721c1265f79afa80e0aa033a7cce840afff227665ae9a6f7574db124a24bf5ae",
+    "reports/policy_evaluation_v3/methodology.md": "109db32270e48f0080e8f787ccd158b743a1473bb505980fd2128f30beb336bb",
+    "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
+    "reports/fusion_comparison_v3/selected_operating_points.csv": "0f0609427e323aa6f4d29d709d6a6ab1cdbbda840e27ea3b9d29532e04655799",
+    "reports/fusion_comparison_v3/metrics_by_split.csv": "f433677808c39b094f275c64f450a656206bd3392de2e04f15e5ef1409de6ca9",
+    "reports/fusion_comparison_v3/paired_bootstrap.csv": "1c461c83720c7ce0b69d1244aaf5ea222c422a8233e95e018f8ec59062b0c9b0",
+    "reports/fusion_comparison_v3/predictions.csv": "d123646eb9206a7212eaff8b686b34e6b9377d52c9ee6abbd8a03d3861187257"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "artifact": "fusion_operating_points_v3",
+  "created_at": "2026-07-14T15:31:23.265586+00:00",
+  "status": "author_reviewed_labels_locked_not_risk_certified",
+  "selection_split": "policy_selection",
+  "target_fprs": [
+    0.01,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "bundle_path": "artifacts/fusion_models_v3/fusion_bundle.joblib",
+  "bundle_sha256": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
+  "operating_points": {
+    "0.010": {
+      "target_fpr": 0.01,
+      "full_information": {
+        "threshold": 0.8473691955025828,
+        "selection_recall": 0.21428571428571427,
+        "selection_fpr": 0.008547008547008548,
+        "selection_precision": 0.8333333333333334
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.15860015741618402,
+        "router_high_intercept_threshold": 0.4604073889795753,
+        "full_fusion_threshold": 0.8528213175992094,
+        "selection_recall": 0.14285714285714285,
+        "selection_fpr": 0.008547008547008548,
+        "selection_precision": 0.7692307692307693,
+        "selection_qwen_call_rate": 0.22802850356294538
+      }
+    },
+    "0.025": {
+      "target_fpr": 0.025,
+      "full_information": {
+        "threshold": 0.8122963470848493,
+        "selection_recall": 0.5285714285714286,
+        "selection_fpr": 0.017094017094017096,
+        "selection_precision": 0.8604651162790697
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.1151756239368005,
+        "router_high_intercept_threshold": 0.4604073889795753,
+        "full_fusion_threshold": 0.8122963470848493,
+        "selection_recall": 0.5285714285714286,
+        "selection_fpr": 0.022792022792022793,
+        "selection_precision": 0.8222222222222222,
+        "selection_qwen_call_rate": 0.4014251781472684
+      }
+    },
+    "0.050": {
+      "target_fpr": 0.05,
+      "full_information": {
+        "threshold": 0.7978945539751471,
+        "selection_recall": 0.8714285714285714,
+        "selection_fpr": 0.045584045584045586,
+        "selection_precision": 0.7922077922077922
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.11015672473626197,
+        "router_high_intercept_threshold": 0.4604073889795753,
+        "full_fusion_threshold": 0.7979956781296518,
+        "selection_recall": 0.8142857142857143,
+        "selection_fpr": 0.04843304843304843,
+        "selection_precision": 0.7702702702702703,
+        "selection_qwen_call_rate": 0.7434679334916865
+      }
+    },
+    "0.100": {
+      "target_fpr": 0.1,
+      "full_information": {
+        "threshold": 0.05212744512812909,
+        "selection_recall": 0.9142857142857143,
+        "selection_fpr": 0.09116809116809117,
+        "selection_precision": 0.6666666666666666
+      },
+      "selective_acquisition": {
+        "router_low_allow_threshold": 0.10996751683081611,
+        "router_high_intercept_threshold": 0.3513227553661314,
+        "full_fusion_threshold": 0.2793260697072195,
+        "selection_recall": 0.9142857142857143,
+        "selection_fpr": 0.08831908831908832,
+        "selection_precision": 0.6736842105263158,
+        "selection_qwen_call_rate": 0.8717339667458432
+      }
+    }
+  }
+}

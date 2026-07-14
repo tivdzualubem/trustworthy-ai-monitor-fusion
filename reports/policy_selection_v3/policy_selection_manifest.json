@@ -1,0 +1,61 @@
+{
+  "artifact": "policy_selection_v3",
+  "created_at": "2026-07-14T15:31:22.798424+00:00",
+  "status": "author_reviewed_labels_locked_not_risk_certified",
+  "input_cache": "data/processed/monitor_score_cache_v3.parquet",
+  "input_cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "serialized_bundle": "artifacts/fusion_models_v3/fusion_bundle.joblib",
+  "serialized_bundle_sha256": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
+  "training_split": "policy_train",
+  "selection_split": "policy_selection",
+  "calibration_final_and_shift_splits_used": false,
+  "required_families": [
+    "all_monitors_always_on",
+    "cheapest_monitor_only",
+    "cost_tuned_cascade",
+    "fixed_cascade",
+    "learned_stacker_router",
+    "strongest_single_monitor"
+  ],
+  "candidate_count": 506,
+  "selected_policy_count": 6,
+  "target_fpr": 0.05,
+  "learned_models_refit_during_selection": false,
+  "controlled_timing_p50_ms": {
+    "rule": 1.035116,
+    "compact": 38.086505,
+    "qwen_prompt_response": 1368.6388044999999
+  },
+  "controlled_timing_provenance": {
+    "timing_directory": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2",
+    "fallback_values_ms": {
+      "rule": 1.035,
+      "compact": 38.087,
+      "qwen_prompt_response": 1368.64
+    },
+    "parsed_files": {
+      "compact": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/compact_latency.parquet",
+        "column": "compact_total_latency_ms",
+        "sha256": "cc7eaab4bcabe58252fb7c10facae55b36d2549f428226a5c3a1f5918cb08d13"
+      },
+      "qwen_prompt_response": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/qwen_latency.parquet",
+        "column": "total_latency_ms",
+        "mode_column": "mode",
+        "sha256": "edaa1eb4a231b7a12eaf405dcb94f05fedc0e0cd2090143142a1e21fa27c55a0"
+      },
+      "rule": {
+        "path": "data/interim/controlled_timing_benchmark_v2/timing_benchmark_v2/rule_latency.parquet",
+        "column": "external_total_latency_ms",
+        "sha256": "ead7d4d60c466842b8e04c51535a578118a3d7514b21a0542f3348bebedc117e"
+      }
+    },
+    "fallback_used_for": [],
+    "selected_p50_ms": {
+      "rule": 1.035116,
+      "compact": 38.086505,
+      "qwen_prompt_response": 1368.6388044999999
+    }
+  }
+}
