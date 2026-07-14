@@ -1,0 +1,32 @@
+{
+  "artifact": "stop_go_decision_v3",
+  "created_at": "2026-07-14T15:44:23.611606+00:00",
+  "decision": "NO-GO FOR A ROUTING-PERFORMANCE PAPER UNDER THE CURRENT AUDITED-LABEL EVIDENCE",
+  "routing_performance_go": false,
+  "measurement_validity_pivot": true,
+  "target_fpr": 0.05,
+  "decision_rule": {
+    "cost_advantage_required": true,
+    "paired_cost_reduction_ci95_lower_must_exceed_zero": true,
+    "selective_observed_fpr_must_not_exceed_target": true,
+    "selective_one_sided95_fpr_upper_must_not_exceed_target": true,
+    "required_in_every_evaluation_split": true
+  },
+  "gate_results": {
+    "cost_advantage_pass": true,
+    "risk_gate_pass": false,
+    "overall_go": false
+  },
+  "risk_control_status": "not formally certified; formal risk control remains a later professor-required stage",
+  "inputs": {
+    "reports/fusion_comparison_v3/metrics_by_split.csv": "f433677808c39b094f275c64f450a656206bd3392de2e04f15e5ef1409de6ca9",
+    "reports/fusion_comparison_v3/paired_bootstrap.csv": "1c461c83720c7ce0b69d1244aaf5ea222c422a8233e95e018f8ec59062b0c9b0",
+    "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
+    "data/metadata/policy_evaluation_v3_manifest.json": "5cbea137a5bec2a7088b355362b16edff5b4a211c7dca4c6385b8fda728ac4b8"
+  },
+  "outputs": {
+    "results/tables/stop_go_target_fpr005_v3.csv": "935e009620db62bb1a6f87217b34028c63b31ac46b69fbd99bb02c1fea2c66f3",
+    "reports/stop_go_v3/decision.md": "5f60316d9ce13a02290ae67af07c2bac4ca5cbdd9884e0ccd4957d86df81da0e",
+    "reports/stop_go_decision.md": "5f60316d9ce13a02290ae67af07c2bac4ca5cbdd9884e0ccd4957d86df81da0e"
+  }
+}
