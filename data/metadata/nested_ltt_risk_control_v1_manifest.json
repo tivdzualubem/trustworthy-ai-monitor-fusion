@@ -21,7 +21,7 @@
     "p_value": "exact Binomial(n, 0.05) lower-tail CDF at observed false-positive count",
     "multiple_testing": "fixed-sequence testing within each fold and method; stop at first non-rejection",
     "candidate_order": [
-      "trivial_zero_intercept",
+      "selection_zero_intercept_fallback",
       "selection_target_fpr_0.005",
       "selection_target_fpr_0.010",
       "selection_target_fpr_0.020",
@@ -553,12 +553,18 @@
   "all_sequences_returned_a_certificate": true,
   "outputs": {
     "reports/nested_ltt_risk_control_v1/fold_manifest.csv": "420789a5b60568add8cdf46054bb14537c5a2423f11a38d5a3c8cb640e1b4f7d",
-    "reports/nested_ltt_risk_control_v1/fixed_sequence_candidate_tests.csv": "e1080248d9625a9e9b33698bc95869ec0dc680469b3e0104d5a9dde088d13aa2",
-    "reports/nested_ltt_risk_control_v1/certificates.csv": "a1c65a9c87a8f1c5d577c1b57ad153f2873252628ffedc333426fcada29d7421",
-    "reports/nested_ltt_risk_control_v1/outer_metrics_by_fold.csv": "234466eed526e38d905fc013ea0852264712af34d1fa28b8841a4e93ab6988e2",
-    "reports/nested_ltt_risk_control_v1/outer_predictions.csv": "bc2de950dce56a9cb5a87822e0b3dc2c92c15584a7c79f023c0a64dca130a9d6",
+    "reports/nested_ltt_risk_control_v1/fixed_sequence_candidate_tests.csv": "bf09a3a4abb5374d073755122508138d5e7c1a7fe6dbd7f51256bea5289ebb7b",
+    "reports/nested_ltt_risk_control_v1/certificates.csv": "e5468662ae34fa9d5b1b8151cd84d0c88f294337ca8f8b8f9fdb45a5b45d85ce",
+    "reports/nested_ltt_risk_control_v1/outer_metrics_by_fold.csv": "97e26406671cf2dde49ecc47b8ea0236c9ebd6f5d2358b09998c2a18856ba66b",
+    "reports/nested_ltt_risk_control_v1/outer_predictions.csv": "89d542829151fd58c6017a74ddb356eb82a6d960af8a02eb72b5bd919a7495e8",
     "reports/nested_ltt_risk_control_v1/pooled_outer_metrics.csv": "2082438b846c5f1f1895766fe1440fb5fbb0ad9ac8d12522c3b3ee82c2cbddfa",
-    "reports/nested_ltt_risk_control_v1/summary.md": "b25050309099bece9d8b6842ccc19f886b1c9f4f851944d68cdc509c433688f2"
+    "reports/nested_ltt_risk_control_v1/summary.md": "dc2b8f564b469198a032f46547915dbe571535686c8e86ea75bdd87a4f62f7ad"
   },
-  "scope_statement": "Certificates apply to each untouched risk-control partition under its sampling distribution; excluded outer groups are shift diagnostics and are not covered by the certificate."
+  "scope_statement": "Certificates apply to each untouched risk-control partition under its sampling distribution; excluded outer groups are shift diagnostics and are not covered by the certificate.",
+  "terminology_correction": {
+    "old_label": "trivial_zero_intercept",
+    "new_label": "selection_zero_intercept_fallback",
+    "meaning": "The fallback made zero interceptions on the policy-selection partition. It was not guaranteed to make zero interceptions on unseen risk-control or outer-fold examples.",
+    "predictions_or_metrics_changed": false
+  }
 }

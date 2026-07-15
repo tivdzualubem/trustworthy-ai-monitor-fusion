@@ -1,0 +1,9 @@
+component,mode_or_policy,n,mean_ms,std_ms,min_ms,p50_ms,p95_ms,p99_ms,max_ms,expensive_call_rate,policy,stage
+qwen3guard_official_stage,full_information_always_on:tokenize_transfer_latency_ms,128,3.0962514921875,0.9069357809122243,1.817396,2.869662,4.5750104,5.65664224,6.57917,,full_information_always_on,tokenize_transfer_latency_ms
+qwen3guard_official_stage,full_information_always_on:generate_latency_ms,128,1594.164265625,540.5040037686473,940.735636,1438.646043,2426.9732012999993,3738.338503800005,4228.198353,,full_information_always_on,generate_latency_ms
+qwen3guard_official_stage,full_information_always_on:decode_parse_latency_ms,128,0.27276964843750007,0.11130904410492705,0.147698,0.230543,0.44947915,0.51596221,0.663109,,full_information_always_on,decode_parse_latency_ms
+qwen3guard_official_stage,full_information_always_on:total_latency_ms,128,1597.5605696953123,541.2781726433475,942.742251,1441.374094,2431.5969614499995,3744.088463490006,4234.158438,,full_information_always_on,total_latency_ms
+qwen3guard_official_stage,selective_acquisition:tokenize_transfer_latency_ms,89,3.360261617977528,1.0180695708000007,1.815174,3.302173,5.0739506,7.078567240000002,7.450413,,selective_acquisition,tokenize_transfer_latency_ms
+qwen3guard_official_stage,selective_acquisition:generate_latency_ms,89,1707.5886463483146,567.8931365105753,965.038253,1575.444235,2595.3270138,4179.05163472,4255.859624,,selective_acquisition,generate_latency_ms
+qwen3guard_official_stage,selective_acquisition:decode_parse_latency_ms,89,0.26678819101123596,0.12055586638584888,0.156055,0.203588,0.49359839999999994,0.5400806800000002,0.564711,,selective_acquisition,decode_parse_latency_ms
+qwen3guard_official_stage,selective_acquisition:total_latency_ms,89,1711.2449907303371,568.8011150246891,967.056302,1579.605705,2600.123781,4186.3435188,4263.526484,,selective_acquisition,total_latency_ms

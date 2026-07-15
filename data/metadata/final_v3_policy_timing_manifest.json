@@ -1,0 +1,93 @@
+{
+  "artifact": "final_v3_policy_timing_gpu",
+  "created_at": "2026-07-15T09:04:34.556427+00:00",
+  "status": "completed_fixed_hardware_measurement",
+  "benchmark_rows": 128,
+  "benchmark_split": "calibration",
+  "benchmark_sample_sha256": "06d29fff08a39ceb08176fc8ecdc7e850985ddbef1f045f55e0bc65923a8f83f",
+  "batch_size": 1,
+  "warmup_rows_per_policy": 8,
+  "warmup_excluded": true,
+  "policy_order": "alternated_per_example",
+  "clock": "time.perf_counter_ns",
+  "cuda_synchronize": true,
+  "model_load_time_included": false,
+  "tokenization_transfer_included": true,
+  "qwen_decode_parse_included": true,
+  "policy_decision_logic_included": true,
+  "model_refit_during_timing": false,
+  "gpu": {
+    "name": "Tesla T4",
+    "device": "cuda:0",
+    "total_memory_bytes": 15636037632
+  },
+  "software": {
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "cuda_runtime": "12.8",
+    "transformers": "5.13.1",
+    "pandas": "2.3.3",
+    "numpy": "2.0.2",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "models": {
+    "compact": {
+      "model_id": "KoalaAI/Text-Moderation",
+      "revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c"
+    },
+    "qwen": {
+      "model_id": "Qwen/Qwen3Guard-Gen-4B",
+      "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+      "method": "official_chat_template_generate_structured_parse"
+    }
+  },
+  "serialized_policy": {
+    "bundle_sha256": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
+    "operating_points_sha256": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
+    "target_fpr_key": "0.050",
+    "policy_version": "v3_author_reviewed_labels"
+  },
+  "score_validation": {
+    "rule_max_abs_difference": 0.0,
+    "compact_max_abs_difference": 3.748573362827301e-07,
+    "qwen_max_abs_difference": 0.5,
+    "qwen_mismatch_rows": 4,
+    "qwen_mismatch_unique_examples": 2,
+    "qwen_exact_match_rate": 0.9815668202764977,
+    "qwen_exact_parity_required_for_timing": false,
+    "interpretation": "Latency uses regenerated official Qwen outputs. Differences from cached v3 classifications are recorded as measurement-reproducibility evidence."
+  },
+  "qwen_parse_rate": 1.0,
+  "policy_comparison": {
+    "full_mean_ms": 1654.3722078281248,
+    "selective_mean_ms": 1251.7089336562499,
+    "mean_reduction_ms": 402.66327417187495,
+    "mean_reduction_rate": 0.24339339857533937,
+    "full_p50_ms": 1493.1729415,
+    "selective_p50_ms": 1407.0917515,
+    "full_p95_ms": 2511.2391740499997,
+    "selective_p95_ms": 2515.2615093,
+    "full_p99_ms": 3824.356323500005,
+    "selective_p99_ms": 3872.316007320006,
+    "selective_expensive_call_rate": 0.6953125
+  },
+  "limitations": [
+    "Fixed-run benchmark, not a real-time guarantee.",
+    "Results are specific to the recorded GPU and software.",
+    "The 128 audited-label calibration examples are reused from the controlled timing sample.",
+    "Regenerated Qwen classifications are compared with the cached v3 classifications; any differences are preserved in qwen_score_mismatches.csv."
+  ],
+  "files": {
+    "README.md": "7c634b4492731cac6f52c0c982347462f38ab69d08d0c428b72b37e739c48bf8",
+    "latency_summary.csv": "4820411c8da8abc2516c2a5cfc51cf3d4e62aebdc9d3c56347909b79fb1920f0",
+    "nvidia_smi.txt": "0993674e6dfc4fbed77091089529c41d63cf2c9800f2e3ce7fa6d930ac185e4e",
+    "policy_latency.parquet": "ba5e96e49d299618dcf648061f92ec8555071170b6284076fb3a7b3644945bec",
+    "qwen_raw_generations.jsonl": "8178170f4d794bfbe4d47fe6f17acce1119f546e713a7e2dd46a231961358496",
+    "qwen_score_mismatches.csv": "aebcadbada9f374e2d97fb70fceaafbba9a59e7676afb75234d91edb49b71d6e",
+    "qwen_stage_latency.parquet": "165c23428b7dcdaa1434d1bebb375578cd282c30603bf3e9ca212cdc92a65463",
+    "qwen_stage_latency_summary.csv": "17dcad6c4c28ea3339a6ba9468a485903c304b2fd4fdd57b76fcc2737814012e",
+    "selective_route_summary.csv": "1b44ce1790ca54e0d40b23ad591fcbbd0cc543d14e61141ced0def006101d55f"
+  }
+}

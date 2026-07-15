@@ -1,0 +1,4 @@
+monitor,score_column,n,roc_auc,average_precision,score_min,score_max
+rule_filter_v1,rule_score,2159,0.6657542802557133,0.35549499505181736,0.0,0.9999984848558878
+koala_text_moderation,compact_unsafe_score,2159,0.6489003317940052,0.2889759286196738,0.005237838719040155,0.992609747685492
+qwen3guard_prompt_response,qwen_prompt_response_score,2159,0.9255703239372135,0.7676579338938998,0.0,1.0

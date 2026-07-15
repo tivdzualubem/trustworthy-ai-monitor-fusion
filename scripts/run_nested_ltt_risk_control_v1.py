@@ -488,7 +488,7 @@ def learn_full_candidates(
 
     candidates: list[dict[str, Any]] = [
         {
-            "candidate_order_label": "trivial_zero_intercept",
+            "candidate_order_label": "selection_zero_intercept_fallback",
             "candidate_source_target_fpr": 0.0,
             "threshold": float(
                 np.nextafter(
@@ -564,7 +564,7 @@ def learn_selective_candidates(
 
     candidates: list[dict[str, Any]] = [
         {
-            "candidate_order_label": "trivial_zero_intercept",
+            "candidate_order_label": "selection_zero_intercept_fallback",
             "candidate_source_target_fpr": 0.0,
             "router_low_allow_threshold": trivial_low,
             "router_high_intercept_threshold": trivial_high,
@@ -1352,7 +1352,7 @@ For each outer leave-source-out and leave-family-out fold:
 7. evaluate the last certified candidate on the excluded outer fold.
 
 The candidate order is prespecified from conservative to aggressive:
-a zero-intercept fallback followed by selection target-FPR levels
+a selection-zero-intercept fallback followed by selection target-FPR levels
 `{TARGET_LADDER}`.
 
 ## Certificate scope
@@ -1418,7 +1418,7 @@ results diagnose certificate transfer and distribution shift.
                 "stop at first non-rejection"
             ),
             "candidate_order": [
-                "trivial_zero_intercept",
+                "selection_zero_intercept_fallback",
                 *[
                     f"selection_target_fpr_{value:.3f}"
                     for value in TARGET_LADDER
