@@ -4,9 +4,24 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "monitor-fusion"
-version = "0.1.0"
-description = "Budget-aware runtime safety monitor fusion"
-requires-python = ">=3.10"
+version = "0.2.0"
+description = "Budget-aware runtime safety monitor fusion and measurement-validity evaluation"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "datasets==5.0.0",
+  "huggingface-hub==1.21.0",
+  "joblib==1.5.3",
+  "matplotlib==3.11.0",
+  "numpy==2.5.0",
+  "pandas==3.0.3",
+  "pyarrow==24.0.0",
+  "PyYAML==6.0.3",
+  "scikit-learn==1.9.0",
+  "scipy==1.18.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
