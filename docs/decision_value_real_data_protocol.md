@@ -88,3 +88,42 @@ The milestone passes only if development-only cross-fitted evidence shows:
 4. no excluded row influenced the result.
 
 Until then, the experiment is not scaled and no new routing method is claimed.
+
+## Complete-text frozen embedding requirement
+
+This section supersedes any implementation that relies on the embedding
+model's default truncation behavior.
+
+The frozen prompt-response embedding must represent every content token in the
+templated input:
+
+```text
+[PROMPT]
+{prompt}
+[RESPONSE]
+{response}
+```
+
+The complete text is tokenized without truncation and divided into
+deterministic, non-overlapping token chunks. The maximum number of content
+tokens in a chunk equals the model maximum sequence length minus the
+tokenizer's required special tokens.
+
+Every chunk is encoded by the same frozen model and immutable revision. Chunk
+vectors are combined using a content-token-count-weighted mean, after which
+the 384-dimensional example vector is L2-normalized.
+
+The artifact and manifest must establish all of the following:
+
+- each development example appears exactly once;
+- `final_test` and `held_out_shift` are absent;
+- labels and forbidden metadata are absent;
+- complete and covered content-token counts are identical for every example;
+- minimum per-example token coverage is exactly 1.0;
+- the number of truncated examples is zero;
+- chunk count, token coverage, model revision, row alignment, hashes, and CPU
+  runtime are recorded.
+
+This requirement was frozen before any decision-value estimator was trained.
+The earlier truncated embedding dry-run was uncommitted and is not an input to
+any result.

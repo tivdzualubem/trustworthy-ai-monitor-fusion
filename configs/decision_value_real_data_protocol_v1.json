@@ -2,8 +2,15 @@
   "artifact": "decision_value_real_data_protocol_v1",
   "status": "frozen_before_real_data_modeling",
   "scope": {
-    "development_splits": ["policy_train", "policy_selection", "calibration"],
-    "excluded_splits": ["final_test", "held_out_shift"],
+    "development_splits": [
+      "policy_train",
+      "policy_selection",
+      "calibration"
+    ],
+    "excluded_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
     "expected_development_rows": 1687,
     "expected_negative_n": 1396,
     "expected_positive_n": 291
@@ -18,7 +25,11 @@
   "loss": {
     "primary": "zero_one_decision_loss",
     "realized_value_target": "L(y,a_base)-L(y,a_augmented)",
-    "values": [-1, 0, 1]
+    "values": [
+      -1,
+      0,
+      1
+    ]
   },
   "cross_fitting": {
     "outer_folds": 5,
@@ -26,20 +37,32 @@
     "splitter": "StratifiedGroupKFold",
     "shuffle": true,
     "random_state": 20260729,
-    "group_key_priority": ["group_id", "pair_id", "example_id"]
+    "group_key_priority": [
+      "group_id",
+      "pair_id",
+      "example_id"
+    ]
   },
   "optional_monitor_setups": [
     {
       "setup_id": "compact_after_rule",
       "optional_monitor": "koala_text_moderation",
-      "base_features": ["rule_score"],
-      "augmented_features": ["rule_score", "compact_unsafe_score"],
+      "base_features": [
+        "rule_score"
+      ],
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
       "measured_mean_cost_ms": 45.657291
     },
     {
       "setup_id": "qwen_after_rule_compact",
       "optional_monitor": "qwen3guard_prompt_response",
-      "base_features": ["rule_score", "compact_unsafe_score"],
+      "base_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
       "augmented_features": [
         "rule_score",
         "compact_unsafe_score",
@@ -81,7 +104,17 @@
       "l2_normalized": true,
       "pca_components": 32,
       "pca_fit_scope": "outer-training-only",
-      "measure_runtime": true
+      "measure_runtime": true,
+      "full_text_coverage_required": true,
+      "truncation_allowed": false,
+      "long_text_strategy": "deterministic_non_overlapping_token_chunks",
+      "chunk_size_rule": "model_max_seq_length minus tokenizer special-token count",
+      "chunk_overlap_tokens": 0,
+      "chunk_aggregation": "content_token_count_weighted_mean_then_l2_normalize",
+      "minimum_required_token_coverage": 1.0,
+      "record_per_example_chunk_count": true,
+      "record_per_example_token_coverage": true,
+      "record_per_example_content_token_count": true
     },
     "runtime_metadata": {
       "compact_after_rule": [
@@ -143,7 +176,18 @@
     "oracle_realized_value_diagnostic",
     "always_acquire"
   ],
-  "matched_budgets": [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.75, 1.0],
+  "matched_budgets": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.75,
+    1.0
+  ],
   "random_repetitions": 100,
   "milestone_gate": {
     "required": [
@@ -160,5 +204,17 @@
       "claim a new routing method",
       "claim shift risk control"
     ]
-  }
+  },
+  "protocol_amendments": [
+    {
+      "amendment_id": "full_text_embedding_coverage_v1",
+      "date": "2026-07-29",
+      "stage": "before_value_estimator_training",
+      "reason": "The first uncommitted embedding dry-run revealed that the model's default sequence limit would omit part of 1094 of 1687 development prompt-response pairs.",
+      "correction": "Require deterministic complete-text token chunking, content-token-count-weighted aggregation, final L2 normalization, and exact per-example token coverage of 1.0.",
+      "affected_committed_results": "none",
+      "value_estimator_training_started": false,
+      "final_test_or_shift_used": false
+    }
+  ]
 }
