@@ -1,0 +1,54 @@
+{
+  "artifact": "cross_fitted_decision_value_targets_v1",
+  "created_at": "2026-07-29T13:23:27.155679+00:00",
+  "status": "development_only_cross_fitted_targets_completed",
+  "protocol_path": "configs/decision_value_real_data_protocol_v1.json",
+  "protocol_sha256": "5b567847d6f31d956d5544737c8791f81b96c03c2156a74d48fffa1d0f6d37e5",
+  "dataset_path": "data/processed/unified_dataset_label_audited_v1.parquet",
+  "dataset_sha256": "d368118db6ab39f33824e9887c4c319352c91900b61b1364df6419fde80d6b54",
+  "cache_path": "data/processed/monitor_score_cache_v3.parquet",
+  "cache_sha256": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+  "development_splits": [
+    "calibration",
+    "policy_selection",
+    "policy_train"
+  ],
+  "excluded_splits": [
+    "final_test",
+    "held_out_shift"
+  ],
+  "development_rows": 1687,
+  "excluded_rows": 472,
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "splitter": "StratifiedGroupKFold",
+  "random_state": 20260729,
+  "target_fpr": 0.05,
+  "model": {
+    "family": "StandardScaler + LogisticRegression + sigmoid CalibratedClassifierCV",
+    "calibration_cv": 3,
+    "same_family_for_base_and_augmented": true
+  },
+  "setup_ids": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "target_definition": "zero_one_loss(base decision) - zero_one_loss(augmented decision)",
+  "target_values": [
+    -1,
+    0,
+    1
+  ],
+  "threshold_selection": "inner-OOF maximize recall subject to empirical FPR <= 0.05; ties prefer higher threshold then higher precision",
+  "excluded_rows_used": false,
+  "final_test_used": false,
+  "held_out_shift_used": false,
+  "outputs": {
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec",
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.csv": "a1e7a7478efe53edb3bf8fa121f8da0c5032b3d62c687b3f15fe83fcd6ed5afd",
+    "reports/decision_value_real_data/cross_fitted_target_fold_metrics.csv": "9c357816da75c7475c01d369cce3a64238d6184e5c2c93c4c57b97b7c4a0b34f",
+    "reports/decision_value_real_data/development_outer_fold_assignments.csv": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd",
+    "reports/decision_value_real_data/cross_fitted_target_setup_summary.csv": "5c64a98da725a07f91ef2b9f103180b495e9eefe5b981a6559e9937e9b6c8a78",
+    "reports/decision_value_real_data/cross_fitted_target_summary.md": "90a2f3f02767e22c87f0aaa7046e79c7955427dbf15b81f4e472544c5b6828df"
+  }
+}
