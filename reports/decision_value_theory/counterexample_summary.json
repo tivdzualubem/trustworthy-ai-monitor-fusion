@@ -1,0 +1,9 @@
+{
+  "matched_acquisition_rate": 0.5,
+  "oracle_decision_loss": 0.3,
+  "uncertainty_decision_loss": 0.4,
+  "decision_loss_gap_uncertainty_minus_oracle": 0.10000000000000003,
+  "average_acquisition_cost_both_policies": 0.05,
+  "oracle_total_risk_with_cost": 0.35,
+  "uncertainty_total_risk_with_cost": 0.45
+}
