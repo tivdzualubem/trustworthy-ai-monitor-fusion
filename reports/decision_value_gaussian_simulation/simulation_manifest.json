@@ -1,0 +1,55 @@
+{
+  "artifact": "two_context_gaussian_decision_value_simulation",
+  "status": "toy_experiment_completed",
+  "scope": "controlled simulation only; no new routing-method claim",
+  "config": {
+    "train_n": 6000,
+    "test_n": 12000,
+    "seeds": 30,
+    "context_a_probability": 0.5,
+    "cheap_separation": 0.8,
+    "expensive_separation_context_a": 2.0,
+    "redundant_noise_sd_context_b": 0.25,
+    "acquisition_cost": 0.02,
+    "budgets": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.25,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.75,
+      1.0
+    ]
+  },
+  "policies": [
+    "random",
+    "uncertainty",
+    "oracle_decision_value",
+    "learned_value"
+  ],
+  "matched_acquisition_counts_verified": true,
+  "primary_evaluation": "downstream decision loss at identical acquisition rates",
+  "secondary_diagnostics": "value prediction correlations and context allocation",
+  "key_checks": {
+    "context_a_monitor_informative": true,
+    "context_b_monitor_redundant": true,
+    "cheap_uncertainty_matched_across_contexts": true,
+    "learned_beats_uncertainty_at_25pct": true,
+    "learned_beats_uncertainty_at_50pct": true
+  },
+  "outputs": [
+    "seed_metrics.csv",
+    "matched_budget_summary.csv",
+    "paired_policy_differences.csv",
+    "value_prediction_diagnostics_by_seed.csv",
+    "value_prediction_diagnostics_summary.csv",
+    "matched_budget_decision_loss.png",
+    "matched_budget_advantage_over_uncertainty.png",
+    "context_allocation_at_50pct.png",
+    "summary.md"
+  ]
+}
