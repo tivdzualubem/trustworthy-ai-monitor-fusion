@@ -1,0 +1,164 @@
+{
+  "artifact": "decision_value_real_data_protocol_v1",
+  "status": "frozen_before_real_data_modeling",
+  "scope": {
+    "development_splits": ["policy_train", "policy_selection", "calibration"],
+    "excluded_splits": ["final_test", "held_out_shift"],
+    "expected_development_rows": 1687,
+    "expected_negative_n": 1396,
+    "expected_positive_n": 291
+  },
+  "operating_risk": {
+    "metric": "false_positive_rate",
+    "target": 0.05,
+    "threshold_selection": "outer-training-only inner out-of-fold predictions",
+    "objective": "maximize recall subject to empirical inner-OOF FPR <= 0.05",
+    "claim_scope": "development-only diagnostic"
+  },
+  "loss": {
+    "primary": "zero_one_decision_loss",
+    "realized_value_target": "L(y,a_base)-L(y,a_augmented)",
+    "values": [-1, 0, 1]
+  },
+  "cross_fitting": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "splitter": "StratifiedGroupKFold",
+    "shuffle": true,
+    "random_state": 20260729,
+    "group_key_priority": ["group_id", "pair_id", "example_id"]
+  },
+  "optional_monitor_setups": [
+    {
+      "setup_id": "compact_after_rule",
+      "optional_monitor": "koala_text_moderation",
+      "base_features": ["rule_score"],
+      "augmented_features": ["rule_score", "compact_unsafe_score"],
+      "measured_mean_cost_ms": 45.657291
+    },
+    {
+      "setup_id": "qwen_after_rule_compact",
+      "optional_monitor": "qwen3guard_prompt_response",
+      "base_features": ["rule_score", "compact_unsafe_score"],
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "measured_mean_cost_ms": 1597.56057
+    }
+  ],
+  "predictor_families": {
+    "cheap_features": {
+      "compact_after_rule": [
+        "rule_score",
+        "rule_weighted_sum",
+        "rule_match_count",
+        "rule_latency_ms"
+      ],
+      "qwen_after_rule_compact": [
+        "rule_score",
+        "rule_weighted_sum",
+        "rule_match_count",
+        "rule_latency_ms",
+        "compact_unsafe_score",
+        "compact_input_tokens",
+        "compact_output_tokens",
+        "compact_latency_ms",
+        "abs_rule_compact_difference",
+        "rule_compact_product",
+        "rule_compact_mean",
+        "rule_compact_max",
+        "rule_compact_min"
+      ]
+    },
+    "frozen_embedding": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "requested_revision": "1110a24",
+      "resolved_full_revision_required": true,
+      "dimension": 384,
+      "input_template": "[PROMPT]\\n{prompt}\\n[RESPONSE]\\n{response}",
+      "l2_normalized": true,
+      "pca_components": 32,
+      "pca_fit_scope": "outer-training-only",
+      "measure_runtime": true
+    },
+    "runtime_metadata": {
+      "compact_after_rule": [
+        "prompt_char_count",
+        "response_char_count",
+        "prompt_whitespace_token_count",
+        "response_whitespace_token_count",
+        "rule_match_count",
+        "rule_latency_ms"
+      ],
+      "qwen_after_rule_compact": [
+        "prompt_char_count",
+        "response_char_count",
+        "prompt_whitespace_token_count",
+        "response_whitespace_token_count",
+        "rule_match_count",
+        "rule_latency_ms",
+        "compact_input_tokens",
+        "compact_output_tokens",
+        "compact_latency_ms"
+      ]
+    },
+    "comparisons": [
+      "cheap_features",
+      "frozen_embedding",
+      "runtime_metadata",
+      "cheap_plus_metadata",
+      "cheap_plus_embedding",
+      "all_features"
+    ]
+  },
+  "forbidden_predictors": [
+    "y",
+    "y_original",
+    "old_y",
+    "audited_y",
+    "source_dataset",
+    "source_record_id",
+    "attack_family",
+    "split",
+    "group_id",
+    "pair_id",
+    "harm_category",
+    "toxicity_category",
+    "annotation fields",
+    "label-audit fields",
+    "optional-monitor outputs before acquisition"
+  ],
+  "value_estimator": {
+    "primary_model": "HistGradientBoostingRegressor",
+    "target": "cross-fitted realized decision value",
+    "hyperparameter_selection": "inner training data only"
+  },
+  "policies": [
+    "never_acquire",
+    "random",
+    "ordinary_uncertainty",
+    "learned_decision_value",
+    "oracle_realized_value_diagnostic",
+    "always_acquire"
+  ],
+  "matched_budgets": [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.75, 1.0],
+  "random_repetitions": 100,
+  "milestone_gate": {
+    "required": [
+      "at least one optional monitor has complementary decision value",
+      "learned value has positive integrated matched-budget advantage over uncertainty with paired 95% CI above zero",
+      "a selective point below 100% acquisition improves recall over uncertainty and random at the same or lower cost with pooled development OOF FPR <= 0.05",
+      "no final_test or held_out_shift row influences the result"
+    ],
+    "before_pass_forbidden": [
+      "retune old low/high routing thresholds",
+      "use final_test",
+      "use held_out_shift",
+      "scale datasets or monitors",
+      "claim a new routing method",
+      "claim shift risk control"
+    ]
+  }
+}
