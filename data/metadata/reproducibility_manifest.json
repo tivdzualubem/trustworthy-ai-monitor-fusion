@@ -12,8 +12,8 @@
   },
   "files": {
     "README.md": "ab70bb2f941fe3f307d2bdc87c86eaff9da2f88b78eeb8d319fb6b6efe2f70cb",
-    "requirements.txt": "fc8aa17a2d1202dc61f2dfd6523a58d644eeab705d9584aceaa6b300555c7179",
-    "pyproject.toml": "a82dcce57fa2b187d7db006133e5c9640aeac7e09c8fe5f2a57de52b9eb5b6ba",
+    "requirements.txt": "cff88e7767c96dc430406ab38e3b35b57cfea17ca1b09174fc0ab17c313139f4",
+    "pyproject.toml": "aebc5edb0daf5fafaf67cbad3aa7619d1d1eb999a6553a19ece3abb6fc8c384b",
     "Makefile": "e9c6314cb982d76b36bd4e3f55b766219b585c4a1a73cd581da1065515c3b5a1",
     "docs/research_scope.md": "595a3a117b1ca126c6a80de3f50f0994dddaffc3054b836b3e2a5ba53956abe7",
     "docs/label_audit_protocol.md": "698eab8ad6d26f590d1ef35c38b4a8ea66ba301dddb33d3bfcd9297b75bda743",
@@ -58,6 +58,33 @@
     "results/tables/final_stop_go_target_fpr005_v3.csv": "935e009620db62bb1a6f87217b34028c63b31ac46b69fbd99bb02c1fea2c66f3",
     "results/tables/final_v3_policy_timing_latency.csv": "4820411c8da8abc2516c2a5cfc51cf3d4e62aebdc9d3c56347909b79fb1920f0",
     "results/tables/final_v3_qwen_timing_mismatches.csv": "aebcadbada9f374e2d97fb70fceaafbba9a59e7676afb75234d91edb49b71d6e",
-    "results/tables/final_v3_selective_route_timing.csv": "1b44ce1790ca54e0d40b23ad591fcbbd0cc543d14e61141ced0def006101d55f"
+    "results/tables/final_v3_selective_route_timing.csv": "1b44ce1790ca54e0d40b23ad591fcbbd0cc543d14e61141ced0def006101d55f",
+    "requirements-embedding-cpu.txt": "03a0db2457eb2dd3d4ac98b4685bcd83c20885d54abde42f144c2c9bcd6b5852",
+    "configs/decision_value_real_data_protocol_v1.json": "1c2d7664543adf386af2cd450377e88b306e7064d9a436847feae5a9da7dd9fe",
+    "docs/decision_value_real_data_protocol.md": "44d2f9c181834dae9c374513099a426419e017d79a032c9d6bd5f82fac0d4f63",
+    "scripts/validate_full_text_embedding_protocol.py": "41abdfe609391c21074375742cd56c88ce928e00372af7f3270a2d480181565d",
+    "tests/test_full_text_embedding_protocol.py": "b73dc0f2062cfbebd24ac8a92159a45174e31db432f9917dc25e95f61ded0530",
+    "scripts/build_full_text_prompt_response_embeddings.py": "0439a0dc7119b30bac1b49c476a03cc53b7598390102e1d1b5f9d07f47d8e02e",
+    "tests/test_full_text_prompt_response_embeddings.py": "a6cedb20a2ae2f607b18c001ee8662059823c698dd820d6ec393bb1a77d1aa04",
+    "reports/decision_value_real_data/frozen_prompt_response_embeddings.parquet": "0ad00a173e44a06d1a808fe6d835f550290e948d7e780307343b2ecc9bdb9959",
+    "reports/decision_value_real_data/frozen_prompt_response_embedding_batch_runtime.csv": "be745a66a1ed42b36a044355676ca3401bb1f7beeaa1dfde0f0314a7826e9898",
+    "reports/decision_value_real_data/frozen_prompt_response_embedding_manifest.json": "20b43688322d60978a0d279287045b05aee9a7e9cbfd0578f5ab913504d026e6",
+    "reports/decision_value_real_data/frozen_prompt_response_embedding_summary.md": "a13bbf74fea7ad8089a47860c6390973ee92b9011e6cd3c9a3d3550a25473c0e"
+  },
+  "updated_at": "2026-07-30T20:30:59.688589+00:00",
+  "decision_value_embedding": {
+    "status": "development_only_complete_text_validated",
+    "protocol": "configs/decision_value_real_data_protocol_v1.json",
+    "builder": "scripts/build_full_text_prompt_response_embeddings.py",
+    "requirements": "requirements-embedding-cpu.txt",
+    "artifact": "reports/decision_value_real_data/frozen_prompt_response_embeddings.parquet",
+    "manifest": "reports/decision_value_real_data/frozen_prompt_response_embedding_manifest.json",
+    "development_rows": 1687,
+    "embedding_dimension": 384,
+    "minimum_token_coverage": 1.0,
+    "truncated_examples": 0,
+    "final_test_used": false,
+    "held_out_shift_used": false,
+    "value_estimator_training_started": false
   }
 }

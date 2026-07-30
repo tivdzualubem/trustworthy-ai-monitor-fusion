@@ -127,3 +127,32 @@ The artifact and manifest must establish all of the following:
 This requirement was frozen before any decision-value estimator was trained.
 The earlier truncated embedding dry-run was uncommitted and is not an input to
 any result.
+
+## Reproducible CPU embedding environment
+
+The complete-text frozen embedding artifact uses the dedicated dependency
+file `requirements-embedding-cpu.txt`.
+
+```bash
+python -m pip install \
+  --no-cache-dir \
+  -r requirements-embedding-cpu.txt
+```
+
+The frozen environment is:
+
+- `torch==2.13.0+cpu`;
+- `sentence-transformers==5.6.0`;
+- `transformers==4.57.6`;
+- `huggingface-hub==0.36.2`;
+- `tokenizers==0.22.2`.
+
+The CPU-specific PyTorch wheel is resolved from the official PyTorch CPU
+index declared in the dependency file. The root project uses
+`huggingface-hub==0.36.2`, which is compatible with this frozen embedding
+environment.
+
+The embedding builder validates these versions before reading the development
+data. It also records the builder-script hash, dependency-file hash, model
+revision, dataset hash, fold-assignment hash, runtime, and complete-token
+coverage in the manifest.
