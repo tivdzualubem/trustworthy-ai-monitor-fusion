@@ -156,3 +156,25 @@ The embedding builder validates these versions before reading the development
 data. It also records the builder-script hash, dependency-file hash, model
 revision, dataset hash, fold-assignment hash, runtime, and complete-token
 coverage in the manifest.
+
+## Nested value-estimator training targets
+
+For each of the five value-estimator outer folds, the current outer evaluation
+fold is excluded before any training target is generated.
+
+Inside the remaining outer-training partition, the existing four-fold
+`StratifiedGroupKFold` downstream procedure generates inner out-of-fold base
+and augmented probabilities. The base and augmented decision thresholds are
+selected only from those inner out-of-fold predictions at the frozen empirical
+FPR target of 0.05. Realized decision value for value-estimator training is
+then computed from the corresponding inner out-of-fold decisions.
+
+The globally stored outer-fold decision-value targets are retained for the
+complementarity diagnostic, but they are not used as training labels for a
+value estimator. This prevents a target-generating downstream model from
+including the current value-estimator evaluation fold.
+
+The nested target artifact records the value-estimator outer fold, downstream
+inner fold, setup, realized value, ordinary uncertainty, thresholds, fold
+hashes, and exclusion checks. Optional-monitor outputs are used only to define
+the target and are not written as predictor columns.

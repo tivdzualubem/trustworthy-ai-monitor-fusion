@@ -1,0 +1,46 @@
+{
+  "artifact": "nested_value_training_targets_v1",
+  "created_at": "2026-07-30T20:56:44.997345+00:00",
+  "status": "development_only_nested_training_targets_completed",
+  "rows": 13496,
+  "setups": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "target_generation": "inner-OOF downstream base and augmented decisions within each current outer-training partition",
+  "global_outer_target_rows_used_for_training": false,
+  "current_outer_evaluation_fold_excluded": true,
+  "final_test_used": false,
+  "held_out_shift_used": false,
+  "optional_monitor_outputs_written_as_predictors": false,
+  "expected_rows": 13496,
+  "unique_examples": 1687,
+  "rows_per_example_per_setup": 4,
+  "realized_value_counts": {
+    "-1": 301,
+    "0": 12129,
+    "1": 1066
+  },
+  "inputs": {
+    "protocol": "configs/decision_value_real_data_protocol_v1.json",
+    "protocol_sha256": "4be73405940a9ec6bb4a0b0916e41177bcbfb4eab6de4cbb75ef57e883b77f4a",
+    "source_target_builder": "scripts/build_cross_fitted_decision_value_targets.py",
+    "source_target_builder_sha256": "288d7c7ca5fe73b00116ab9bcb33378cda37c0c6ecb1fbe8e9731841906a98a3",
+    "outer_assignments": "reports/decision_value_real_data/development_outer_fold_assignments.csv",
+    "outer_assignments_sha256": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd",
+    "frozen_fold_metrics": "reports/decision_value_real_data/cross_fitted_target_fold_metrics.csv",
+    "frozen_fold_metrics_sha256": "9c357816da75c7475c01d369cce3a64238d6184e5c2c93c4c57b97b7c4a0b34f"
+  },
+  "source_function_signatures": {
+    "inner_oof_probabilities": "(outer_train: 'pd.DataFrame', features: 'list[str]', inner_folds: 'int', random_state: 'int') -> 'tuple[np.ndarray, np.ndarray]'",
+    "select_threshold_at_fpr": "(y: 'np.ndarray', scores: 'np.ndarray', target_fpr: 'float') -> 'ThresholdResult'"
+  },
+  "outputs": {
+    "reports/decision_value_real_data/nested_value_training_targets.parquet": "05a88a568fca0f6c4afa51026e2f41d9bcc8c9ee796e6bdad24029e05ff5f2dc",
+    "reports/decision_value_real_data/nested_value_training_targets.csv": "8019e75d6bd43c789406b9821f1a604935335f1f2bff5d5fec7b128f895d62ef",
+    "reports/decision_value_real_data/nested_value_training_target_fold_metrics.csv": "16a44e7d1f29ee7d0ae8a56936062c1fafad242943c5c5d35e3cc440b8837bb6",
+    "reports/decision_value_real_data/nested_value_training_target_summary.md": "5f43bbdad842426bacd8dcb60d0535404e3f7b2cf8a7c79e1bf42d432b9b8fd5"
+  }
+}
