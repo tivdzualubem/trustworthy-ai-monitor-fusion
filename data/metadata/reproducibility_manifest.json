@@ -60,8 +60,8 @@
     "results/tables/final_v3_qwen_timing_mismatches.csv": "aebcadbada9f374e2d97fb70fceaafbba9a59e7676afb75234d91edb49b71d6e",
     "results/tables/final_v3_selective_route_timing.csv": "1b44ce1790ca54e0d40b23ad591fcbbd0cc543d14e61141ced0def006101d55f",
     "requirements-embedding-cpu.txt": "03a0db2457eb2dd3d4ac98b4685bcd83c20885d54abde42f144c2c9bcd6b5852",
-    "configs/decision_value_real_data_protocol_v1.json": "4be73405940a9ec6bb4a0b0916e41177bcbfb4eab6de4cbb75ef57e883b77f4a",
-    "docs/decision_value_real_data_protocol.md": "4e03ce0c0b7fd06451b95c9c1ecab736b5672b0d09e0b2bf07abd311110692af",
+    "configs/decision_value_real_data_protocol_v1.json": "91a58452be9f45f4b8ed6a570c36e476be2c76ada1935679e20d62935f6a24a5",
+    "docs/decision_value_real_data_protocol.md": "1bb2a67701759e594ee672b85c1f46742f3178dd030d9338de460d279312a1a0",
     "scripts/validate_full_text_embedding_protocol.py": "41abdfe609391c21074375742cd56c88ce928e00372af7f3270a2d480181565d",
     "tests/test_full_text_embedding_protocol.py": "b73dc0f2062cfbebd24ac8a92159a45174e31db432f9917dc25e95f61ded0530",
     "scripts/build_full_text_prompt_response_embeddings.py": "0439a0dc7119b30bac1b49c476a03cc53b7598390102e1d1b5f9d07f47d8e02e",
@@ -77,9 +77,18 @@
     "reports/decision_value_real_data/nested_value_training_targets.csv": "8019e75d6bd43c789406b9821f1a604935335f1f2bff5d5fec7b128f895d62ef",
     "reports/decision_value_real_data/nested_value_training_target_fold_metrics.csv": "16a44e7d1f29ee7d0ae8a56936062c1fafad242943c5c5d35e3cc440b8837bb6",
     "reports/decision_value_real_data/nested_value_training_target_manifest.json": "982173c65731c621f8aee268387d8f279df638fdcddee88b961d2b6a503d7703",
-    "reports/decision_value_real_data/nested_value_training_target_summary.md": "5f43bbdad842426bacd8dcb60d0535404e3f7b2cf8a7c79e1bf42d432b9b8fd5"
+    "reports/decision_value_real_data/nested_value_training_target_summary.md": "5f43bbdad842426bacd8dcb60d0535404e3f7b2cf8a7c79e1bf42d432b9b8fd5",
+    "scripts/run_cross_fitted_value_predictability.py": "aa14018e16e19df1c5bce2ef058d9e7ceff7dcec43dc3b580f5c76848fb2c8d4",
+    "tests/test_cross_fitted_value_predictability.py": "51376fe015d04b3642a26dc75580a209ff7699175e6712ef4368e54760bb669f",
+    "reports/decision_value_real_data/value_estimator_oof_predictions.parquet": "ad1164ba7effce85ba89ddcbb7a1b4119d71ea31953f25fd41ac8de533f7c1e1",
+    "reports/decision_value_real_data/value_estimator_fold_metrics.csv": "ae07554679d0bd44effae56816c2acf4d3296122a3d6612a2ebcd98233481054",
+    "reports/decision_value_real_data/matched_budget_value_curves.csv": "2c084db35f545eed0511b63ab958ea58b5b3789ab8380529b1731591d2be83f2",
+    "reports/decision_value_real_data/matched_budget_random_repetitions.csv": "e8f057918315b2c10c16fbe7e092598ebdc6d382e49febc12dafa3cfff66ffcc",
+    "reports/decision_value_real_data/value_predictability_summary.csv": "e1c7f76a256eaaf225fc8f4121affe3a782419ef85d47b4aae2b992841b0df54",
+    "reports/decision_value_real_data/value_predictability_manifest.json": "7ead3e436c7b13d1d63d414bb700fbc58491d89357a4a85fcc15bc27e6d6af14",
+    "reports/decision_value_real_data/value_predictability_summary.md": "b14dcb4bd7738244091cc6bd79d91c657f2f156980df2d5639e39758ed49b537"
   },
-  "updated_at": "2026-07-30T21:00:03.913581+00:00",
+  "updated_at": "2026-07-31T19:06:23.152342+00:00",
   "decision_value_embedding": {
     "status": "development_only_complete_text_validated",
     "protocol": "configs/decision_value_real_data_protocol_v1.json",
@@ -107,5 +116,19 @@
     "final_test_used": false,
     "held_out_shift_used": false,
     "value_estimator_training_started": false
+  },
+  "decision_value_predictability": {
+    "status": "development_only_completed_no_go",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "integrated_advantage": 0.0048162418494368,
+    "paired_bootstrap_lower95": -0.0017045791345583,
+    "paired_bootstrap_upper95": 0.0114852548903378,
+    "predictability_criterion_pass": false,
+    "passing_prespecified_comparisons": 0,
+    "final_test_used": false,
+    "held_out_shift_used": false,
+    "overall_project_status": "no-go",
+    "reason": "the frozen paired 95% confidence interval includes zero"
   }
 }

@@ -178,3 +178,33 @@ The nested target artifact records the value-estimator outer fold, downstream
 inner fold, setup, realized value, ordinary uncertainty, thresholds, fold
 hashes, and exclusion checks. Optional-monitor outputs are used only to define
 the target and are not written as predictor columns.
+
+## Six-family value-predictability diagnostic
+
+Before fitting any value estimator, the development-only comparison is frozen
+as follows.
+
+- Primary setup: `qwen_after_rule_compact`.
+- Primary feature family: `all_features`.
+- The other five feature families are prespecified ablations.
+- The estimator is `HistGradientBoostingRegressor`.
+- Three prespecified hyperparameter candidates are compared using pooled
+  inner-validation mean squared error inside the current outer-training
+  partition only.
+- For embedding families, 32-component PCA is fitted separately inside every
+  estimator inner-training split. The final outer-fold prediction uses PCA
+  fitted on the complete current outer-training partition only.
+- Acquisition counts are matched exactly within each outer fold using
+  `floor(budget * outer_fold_size)`.
+- Ties are resolved deterministically by the SHA-256 hash of `example_id`.
+- Learned value is compared with ordinary uncertainty using the integrated
+  matched-budget decision-loss-reduction advantage.
+- A paired 2,000-repetition bootstrap over development examples gives the
+  95% confidence interval.
+- One hundred exact-budget random-routing repetitions are retained as a
+  descriptive baseline.
+
+This stage is a development-only value-predictability diagnostic. It cannot
+by itself change the project's overall `no-go` status because the total
+safety-cost frontier and the common-risk selective operating point remain to
+be evaluated.

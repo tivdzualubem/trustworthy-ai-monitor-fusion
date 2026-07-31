@@ -232,5 +232,84 @@
       "value_estimator_training_started": false,
       "final_test_or_shift_used": false
     }
-  ]
+  ],
+  "value_predictability_diagnostic": {
+    "status": "frozen_before_value_estimator_fit",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "secondary_feature_families": [
+      "cheap_features",
+      "frozen_embedding",
+      "runtime_metadata",
+      "cheap_plus_metadata",
+      "cheap_plus_embedding"
+    ],
+    "model": {
+      "estimator": "HistGradientBoostingRegressor",
+      "loss": "squared_error",
+      "early_stopping": false,
+      "selection_metric": "pooled_inner_validation_mean_squared_error",
+      "candidate_grid": [
+        {
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 30,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 15,
+          "min_samples_leaf": 20,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 250,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 20,
+          "l2_regularization": 5.0
+        }
+      ]
+    },
+    "embedding_transform": {
+      "method": "PCA",
+      "components": 32,
+      "inner_validation_fit_scope": "estimator-inner-training-only",
+      "final_outer_prediction_fit_scope": "current-outer-training-only",
+      "svd_solver": "randomized"
+    },
+    "ranking": {
+      "exact_budget_unit": "within_outer_fold",
+      "count_rule": "floor(budget * outer_fold_size)",
+      "descending_score": true,
+      "deterministic_tie_break": "sha256(example_id) ascending"
+    },
+    "ordinary_uncertainty_score": "base_uncertainty",
+    "learned_score": "outer-fold OOF predicted decision value",
+    "oracle_score": "outer-fold realized decision value",
+    "random_repetitions": 100,
+    "paired_uncertainty_comparison": {
+      "estimand": "trapezoidal integrated matched-budget decision-loss-reduction advantage",
+      "budgets": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.75,
+        1.0
+      ],
+      "bootstrap_unit": "development example",
+      "bootstrap_repetitions": 2000,
+      "confidence_level": 0.95,
+      "random_state": 20262430
+    },
+    "overall_milestone_claim_allowed": false,
+    "reason_overall_claim_deferred": "total safety-cost frontier and common-risk selective-point evaluation remain required"
+  }
 }
