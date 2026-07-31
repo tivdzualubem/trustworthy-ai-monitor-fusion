@@ -60,8 +60,8 @@
     "results/tables/final_v3_qwen_timing_mismatches.csv": "aebcadbada9f374e2d97fb70fceaafbba9a59e7676afb75234d91edb49b71d6e",
     "results/tables/final_v3_selective_route_timing.csv": "1b44ce1790ca54e0d40b23ad591fcbbd0cc543d14e61141ced0def006101d55f",
     "requirements-embedding-cpu.txt": "03a0db2457eb2dd3d4ac98b4685bcd83c20885d54abde42f144c2c9bcd6b5852",
-    "configs/decision_value_real_data_protocol_v1.json": "91a58452be9f45f4b8ed6a570c36e476be2c76ada1935679e20d62935f6a24a5",
-    "docs/decision_value_real_data_protocol.md": "1bb2a67701759e594ee672b85c1f46742f3178dd030d9338de460d279312a1a0",
+    "configs/decision_value_real_data_protocol_v1.json": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+    "docs/decision_value_real_data_protocol.md": "67bd9d895dbc783419d567a46c97b6ae60c7dab44edf84788d2b1d20839d08fe",
     "scripts/validate_full_text_embedding_protocol.py": "41abdfe609391c21074375742cd56c88ce928e00372af7f3270a2d480181565d",
     "tests/test_full_text_embedding_protocol.py": "b73dc0f2062cfbebd24ac8a92159a45174e31db432f9917dc25e95f61ded0530",
     "scripts/build_full_text_prompt_response_embeddings.py": "0439a0dc7119b30bac1b49c476a03cc53b7598390102e1d1b5f9d07f47d8e02e",
@@ -86,9 +86,17 @@
     "reports/decision_value_real_data/matched_budget_random_repetitions.csv": "e8f057918315b2c10c16fbe7e092598ebdc6d382e49febc12dafa3cfff66ffcc",
     "reports/decision_value_real_data/value_predictability_summary.csv": "e1c7f76a256eaaf225fc8f4121affe3a782419ef85d47b4aae2b992841b0df54",
     "reports/decision_value_real_data/value_predictability_manifest.json": "7ead3e436c7b13d1d63d414bb700fbc58491d89357a4a85fcc15bc27e6d6af14",
-    "reports/decision_value_real_data/value_predictability_summary.md": "b14dcb4bd7738244091cc6bd79d91c657f2f156980df2d5639e39758ed49b537"
+    "reports/decision_value_real_data/value_predictability_summary.md": "b14dcb4bd7738244091cc6bd79d91c657f2f156980df2d5639e39758ed49b537",
+    "scripts/run_common_risk_safety_cost_frontier.py": "a16558672114e1b7ef384a36c0bbbb7c024769319c28e9351059a068738cfe1a",
+    "tests/test_common_risk_safety_cost_frontier.py": "0f2c75c4135cafa103c81e7b3022117b5d47fa4d87c24532c7903ffd59ca76df",
+    "reports/decision_value_real_data/value_policy_inference_runtime.csv": "605cb2bf50c67d78ff0dd8a5432d067ada0a2627180ade329c7cf8054c5a65b7",
+    "reports/decision_value_real_data/common_risk_random_summary.csv": "e67ce749d879f6098142ce02d0bd8832a1e5194935d18d2ce5c799ced3f531dc",
+    "reports/decision_value_real_data/common_risk_safety_cost_frontier.csv": "92bd1a1eaa52544cd1e2362e465d27f3653705afec1bd96c7f02430a0977eb55",
+    "reports/decision_value_real_data/common_risk_selective_candidates.csv": "e097c1f61e001f06c6ed85bf089d988d3f53548a102df6401dbbbae373b2c94a",
+    "reports/decision_value_real_data/common_risk_frontier_summary.json": "72acc77cfa12161428bc0c4dba5de453d16a94b020d77bfd3d5259bc20ec5a67",
+    "reports/decision_value_real_data/common_risk_frontier_summary.md": "5301a406a91e87b136ad486b34a7ebf0f337d2fc2b4f275306f8e6c95642a731"
   },
-  "updated_at": "2026-07-31T19:06:23.152342+00:00",
+  "updated_at": "2026-07-31T19:39:40.157037+00:00",
   "decision_value_embedding": {
     "status": "development_only_complete_text_validated",
     "protocol": "configs/decision_value_real_data_protocol_v1.json",
@@ -130,5 +138,22 @@
     "held_out_shift_used": false,
     "overall_project_status": "no-go",
     "reason": "the frozen paired 95% confidence interval includes zero"
+  },
+  "decision_value_safety_cost_frontier": {
+    "status": "development_only_completed",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "risk_limit": 0.05,
+    "frontier_condition_pass": true,
+    "selected_learned_budget": 0.1,
+    "selected_learned_acquisition_rate": 0.0978067575577949,
+    "selected_learned_recall": 0.3367697594501718,
+    "selected_learned_fpr": 0.0286532951289398,
+    "predictability_condition_pass": false,
+    "overall_milestone_pass": false,
+    "overall_project_status": "no-go",
+    "final_test_used": false,
+    "held_out_shift_used": false,
+    "reason": "the frontier condition passed, but the prespecified value-predictability confidence interval includes zero"
   }
 }

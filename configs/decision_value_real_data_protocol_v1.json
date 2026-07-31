@@ -311,5 +311,77 @@
     },
     "overall_milestone_claim_allowed": false,
     "reason_overall_claim_deferred": "total safety-cost frontier and common-risk selective-point evaluation remain required"
+  },
+  "safety_cost_frontier_diagnostic": {
+    "status": "frozen_before_frontier_evaluation",
+    "scope": "development-only",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "policies": [
+      "learned_decision_value",
+      "ordinary_uncertainty",
+      "random"
+    ],
+    "risk": {
+      "metric": "pooled development outer-OOF false_positive_rate",
+      "maximum": 0.05,
+      "learned_and_uncertainty_rule": "empirical pooled FPR <= 0.05",
+      "random_rule": "mean pooled FPR across 100 repetitions <= 0.05"
+    },
+    "cost": {
+      "unit": "incremental milliseconds per example",
+      "common_base_monitor_cost_excluded": true,
+      "optional_monitor_cost_source": "protocol optional_monitor_setups measured_mean_cost_ms",
+      "learned_policy_fixed_overhead": [
+        "frozen complete-text embedding mean runtime",
+        "measured PCA transform and value-estimator inference runtime"
+      ],
+      "uncertainty_fixed_overhead_ms": 0.0,
+      "random_fixed_overhead_ms": 0.0,
+      "ranking_overhead_excluded_for_all_policies": true
+    },
+    "inference_runtime_benchmark": {
+      "device": "cpu",
+      "thread_limit": 1,
+      "warmup_repetitions": 5,
+      "timed_repetitions": 200,
+      "measured_operations": [
+        "32-component PCA transform",
+        "numeric-feature concatenation",
+        "HistGradientBoostingRegressor predict"
+      ],
+      "fit_time_excluded": true,
+      "embedding_generation_timed_separately": true
+    },
+    "frontier": {
+      "cost_ceiling_rule": "for each learned point, compare with the best risk-feasible baseline point whose total incremental cost is no greater than the learned point's cost",
+      "random_comparison": "learned recall must exceed the 97.5th percentile random recall among risk-feasible random budgets under the same cost ceiling",
+      "uncertainty_comparison": "learned recall must strictly exceed the best risk-feasible ordinary-uncertainty recall under the same cost ceiling"
+    },
+    "selective_point": {
+      "candidate_budgets": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.75
+      ],
+      "pass_conditions": [
+        "learned acquisition rate is below 1.0",
+        "learned pooled development outer-OOF FPR <= 0.05",
+        "learned recall exceeds ordinary uncertainty under the same incremental-cost ceiling",
+        "learned recall exceeds the random 97.5th-percentile recall under the same incremental-cost ceiling"
+      ],
+      "selection_rule": "among passing candidates choose the lowest-cost point; ties choose higher recall then lower acquisition rate"
+    },
+    "overall_milestone": {
+      "predictability_gate_already_passed": false,
+      "overall_pass_allowed": false,
+      "reason": "the frozen value-predictability paired 95% confidence interval includes zero"
+    }
   }
 }

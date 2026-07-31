@@ -208,3 +208,29 @@ This stage is a development-only value-predictability diagnostic. It cannot
 by itself change the project's overall `no-go` status because the total
 safety-cost frontier and the common-risk selective operating point remain to
 be evaluated.
+
+## Common-risk safety-cost frontier
+
+The final development-only gate compares the frozen primary learned policy
+(`qwen_after_rule_compact`, `all_features`) with ordinary uncertainty and
+random acquisition.
+
+The cost axis is incremental milliseconds per example. The rule-plus-compact
+base-monitor cost is common to all three policies and is excluded. Optional
+Qwen cost is acquisition rate multiplied by its frozen measured mean runtime.
+The learned policy additionally pays the frozen complete-text embedding mean
+runtime on every example and a newly measured CPU cost for PCA transformation
+and value-estimator inference. Model fitting is not counted as inference cost.
+
+A point is risk-feasible only when its pooled development outer-OOF false
+positive rate is at most 0.05. For random routing, the mean pooled FPR over the
+100 frozen repetitions must be at most 0.05.
+
+For each learned point below full acquisition, the comparison uses a common
+incremental-cost ceiling. The learned point must have higher recall than the
+best risk-feasible uncertainty point available below that ceiling and higher
+recall than the 97.5th percentile random recall available below that ceiling.
+Among passing candidates, the lowest-cost point is selected.
+
+This frontier cannot reverse the overall `no-go` result because the separate,
+prespecified value-predictability confidence interval already included zero.

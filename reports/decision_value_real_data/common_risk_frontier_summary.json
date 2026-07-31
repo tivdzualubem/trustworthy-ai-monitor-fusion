@@ -1,0 +1,50 @@
+{
+  "artifact": "common_risk_safety_cost_frontier_v1",
+  "created_at": "2026-07-31T19:32:25.773834+00:00",
+  "status": "development_only_frontier_completed",
+  "primary_setup": "qwen_after_rule_compact",
+  "primary_feature_family": "all_features",
+  "risk_limit": 0.05,
+  "cost_accounting": {
+    "optional_monitor_mean_cost_ms": 1597.56057,
+    "embedding_mean_runtime_ms_per_example": 159.46816425489058,
+    "pca_and_value_inference_mean_ms_per_example": 0.029189466538229847,
+    "learned_fixed_overhead_ms_per_example": 159.49735372142882,
+    "common_base_monitor_cost_excluded": true
+  },
+  "frontier_condition_pass": true,
+  "selected_selective_point": {
+    "learned_budget": 0.1,
+    "learned_acquisition_rate": 0.0978067575577949,
+    "learned_incremental_cost_ms_per_example": 315.74957307531145,
+    "learned_recall": 0.3367697594501718,
+    "learned_fpr": 0.0286532951289398,
+    "risk_pass": true,
+    "best_uncertainty_budget_under_cost": 0.1,
+    "best_uncertainty_cost_ms_per_example": 156.25221935388265,
+    "best_uncertainty_recall_under_cost": 0.2336769759450171,
+    "recall_margin_over_uncertainty": 0.10309278350515469,
+    "uncertainty_dominance_pass": true,
+    "best_random_budget_under_cost": 0.1,
+    "best_random_cost_ms_per_example": 156.25221935388262,
+    "best_random_recall_upper95_under_cost": 0.30420962199312707,
+    "recall_margin_over_random_upper95": 0.032560137457044724,
+    "random_dominance_pass": true,
+    "selective_point_pass": true
+  },
+  "predictability_condition_pass": false,
+  "overall_milestone_pass": false,
+  "overall_project_status": "no-go",
+  "reason": "the prespecified value-predictability confidence interval includes zero",
+  "scope": {
+    "development_rows": 1687,
+    "final_test_used": false,
+    "held_out_shift_used": false
+  },
+  "outputs": {
+    "runtime": "reports/decision_value_real_data/value_policy_inference_runtime.csv",
+    "random_summary": "reports/decision_value_real_data/common_risk_random_summary.csv",
+    "frontier": "reports/decision_value_real_data/common_risk_safety_cost_frontier.csv",
+    "candidates": "reports/decision_value_real_data/common_risk_selective_candidates.csv"
+  }
+}
