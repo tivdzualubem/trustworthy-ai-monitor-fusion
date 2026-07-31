@@ -2,22 +2,23 @@
   "artifact": "repository_reproducibility_snapshot",
   "created_at": "2026-07-15T12:07:24.536350+00:00",
   "status": "validated",
-  "paper_direction": "measurement_validity",
+  "paper_direction": "decision_value_acquisition_evaluation",
   "routing_stop_go": "no_go",
   "entry_points": {
     "verify": "python scripts/verify_reproducibility.py --strict-hashes",
     "test": "pytest -q",
     "reproduce_cpu": "bash scripts/reproduce_cpu_results.sh",
-    "gpu_timing_package": "exports/final_v3_policy_timing_package.zip"
+    "gpu_timing_package": "exports/final_v3_policy_timing_package.zip",
+    "build_report": "bash paper/build_report.sh"
   },
   "files": {
-    "README.md": "ab70bb2f941fe3f307d2bdc87c86eaff9da2f88b78eeb8d319fb6b6efe2f70cb",
+    "README.md": "2ab8991cf055f0e60ed48d284df11ec6aea3c3b78de2b010311e6428d1036a4d",
     "requirements.txt": "cff88e7767c96dc430406ab38e3b35b57cfea17ca1b09174fc0ab17c313139f4",
     "pyproject.toml": "aebc5edb0daf5fafaf67cbad3aa7619d1d1eb999a6553a19ece3abb6fc8c384b",
     "Makefile": "e9c6314cb982d76b36bd4e3f55b766219b585c4a1a73cd581da1065515c3b5a1",
     "docs/research_scope.md": "595a3a117b1ca126c6a80de3f50f0994dddaffc3054b836b3e2a5ba53956abe7",
     "docs/label_audit_protocol.md": "698eab8ad6d26f590d1ef35c38b4a8ea66ba301dddb33d3bfcd9297b75bda743",
-    "paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf": "410416a4318152c5a4c85daa603402fd66ff038555b2e1015dbf23ef39c6b50f",
+    "paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf": "64494d72f8916d21b0450af3d11af24f03d61704866c94b4c544954c72c38cbc",
     "data/processed/unified_dataset_label_audited_v1.parquet": "d368118db6ab39f33824e9887c4c319352c91900b61b1364df6419fde80d6b54",
     "data/processed/monitor_score_cache_v3.parquet": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -40,7 +41,7 @@
     "scripts/write_stop_go_decision_v3.py": "dec580ceffa2f753bdea57caad50458ee59fa6077ed109a4881dd31ddc6bc77b",
     "scripts/benchmark_final_v3_policy_timing_gpu.py": "671cf7645e5de53d89a7a43902c2cd36ea4fdb8ac97b2fd87195aae7f2c16aaf",
     "scripts/reproduce_cpu_results.sh": "643fbe5a21535c93c407e8659f95ffc241d43bd9b78b1b4783a1bba75b40c0b1",
-    "scripts/verify_reproducibility.py": "7845f23590064e42fd45ea856339175a305358e73a8abe4403d6b7dd62fa4135",
+    "scripts/verify_reproducibility.py": "714b849136d4eabdec339c64785e13f449741ff2ec9004e13af63c17215c5733",
     "tests/test_reproducibility.py": "9ff37a9a89715835fcc2072ffc06977d72e31584ee1ecc2b5310cc52003d3a91",
     "results/tables/final_calibration_diagnostics_v3.csv": "721c1265f79afa80e0aa033a7cce840afff227665ae9a6f7574db124a24bf5ae",
     "results/tables/final_full_vs_selective_metrics_v3.csv": "f433677808c39b094f275c64f450a656206bd3392de2e04f15e5ef1409de6ca9",
@@ -94,9 +95,25 @@
     "reports/decision_value_real_data/common_risk_safety_cost_frontier.csv": "92bd1a1eaa52544cd1e2362e465d27f3653705afec1bd96c7f02430a0977eb55",
     "reports/decision_value_real_data/common_risk_selective_candidates.csv": "e097c1f61e001f06c6ed85bf089d988d3f53548a102df6401dbbbae373b2c94a",
     "reports/decision_value_real_data/common_risk_frontier_summary.json": "72acc77cfa12161428bc0c4dba5de453d16a94b020d77bfd3d5259bc20ec5a67",
-    "reports/decision_value_real_data/common_risk_frontier_summary.md": "5301a406a91e87b136ad486b34a7ebf0f337d2fc2b4f275306f8e6c95642a731"
+    "reports/decision_value_real_data/common_risk_frontier_summary.md": "5301a406a91e87b136ad486b34a7ebf0f337d2fc2b4f275306f8e6c95642a731",
+    "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex": "051d9e9ab3e727e4838dc6f31cc632e1fc78962792eca75308effa2496f2f578",
+    "paper/Risk_Controlled_Decision_Value_Acquisition_Report.pdf": "64494d72f8916d21b0450af3d11af24f03d61704866c94b4c544954c72c38cbc",
+    "paper/references.bib": "93c5a0a0b2d1ff01c222dfbd89aabd4e2158657b028089480b91d299fa66f5f9",
+    "paper/build_report.sh": "6d53f80ce4fa313186949b9be9d047025ba8f9b0c9e2a5b5877e38b7fa5fe6c7",
+    "paper/figures/common_risk_fpr_by_budget.pdf": "24f0599ade17d25911b475587e360356963b73daf737b4167f1e0dc2281a089f",
+    "paper/figures/common_risk_fpr_by_budget.png": "9e5a3929757093a9fc6ce6d525dba5b98e6a877261c620537653c17df1cbdf98",
+    "paper/figures/common_risk_recall_cost_frontier.pdf": "84106e764a6f987d9a8fb6684f078e1b7108fe4672740d794a8d4e05d6408c9b",
+    "paper/figures/common_risk_recall_cost_frontier.png": "5d4f12ed174e8aa7d86188814a43d6658bf68c062547fa2c744c774dcec12b91",
+    "paper/figures/real_data_complementary_value.pdf": "b937aec95054845332e74f691a133b9dc1e342c843d16d156f7dfdab6da94a3b",
+    "paper/figures/real_data_complementary_value.png": "8f45f72abf71df04d2fdaf43fa602006646f6d265c197c2549e10fd399af8ca8",
+    "paper/figures/runtime_components.pdf": "ba8808d102c8c61b6dcf63f6aaa2bb480b97e748713f09443d8af638645633f7",
+    "paper/figures/runtime_components.png": "fb4bb27520daa675ea9e559cc3052a5cc7aeafd8c7f7f17baf142353c4dc8510",
+    "paper/figures/simulation_context_allocation.png": "59280753a0986152dee6a0340fa3d34213ac78802e428f8eea8b2123ee99ee73",
+    "paper/figures/simulation_matched_budget_decision_loss.png": "9a82faa6f5af69fac78405273e1ca9cac7ba664899357cbcc81a1952b9edec90",
+    "paper/figures/value_predictability_intervals.pdf": "e3d023276122544f231c944263e95ab3f96a0957756d6a6dcf3bd3db120ee35f",
+    "paper/figures/value_predictability_intervals.png": "3c1eac4076ac9cace48439e2693c3660c27ecd10061fb5cd6e4c87bb5c2b083f"
   },
-  "updated_at": "2026-07-31T19:39:40.157037+00:00",
+  "updated_at": "2026-07-31T21:19:53.683050+00:00",
   "decision_value_embedding": {
     "status": "development_only_complete_text_validated",
     "protocol": "configs/decision_value_real_data_protocol_v1.json",
@@ -123,7 +140,8 @@
     "outer_evaluation_leakage_rows": 0,
     "final_test_used": false,
     "held_out_shift_used": false,
-    "value_estimator_training_started": false
+    "value_estimator_training_started": true,
+    "value_estimator_training_completed": true
   },
   "decision_value_predictability": {
     "status": "development_only_completed_no_go",
@@ -155,5 +173,24 @@
     "final_test_used": false,
     "held_out_shift_used": false,
     "reason": "the frontier condition passed, but the prespecified value-predictability confidence interval includes zero"
+  },
+  "final_report": {
+    "status": "comprehensive_final_report_completed",
+    "title": "Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion",
+    "analysis_baseline_commit": "788cc51",
+    "source": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex",
+    "pdf": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.pdf",
+    "compatibility_pdf": "paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf",
+    "bibliography": "paper/references.bib",
+    "figures_directory": "paper/figures",
+    "page_count": 17,
+    "decision_status": "no-go",
+    "frontier_condition_pass": true,
+    "predictability_condition_pass": false,
+    "overall_milestone_pass": false,
+    "final_test_used": false,
+    "held_out_shift_used": false,
+    "new_method_claim_made": false,
+    "deployment_readiness_claim_made": false
   }
 }
