@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Counterexample}
+\newtheorem{remark}{Remark}
+
+\title{Decision-Value Acquisition for Runtime Safety Monitoring}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Setup}
+
+Let \(Y\) denote the unknown safety label, \(H\) all information available
+before an optional monitor is acquired, and \(Z\) the output of that monitor.
+A downstream action \(a\in\mathcal{A}\) incurs loss \(\ell(a,Y)\).
+
+For a realized cheap-information state \(H=h\), define the conditional Bayes
+risk without the optional monitor by
+\[
+r(h)=\inf_{a\in\mathcal{A}}
+\mathbb{E}\!\left[\ell(a,Y)\mid H=h\right].
+\]
+
+After acquiring the optional monitor and observing \(Z=z\), define
+\[
+r(h,z)=\inf_{a\in\mathcal{A}}
+\mathbb{E}\!\left[\ell(a,Y)\mid H=h,Z=z\right].
+\]
+
+Let \(c(h)\geq 0\) be the acquisition cost. The conditional decision value is
+\[
+\Delta(h)=r(h)-\mathbb{E}\!\left[r(h,Z)\mid H=h\right].
+\]
+
+Thus, \(\Delta(h)\) is the expected reduction in optimal downstream decision
+loss before acquisition cost is charged.
+
+\section{Optimal two-monitor acquisition rule}
+
+\begin{proposition}[Decision-value acquisition rule]
+For a fixed cheap-information state \(h\), acquiring the optional monitor is
+strictly optimal exactly when
+\[
+\Delta(h)>c(h).
+\]
+If \(\Delta(h)=c(h)\), acquisition and non-acquisition have equal conditional
+risk.
+\end{proposition}
+
+\begin{proof}
+Without acquisition, the minimum conditional risk is
+\[
+R_{\mathrm{skip}}(h)=r(h).
+\]
+
+With acquisition, the cost is paid and the action is optimized after observing
+\(Z\), giving
+\[
+R_{\mathrm{acquire}}(h)
+=
+c(h)+\mathbb{E}\!\left[r(h,Z)\mid H=h\right].
+\]
+
+Acquisition is strictly preferable if and only if
+\[
+R_{\mathrm{acquire}}(h)<R_{\mathrm{skip}}(h).
+\]
+Substitution yields
+\[
+c(h)+\mathbb{E}\!\left[r(h,Z)\mid H=h\right]<r(h).
+\]
+Rearranging gives
+\[
+r(h)-\mathbb{E}\!\left[r(h,Z)\mid H=h\right]>c(h),
+\]
+which is exactly
+\[
+\Delta(h)>c(h).
+\]
+Equality gives equal conditional risk; the reverse inequality makes skipping
+optimal.
+\end{proof}
+
+\begin{remark}[Value of information before cost]
+A decision rule that observes \(Z\) may always ignore it. Therefore,
+\[
+\mathbb{E}\!\left[r(h,Z)\mid H=h\right]\leq r(h),
+\]
+and hence \(\Delta(h)\geq 0\). Acquisition is worthwhile only when this value
+exceeds its cost.
+\end{remark}
+
+\section{Counterexample to uncertainty routing}
+
+Consider binary \(Y\in\{0,1\}\), binary actions, and zero-one loss
+\(\ell(a,Y)=\mathbf{1}\{a\neq Y\}\). There are two equally likely contexts,
+\(C=A\) and \(C=B\). The cheap information includes context, but its class
+posterior is identical:
+\[
+\Pr(Y=1\mid H=h_A)
+=
+\Pr(Y=1\mid H=h_B)
+=
+\frac{1}{2}.
+\]
+Therefore,
+\[
+r(h_A)=r(h_B)=\frac{1}{2},
+\]
+so the two examples have identical cheap-model uncertainty.
+
+\begin{example}[Identical uncertainty, different monitor quality]
+In context \(A\), the optional monitor is a binary symmetric signal with
+accuracy \(0.9\):
+\[
+\Pr(Z=Y\mid H=h_A)=0.9.
+\]
+The Bayes action after observing \(Z\) is \(a=Z\), whose risk is \(0.1\).
+Therefore,
+\[
+\Delta(h_A)=0.5-0.1=0.4.
+\]
+
+In context \(B\), the optional monitor is independent of \(Y\):
+\[
+\Pr(Z=1\mid Y,H=h_B)=0.5.
+\]
+The posterior remains \(0.5\) after observing \(Z\), so
+\[
+\Delta(h_B)=0.5-0.5=0.
+\]
+
+For every cost \(c\) satisfying \(0<c<0.4\), the optimal rule acquires in
+context \(A\) and skips in context \(B\), although cheap uncertainty is
+identical.
+\end{example}
+
+At a matched acquisition rate of \(50\%\), a decision-value policy acquires
+every context-\(A\) example and no context-\(B\) example. Its average downstream
+decision loss is
+\[
+\frac{1}{2}(0.1)+\frac{1}{2}(0.5)=0.3.
+\]
+
+An uncertainty policy cannot distinguish the two contexts. With
+context-independent random tie-breaking, it acquires half of each context.
+Its average downstream loss is
+\[
+\frac{1}{2}\left[\frac{1}{2}(0.1)+\frac{1}{2}(0.5)\right]
++
+\frac{1}{2}(0.5)
+=
+0.4.
+\]
+
+The policies have the same acquisition rate and therefore the same expected
+acquisition cost, but uncertainty routing has \(0.1\) greater decision loss.
+It is therefore suboptimal.
+
+\section{Implication}
+
+The routing target should be monitor-specific expected decision improvement,
+not harmfulness probability or uncertainty alone. The next empirical task is
+to estimate \(\Delta(h)\) and compare decision-value, uncertainty, random, and
+oracle acquisition at identical budgets.
+
+\end{document}

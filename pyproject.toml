@@ -9,7 +9,7 @@ description = "Budget-aware runtime safety monitor fusion and measurement-validi
 requires-python = ">=3.10,<3.13"
 dependencies = [
   "datasets==5.0.0",
-  "huggingface-hub==1.21.0",
+  "huggingface-hub==0.36.2",
   "joblib==1.5.3",
   "matplotlib==3.11.0",
   "numpy==2.5.0",

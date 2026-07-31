@@ -1,0 +1,6 @@
+setup_id,feature_family,outer_fold,eval_n,warmup_repetitions,timed_repetitions,pca_components,selected_candidate_id,elapsed_seconds,mean_batch_ms,mean_per_example_ms
+qwen_after_rule_compact,all_features,0,338,5,200,32,2,2.26495820999844,11.3247910499922,0.03350529896447396
+qwen_after_rule_compact,all_features,1,337,5,200,32,2,2.3983130709966645,11.991565354983322,0.035583279985113715
+qwen_after_rule_compact,all_features,2,337,5,200,32,0,1.4494100559968501,7.247050279984251,0.02150460023734199
+qwen_after_rule_compact,all_features,3,337,5,200,32,2,2.2421315249957843,11.210657624978921,0.03326604636492261
+qwen_after_rule_compact,all_features,4,338,5,200,32,0,1.493713148011011,7.468565740055055,0.022096348343358153

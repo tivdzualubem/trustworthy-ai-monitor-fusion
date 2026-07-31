@@ -1,47 +1,102 @@
-# Budget-Aware Runtime Safety Monitor Fusion
+# Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion
 
-This repository contains the data, monitor outputs, serialized policies,
-evaluation code, robustness analyses, and fixed-hardware timing evidence for a
-budget-aware runtime safety-monitor fusion study.
+This repository contains an audited runtime safety-monitoring study with three
+monitor levels: a deterministic rule filter, a compact moderation classifier,
+and Qwen3Guard-Gen-4B. The completed work includes the original budget-aware
+fusion pipeline and a professor-directed pivot from uncertainty routing to
+**monitor-specific decision-value acquisition**.
 
-The prediction unit is a prompt-response pair. The target is whether the
-response should be intercepted because it materially contains or provides
-disallowed harmful content. Benign responses, refusals, and safe redirections
-are negative examples.
+The prediction unit is a prompt-response pair. The positive label means that
+the response should be intercepted because, in the context of the prompt, it
+materially provides, facilitates, endorses, or contains disallowed harmful
+content. Benign answers, safe refusals, and safe redirections are negative.
 
-## Main finding
+## Final scientific result
 
-Selective acquisition reduced mean compute cost and mean latency in the
-measured setting, but it did not satisfy the prespecified false-positive risk
-criterion under all audited and held-out shift evaluations. The resulting
-paper direction is therefore **measurement validity**, not a claim of a
-successful deployment-ready routing policy.
+The result is mixed and remains **no-go** under the prespecified development
+milestone:
 
-The final report is:
+- **Complementary monitor value: pass.** Adding Qwen after rule and compact
+  monitoring reduced cross-fitted decision loss from 0.17487 to 0.06758.
+- **Value predictability versus uncertainty: no-go.** The primary all-features
+  learned policy had integrated matched-budget advantage 0.004816, but the
+  paired 95% interval was `[-0.001705, 0.011485]`.
+- **Common-risk safety-cost frontier: pass.** The lowest-cost passing point
+  acquired Qwen for 9.78% of development examples, reached recall 0.33677,
+  and had pooled outer-OOF FPR 0.02865.
+- **Scope control: pass.** The decision-value analysis used 1,687 development
+  rows only. `final_test` and `held_out_shift` were not used.
 
-[`paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf`](paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf)
+Because every milestone condition was required, the project does not claim a
+new validated routing method, robustness to changing attack distributions,
+detection of correlated monitor failures, or deployment readiness.
 
-## Repository contents
+## Final report
 
-- `data/processed/`: audited prompt-response dataset and final monitor-score
-  cache used by the analyses.
-- `data/metadata/`: source, label, monitor, model, policy, timing, and
-  evaluation manifests.
+- [Compiled technical report](paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf)
+- [LaTeX source](paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex)
+- [Bibliography](paper/references.bib)
+- [Report figures](paper/figures/)
+
+Build the report with:
+
+```bash
+bash paper/build_report.sh
+```
+
+## Main experiment stages
+
+1. **Audited monitor-fusion baseline**
+   - 2,159 prompt-response examples;
+   - deterministic rule filter, KoalaAI/Text-Moderation, and Qwen3Guard;
+   - pinned model revisions, serialized policies, nested group holdouts,
+     Learn-then-Test diagnostics, and Tesla-T4 timing.
+
+2. **Decision-value theory and counterexample**
+   - conditional value
+     `Delta(h) = r(h) - E[r(h, Z) | h]`;
+   - acquire exactly when expected decision improvement exceeds acquisition
+     cost;
+   - identical uncertainty can coexist with different optional-monitor value.
+
+3. **Two-context Gaussian simulation**
+   - 30 independent seeds;
+   - random, uncertainty, oracle-value, and learned-value acquisition compared
+     at identical acquisition counts;
+   - at 25% acquisition, learned value reduced decision loss by 0.027839
+     relative to uncertainty, with paired 95% interval
+     `[0.027368, 0.028310]`.
+
+4. **Leakage-controlled real-data diagnostic**
+   - five outer and four inner stratified group folds;
+   - 13,496 nested value-estimator training targets;
+   - complete-text 384-dimensional frozen embeddings with 100% token coverage
+     and zero truncation;
+   - six prespecified feature families;
+   - exact matched budgets and 100 random repetitions per budget.
+
+5. **Common-risk cost accounting**
+   - optional Qwen mean runtime: 1,597.56 ms;
+   - complete-text embedding mean runtime: 159.47 ms/example;
+   - PCA plus value inference: 0.029 ms/example;
+   - risk feasibility defined by pooled development outer-OOF FPR <= 0.05.
+
+## Repository layout
+
+- `data/processed/`: audited dataset and final score cache.
+- `data/metadata/`: source, monitor, model, timing, policy, and reproducibility
+  manifests.
 - `src/monitor_fusion/`: reusable monitor implementation.
-- `scripts/`: data processing, monitor scoring, model training, policy
-  evaluation, robustness analysis, timing, and verification entry points.
-- `artifacts/`: serialized fusion models, frozen policies, risk-control
-  artifacts, and the final timing-result archive.
-- `exports/final_v3_policy_timing_package.zip`: portable Tesla-T4 timing
-  package.
-- `reports/`: detailed scientific outputs and raw generations.
-- `results/tables/`: canonical final result tables.
-- `tests/`: reproducibility smoke tests.
-- `paper/`: final technical report.
-
-Historical v2 files are retained where they provide the direct lineage for
-the audited v3 cache or are still referenced by final v3 scripts. They are not
-the recommended final entry points.
+- `scripts/`: data building, scoring, cross-fitting, simulation, diagnostics,
+  timing, and verification entry points.
+- `artifacts/`: serialized fusion and risk-control objects.
+- `reports/decision_value_theory/`: counterexample outputs.
+- `reports/decision_value_gaussian_simulation/`: controlled simulation.
+- `reports/decision_value_real_data/`: cross-fitted targets, embeddings,
+  value-estimator results, matched-budget curves, and safety-cost frontier.
+- `results/tables/`: canonical tables from the original fusion evaluation.
+- `tests/`: reproducibility and methodological checks.
+- `paper/`: final LaTeX report, bibliography, figures, and PDF.
 
 ## Environment setup
 
@@ -55,124 +110,62 @@ python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
-The final GPU timing package has its own requirements and was executed on a
-Tesla T4. A compatible CUDA-enabled PyTorch installation is required for GPU
-regeneration; PyTorch is supplied by the Kaggle accelerator image in the
-documented timing workflow.
+The complete-text embedding environment is pinned separately:
 
-## Fast verification
+```bash
+python -m pip install --no-cache-dir -r requirements-embedding-cpu.txt
+```
 
-Verify the committed artifacts, hashes, serialized model, data counts, final
-tables, and timing manifest:
+## Verification
+
+Verify committed hashes and the full test suite:
 
 ```bash
 python scripts/verify_reproducibility.py --strict-hashes
 pytest -q
 ```
 
-Equivalent Make targets are available:
+Equivalent Make targets:
 
 ```bash
 make verify
 make test
 ```
 
-## Reproduce the CPU analyses
+## Reproducing the decision-value analyses
 
-The committed audited score cache allows the final statistical analyses to be
-rerun without downloading or regenerating the large monitor models:
-
-```bash
-bash scripts/reproduce_cpu_results.sh
-```
-
-This executes, in order:
-
-1. serialized v3 fusion-model training;
-2. all prespecified policy evaluation;
-3. nested leave-source-out and leave-family-out evaluation;
-4. nested fixed-sequence Learn-then-Test risk control;
-5. the final stop/go decision.
-
-The scripts write their detailed outputs under `artifacts/`, `reports/`,
-`results/tables/`, and `data/metadata/`.
-
-## Regenerate monitor outputs and fixed-hardware timing
-
-The repository preserves raw Qwen generations, compact-monitor outputs,
-manifests, pinned model revisions, and the rule-filter implementation.
-
-For the exact final timing workflow:
-
-1. Upload `exports/final_v3_policy_timing_package.zip` to a Kaggle notebook.
-2. Select a Tesla T4 accelerator and enable internet access for the initial
-   model download.
-3. Provide a Kaggle secret named `HF_TOKEN`.
-4. Extract the package and run:
+The principal scripts are:
 
 ```bash
-bash final_v3_policy_timing_package/run_gpu.sh \
-  final_v3_policy_timing_package \
-  final_v3_policy_timing_results
+python scripts/run_decision_value_counterexample.py
+python scripts/run_two_context_gaussian_decision_value.py
+python scripts/build_cross_fitted_decision_value_targets.py
+python scripts/build_full_text_prompt_response_embeddings.py
+python scripts/build_nested_value_training_targets.py
+python scripts/run_cross_fitted_value_predictability.py
+python scripts/run_common_risk_safety_cost_frontier.py
 ```
 
-The committed measured result archive is
-`artifacts/final_v3_policy_timing_results.zip`. Its manifest records the GPU,
-batch size, warm-up policy, CUDA synchronization, model revisions, parsing
-rate, score comparisons, and policy latencies.
+The committed artifacts are the source of truth for the final report. The
+excluded `final_test` and `held_out_shift` partitions must remain unused unless
+a new protocol is approved and frozen before evaluation.
 
-## Data and label audit
+## Earlier runtime result
 
-The final audited dataset contains 2,159 examples:
-
-- 403 positive response-harmfulness labels;
-- 1,756 negative labels;
-- 200 manually reviewed audit rows;
-- 19 final label corrections;
-- a focused second review of 40 high-priority rows.
-
-The main files are:
-
-- `data/processed/unified_dataset_label_audited_v1.parquet`
-- `data/processed/monitor_score_cache_v3.parquet`
-- `docs/label_audit_protocol.md`
-- `reports/label_audit/`
-
-## Key measured results
-
-On the 128-example Tesla-T4 timing benchmark:
-
-- full-information mean latency: 1,654.37 ms;
-- selective mean latency: 1,251.71 ms;
-- measured mean-latency reduction: 24.34%;
-- selective expensive-monitor call rate: 69.53%.
-
-Median latency improved, but p95 and p99 did not improve. No tail-latency
-improvement is claimed.
-
-Rule scores regenerated exactly and compact-monitor scores agreed within
-`3.75e-7`. Qwen outputs remained parseable, but two unique examples changed
-classification between the cached and regenerated runs. The raw generations
-and mismatch records are retained as measurement-reproducibility evidence.
-
-## Risk-control interpretation
-
-The fixed-sequence Learn-then-Test procedure produced valid certificates on
-the untouched in-fold risk-control partitions. Those certificates do not imply
-that the same 5% false-positive bound transfers to an excluded dataset source
-or attack family. Several outer-shift evaluations exceeded the target.
-
-The old final-test partition had influenced development and is retained only
-as descriptive evidence. Nested leave-source-out and leave-family-out
-evaluation replaces any claim that it remained untouched.
+The original selective threshold router reduced mean Tesla-T4 latency from
+1,654.37 ms to 1,251.71 ms, a 24.34% reduction, while calling Qwen on 69.53%
+of the timing examples. The upper-tail latency did not improve, and the
+prespecified risk condition did not transfer reliably across audited shift
+diagnostics. This result is retained as measurement-validity evidence, not as
+a deployment claim.
 
 ## Limitations
 
-- The manual label audit was performed by one author.
-- The fixed-hardware benchmark used one accelerator type and 128 examples.
-- Qwen classification outputs were not exactly deterministic across the two
-  recorded generations.
-- The risk-control guarantees are scoped to their in-fold risk-control
-  distributions and do not establish universal shift robustness.
-- The repository supports research reproduction; it does not establish
-  deployment readiness.
+- Development-only evidence for the decision-value pivot.
+- Single-author label audit.
+- Sparse positive and negative realized-value events.
+- General-purpose embeddings rather than a representation trained for monitor
+  complementarity.
+- Mixed CPU/GPU timing components in incremental cost accounting.
+- No claim of arbitrary distribution-shift robustness, correlated-failure
+  detection, online adaptation, or production readiness.

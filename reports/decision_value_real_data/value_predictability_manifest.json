@@ -1,0 +1,126 @@
+{
+  "artifact": "cross_fitted_value_predictability_diagnostic_v1",
+  "created_at": "2026-07-31T05:09:24.886709+00:00",
+  "status": "development_only_value_predictability_completed",
+  "overall_project_status": "no-go",
+  "overall_milestone_claim_made": false,
+  "primary_comparison": {
+    "setup_id": "qwen_after_rule_compact",
+    "feature_family": "all_features",
+    "integrated_advantage": 0.00481624184943687,
+    "paired_bootstrap_lower95": -0.0017045791345583882,
+    "paired_bootstrap_upper95": 0.011485254890337877,
+    "predictability_criterion_pass": false
+  },
+  "scope": {
+    "development_rows": 1687,
+    "final_test_used": false,
+    "held_out_shift_used": false,
+    "global_outer_target_rows_used_for_training": false,
+    "current_outer_evaluation_fold_excluded": true
+  },
+  "model": {
+    "estimator": "HistGradientBoostingRegressor",
+    "loss": "squared_error",
+    "early_stopping": false,
+    "selection_metric": "pooled_inner_validation_mean_squared_error",
+    "candidate_grid": [
+      {
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 30,
+        "l2_regularization": 1.0
+      },
+      {
+        "learning_rate": 0.05,
+        "max_iter": 200,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1.0
+      },
+      {
+        "learning_rate": 0.05,
+        "max_iter": 250,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 20,
+        "l2_regularization": 5.0
+      }
+    ]
+  },
+  "embedding_transform": {
+    "method": "PCA",
+    "components": 32,
+    "inner_validation_fit_scope": "estimator-inner-training-only",
+    "final_outer_prediction_fit_scope": "current-outer-training-only",
+    "svd_solver": "randomized"
+  },
+  "ranking": {
+    "exact_budget_unit": "within_outer_fold",
+    "count_rule": "floor(budget * outer_fold_size)",
+    "descending_score": true,
+    "deterministic_tie_break": "sha256(example_id) ascending"
+  },
+  "matched_budgets": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.75,
+    1.0
+  ],
+  "random_repetitions": 100,
+  "paired_comparison": {
+    "estimand": "trapezoidal integrated matched-budget decision-loss-reduction advantage",
+    "budgets": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.75,
+      1.0
+    ],
+    "bootstrap_unit": "development example",
+    "bootstrap_repetitions": 2000,
+    "confidence_level": 0.95,
+    "random_state": 20262430
+  },
+  "feature_families": [
+    "cheap_features",
+    "frozen_embedding",
+    "runtime_metadata",
+    "cheap_plus_metadata",
+    "cheap_plus_embedding",
+    "all_features"
+  ],
+  "setups": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "embedding_runtime_ms_per_example": 159.46816425489058,
+  "inputs": {
+    "configs/decision_value_real_data_protocol_v1.json": "91a58452be9f45f4b8ed6a570c36e476be2c76ada1935679e20d62935f6a24a5",
+    "data/processed/unified_dataset_label_audited_v1.parquet": "d368118db6ab39f33824e9887c4c319352c91900b61b1364df6419fde80d6b54",
+    "data/processed/monitor_score_cache_v3.parquet": "3b51bc25c5d70a3a7533e22e3db1aa2234117461a5d64220dc31b53ea66163a7",
+    "reports/decision_value_real_data/frozen_prompt_response_embeddings.parquet": "0ad00a173e44a06d1a808fe6d835f550290e948d7e780307343b2ecc9bdb9959",
+    "reports/decision_value_real_data/nested_value_training_targets.parquet": "05a88a568fca0f6c4afa51026e2f41d9bcc8c9ee796e6bdad24029e05ff5f2dc",
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec",
+    "reports/decision_value_real_data/development_outer_fold_assignments.csv": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd"
+  },
+  "outputs": {
+    "reports/decision_value_real_data/value_estimator_oof_predictions.parquet": "ad1164ba7effce85ba89ddcbb7a1b4119d71ea31953f25fd41ac8de533f7c1e1",
+    "reports/decision_value_real_data/value_estimator_fold_metrics.csv": "ae07554679d0bd44effae56816c2acf4d3296122a3d6612a2ebcd98233481054",
+    "reports/decision_value_real_data/matched_budget_value_curves.csv": "2c084db35f545eed0511b63ab958ea58b5b3789ab8380529b1731591d2be83f2",
+    "reports/decision_value_real_data/matched_budget_random_repetitions.csv": "e8f057918315b2c10c16fbe7e092598ebdc6d382e49febc12dafa3cfff66ffcc",
+    "reports/decision_value_real_data/value_predictability_summary.csv": "e1c7f76a256eaaf225fc8f4121affe3a782419ef85d47b4aae2b992841b0df54",
+    "reports/decision_value_real_data/value_predictability_summary.md": "b14dcb4bd7738244091cc6bd79d91c657f2f156980df2d5639e39758ed49b537"
+  }
+}

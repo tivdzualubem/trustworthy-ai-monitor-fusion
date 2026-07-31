@@ -128,6 +128,20 @@ def verify(strict_hashes: bool) -> None:
         ROOT
         / "paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf"
     )
+    require(
+        ROOT
+        / "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex"
+    )
+    require(ROOT / "paper/references.bib")
+    require(ROOT / "paper/build_report.sh")
+    require(
+        ROOT
+        / "paper/figures/value_predictability_intervals.pdf"
+    )
+    require(
+        ROOT
+        / "paper/figures/common_risk_recall_cost_frontier.pdf"
+    )
     require(ROOT / "artifacts/final_v3_policy_timing_results.zip")
     require(ROOT / "exports/final_v3_policy_timing_package.zip")
 
@@ -145,8 +159,10 @@ def verify(strict_hashes: bool) -> None:
         "Qwen mismatch unique examples:",
         timing["score_validation"]["qwen_mismatch_unique_examples"],
     )
-    print("paper direction: measurement validity")
-    print("routing stop/go: no-go")
+    print("paper direction: decision-value acquisition evaluation")
+    print("value-predictability gate: no-go")
+    print("common-risk frontier gate: pass")
+    print("overall milestone: no-go")
 
 
 def main() -> None:

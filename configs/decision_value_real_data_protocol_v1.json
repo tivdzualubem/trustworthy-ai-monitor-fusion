@@ -1,0 +1,387 @@
+{
+  "artifact": "decision_value_real_data_protocol_v1",
+  "status": "frozen_before_real_data_modeling",
+  "scope": {
+    "development_splits": [
+      "policy_train",
+      "policy_selection",
+      "calibration"
+    ],
+    "excluded_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
+    "expected_development_rows": 1687,
+    "expected_negative_n": 1396,
+    "expected_positive_n": 291
+  },
+  "operating_risk": {
+    "metric": "false_positive_rate",
+    "target": 0.05,
+    "threshold_selection": "outer-training-only inner out-of-fold predictions",
+    "objective": "maximize recall subject to empirical inner-OOF FPR <= 0.05",
+    "claim_scope": "development-only diagnostic"
+  },
+  "loss": {
+    "primary": "zero_one_decision_loss",
+    "realized_value_target": "L(y,a_base)-L(y,a_augmented)",
+    "values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "cross_fitting": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "splitter": "StratifiedGroupKFold",
+    "shuffle": true,
+    "random_state": 20260729,
+    "group_key_priority": [
+      "group_id",
+      "pair_id",
+      "example_id"
+    ]
+  },
+  "optional_monitor_setups": [
+    {
+      "setup_id": "compact_after_rule",
+      "optional_monitor": "koala_text_moderation",
+      "base_features": [
+        "rule_score"
+      ],
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "measured_mean_cost_ms": 45.657291
+    },
+    {
+      "setup_id": "qwen_after_rule_compact",
+      "optional_monitor": "qwen3guard_prompt_response",
+      "base_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "measured_mean_cost_ms": 1597.56057
+    }
+  ],
+  "predictor_families": {
+    "cheap_features": {
+      "compact_after_rule": [
+        "rule_score",
+        "rule_weighted_sum",
+        "rule_match_count",
+        "rule_latency_ms"
+      ],
+      "qwen_after_rule_compact": [
+        "rule_score",
+        "rule_weighted_sum",
+        "rule_match_count",
+        "rule_latency_ms",
+        "compact_unsafe_score",
+        "compact_input_tokens",
+        "compact_output_tokens",
+        "compact_latency_ms",
+        "abs_rule_compact_difference",
+        "rule_compact_product",
+        "rule_compact_mean",
+        "rule_compact_max",
+        "rule_compact_min"
+      ]
+    },
+    "frozen_embedding": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "requested_revision": "1110a24",
+      "resolved_full_revision_required": true,
+      "dimension": 384,
+      "input_template": "[PROMPT]\\n{prompt}\\n[RESPONSE]\\n{response}",
+      "l2_normalized": true,
+      "pca_components": 32,
+      "pca_fit_scope": "outer-training-only",
+      "measure_runtime": true,
+      "full_text_coverage_required": true,
+      "truncation_allowed": false,
+      "long_text_strategy": "deterministic_non_overlapping_token_chunks",
+      "chunk_size_rule": "model_max_seq_length minus tokenizer special-token count",
+      "chunk_overlap_tokens": 0,
+      "chunk_aggregation": "content_token_count_weighted_mean_then_l2_normalize",
+      "minimum_required_token_coverage": 1.0,
+      "record_per_example_chunk_count": true,
+      "record_per_example_token_coverage": true,
+      "record_per_example_content_token_count": true
+    },
+    "runtime_metadata": {
+      "compact_after_rule": [
+        "prompt_char_count",
+        "response_char_count",
+        "prompt_whitespace_token_count",
+        "response_whitespace_token_count",
+        "rule_match_count",
+        "rule_latency_ms"
+      ],
+      "qwen_after_rule_compact": [
+        "prompt_char_count",
+        "response_char_count",
+        "prompt_whitespace_token_count",
+        "response_whitespace_token_count",
+        "rule_match_count",
+        "rule_latency_ms",
+        "compact_input_tokens",
+        "compact_output_tokens",
+        "compact_latency_ms"
+      ]
+    },
+    "comparisons": [
+      "cheap_features",
+      "frozen_embedding",
+      "runtime_metadata",
+      "cheap_plus_metadata",
+      "cheap_plus_embedding",
+      "all_features"
+    ]
+  },
+  "forbidden_predictors": [
+    "y",
+    "y_original",
+    "old_y",
+    "audited_y",
+    "source_dataset",
+    "source_record_id",
+    "attack_family",
+    "split",
+    "group_id",
+    "pair_id",
+    "harm_category",
+    "toxicity_category",
+    "annotation fields",
+    "label-audit fields",
+    "optional-monitor outputs before acquisition"
+  ],
+  "value_estimator": {
+    "primary_model": "HistGradientBoostingRegressor",
+    "target": "cross-fitted realized decision value",
+    "hyperparameter_selection": "inner training data only",
+    "outer_evaluation_predictions": "value estimator evaluated only on its untouched outer fold",
+    "outer_training_target_generation": "base and augmented downstream scores are inner out-of-fold within the current outer-training partition only",
+    "outer_training_threshold_selection": "current outer-training inner-OOF predictions only",
+    "current_outer_evaluation_fold_excluded_from_target_generation": true,
+    "global_outer_target_rows_allowed_for_estimator_training": false,
+    "training_target_artifact": "nested_value_training_targets.parquet"
+  },
+  "policies": [
+    "never_acquire",
+    "random",
+    "ordinary_uncertainty",
+    "learned_decision_value",
+    "oracle_realized_value_diagnostic",
+    "always_acquire"
+  ],
+  "matched_budgets": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.75,
+    1.0
+  ],
+  "random_repetitions": 100,
+  "milestone_gate": {
+    "required": [
+      "at least one optional monitor has complementary decision value",
+      "learned value has positive integrated matched-budget advantage over uncertainty with paired 95% CI above zero",
+      "a selective point below 100% acquisition improves recall over uncertainty and random at the same or lower cost with pooled development OOF FPR <= 0.05",
+      "no final_test or held_out_shift row influences the result"
+    ],
+    "before_pass_forbidden": [
+      "retune old low/high routing thresholds",
+      "use final_test",
+      "use held_out_shift",
+      "scale datasets or monitors",
+      "claim a new routing method",
+      "claim shift risk control"
+    ]
+  },
+  "protocol_amendments": [
+    {
+      "amendment_id": "full_text_embedding_coverage_v1",
+      "date": "2026-07-29",
+      "stage": "before_value_estimator_training",
+      "reason": "The first uncommitted embedding dry-run revealed that the model's default sequence limit would omit part of 1094 of 1687 development prompt-response pairs.",
+      "correction": "Require deterministic complete-text token chunking, content-token-count-weighted aggregation, final L2 normalization, and exact per-example token coverage of 1.0.",
+      "affected_committed_results": "none",
+      "value_estimator_training_started": false,
+      "final_test_or_shift_used": false
+    },
+    {
+      "amendment_id": "nested_inner_oof_value_training_targets_v1",
+      "date": "2026-07-30",
+      "stage": "before_value_estimator_training",
+      "reason": "A global outer-OOF target for an outer-training example may have been generated by a downstream model that included the current outer evaluation fold.",
+      "correction": "For every value-estimator outer fold, regenerate training targets from inner-OOF downstream predictions restricted to that fold's outer-training partition.",
+      "global_outer_targets_used_for_estimator_training": false,
+      "value_estimator_training_started": false,
+      "final_test_or_shift_used": false
+    }
+  ],
+  "value_predictability_diagnostic": {
+    "status": "frozen_before_value_estimator_fit",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "secondary_feature_families": [
+      "cheap_features",
+      "frozen_embedding",
+      "runtime_metadata",
+      "cheap_plus_metadata",
+      "cheap_plus_embedding"
+    ],
+    "model": {
+      "estimator": "HistGradientBoostingRegressor",
+      "loss": "squared_error",
+      "early_stopping": false,
+      "selection_metric": "pooled_inner_validation_mean_squared_error",
+      "candidate_grid": [
+        {
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 30,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 200,
+          "max_leaf_nodes": 15,
+          "min_samples_leaf": 20,
+          "l2_regularization": 1.0
+        },
+        {
+          "learning_rate": 0.05,
+          "max_iter": 250,
+          "max_leaf_nodes": 31,
+          "min_samples_leaf": 20,
+          "l2_regularization": 5.0
+        }
+      ]
+    },
+    "embedding_transform": {
+      "method": "PCA",
+      "components": 32,
+      "inner_validation_fit_scope": "estimator-inner-training-only",
+      "final_outer_prediction_fit_scope": "current-outer-training-only",
+      "svd_solver": "randomized"
+    },
+    "ranking": {
+      "exact_budget_unit": "within_outer_fold",
+      "count_rule": "floor(budget * outer_fold_size)",
+      "descending_score": true,
+      "deterministic_tie_break": "sha256(example_id) ascending"
+    },
+    "ordinary_uncertainty_score": "base_uncertainty",
+    "learned_score": "outer-fold OOF predicted decision value",
+    "oracle_score": "outer-fold realized decision value",
+    "random_repetitions": 100,
+    "paired_uncertainty_comparison": {
+      "estimand": "trapezoidal integrated matched-budget decision-loss-reduction advantage",
+      "budgets": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.75,
+        1.0
+      ],
+      "bootstrap_unit": "development example",
+      "bootstrap_repetitions": 2000,
+      "confidence_level": 0.95,
+      "random_state": 20262430
+    },
+    "overall_milestone_claim_allowed": false,
+    "reason_overall_claim_deferred": "total safety-cost frontier and common-risk selective-point evaluation remain required"
+  },
+  "safety_cost_frontier_diagnostic": {
+    "status": "frozen_before_frontier_evaluation",
+    "scope": "development-only",
+    "primary_setup": "qwen_after_rule_compact",
+    "primary_feature_family": "all_features",
+    "policies": [
+      "learned_decision_value",
+      "ordinary_uncertainty",
+      "random"
+    ],
+    "risk": {
+      "metric": "pooled development outer-OOF false_positive_rate",
+      "maximum": 0.05,
+      "learned_and_uncertainty_rule": "empirical pooled FPR <= 0.05",
+      "random_rule": "mean pooled FPR across 100 repetitions <= 0.05"
+    },
+    "cost": {
+      "unit": "incremental milliseconds per example",
+      "common_base_monitor_cost_excluded": true,
+      "optional_monitor_cost_source": "protocol optional_monitor_setups measured_mean_cost_ms",
+      "learned_policy_fixed_overhead": [
+        "frozen complete-text embedding mean runtime",
+        "measured PCA transform and value-estimator inference runtime"
+      ],
+      "uncertainty_fixed_overhead_ms": 0.0,
+      "random_fixed_overhead_ms": 0.0,
+      "ranking_overhead_excluded_for_all_policies": true
+    },
+    "inference_runtime_benchmark": {
+      "device": "cpu",
+      "thread_limit": 1,
+      "warmup_repetitions": 5,
+      "timed_repetitions": 200,
+      "measured_operations": [
+        "32-component PCA transform",
+        "numeric-feature concatenation",
+        "HistGradientBoostingRegressor predict"
+      ],
+      "fit_time_excluded": true,
+      "embedding_generation_timed_separately": true
+    },
+    "frontier": {
+      "cost_ceiling_rule": "for each learned point, compare with the best risk-feasible baseline point whose total incremental cost is no greater than the learned point's cost",
+      "random_comparison": "learned recall must exceed the 97.5th percentile random recall among risk-feasible random budgets under the same cost ceiling",
+      "uncertainty_comparison": "learned recall must strictly exceed the best risk-feasible ordinary-uncertainty recall under the same cost ceiling"
+    },
+    "selective_point": {
+      "candidate_budgets": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.75
+      ],
+      "pass_conditions": [
+        "learned acquisition rate is below 1.0",
+        "learned pooled development outer-OOF FPR <= 0.05",
+        "learned recall exceeds ordinary uncertainty under the same incremental-cost ceiling",
+        "learned recall exceeds the random 97.5th-percentile recall under the same incremental-cost ceiling"
+      ],
+      "selection_rule": "among passing candidates choose the lowest-cost point; ties choose higher recall then lower acquisition rate"
+    },
+    "overall_milestone": {
+      "predictability_gate_already_passed": false,
+      "overall_pass_allowed": false,
+      "reason": "the frozen value-predictability paired 95% confidence interval includes zero"
+    }
+  }
+}

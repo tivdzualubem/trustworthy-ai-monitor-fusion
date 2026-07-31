@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "development_rows": 1687,
+  "negative_n": 1396,
+  "positive_n": 291,
+  "excluded_rows": 472,
+  "effective_group_n": 1687,
+  "optional_setups": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "predictor_comparisons": [
+    "cheap_features",
+    "frozen_embedding",
+    "runtime_metadata",
+    "cheap_plus_metadata",
+    "cheap_plus_embedding",
+    "all_features"
+  ],
+  "budgets": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.75,
+    1.0
+  ],
+  "fpr_target": 0.05,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_requested_revision": "1110a24"
+}
