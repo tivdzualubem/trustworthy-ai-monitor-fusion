@@ -1,0 +1,421 @@
+{
+  "artifact": "exact_cost_risk_cascade_protocol_v2",
+  "version": "2.0.0",
+  "status": "frozen_before_v2_modeling_or_threshold_tuning",
+  "freeze_date": "2026-08-04",
+  "baseline_commit": "381fbced8fce3e9e5630c9cecfd25dcda090552b",
+  "scope": {
+    "primary_contribution": "evaluation_and_measurement_methodology_for_exact_cost_risk_constrained_safety_monitor_cascades",
+    "conditional_router_claim": "allowed_only_after_all_confirmatory_claim_gates_pass",
+    "mandatory_fallback": "evaluation_methodology_showing_that_apparent_routing_gains_can_disappear_under_correct_comparison",
+    "legacy_development_splits": [
+      "policy_train",
+      "policy_selection",
+      "calibration"
+    ],
+    "protected_legacy_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
+    "legacy_exposure_note": "The protected legacy splits were examined by an earlier threshold-routing study, were not used for the decision-value milestone, and are not fresh confirmatory data. They must not be opened again in v2.",
+    "fresh_split_ids": [
+      "fresh_calibration_optimization",
+      "fresh_calibration_risk",
+      "fresh_confirmatory"
+    ]
+  },
+  "data_boundary": {
+    "default_action": "deny",
+    "protected_split_action": "raise_before_read",
+    "permitted_existing_development_artifacts": [
+      "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet",
+      "reports/decision_value_real_data/nested_value_training_targets.parquet",
+      "reports/decision_value_real_data/development_outer_fold_assignments.csv",
+      "reports/decision_value_real_data/frozen_prompt_response_embeddings.parquet"
+    ],
+    "sealed_mixed_split_containers": [
+      "data/processed/unified_dataset_label_audited_v1.parquet",
+      "data/processed/monitor_score_cache_v3.parquet"
+    ],
+    "sole_permitted_mixed_container_operation": "predicate_filtered_materialization_of_legacy_development_splits_by_scripts/materialize_v2_development_view.py",
+    "mixed_container_requirements": [
+      "request only policy_train, policy_selection, and calibration",
+      "apply the split predicate in the parquet reader before conversion to pandas",
+      "never materialize, count, summarize, log, hash, or evaluate protected rows",
+      "write a development-only artifact and verify every output split before any v2 analysis"
+    ],
+    "restricted_path_prefixes": [
+      "reports/final_evaluation",
+      "reports/fusion_comparison_v2",
+      "reports/fusion_comparison_v3",
+      "reports/final_v3_policy_timing",
+      "artifacts/frozen_policies_v3",
+      "artifacts/final_v3_policy_timing_results.zip",
+      "exports/final_v3_policy_timing_package"
+    ],
+    "report_files_may_be_changed_during_implementation": false
+  },
+  "analysis_phases": [
+    {
+      "phase": "implementation",
+      "allowed_inputs": "synthetic fixtures and protocol metadata only",
+      "allowed_actions": "implement and unit-test estimands, policies, calibration, inference, and measurement"
+    },
+    {
+      "phase": "development",
+      "allowed_inputs": "legacy development view only",
+      "allowed_actions": "repeated grouped analysis and model-family selection",
+      "claim_scope": "exploratory development evidence only"
+    },
+    {
+      "phase": "fresh_calibration",
+      "allowed_inputs": "fresh calibration optimization and risk subsets only",
+      "allowed_actions": "freeze deployable policy and certify joint FPR and cost constraints"
+    },
+    {
+      "phase": "fresh_confirmatory",
+      "allowed_inputs": "sealed fresh confirmatory data",
+      "allowed_actions": "one execution of the frozen evaluation",
+      "claim_scope": "confirmatory only if every gate passes"
+    }
+  ],
+  "decision_value": {
+    "name": "policy_specific_signed_decision_value",
+    "realized_definition": "V_pi=L(Y,pi_base(H))-L(Y,pi_augmented(H,Z))",
+    "conditional_definition": "v_pi(h)=E[V_pi|H=h]",
+    "zero_one_loss_values": [
+      -1,
+      0,
+      1
+    ],
+    "negative_values_allowed": true,
+    "policy_specific": true,
+    "base_and_augmented_policies_must_be_frozen_within_each_outer_fold": true,
+    "target_generation": "nested_cross_fitting_with_current_outer_evaluation_group_excluded",
+    "net_value_rule": "acquire iff estimated_v_pi(h)-lambda*estimated_incremental_cost_ms(h)>0",
+    "equivalent_positive_cost_score": "estimated_v_pi(h)/max(estimated_incremental_cost_ms(h),1.0)",
+    "bayes_nonnegativity_claim_for_fitted_policies_forbidden": true
+  },
+  "development_resampling": {
+    "splitter": "StratifiedGroupKFold",
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "shuffle": true,
+    "fold_seeds": [
+      1729,
+      2718,
+      3141,
+      5772,
+      8111
+    ],
+    "group_key_priority": [
+      "group_id",
+      "pair_id",
+      "example_id"
+    ],
+    "stratification_target": "y",
+    "selection_criterion": "mean_group_bootstrap_lower_confidence_bound_of_recall_at_jointly_feasible_exact_cost_points",
+    "aggregation": "average each metric across seeds; uncertainty resamples effective groups and recomputes the across-seed mean",
+    "minimum_stability_requirement": "primary recall difference has the same sign in at least four of five seeds"
+  },
+  "model_families": {
+    "signed_value_regressors": [
+      {
+        "family": "Ridge",
+        "candidate_grid": [
+          {"alpha": 0.1},
+          {"alpha": 1.0},
+          {"alpha": 10.0}
+        ]
+      },
+      {
+        "family": "HistGradientBoostingRegressor",
+        "candidate_grid": [
+          {"learning_rate": 0.05, "max_iter": 200, "max_leaf_nodes": 7, "min_samples_leaf": 30, "l2_regularization": 1.0},
+          {"learning_rate": 0.05, "max_iter": 250, "max_leaf_nodes": 15, "min_samples_leaf": 20, "l2_regularization": 1.0},
+          {"learning_rate": 0.05, "max_iter": 250, "max_leaf_nodes": 31, "min_samples_leaf": 20, "l2_regularization": 5.0}
+        ]
+      },
+      {
+        "family": "RandomForestRegressor",
+        "candidate_grid": [
+          {"n_estimators": 400, "max_depth": 6, "min_samples_leaf": 10, "max_features": 0.5},
+          {"n_estimators": 400, "max_depth": 10, "min_samples_leaf": 5, "max_features": 0.75},
+          {"n_estimators": 400, "max_depth": null, "min_samples_leaf": 5, "max_features": 1.0}
+        ]
+      }
+    ],
+    "current_error_classifiers": [
+      "LogisticRegression",
+      "HistGradientBoostingClassifier",
+      "RandomForestClassifier"
+    ],
+    "downstream_fusion_classifiers": [
+      "LogisticRegression",
+      "HistGradientBoostingClassifier",
+      "RandomForestClassifier"
+    ],
+    "cost_predictors": [
+      "Ridge_on_log_latency",
+      "HistGradientBoostingRegressor_on_log_latency"
+    ],
+    "hyperparameter_rule": "select only inside the current inner training data using the prespecified grids; no manual tuning after development results",
+    "family_selection_rule": "select on repeated grouped development evidence; ties within one standard error prefer lower online latency, then the linear family"
+  },
+  "policies": {
+    "proposed": {
+      "policy_id": "signed_value_cost_aware",
+      "online_score": "estimated_signed_value/max(estimated_incremental_cost_ms,1.0)",
+      "decision": "score greater than frozen threshold with frozen deterministic boundary randomization",
+      "batch_rank_or_test_rank_allowed": false
+    },
+    "required_baselines": [
+      {
+        "policy_id": "threshold_distance",
+        "online_score": "-abs(base_probability-frozen_base_decision_threshold)",
+        "uses_optional_monitor_before_acquisition": false
+      },
+      {
+        "policy_id": "current_error_prediction",
+        "online_score": "cross_fitted_probability_that_the_frozen_base_policy_is_wrong",
+        "uses_optional_monitor_before_acquisition": false
+      },
+      {
+        "policy_id": "random_acquisition",
+        "online_score": "sha256_uniform(example_id,policy_seed)",
+        "policy_seeds": [104729, 130363, 155921, 181081, 205759],
+        "uses_labels_or_optional_monitor_outputs": false
+      },
+      {
+        "policy_id": "direct_fusion",
+        "online_score": "not_applicable",
+        "decision": "always acquire and apply a directly trained full-information fusion classifier",
+        "role": "full_cost_endpoint"
+      }
+    ],
+    "endpoints": [
+      "never_acquire",
+      "always_acquire"
+    ],
+    "oracle_policy_role": "diagnostic_upper_bound_only"
+  },
+  "heterogeneous_cost": {
+    "primary_unit": "end_to_end_milliseconds_per_prompt_response_pair",
+    "primary_cost": "total_policy_latency_including_preprocessing_cheap_monitors_router_optional_monitor_fusion_and_final_decision",
+    "secondary_cost": "incremental_latency_relative_to_the_frozen_base_policy",
+    "per_example_measurement_required": true,
+    "online_cost_features_must_exist_before_acquisition": true,
+    "post_acquisition_latency_is_forbidden_as_a_router_feature": true,
+    "optional_monitor_timeout_ms": 30000.0,
+    "end_to_end_timeout_ms": 35000.0,
+    "timeout_action": "record_the_timeout_cap_and_apply_the_frozen_conservative_fallback_action",
+    "predicted_cost_floor_ms": 1.0,
+    "cost_target_fractions_of_calibration_always_acquire_increment": [
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "exact_cost_comparison": {
+    "budget_definition": "base_policy_mean_total_cost_plus_a_prespecified_fraction_of_the_fresh_calibration_always_acquire_increment",
+    "same_absolute_budget_for_every_selective_policy": true,
+    "calibration_matching": "mix two adjacent streaming thresholds with a frozen hash-based probability so calibration expected cost equals the absolute target",
+    "boundary_randomization_inputs": [
+      "example_id",
+      "policy_id",
+      "frozen_randomization_seed"
+    ],
+    "evaluation_ranks_used": false,
+    "primary_equivalence_margin": "max(1.0_ms,0.01*absolute_cost_budget_ms)",
+    "primary_cost_test": "two_one_sided_group_bootstrap_equivalence_test_for_paired_mean_total_cost",
+    "recall_comparison_allowed_only_when_cost_equivalence_passes": true,
+    "cost_ceiling_substitution_for_exact_matching_forbidden": true,
+    "interpolation_using_confirmatory_labels_forbidden": true
+  },
+  "independent_calibration": {
+    "source": "new_data_not_used_for_training_model_selection_or_legacy_evaluation",
+    "optimization_fraction": 0.3,
+    "risk_testing_fraction": 0.7,
+    "split_unit": "effective_group",
+    "optimization_roles": [
+      "build_the_finite_threshold_grid",
+      "pareto_filter_candidates",
+      "construct_exact_expected_cost_threshold_mixtures"
+    ],
+    "risk_testing_roles": [
+      "learn_then_test_joint_FPR_and_mean_cost_certification"
+    ],
+    "candidate_grid_maximum": 100,
+    "online_policy_artifact": [
+      "model_family",
+      "fitted_model_hashes",
+      "base_decision_threshold",
+      "lower_acquisition_threshold",
+      "upper_acquisition_threshold",
+      "boundary_mixture_probability",
+      "hash_seed",
+      "absolute_cost_budget_ms",
+      "conservative_timeout_action"
+    ],
+    "confirmatory_information_used": false
+  },
+  "joint_risk_control": {
+    "method": "pareto_filtered_learn_then_test",
+    "familywise_error_rate": 0.05,
+    "constraints": [
+      {
+        "risk": "false_positive_rate",
+        "population": "examples_with_y_equal_to_zero",
+        "maximum": 0.05,
+        "p_value": "one_sided_exact_binomial"
+      },
+      {
+        "risk": "mean_total_end_to_end_cost_ms",
+        "maximum": "absolute_cost_budget_ms",
+        "normalization_bound_ms": 35000.0,
+        "p_value": "one_sided_hoeffding_bentkus_for_bounded_loss"
+      }
+    ],
+    "candidate_joint_p_value": "maximum_of_the_two_constraint_p_values",
+    "multiple_candidate_control": "bonferroni_over_the_pareto_filtered_candidate_set",
+    "selection_among_certified_candidates": "highest_optimization_recall_then_lower_cost_then_higher_threshold",
+    "point_estimate_only_pass_forbidden": true,
+    "separate_random_repetition_metrics_may_not_be_combined_into_one_policy": true,
+    "assumption": "calibration_groups_are_exchangeable_with_the_target_deployment_population",
+    "shift_scope": "no_distribution_free_shift_guarantee"
+  },
+  "latency_measurement": {
+    "hardware": "single_frozen_target_configuration_recorded_in_the_run_manifest",
+    "clock": "monotonic_high_resolution",
+    "accelerator_synchronization_before_and_after_each_timed_accelerator_stage": true,
+    "warmup_requests": 20,
+    "cold_start_reported_separately": true,
+    "steady_state_primary": true,
+    "stream_order": "prespecified_sha256_order_independent_of_labels_and_scores",
+    "required_stages": [
+      "input_preparation",
+      "base_monitors",
+      "router_features",
+      "router_inference",
+      "optional_monitor",
+      "final_fusion",
+      "end_to_end"
+    ],
+    "required_statistics": [
+      "count",
+      "mean",
+      "standard_deviation",
+      "median",
+      "p90",
+      "p95",
+      "p99",
+      "maximum",
+      "timeout_rate"
+    ],
+    "tail_confidence_intervals": "group_bootstrap_with_2000_repetitions",
+    "raw_per_example_timings_preserved": true
+  },
+  "fresh_data": {
+    "required": true,
+    "legacy_overlap_allowed": false,
+    "minimum_distinct_sources": 3,
+    "source_separation": "fresh_confirmatory_sources_are_disjoint_from_legacy_development_and_fresh_calibration_sources",
+    "time_separation": "fresh_confirmatory_examples_are collected after protocol freeze and after the online policy artifact is frozen",
+    "deduplication": "exact_and_semantic_deduplication_against_all_legacy_and_fresh_calibration_examples_before_labels_or_monitor_outputs_are_opened",
+    "sample_size_plan": {
+      "status": "computed_and_recorded_before_collection",
+      "familywise_alpha": 0.05,
+      "power": 0.8,
+      "fpr_null": 0.05,
+      "fpr_design_alternative": 0.03,
+      "minimum_recall_difference": 0.05,
+      "assumed_recall_discordance_rate": 0.2,
+      "attrition_inflation": 0.1,
+      "rule": "take_the_maximum_negative_and_positive_requirements_from_the_prespecified_exact_binomial_and_paired_binary_power_calculations"
+    },
+    "labeling": {
+      "minimum_independent_raters_per_example": 3,
+      "raters_blinded_to_policy_monitor_outputs_and_other_raters": true,
+      "randomized_item_order": true,
+      "adjudicate_every_disagreement": true,
+      "primary_label": "adjudicated_label_when_disputed_otherwise_unanimous_or_majority_label",
+      "report": [
+        "raw_agreement",
+        "fleiss_kappa",
+        "class_counts",
+        "adjudication_rate",
+        "per_source_counts"
+      ]
+    },
+    "one_shot_evaluation": {
+      "sealed_before_policy_freeze": true,
+      "content_hash_recorded_before_scoring": true,
+      "maximum_confirmatory_runs": 1,
+      "failed_or_partial_run_handling": "preserve_logs_and_report_as_protocol_deviation_without_rerunning_unless_failure_occurred_before_any_metric_or_label_was_revealed"
+    }
+  },
+  "confirmatory_inference": {
+    "bootstrap_unit": "effective_group",
+    "bootstrap_repetitions": 5000,
+    "confidence_level": 0.95,
+    "primary_router": "single_policy_selected_and_frozen_from_fresh_calibration",
+    "primary_comparators": [
+      "threshold_distance",
+      "current_error_prediction",
+      "random_acquisition"
+    ],
+    "direct_fusion_role": "reported_full_cost_endpoint_not_a_selective_same_cost_recall_superiority_target",
+    "multiplicity": "holm_control_across_the_three_primary_paired_recall_comparisons",
+    "required_outputs": [
+      "paired_recall_differences",
+      "paired_FPR_differences",
+      "paired_mean_cost_differences",
+      "cost_equivalence_tests",
+      "joint_constraint_results",
+      "source_stratified_metrics",
+      "tail_latency_metrics"
+    ]
+  },
+  "claim_gate": {
+    "router_improves_recall_under_controlled_FPR_and_cost": {
+      "all_required": [
+        "fresh_confirmatory_dataset_passes_source_time_deduplication_and_labeling_requirements",
+        "frozen_online_policy_is_applied_once_without_test_rank_or_retuning",
+        "joint_calibration_FPR_and_cost_certification_passes",
+        "confirmatory_one_sided_95_percent_FPR_upper_bound_is_at_most_0.05",
+        "exact_cost_equivalence_passes_for_each_primary_selective_comparator",
+        "holm_adjusted_paired_recall_lower_bound_is_above_zero_for_each_primary_selective_comparator",
+        "end_to_end_and_tail_latency_are_completely_reported",
+        "no_protected_legacy_split_was_opened"
+      ]
+    },
+    "failure_action": "retain_the_no_go_and_frame_the_final_contribution_as_evaluation_methodology",
+    "partial_pass_language": "report_component_results_without_claiming_router_superiority"
+  },
+  "legacy_frontier": {
+    "status": "invalid_for_router_superiority_claims",
+    "reasons": [
+      "baselines_were_not_compared_at_exact_cost",
+      "random_recall_and_FPR_summaries_did_not_define_one_jointly_feasible_policy",
+      "FPR_was_screened_by_point_estimate_without_selection_valid_joint_control",
+      "test_fold_ranked_acquisition_is_not_an_online_deployable_threshold"
+    ],
+    "legacy_outputs_may_be_reproduced_for_audit": true,
+    "legacy_outputs_may_be_used_as_v2_evidence": false
+  },
+  "protocol_change_control": {
+    "tuning_after_freeze_allowed": false,
+    "amendment_allowed_only_for_implementation_error_before_confirmatory_access": true,
+    "amendment_requirements": [
+      "timestamp",
+      "reason",
+      "files_and_estimands_affected",
+      "whether_any_development_calibration_or_confirmatory_result_was_seen",
+      "new_protocol_hash"
+    ],
+    "confirmatory_access_after_amendment": "requires_a_newly_frozen_protocol_and_still_sealed_confirmatory_data"
+  }
+}
