@@ -73,3 +73,46 @@ def test_mixed_containers_have_one_authorized_purpose() -> None:
             protocol=protocol,
             root=root,
         )
+
+
+from monitor_fusion.evaluation.data_boundary import (
+    DEVELOPMENT_VIEW_ARTIFACTS,
+)
+
+
+def test_only_frozen_development_view_artifacts_are_authorized() -> None:
+    protocol = load_protocol()
+    root = Path(__file__).resolve().parents[1]
+
+    accepted = validate_input_paths(
+        [
+            root / relative
+            for relative in sorted(
+                DEVELOPMENT_VIEW_ARTIFACTS
+            )
+        ],
+        purpose="development_analysis",
+        protocol=protocol,
+        root=root,
+    )
+
+    assert set(accepted) == set(
+        DEVELOPMENT_VIEW_ARTIFACTS
+    )
+
+    unauthorized = (
+        root
+        / "data/processed/v2_development_view"
+        / "unreviewed.parquet"
+    )
+
+    with pytest.raises(
+        DataBoundaryError,
+        match="not authorized",
+    ):
+        validate_input_paths(
+            [unauthorized],
+            purpose="development_analysis",
+            protocol=protocol,
+            root=root,
+        )

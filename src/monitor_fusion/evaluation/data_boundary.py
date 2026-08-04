@@ -16,6 +16,28 @@ DEFAULT_PROTOCOL_PATH = (
     ROOT / "configs/exact_cost_risk_cascade_protocol_v2.json"
 )
 
+DEVELOPMENT_VIEW_DIRECTORY = (
+    "data/processed/v2_development_view"
+)
+DEVELOPMENT_VIEW_DATASET = (
+    DEVELOPMENT_VIEW_DIRECTORY
+    + "/unified_dataset_label_audited_v1.development.parquet"
+)
+DEVELOPMENT_VIEW_CACHE = (
+    DEVELOPMENT_VIEW_DIRECTORY
+    + "/monitor_score_cache_v3.development.parquet"
+)
+DEVELOPMENT_VIEW_MANIFEST = (
+    DEVELOPMENT_VIEW_DIRECTORY + "/manifest.json"
+)
+DEVELOPMENT_VIEW_ARTIFACTS = frozenset(
+    {
+        DEVELOPMENT_VIEW_DATASET,
+        DEVELOPMENT_VIEW_CACHE,
+        DEVELOPMENT_VIEW_MANIFEST,
+    }
+)
+
 
 def load_protocol(path: Path = DEFAULT_PROTOCOL_PATH) -> dict:
     """Load the frozen protocol without opening any data artifact."""
@@ -104,7 +126,12 @@ def validate_input_paths(
     mixed = set(boundary["sealed_mixed_split_containers"])
 
     if purpose == "development_analysis":
-        unauthorized = sorted(set(relative_paths).difference(development_allowed))
+        authorized = development_allowed.union(
+            DEVELOPMENT_VIEW_ARTIFACTS
+        )
+        unauthorized = sorted(
+            set(relative_paths).difference(authorized)
+        )
     elif purpose == "development_view_materialization":
         unauthorized = sorted(set(relative_paths).difference(mixed))
     elif purpose == "synthetic_test":
