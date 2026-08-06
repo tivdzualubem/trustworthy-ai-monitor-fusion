@@ -1,4 +1,4 @@
-"""Independent calibration enforcement for protocol-v2 policies."""
+"""Fresh independent calibration enforcement for protocol-v2 policies."""
 
 from __future__ import annotations
 
@@ -16,40 +16,49 @@ from monitor_fusion.policies.exact_cost import (
 
 IntArray = NDArray[np.int64]
 
-POLICY_TRAIN_SPLIT = "policy_train"
-POLICY_SELECTION_SPLIT = "policy_selection"
-CALIBRATION_SPLIT = "calibration"
+FRESH_CALIBRATION_OPTIMIZATION_SPLIT = (
+    "fresh_calibration_optimization"
+)
+FRESH_CALIBRATION_RISK_SPLIT = "fresh_calibration_risk"
+FRESH_CONFIRMATORY_SPLIT = "fresh_confirmatory"
 
-DEVELOPMENT_SPLITS = (
-    POLICY_TRAIN_SPLIT,
-    POLICY_SELECTION_SPLIT,
-    CALIBRATION_SPLIT,
+FRESH_CALIBRATION_SPLITS = (
+    FRESH_CALIBRATION_OPTIMIZATION_SPLIT,
+    FRESH_CALIBRATION_RISK_SPLIT,
 )
 
-PROTECTED_SPLITS = frozenset(
+LEGACY_SPLITS = frozenset(
     {
+        "policy_train",
+        "policy_selection",
+        "calibration",
         "final_test",
         "held_out_shift",
     }
 )
 
+FORBIDDEN_CALIBRATION_SPLITS = (
+    LEGACY_SPLITS | {FRESH_CONFIRMATORY_SPLIT}
+)
+
 
 @dataclass(frozen=True)
-class IndependentDevelopmentRoles:
-    """Non-overlapping row indices for the frozen development roles."""
+class FreshCalibrationRoles:
+    """Disjoint optimization and risk-testing row indices."""
 
-    policy_train_indices: IntArray
-    policy_selection_indices: IntArray
-    calibration_indices: IntArray
+    optimization_indices: IntArray
+    risk_testing_indices: IntArray
 
 
 @dataclass(frozen=True)
 class IndependentlyCalibratedPolicy:
-    """A policy threshold calibrated only on the frozen calibration split."""
+    """Policy optimized without using independent risk-testing rows."""
 
     selected_candidate_id: str
-    calibration_split: str
-    calibration_example_count: int
+    optimization_split: str
+    risk_testing_split: str
+    optimization_example_count: int
+    risk_testing_example_count: int
     policy: ExactCostThresholdMixture
 
 
@@ -69,79 +78,108 @@ def _string_vector(
         )
 
     if any(not str(value).strip() for value in array):
-        raise ValueError(
-            f"{name} contains an empty value"
-        )
+        raise ValueError(f"{name} contains an empty value")
 
     return array
 
 
-def partition_independent_development_roles(
+def partition_fresh_calibration_roles(
     split: Iterable[object],
     example_id: Iterable[object],
-) -> IndependentDevelopmentRoles:
-    """Validate and partition the three frozen development roles."""
+    effective_group: Iterable[object],
+) -> FreshCalibrationRoles:
+    """Validate the frozen fresh-calibration data boundary."""
 
-    splits = _string_vector(
-        split,
-        name="split",
-    )
+    splits = _string_vector(split, name="split")
     example_ids = _string_vector(
         example_id,
         name="example_id",
     )
+    effective_groups = _string_vector(
+        effective_group,
+        name="effective_group",
+    )
 
-    if len(splits) != len(example_ids):
+    row_count = len(splits)
+
+    if len(example_ids) != row_count:
         raise ValueError(
             "split and example_id lengths differ"
         )
 
-    if len(set(example_ids.tolist())) != len(example_ids):
+    if len(effective_groups) != row_count:
+        raise ValueError(
+            "split and effective_group lengths differ"
+        )
+
+    if len(set(example_ids.tolist())) != row_count:
         raise ValueError(
             "example_id values must be unique"
         )
 
     observed = set(splits.tolist())
 
-    protected = sorted(
-        observed.intersection(PROTECTED_SPLITS)
+    forbidden = sorted(
+        observed.intersection(
+            FORBIDDEN_CALIBRATION_SPLITS
+        )
     )
 
-    if protected:
+    if forbidden:
         raise ValueError(
-            "Protected splits are forbidden: "
-            + ", ".join(protected)
+            "Legacy, protected, and confirmatory splits "
+            "are forbidden during fresh calibration: "
+            + ", ".join(forbidden)
         )
 
-    expected = set(DEVELOPMENT_SPLITS)
+    expected = set(FRESH_CALIBRATION_SPLITS)
 
     if observed != expected:
         raise ValueError(
-            "Development rows must contain exactly "
-            "policy_train, policy_selection, and calibration"
+            "Fresh calibration rows must contain exactly "
+            "fresh_calibration_optimization and "
+            "fresh_calibration_risk"
         )
 
-    roles = IndependentDevelopmentRoles(
-        policy_train_indices=np.flatnonzero(
-            splits == POLICY_TRAIN_SPLIT
+    group_roles: dict[str, str] = {}
+
+    for group, split_name in zip(
+        effective_groups,
+        splits,
+        strict=True,
+    ):
+        group_name = str(group)
+        role_name = str(split_name)
+        previous = group_roles.setdefault(
+            group_name,
+            role_name,
+        )
+
+        if previous != role_name:
+            raise ValueError(
+                "An effective_group may not cross the "
+                "fresh calibration optimization/risk boundary"
+            )
+
+    roles = FreshCalibrationRoles(
+        optimization_indices=np.flatnonzero(
+            splits
+            == FRESH_CALIBRATION_OPTIMIZATION_SPLIT
         ).astype(np.int64),
-        policy_selection_indices=np.flatnonzero(
-            splits == POLICY_SELECTION_SPLIT
-        ).astype(np.int64),
-        calibration_indices=np.flatnonzero(
-            splits == CALIBRATION_SPLIT
+        risk_testing_indices=np.flatnonzero(
+            splits == FRESH_CALIBRATION_RISK_SPLIT
         ).astype(np.int64),
     )
 
-    for indices in (
-        roles.policy_train_indices,
-        roles.policy_selection_indices,
-        roles.calibration_indices,
-    ):
-        if indices.size == 0:
-            raise ValueError(
-                "Every development role must contain rows"
-            )
+    if roles.optimization_indices.size == 0:
+        raise ValueError(
+            "Fresh calibration optimization rows are required"
+        )
+
+    if roles.risk_testing_indices.size == 0:
+        raise ValueError(
+            "Fresh calibration risk-testing rows are required"
+        )
 
     return roles
 
@@ -153,22 +191,26 @@ def calibrate_selected_policy_independently(
     *,
     split: Iterable[object],
     example_id: Iterable[object],
+    effective_group: Iterable[object],
     selected_candidate_id: str,
     absolute_cost_budget_ms: float,
     policy_id: str,
     boundary_hash_seed: int,
 ) -> IndependentlyCalibratedPolicy:
-    """Calibrate an online threshold using calibration rows only."""
+    """Optimize thresholds using fresh optimization rows only.
 
-    roles = partition_independent_development_roles(
+    The fresh risk-testing subset is validated and retained for
+    later joint FPR and mean-cost certification. It is never passed
+    to the threshold optimizer.
+    """
+
+    roles = partition_fresh_calibration_roles(
         split,
         example_id,
+        effective_group,
     )
 
-    score_array = np.asarray(
-        scores,
-        dtype=np.float64,
-    )
+    score_array = np.asarray(scores, dtype=np.float64)
     no_acquisition = np.asarray(
         no_acquisition_total_cost_ms,
         dtype=np.float64,
@@ -178,10 +220,9 @@ def calibrate_selected_policy_independently(
         dtype=np.float64,
     )
 
-    expected_length = (
-        len(roles.policy_train_indices)
-        + len(roles.policy_selection_indices)
-        + len(roles.calibration_indices)
+    row_count = (
+        len(roles.optimization_indices)
+        + len(roles.risk_testing_indices)
     )
 
     for name, array in (
@@ -195,9 +236,10 @@ def calibrate_selected_policy_independently(
             acquisition,
         ),
     ):
-        if array.ndim != 1 or len(array) != expected_length:
+        if array.ndim != 1 or len(array) != row_count:
             raise ValueError(
-                f"{name} must match the development row count"
+                f"{name} must match the fresh calibration "
+                "row count"
             )
 
         if not np.all(np.isfinite(array)):
@@ -210,12 +252,12 @@ def calibrate_selected_policy_independently(
             "selected_candidate_id must not be empty"
         )
 
-    calibration = roles.calibration_indices
+    optimization = roles.optimization_indices
 
     policy = calibrate_exact_cost_threshold_mixture(
-        score_array[calibration],
-        no_acquisition[calibration],
-        acquisition[calibration],
+        score_array[optimization],
+        no_acquisition[optimization],
+        acquisition[optimization],
         absolute_cost_budget_ms=absolute_cost_budget_ms,
         policy_id=policy_id,
         hash_seed=boundary_hash_seed,
@@ -223,7 +265,13 @@ def calibrate_selected_policy_independently(
 
     return IndependentlyCalibratedPolicy(
         selected_candidate_id=selected_candidate_id,
-        calibration_split=CALIBRATION_SPLIT,
-        calibration_example_count=len(calibration),
+        optimization_split=(
+            FRESH_CALIBRATION_OPTIMIZATION_SPLIT
+        ),
+        risk_testing_split=FRESH_CALIBRATION_RISK_SPLIT,
+        optimization_example_count=len(optimization),
+        risk_testing_example_count=len(
+            roles.risk_testing_indices
+        ),
         policy=policy,
     )
