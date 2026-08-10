@@ -1,6 +1,6 @@
 {
   "artifact": "exact_cost_risk_cascade_protocol_v2",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "status": "frozen_before_v2_modeling_or_threshold_tuning",
   "freeze_date": "2026-08-04",
   "baseline_commit": "381fbced8fce3e9e5630c9cecfd25dcda090552b",
@@ -123,44 +123,308 @@
       {
         "family": "Ridge",
         "candidate_grid": [
-          {"alpha": 0.1},
-          {"alpha": 1.0},
-          {"alpha": 10.0}
+          {
+            "alpha": 0.1
+          },
+          {
+            "alpha": 1.0
+          },
+          {
+            "alpha": 10.0
+          }
         ]
       },
       {
         "family": "HistGradientBoostingRegressor",
         "candidate_grid": [
-          {"learning_rate": 0.05, "max_iter": 200, "max_leaf_nodes": 7, "min_samples_leaf": 30, "l2_regularization": 1.0},
-          {"learning_rate": 0.05, "max_iter": 250, "max_leaf_nodes": 15, "min_samples_leaf": 20, "l2_regularization": 1.0},
-          {"learning_rate": 0.05, "max_iter": 250, "max_leaf_nodes": 31, "min_samples_leaf": 20, "l2_regularization": 5.0}
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 15,
+            "min_samples_leaf": 20,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 31,
+            "min_samples_leaf": 20,
+            "l2_regularization": 5.0
+          }
         ]
       },
       {
         "family": "RandomForestRegressor",
         "candidate_grid": [
-          {"n_estimators": 400, "max_depth": 6, "min_samples_leaf": 10, "max_features": 0.5},
-          {"n_estimators": 400, "max_depth": 10, "min_samples_leaf": 5, "max_features": 0.75},
-          {"n_estimators": 400, "max_depth": null, "min_samples_leaf": 5, "max_features": 1.0}
+          {
+            "n_estimators": 400,
+            "max_depth": 6,
+            "min_samples_leaf": 10,
+            "max_features": 0.5
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": 10,
+            "min_samples_leaf": 5,
+            "max_features": 0.75
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": null,
+            "min_samples_leaf": 5,
+            "max_features": 1.0
+          }
         ]
       }
     ],
     "current_error_classifiers": [
-      "LogisticRegression",
-      "HistGradientBoostingClassifier",
-      "RandomForestClassifier"
+      {
+        "family": "LogisticRegression",
+        "preprocessing": "StandardScaler",
+        "candidate_grid": [
+          {
+            "C": 1.0,
+            "class_weight": "balanced",
+            "fit_intercept": true,
+            "max_iter": 2000,
+            "solver": "lbfgs",
+            "tol": 0.0001
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "singleton configuration from the historically used class-balanced StandardScaler+LogisticRegression pipeline"
+      },
+      {
+        "family": "HistGradientBoostingClassifier",
+        "preprocessing": "none",
+        "loss": "log_loss",
+        "early_stopping": false,
+        "class_weight": "balanced",
+        "candidate_grid": [
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 15,
+            "min_samples_leaf": 20,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 31,
+            "min_samples_leaf": 20,
+            "l2_regularization": 5.0
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 HistGradientBoosting structural grid"
+      },
+      {
+        "family": "RandomForestClassifier",
+        "preprocessing": "none",
+        "criterion": "gini",
+        "class_weight": "balanced",
+        "bootstrap": true,
+        "n_jobs": 1,
+        "candidate_grid": [
+          {
+            "n_estimators": 400,
+            "max_depth": 6,
+            "min_samples_leaf": 10,
+            "max_features": 0.5
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": 10,
+            "min_samples_leaf": 5,
+            "max_features": 0.75
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": null,
+            "min_samples_leaf": 5,
+            "max_features": 1.0
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 RandomForest structural grid"
+      }
     ],
     "downstream_fusion_classifiers": [
-      "LogisticRegression",
-      "HistGradientBoostingClassifier",
-      "RandomForestClassifier"
+      {
+        "family": "LogisticRegression",
+        "preprocessing": "StandardScaler",
+        "candidate_grid": [
+          {
+            "C": 1.0,
+            "class_weight": "balanced",
+            "fit_intercept": true,
+            "max_iter": 2000,
+            "solver": "lbfgs",
+            "tol": 0.0001
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "singleton configuration from the historically used class-balanced StandardScaler+LogisticRegression pipeline"
+      },
+      {
+        "family": "HistGradientBoostingClassifier",
+        "preprocessing": "none",
+        "loss": "log_loss",
+        "early_stopping": false,
+        "class_weight": "balanced",
+        "candidate_grid": [
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 15,
+            "min_samples_leaf": 20,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 31,
+            "min_samples_leaf": 20,
+            "l2_regularization": 5.0
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 HistGradientBoosting structural grid"
+      },
+      {
+        "family": "RandomForestClassifier",
+        "preprocessing": "none",
+        "criterion": "gini",
+        "class_weight": "balanced",
+        "bootstrap": true,
+        "n_jobs": 1,
+        "candidate_grid": [
+          {
+            "n_estimators": 400,
+            "max_depth": 6,
+            "min_samples_leaf": 10,
+            "max_features": 0.5
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": 10,
+            "min_samples_leaf": 5,
+            "max_features": 0.75
+          },
+          {
+            "n_estimators": 400,
+            "max_depth": null,
+            "min_samples_leaf": 5,
+            "max_features": 1.0
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 RandomForest structural grid"
+      }
     ],
     "cost_predictors": [
-      "Ridge_on_log_latency",
-      "HistGradientBoostingRegressor_on_log_latency"
+      {
+        "family": "Ridge_on_log_latency",
+        "estimator": "Ridge",
+        "candidate_grid": [
+          {
+            "alpha": 0.1
+          },
+          {
+            "alpha": 1.0
+          },
+          {
+            "alpha": 10.0
+          }
+        ],
+        "fit_intercept": true,
+        "solver": "auto",
+        "tol": 0.0001,
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 Ridge grid"
+      },
+      {
+        "family": "HistGradientBoostingRegressor_on_log_latency",
+        "estimator": "HistGradientBoostingRegressor",
+        "loss": "squared_error",
+        "early_stopping": false,
+        "candidate_grid": [
+          {
+            "learning_rate": 0.05,
+            "max_iter": 200,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 15,
+            "min_samples_leaf": 20,
+            "l2_regularization": 1.0
+          },
+          {
+            "learning_rate": 0.05,
+            "max_iter": 250,
+            "max_leaf_nodes": 31,
+            "min_samples_leaf": 20,
+            "l2_regularization": 5.0
+          }
+        ],
+        "random_state": "current_fold_seed",
+        "grid_provenance": "prospective pre-tuning reuse of the already-frozen v2 HistGradientBoostingRegressor grid"
+      }
     ],
     "hyperparameter_rule": "select only inside the current inner training data using the prespecified grids; no manual tuning after development results",
-    "family_selection_rule": "select on repeated grouped development evidence; ties within one standard error prefer lower online latency, then the linear family"
+    "family_selection_rule": "select on repeated grouped development evidence; ties within one standard error prefer lower online latency, then the linear family",
+    "candidate_selection": {
+      "current_error_classifier": {
+        "scope": "current inner-training partition only, evaluated on grouped inner-validation predictions",
+        "metric": "pooled_binary_log_loss",
+        "direction": "minimize",
+        "tie_break": "lower_online_inference_latency_then_simpler_family_order",
+        "probability_output": "native_predict_proba",
+        "posthoc_probability_calibration": "none",
+        "rationale": "prospectively frozen proper scoring rule for the probability that the frozen base policy is wrong"
+      },
+      "downstream_fusion_classifier": {
+        "scope": "current inner-training partition only, evaluated on grouped inner-validation predictions",
+        "threshold_rule": "maximize recall subject to empirical FPR <= 0.05; ties prefer lower FPR, then higher decision threshold",
+        "candidate_metric": "recall_at_inner_validation_FPR_at_most_0.05",
+        "direction": "maximize",
+        "probability_output": "native_predict_proba",
+        "posthoc_probability_calibration": "none",
+        "rationale": "prospectively frozen candidate-selection rule aligned with the historical full-fusion FPR-constrained threshold semantics and the v2 safety objective"
+      },
+      "incremental_cost_predictor": {
+        "scope": "current inner-training partition only, evaluated on grouped inner-validation predictions",
+        "metric": "pooled_mean_squared_error_on_log1p_optional_monitor_latency",
+        "direction": "minimize",
+        "tie_break": "lower_online_inference_latency_then_linear_family",
+        "rationale": "prospectively frozen squared-error criterion for the controlled per-example heterogeneous optional-monitor latency target; actual exact-cost and joint-risk tests continue to use measured total end-to-end policy latency"
+      }
+    }
   },
   "policies": {
     "proposed": {
@@ -183,14 +447,24 @@
       {
         "policy_id": "random_acquisition",
         "online_score": "sha256_uniform(example_id,policy_seed)",
-        "policy_seeds": [104729, 130363, 155921, 181081, 205759],
+        "policy_seeds": [
+          104729,
+          130363,
+          155921,
+          181081,
+          205759
+        ],
         "uses_labels_or_optional_monitor_outputs": false
       },
       {
         "policy_id": "direct_fusion",
         "online_score": "not_applicable",
         "decision": "always acquire and apply a directly trained full-information fusion classifier",
-        "role": "full_cost_endpoint"
+        "role": "full_cost_endpoint",
+        "features": "model_input_contract.direct_fusion_features",
+        "probability_output": "native_predict_proba",
+        "decision_threshold_rule": "using current inner-validation predictions, maximize recall subject to empirical FPR <= 0.05; ties prefer lower FPR, then higher threshold; freeze the selected threshold before the corresponding outer evaluation",
+        "posthoc_probability_calibration": "none"
       }
     ],
     "endpoints": [
@@ -217,7 +491,57 @@
       0.5,
       0.75,
       1.0
-    ]
+    ],
+    "cost_predictor_contract": {
+      "predicted_quantity": "optional_monitor_execution_latency_ms",
+      "reason_for_quantity": "the optional monitor is the acquisition-dependent heterogeneous runtime component observable only after the acquisition decision; predicting it from pre-acquisition features yields a deployable heterogeneous cost score without making the predictor target depend on the router whose fit is still being selected",
+      "training_target": "log1p(optional_monitor_stage_latency_ms)",
+      "log_base": "natural",
+      "required_realized_domain": "optional_monitor_stage_latency_ms >= 0",
+      "negative_realized_latency_action": "raise_protocol_error_before_model_fitting",
+      "inverse_transform": "max(0.0, expm1(predicted_log1p_optional_monitor_latency))",
+      "online_estimated_incremental_cost_ms": "inverse_transformed_predicted_optional_monitor_latency_ms",
+      "score_time_floor": "apply predicted_cost_floor_ms=1.0 after inverse transform when computing signed-value-per-cost",
+      "feature_scope": "model_input_contract.exact_pre_acquisition_feature_matrix",
+      "post_acquisition_latency_as_feature": false,
+      "actual_cost_for_exact_matching_and_risk_control": "measured_total_end_to_end_policy_latency_ms",
+      "actual_secondary_cost_for_reporting": "measured_incremental_latency_relative_to_the_frozen_base_policy",
+      "cost_prediction_does_not_replace_actual_cost_measurement": true,
+      "historical_cached_latency_role": "diagnostic_provenance_only_not_primary_v2_cost_predictor_target",
+      "transform_provenance": "prospective pre-tuning zero-safe transform frozen because the original on_log_latency family names did not specify the transform or inverse"
+    },
+    "development_cost_target_measurement": {
+      "required_before_cost_predictor_fit": true,
+      "allowed_examples": "materialized_v2_development_view_only",
+      "allowed_splits": [
+        "policy_train",
+        "policy_selection",
+        "calibration"
+      ],
+      "labels_required": false,
+      "labels_may_not_control_measurement_order": true,
+      "measurement_stage": "optional_monitor",
+      "clock": "monotonic_high_resolution",
+      "accelerator_synchronization": "before_and_after_each_timed_accelerator_stage",
+      "warmup_requests": 20,
+      "warmup_excluded_from_training_targets": true,
+      "stream_order": "prespecified_sha256_order_independent_of_labels_and_scores",
+      "hardware": "same_single_frozen_target_configuration_recorded_in_the_development_timing_run_manifest",
+      "timeout_ms": 30000.0,
+      "timeout_recording": "record_the_timeout_cap_for_the_optional_monitor_target",
+      "raw_per_example_timing_required": true,
+      "required_output_fields": [
+        "example_id",
+        "effective_group",
+        "optional_monitor_stage_latency_ms",
+        "optional_monitor_timed_out",
+        "cold_start",
+        "warmup"
+      ],
+      "historical_score_generation_latency_may_replace_measurement": false,
+      "protected_legacy_rows_allowed": false,
+      "fresh_rows_allowed": false
+    }
   },
   "exact_cost_comparison": {
     "budget_definition": "base_policy_mean_total_cost_plus_a_prespecified_fraction_of_the_fresh_calibration_always_acquire_increment",
@@ -416,6 +740,114 @@
       "whether_any_development_calibration_or_confirmatory_result_was_seen",
       "new_protocol_hash"
     ],
-    "confirmatory_access_after_amendment": "requires_a_newly_frozen_protocol_and_still_sealed_confirmatory_data"
+    "confirmatory_access_after_amendment": "requires_a_newly_frozen_protocol_and_still_sealed_confirmatory_data",
+    "current_amendment_id": "complete_model_selection_contracts_v2_1",
+    "amended_protocol_may_enter_development_only_after_validation": true,
+    "further_model_contract_changes_after_v2_development_results": "forbidden"
+  },
+  "pre_tuning_amendment": {
+    "amendment_id": "complete_model_selection_contracts_v2_1",
+    "timestamp": "2026-08-10T11:31:05+03:00",
+    "stage": "implementation_before_v2_repeated_grouped_model_selection",
+    "reason": "Post-freeze implementation-completeness audits found that the v2 protocol named current-error classifiers, downstream fusion classifiers, and log-latency cost predictors while requiring selection from prespecified grids, but omitted complete role-specific candidate grids, inner-selection metrics, exact model-input construction, probability-handling rules, and the latency-prediction target transform. These implementation-specification omissions are corrected before any v2 repeated grouped model-family selection, fresh calibration evaluation, or fresh confirmatory evaluation. Permitted legacy-development material had been inspected during implementation and is disclosed explicitly; no v2 repeated grouped model-selection result was available when the amendment choices were frozen.",
+    "old_protocol_sha256": "bde3a29f655c4b133beeae34f90f57a6cd8035afa0ce37688581f5dccce1f87d",
+    "amendment_record_path": "configs/exact_cost_risk_cascade_protocol_v2_amendment_001.json",
+    "files_and_estimands_affected": [
+      "configs/exact_cost_risk_cascade_protocol_v2.json",
+      "current_error_prediction model selection and online score",
+      "direct_fusion model selection and decision threshold",
+      "signed_value_cost_aware pre-acquisition feature information set",
+      "heterogeneous incremental-cost prediction"
+    ],
+    "whether_any_development_calibration_or_confirmatory_result_was_seen": {
+      "legacy_development_results_existed_before_v2_freeze": true,
+      "permitted_legacy_development_material_inspected_during_v2_implementation": true,
+      "v2_repeated_grouped_model_selection_results_seen": false,
+      "fresh_calibration_results_seen": false,
+      "fresh_confirmatory_results_seen": false,
+      "protected_legacy_final_or_shift_opened_during_v2": false
+    },
+    "amendment_basis": [
+      "reuse already-frozen v2 numerical grids where estimator parameters are shared across roles",
+      "reuse the exact historical all_features assembly from run_cross_fitted_value_predictability.py and decision_value_real_data_protocol_v1",
+      "reuse historical full-information fusion feature and FPR-constrained decision-threshold semantics",
+      "freeze controlled optional-monitor latency as the heterogeneous online cost-prediction target while keeping measured end-to-end latency as the exact cost estimand",
+      "new role-specific choices are declared prospectively rather than represented as part of the original freeze"
+    ]
+  },
+  "model_implementation_environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.0",
+    "scipy": "1.18.0",
+    "scikit_learn": "1.9.0",
+    "reason": "freeze estimator/default semantics used by the amended model-selection contract"
+  },
+  "model_input_contract": {
+    "source_protocol": "configs/decision_value_real_data_protocol_v1.json",
+    "source_protocol_sha256": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+    "primary_setup": "qwen_after_rule_compact",
+    "pre_acquisition_feature_family": "all_features",
+    "pre_acquisition_feature_definition": {
+      "cheap_features": "predictor_families.cheap_features.qwen_after_rule_compact",
+      "runtime_metadata": "predictor_families.runtime_metadata.qwen_after_rule_compact",
+      "frozen_embedding": "predictor_families.frozen_embedding with 32-component PCA fit only on the current outer/inner training partition as applicable",
+      "composition": "exact_pre_acquisition_feature_matrix: ordered 17-column numeric block followed by fold-local 32-component PCA block"
+    },
+    "same_pre_acquisition_information_for": [
+      "signed_value_regressor",
+      "current_error_classifier",
+      "incremental_cost_predictor"
+    ],
+    "current_error_target": "indicator_that_the_frozen_base_policy_prediction_is_wrong",
+    "current_error_features": "same_pre_acquisition_all_features_as_signed_value_regressor",
+    "incremental_cost_predictor_features": "same_pre_acquisition_all_features_as_signed_value_regressor",
+    "direct_fusion_features": [
+      "rule_score",
+      "compact_unsafe_score",
+      "qwen_prompt_response_score"
+    ],
+    "direct_fusion_optional_monitor_access": true,
+    "forbidden_pre_acquisition_information": [
+      "y",
+      "any_label_variant",
+      "source_dataset",
+      "source_record_id",
+      "optional_monitor_score_before_acquisition",
+      "post_acquisition_latency",
+      "evaluation_rank",
+      "confirmatory_labels_or_metrics"
+    ],
+    "exact_pre_acquisition_feature_matrix": {
+      "numeric_feature_order": [
+        "rule_score",
+        "rule_weighted_sum",
+        "rule_match_count",
+        "rule_latency_ms",
+        "compact_unsafe_score",
+        "compact_input_tokens",
+        "compact_output_tokens",
+        "compact_latency_ms",
+        "abs_rule_compact_difference",
+        "rule_compact_product",
+        "rule_compact_mean",
+        "rule_compact_max",
+        "rule_compact_min",
+        "prompt_char_count",
+        "response_char_count",
+        "prompt_whitespace_token_count",
+        "response_whitespace_token_count"
+      ],
+      "numeric_feature_assembly": "ordered_deduplication_via_dict_fromkeys_of_cheap_features_then_runtime_metadata_for_qwen_after_rule_compact",
+      "embedding_source_columns": "embedding_000_through_embedding_383_in_numeric_suffix_order",
+      "embedding_pca": {
+        "n_components": 32,
+        "svd_solver": "randomized",
+        "fit_scope": "current training partition only; never fit PCA on the corresponding inner-validation or outer-evaluation rows",
+        "random_state": "current_fold_seed"
+      },
+      "matrix_column_order": "17_numeric_features_in_the_listed_order_followed_by_PCA_components_000_through_031",
+      "final_dimension": 49,
+      "nonfinite_action": "raise_before_model_fit_or_prediction"
+    }
   }
 }
