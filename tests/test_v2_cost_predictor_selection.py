@@ -182,97 +182,10 @@ def test_candidate_fit_and_prediction_are_finite() -> None:
         )
 
 
-def test_pooled_mse_is_primary_selection_criterion() -> None:
-    candidates = (
-        frozen_cost_predictor_candidates(
-            fold_seed=1729
-        )
-    )
-
-    evaluations = (
-        InnerCostPredictorEvaluation(
-            candidate=candidates[0],
-            pooled_log_latency_mse=0.20,
-            online_inference_latency_ms=0.01,
-        ),
-        InnerCostPredictorEvaluation(
-            candidate=candidates[3],
-            pooled_log_latency_mse=0.10,
-            online_inference_latency_ms=100.0,
-        ),
-    )
-
-    selected = (
-        select_inner_cost_predictor_candidate(
-            evaluations
-        )
-    )
-
-    assert selected.candidate == (
-        candidates[3]
-    )
 
 
-def test_exact_mse_tie_prefers_lower_inference_latency() -> None:
-    candidates = (
-        frozen_cost_predictor_candidates(
-            fold_seed=1729
-        )
-    )
-
-    evaluations = (
-        InnerCostPredictorEvaluation(
-            candidate=candidates[0],
-            pooled_log_latency_mse=0.10,
-            online_inference_latency_ms=2.0,
-        ),
-        InnerCostPredictorEvaluation(
-            candidate=candidates[3],
-            pooled_log_latency_mse=0.10,
-            online_inference_latency_ms=1.0,
-        ),
-    )
-
-    selected = (
-        select_inner_cost_predictor_candidate(
-            evaluations
-        )
-    )
-
-    assert selected.candidate == (
-        candidates[3]
-    )
 
 
-def test_exact_score_and_latency_tie_prefers_linear_family() -> None:
-    candidates = (
-        frozen_cost_predictor_candidates(
-            fold_seed=1729
-        )
-    )
-
-    evaluations = (
-        InnerCostPredictorEvaluation(
-            candidate=candidates[3],
-            pooled_log_latency_mse=0.10,
-            online_inference_latency_ms=1.0,
-        ),
-        InnerCostPredictorEvaluation(
-            candidate=candidates[0],
-            pooled_log_latency_mse=0.10,
-            online_inference_latency_ms=1.0,
-        ),
-    )
-
-    selected = (
-        select_inner_cost_predictor_candidate(
-            evaluations
-        )
-    )
-
-    assert selected.candidate == (
-        candidates[0]
-    )
 
 
 def test_prediction_evaluation_uses_pooled_mse() -> None:
@@ -343,3 +256,100 @@ def test_duplicate_candidate_evaluation_fails() -> None:
         select_inner_cost_predictor_candidate(
             (item, item)
         )
+
+
+def test_inner_selection_rejects_mixed_families() -> None:
+    candidates = (
+        frozen_cost_predictor_candidates(
+            fold_seed=1729
+        )
+    )
+
+    evaluations = (
+        InnerCostPredictorEvaluation(
+            candidate=candidates[0],
+            pooled_log_latency_mse=0.10,
+            online_inference_latency_ms=1.0,
+        ),
+        InnerCostPredictorEvaluation(
+            candidate=candidates[3],
+            pooled_log_latency_mse=0.09,
+            online_inference_latency_ms=1.0,
+        ),
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="exactly one model family",
+    ):
+        select_inner_cost_predictor_candidate(
+            evaluations
+        )
+
+
+def test_inner_selection_operates_within_ridge_family() -> None:
+    candidates = (
+        frozen_cost_predictor_candidates(
+            fold_seed=1729
+        )
+    )
+
+    evaluations = (
+        InnerCostPredictorEvaluation(
+            candidate=candidates[0],
+            pooled_log_latency_mse=0.20,
+            online_inference_latency_ms=0.1,
+        ),
+        InnerCostPredictorEvaluation(
+            candidate=candidates[1],
+            pooled_log_latency_mse=0.10,
+            online_inference_latency_ms=0.2,
+        ),
+        InnerCostPredictorEvaluation(
+            candidate=candidates[2],
+            pooled_log_latency_mse=0.15,
+            online_inference_latency_ms=0.1,
+        ),
+    )
+
+    selected = (
+        select_inner_cost_predictor_candidate(
+            evaluations
+        )
+    )
+
+    assert selected.candidate == candidates[1]
+
+
+def test_inner_selection_operates_within_hgbr_family() -> None:
+    candidates = (
+        frozen_cost_predictor_candidates(
+            fold_seed=5772
+        )
+    )
+
+    evaluations = (
+        InnerCostPredictorEvaluation(
+            candidate=candidates[3],
+            pooled_log_latency_mse=0.20,
+            online_inference_latency_ms=0.5,
+        ),
+        InnerCostPredictorEvaluation(
+            candidate=candidates[4],
+            pooled_log_latency_mse=0.20,
+            online_inference_latency_ms=0.3,
+        ),
+        InnerCostPredictorEvaluation(
+            candidate=candidates[5],
+            pooled_log_latency_mse=0.25,
+            online_inference_latency_ms=0.2,
+        ),
+    )
+
+    selected = (
+        select_inner_cost_predictor_candidate(
+            evaluations
+        )
+    )
+
+    assert selected.candidate == candidates[4]

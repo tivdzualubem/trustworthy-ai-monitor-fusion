@@ -347,18 +347,16 @@ def select_inner_cost_predictor_candidate(
         ...,
     ],
 ) -> InnerCostPredictorEvaluation:
-    """Apply the frozen inner candidate-selection rule.
+    """Select one hyperparameter candidate inside exactly one family.
 
-    Primary criterion:
-        minimum pooled MSE on log1p optional-monitor latency.
+    The frozen protocol separates two levels:
 
-    Exact-score ties:
-        lower online inference latency, then the linear Ridge family,
-        then frozen grid order for deterministic reproducibility.
+    1. Hyperparameters are selected using grouped inner-validation
+       evidence inside the current model family.
+    2. Model families are compared later using repeated grouped
+       development evidence and the frozen one-standard-error rule.
 
-    The repeated-development one-standard-error family-selection rule is
-    intentionally not applied here; it belongs to the later repeated
-    grouped development aggregation stage.
+    This function therefore refuses mixed-family candidate sets.
     """
 
     if not evaluations:
@@ -378,6 +376,24 @@ def select_inner_cost_predictor_candidate(
             "Duplicate candidate evaluation"
         )
 
+    families = {
+        item.candidate.family
+        for item in evaluations
+    }
+
+    if len(families) != 1:
+        raise ValueError(
+            "Inner hyperparameter selection must "
+            "contain exactly one model family"
+        )
+
+    family = next(iter(families))
+
+    if family not in LINEAR_FAMILY_ORDER:
+        raise ValueError(
+            "Unknown candidate family"
+        )
+
     for item in evaluations:
         if not np.isfinite(
             item.pooled_log_latency_mse
@@ -386,10 +402,7 @@ def select_inner_cost_predictor_candidate(
                 "Candidate MSE must be finite"
             )
 
-        if (
-            item.pooled_log_latency_mse
-            < 0.0
-        ):
+        if item.pooled_log_latency_mse < 0.0:
             raise ValueError(
                 "Candidate MSE cannot be negative"
             )
@@ -402,21 +415,10 @@ def select_inner_cost_predictor_candidate(
                 "must be finite"
             )
 
-        if (
-            item.online_inference_latency_ms
-            < 0.0
-        ):
+        if item.online_inference_latency_ms < 0.0:
             raise ValueError(
                 "Candidate inference latency "
                 "cannot be negative"
-            )
-
-        if (
-            item.candidate.family
-            not in LINEAR_FAMILY_ORDER
-        ):
-            raise ValueError(
-                "Unknown candidate family"
             )
 
     return min(
@@ -424,9 +426,6 @@ def select_inner_cost_predictor_candidate(
         key=lambda item: (
             item.pooled_log_latency_mse,
             item.online_inference_latency_ms,
-            LINEAR_FAMILY_ORDER[
-                item.candidate.family
-            ],
             item.candidate.grid_index,
         ),
     )
