@@ -1,8 +1,22 @@
 {
-  "artifact": "exact_cost_risk_cascade_protocol_v2_amendment_001",
   "amendment_id": "complete_model_selection_contracts_v2_1",
-  "timestamp": "2026-08-10T11:31:05+03:00",
-  "reason": "Post-freeze implementation-completeness audits found that the v2 protocol named current-error classifiers, downstream fusion classifiers, and log-latency cost predictors while requiring selection from prespecified grids, but omitted complete role-specific candidate grids, inner-selection metrics, exact model-input construction, probability-handling rules, and the latency-prediction target transform. These implementation-specification omissions are corrected before any v2 repeated grouped model-family selection, fresh calibration evaluation, or fresh confirmatory evaluation. Permitted legacy-development material had been inspected during implementation and is disclosed explicitly; no v2 repeated grouped model-selection result was available when the amendment choices were frozen.",
+  "artifact": "exact_cost_risk_cascade_protocol_v2_amendment_001",
+  "confirmatory_access_status": "still_sealed",
+  "exact_cost_boundary_hash_seed_amendment": {
+    "boundary_hash_seed": 1729,
+    "fresh_data_opened": false,
+    "protected_legacy_opened": false,
+    "rationale": "The base frozen protocol required a hash_seed for deterministic exact-cost threshold mixtures but did not assign its value. The value 1729 is frozen before any measured exact-cost development result was observed. It is the first already-prespecified development fold seed and is already used as the boundary-hash fixture in the independent-calibration and required-baseline test contracts. The choice is therefore deterministic and not outcome-selected.",
+    "results_seen_before_amendment": {
+      "controlled_t4_component_timing": true,
+      "fresh_calibration_results": false,
+      "fresh_confirmatory_results": false,
+      "joint_risk_certificate_results": false,
+      "measured_exact_cost_policy_results": false,
+      "repeated_grouped_predictive_family_evidence": true
+    },
+    "status": "frozen_before_exact_cost_development_results"
+  },
   "files_and_estimands_affected": [
     "configs/exact_cost_risk_cascade_protocol_v2.json",
     "current_error_prediction model selection and online score",
@@ -10,26 +24,27 @@
     "signed_value_cost_aware pre-acquisition feature information set",
     "heterogeneous incremental-cost prediction"
   ],
-  "whether_any_development_calibration_or_confirmatory_result_was_seen": {
-    "legacy_development_results_existed_before_v2_freeze": true,
-    "permitted_legacy_development_material_inspected_during_v2_implementation": true,
-    "v2_repeated_grouped_model_selection_results_seen": false,
-    "fresh_calibration_results_seen": false,
-    "fresh_confirmatory_results_seen": false,
-    "protected_legacy_final_or_shift_opened_during_v2": false
-  },
-  "old_protocol_hash": "bde3a29f655c4b133beeae34f90f57a6cd8035afa0ce37688581f5dccce1f87d",
-  "new_protocol_hash": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
-  "new_protocol_version": "2.1.0",
-  "new_protocol_status": "frozen_before_v2_modeling_or_threshold_tuning",
-  "confirmatory_access_status": "still_sealed",
-  "v2_model_tuning_started": false,
   "fresh_calibration_evaluation_started": false,
   "fresh_confirmatory_evaluation_started": false,
+  "new_protocol_hash": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+  "new_protocol_status": "frozen_before_v2_modeling_or_threshold_tuning",
+  "new_protocol_version": "2.1.0",
+  "old_protocol_hash": "bde3a29f655c4b133beeae34f90f57a6cd8035afa0ce37688581f5dccce1f87d",
+  "reason": "Post-freeze implementation-completeness audits found that the v2 protocol named current-error classifiers, downstream fusion classifiers, and log-latency cost predictors while requiring selection from prespecified grids, but omitted complete role-specific candidate grids, inner-selection metrics, exact model-input construction, probability-handling rules, and the latency-prediction target transform. These implementation-specification omissions are corrected before any v2 repeated grouped model-family selection, fresh calibration evaluation, or fresh confirmatory evaluation. Permitted legacy-development material had been inspected during implementation and is disclosed explicitly; no v2 repeated grouped model-selection result was available when the amendment choices were frozen.",
   "scientific_review_corrections": [
     "explicitly_disclose_permitted_legacy_development_material_access",
     "freeze_exact_all_features_column_assembly_and_order",
     "separate_online_heterogeneous_optional_monitor_latency_prediction_from_actual_end_to_end_cost_estimand",
     "require_controlled_development_latency_measurement_before_cost_predictor_fit"
-  ]
+  ],
+  "timestamp": "2026-08-10T11:31:05+03:00",
+  "v2_model_tuning_started": false,
+  "whether_any_development_calibration_or_confirmatory_result_was_seen": {
+    "fresh_calibration_results_seen": false,
+    "fresh_confirmatory_results_seen": false,
+    "legacy_development_results_existed_before_v2_freeze": true,
+    "permitted_legacy_development_material_inspected_during_v2_implementation": true,
+    "protected_legacy_final_or_shift_opened_during_v2": false,
+    "v2_repeated_grouped_model_selection_results_seen": false
+  }
 }
