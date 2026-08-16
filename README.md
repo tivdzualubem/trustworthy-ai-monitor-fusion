@@ -1,4 +1,23 @@
 # Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion
+<!-- V2_STATUS_START -->
+
+## Exact-cost risk-cascade v2
+
+The current v2 study evaluates selective safety-monitor acquisition under a frozen exact-cost and risk-constrained protocol with repeated grouped splits, multiple model families, deployable threshold semantics, stronger baselines, heterogeneous latency measurement, and protected-data boundaries.
+
+**Development outcome:** no signed-value model family had a jointly feasible development operating point. Ridge, HistGradientBoostingRegressor, and RandomForestRegressor each passed **1 of 16** primary pairwise cost-equivalence comparisons. No router family was therefore selected.
+
+This repository does **not** claim that the router improves recall under controlled FPR and cost. Independent fresh calibration and fresh source- and time-separated multi-rater confirmatory data were unavailable, so formal joint-risk certification and the confirmatory superiority gate were not executed. The protected legacy `final_test` and `held_out_shift` splits remained sealed.
+
+The supported contribution is an **evaluation and measurement methodology for exact-cost, risk-constrained safety-monitor cascades**.
+
+- [Research report](paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf)
+- [Publication source](paper/v2_publication/main.tex)
+- [Frozen v2 protocol](configs/exact_cost_risk_cascade_protocol_v2.json)
+- [Protocol amendment](configs/exact_cost_risk_cascade_protocol_v2_amendment_001.json)
+- [v2 evaluation evidence](reports/exact_cost_risk_cascade_v2/)
+
+<!-- V2_STATUS_END -->
 
 This repository contains an audited runtime safety-monitoring study with three
 monitor levels: a deterministic rule filter, a compact moderation classifier,
@@ -21,7 +40,6 @@ milestone:
 - **Value predictability versus uncertainty: no-go.** The primary all-features
   learned policy had integrated matched-budget advantage 0.004816, but the
   paired 95% interval was `[-0.001705, 0.011485]`.
-- **Common-risk safety-cost frontier: pass.** The lowest-cost passing point
   acquired Qwen for 9.78% of development examples, reached recall 0.33677,
   and had pooled outer-OOF FPR 0.02865.
 - **Scope control: pass.** The decision-value analysis used 1,687 development
@@ -33,7 +51,7 @@ detection of correlated monitor failures, or deployment readiness.
 
 ## Final report
 
-- [Compiled technical report](paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf)
+- [Compiled technical report](paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf)
 - [LaTeX source](paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex)
 - [Bibliography](paper/references.bib)
 - [Report figures](paper/figures/)

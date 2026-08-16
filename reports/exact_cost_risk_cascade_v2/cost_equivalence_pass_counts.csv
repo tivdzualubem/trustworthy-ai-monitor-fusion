@@ -1,0 +1,4 @@
+signed_family,comparisons,equivalence_passes
+HistGradientBoostingRegressor,16,1
+RandomForestRegressor,16,1
+Ridge,16,1

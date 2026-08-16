@@ -1,0 +1,31 @@
+{
+  "amendment_sha256": "d8d576fb21eef427c9ecb778329611fc0c1b49b6a6b36ebdb1d69c56b250a7c0",
+  "artifact": "v2_crossfitted_exact_cost_development_preselection",
+  "boundary_hash_seed": 1729,
+  "budget_fractions": [
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "component_cost_role": "development preselection only; direct wall-clock policy E2E measurement remains required before final exact-cost development conclusions",
+  "evaluation_ranks_used": false,
+  "family_selection_status": "no_jointly_feasible_signed_value_family",
+  "fold_seeds": [
+    1729,
+    2718,
+    3141,
+    5772,
+    8111
+  ],
+  "formal_joint_risk_certificate": false,
+  "fresh_calibration_used": false,
+  "fresh_confirmatory_used": false,
+  "protected_legacy_used": false,
+  "protocol_sha256": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+  "scope": "development_only",
+  "selected_signed_value_family": null,
+  "threshold_calibration": "for each seed and held-out outer fold, calibrate only on the other four OOF folds"
+}

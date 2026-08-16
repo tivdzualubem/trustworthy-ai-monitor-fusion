@@ -126,7 +126,7 @@ def verify(strict_hashes: bool) -> None:
 
     require(
         ROOT
-        / "paper/Budget_Aware_Runtime_Safety_Monitor_Fusion_Report.pdf"
+        / "paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf"
     )
     require(
         ROOT
