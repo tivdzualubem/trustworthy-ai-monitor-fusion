@@ -11,6 +11,59 @@ from scipy.stats import binom
 
 
 @dataclass(frozen=True)
+class RuntimeBoundEvidence:
+    """Evidence that the cost support bound is mechanically enforced."""
+
+    bound_ms: float
+    enforcement_mechanism: str
+    operation_terminated_at_bound: bool
+    posthoc_clipping_only: bool = False
+
+
+def _require_enforced_runtime_bound(
+    evidence: RuntimeBoundEvidence | None,
+    *,
+    normalization_bound_ms: float,
+) -> None:
+    if evidence is None:
+        raise ValueError(
+            "bounded mean-cost certification requires evidence "
+            "of a mechanically enforced runtime bound"
+        )
+
+    if (
+        not np.isfinite(evidence.bound_ms)
+        or evidence.bound_ms <= 0.0
+    ):
+        raise ValueError("runtime bound must be finite and positive")
+
+    if not np.isclose(
+        evidence.bound_ms,
+        normalization_bound_ms,
+        rtol=0.0,
+        atol=1e-12,
+    ):
+        raise ValueError(
+            "runtime-bound evidence does not match "
+            "normalization_bound_ms"
+        )
+
+    if not evidence.enforcement_mechanism.strip():
+        raise ValueError(
+            "runtime-bound enforcement mechanism is required"
+        )
+
+    if (
+        not evidence.operation_terminated_at_bound
+        or evidence.posthoc_clipping_only
+    ):
+        raise ValueError(
+            "post-hoc latency clipping is not a mechanically "
+            "enforced runtime bound"
+        )
+
+
+@dataclass(frozen=True)
 class JointRiskCertificate:
     candidate_id: str
     example_count: int
@@ -267,8 +320,14 @@ def certify_joint_fpr_and_cost(
     maximum_fpr: float = 0.05,
     normalization_bound_ms: float = 35000.0,
     familywise_error_rate: float = 0.05,
+    runtime_bound_evidence: RuntimeBoundEvidence | None = None,
 ) -> JointRiskCertificate:
-    """Certify only when both frozen constraints reject."""
+    """Certify only with an actually enforced bounded cost support."""
+
+    _require_enforced_runtime_bound(
+        runtime_bound_evidence,
+        normalization_bound_ms=normalization_bound_ms,
+    )
 
     labels = _binary_vector(
         y_true,

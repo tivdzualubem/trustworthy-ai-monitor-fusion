@@ -1,0 +1,214 @@
+{
+  "artifact": "historical_v2_evidence_provenance_status",
+  "fresh_data_used": false,
+  "historical_published_tables": {
+    "across_seed_summary.csv": {
+      "columns": [
+        "policy",
+        "family",
+        "budget_fraction",
+        "budget_ms",
+        "seed_count",
+        "mean_recall",
+        "mean_fpr",
+        "max_seed_fpr",
+        "mean_total_cost_ms",
+        "mean_acquisition_rate",
+        "recall_bootstrap_lcb_95",
+        "recall_bootstrap_median",
+        "recall_bootstrap_ucb_95"
+      ],
+      "rows": 41,
+      "sha256": "40fccbef6602e474ef9653490d97da075b05ba38477b6c34728e194f7e062324"
+    },
+    "cost_equivalence_pass_counts.csv": {
+      "columns": [
+        "signed_family",
+        "comparisons",
+        "equivalence_passes"
+      ],
+      "rows": 3,
+      "sha256": "2b72bc966851a687d8fcd8ea6cc88e448d696f5aa3245889570f2548ab45323f"
+    },
+    "endpoint_metrics.csv": {
+      "columns": [
+        "seed",
+        "endpoint",
+        "family",
+        "mean_total_component_cost_ms",
+        "recall",
+        "false_positive_rate"
+      ],
+      "rows": 25,
+      "sha256": "f2c86ea1cb856a6a577093497b6aac1fe3e91437b9511ff417e36ae1582dd75e"
+    },
+    "latency_and_tail_summary.csv": {
+      "columns": [
+        "stage",
+        "source_column",
+        "effective_group_count",
+        "bootstrap_repetitions",
+        "confidence_level",
+        "count",
+        "mean_ms",
+        "sd_ms",
+        "median_ms",
+        "p90_ms",
+        "p95_ms",
+        "p99_ms",
+        "max_ms",
+        "timeout_rate",
+        "p90_ci_lower_ms",
+        "p90_ci_upper_ms",
+        "p95_ci_lower_ms",
+        "p95_ci_upper_ms",
+        "p99_ci_lower_ms",
+        "p99_ci_upper_ms"
+      ],
+      "rows": 18,
+      "sha256": "965b59b5d509e664e9d6f7e28b838bfa112b6b5fdfea11201d2cb5412344114f"
+    },
+    "outer_fold_threshold_calibration_and_evaluation.csv": {
+      "columns": [
+        "seed",
+        "outer_fold",
+        "policy",
+        "family",
+        "budget_fraction",
+        "budget_ms",
+        "status",
+        "calibration_rows",
+        "evaluation_rows",
+        "calibration_expected_total_cost_ms",
+        "evaluation_mean_total_cost_ms",
+        "evaluation_recall",
+        "evaluation_fpr",
+        "evaluation_acquisition_rate",
+        "mixture",
+        "error"
+      ],
+      "rows": 1174,
+      "sha256": "ed7ff0559e12ff75b97df6d3c0214ccb68288a6a9905ff21903aad7165ab735c"
+    },
+    "per_seed_metrics.csv": {
+      "columns": [
+        "policy",
+        "family",
+        "budget_fraction",
+        "budget_ms",
+        "seed",
+        "rows",
+        "recall",
+        "false_positive_rate",
+        "mean_total_cost_ms",
+        "acquisition_rate"
+      ],
+      "rows": 230,
+      "sha256": "26729ad28319f2e4cefe41ea2ef9f10ecbf3a3b08ff8d37befe140bd87c62662"
+    },
+    "primary_pairwise_development_comparisons.csv": {
+      "columns": [
+        "signed_family",
+        "budget_fraction",
+        "budget_ms",
+        "comparator",
+        "mean_recall_difference",
+        "positive_seed_count",
+        "negative_seed_count",
+        "zero_seed_count",
+        "minimum_4_of_5_same_sign",
+        "minimum_4_of_5_positive",
+        "proposed_max_seed_fpr",
+        "comparator_max_seed_fpr",
+        "development_empirical_fpr_feasible",
+        "cost_equivalent",
+        "cost_observed_mean_difference_ms",
+        "cost_equivalence_margin_ms",
+        "cost_lower_one_sided_bound_ms",
+        "cost_upper_one_sided_bound_ms",
+        "cost_alpha",
+        "cost_bootstrap_repetitions",
+        "cost_group_count"
+      ],
+      "rows": 48,
+      "sha256": "f40f8a7656819bb2d7324f75102ed128ea5ce6fa3f2362b41fa7ee7d9558a457"
+    },
+    "recall_stability_pass_counts.csv": {
+      "columns": [
+        "signed_family",
+        "comparisons",
+        "positive_stability_passes"
+      ],
+      "rows": 3,
+      "sha256": "edfe202925c6feaca5dcec8cc2d6c4021ef3639447c04796f531c34d239b8535"
+    },
+    "signed_value_family_selection.csv": {
+      "columns": [
+        "family",
+        "jointly_feasible_budget_count",
+        "jointly_feasible_budget_fractions",
+        "selection_criterion_mean_recall_lcb",
+        "seed_level_mean_recall_se",
+        "mean_router_plus_cost_predictor_ms",
+        "within_one_se_of_best",
+        "selected_family"
+      ],
+      "rows": 3,
+      "sha256": "bbca14bb2bba21d406d5df0e33f9321051f432bdb850b6bad06fe23648989fa5"
+    }
+  },
+  "historical_tables_are_modified": false,
+  "historical_v2_status": "published_snapshot_not_fully_regenerable_from_committed_raw_artifacts",
+  "known_provenance_gap": {
+    "historical_latency_summary_exact_regeneration": false,
+    "missing_candidate_bundle_timing_columns": [
+      "router_features_ms",
+      "signed_ridge_router_inference_ms",
+      "signed_hgbr_router_inference_ms",
+      "signed_rfr_router_inference_ms",
+      "current_error_lr_ms",
+      "current_error_hgbc_ms",
+      "current_error_rfc_ms",
+      "base_policy_inference_ms",
+      "augmented_policy_inference_ms",
+      "direct_fusion_lr_ms",
+      "direct_fusion_hgbc_ms",
+      "direct_fusion_rfc_ms"
+    ],
+    "raw_downstream_timing_not_preserved": true,
+    "reason": "The committed upstream candidate bundle contains policy predictions and model-selection evidence but does not preserve the raw downstream CPU/router timing observations used by the published component-latency summaries."
+  },
+  "protected_legacy_data_opened": false,
+  "repair_rule": "Do not overwrite or retrospectively regenerate the historical v2 snapshot with newly measured values. Corrected E2E, grouping, risk-control, label, and comparison experiments must use a new evaluation-measurement artifact namespace and a committed generator from the start.",
+  "review_context": "methodological_reproducibility_review_2026_08",
+  "router_rescue_attempted": false,
+  "scientific_boundary": {
+    "fresh_calibration_available": false,
+    "fresh_source_time_confirmation_available": false,
+    "historical_1pct_equivalence_margin_externally_justified": false,
+    "historical_35s_bound_is_proven_runtime_enforced": false,
+    "historical_component_cost_results_are_direct_e2e": false,
+    "historical_component_cost_results_are_final_exact_cost": false,
+    "historical_grouping_protects_near_duplicate_dependence": false,
+    "joint_fpr_cost_certificate_available": false,
+    "multi_rater_confirmation_available": false
+  },
+  "upstream_candidate_bundle": {
+    "artifacts": {
+      "candidate_bundle.parquet": {
+        "sha256": "5ae6a89476e24c60cb67ed2c41ccbf816e1327efc02ba350bdacc834b0be3eb5"
+      },
+      "family_evidence.json": {
+        "sha256": "c5afe7335d3998b812635830e0173150be48df4e787c661be8ace5d5ac152c0e"
+      },
+      "outer_fold_model_selection.parquet": {
+        "sha256": "6ca929e07d768e74623e4a233bbd265c9a90e76b646f36649837db8ae45e674d"
+      },
+      "run_manifest.json": {
+        "sha256": "7d8d1ecef1c22a1d35da7ecc6596aef565940873fd5c7833ab5049dde145db91"
+      }
+    },
+    "columns": 52,
+    "rows": 8435
+  }
+}

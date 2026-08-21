@@ -1,0 +1,196 @@
+{
+  "artifact": "prompt_only_semantic_grouping_structural_audit",
+  "generated_at": "2026-08-21T11:22:48.468506+00:00",
+  "scope": {
+    "development_only": true,
+    "rows": 1687,
+    "splits": [
+      "calibration",
+      "policy_selection",
+      "policy_train"
+    ],
+    "protected_splits_opened": false,
+    "labels_used": false,
+    "monitor_scores_used": false,
+    "downstream_performance_used": false
+  },
+  "representation": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "requested_revision": "1110a24",
+    "resolved_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "input_template": "[PROMPT]\n{prompt}",
+    "truncation": false,
+    "long_text_strategy": "deterministic_non_overlapping_content_token_chunks",
+    "chunk_aggregation": "content_token_count_weighted_mean_then_l2_normalize",
+    "dimension": 384,
+    "device": "cpu",
+    "batch_size": 64
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "packages": {
+      "sentence-transformers": "5.6.0",
+      "transformers": "4.57.6",
+      "huggingface-hub": "0.36.2",
+      "tokenizers": "0.22.2",
+      "torch": "2.13.0+cpu",
+      "pandas": "3.0.3",
+      "numpy": "2.5.0"
+    }
+  },
+  "nearest_neighbor_cosine": {
+    "p50": 0.6425145541671577,
+    "p75": 0.7221963508749427,
+    "p90": 0.7911605155919192,
+    "p95": 0.8336345982283024,
+    "p99": 0.9218956887337323,
+    "max": 0.97653878987799
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.75,
+      "pair_edges": 432,
+      "groups": 1506,
+      "non_singleton_groups": 106,
+      "rows_in_non_singleton": 287,
+      "max_group_size": 42,
+      "cross_source_groups": 11
+    },
+    {
+      "threshold": 0.8,
+      "pair_edges": 162,
+      "groups": 1590,
+      "non_singleton_groups": 57,
+      "rows_in_non_singleton": 154,
+      "max_group_size": 35,
+      "cross_source_groups": 8
+    },
+    {
+      "threshold": 0.82,
+      "pair_edges": 109,
+      "groups": 1615,
+      "non_singleton_groups": 37,
+      "rows_in_non_singleton": 109,
+      "max_group_size": 33,
+      "cross_source_groups": 4
+    },
+    {
+      "threshold": 0.84,
+      "pair_edges": 65,
+      "groups": 1633,
+      "non_singleton_groups": 25,
+      "rows_in_non_singleton": 79,
+      "max_group_size": 29,
+      "cross_source_groups": 3
+    },
+    {
+      "threshold": 0.85,
+      "pair_edges": 54,
+      "groups": 1641,
+      "non_singleton_groups": 23,
+      "rows_in_non_singleton": 69,
+      "max_group_size": 21,
+      "cross_source_groups": 3
+    },
+    {
+      "threshold": 0.86,
+      "pair_edges": 43,
+      "groups": 1651,
+      "non_singleton_groups": 16,
+      "rows_in_non_singleton": 52,
+      "max_group_size": 19,
+      "cross_source_groups": 2
+    },
+    {
+      "threshold": 0.88,
+      "pair_edges": 29,
+      "groups": 1660,
+      "non_singleton_groups": 17,
+      "rows_in_non_singleton": 44,
+      "max_group_size": 8,
+      "cross_source_groups": 1
+    },
+    {
+      "threshold": 0.9,
+      "pair_edges": 18,
+      "groups": 1671,
+      "non_singleton_groups": 13,
+      "rows_in_non_singleton": 29,
+      "max_group_size": 3,
+      "cross_source_groups": 1
+    },
+    {
+      "threshold": 0.92,
+      "pair_edges": 13,
+      "groups": 1676,
+      "non_singleton_groups": 9,
+      "rows_in_non_singleton": 20,
+      "max_group_size": 3,
+      "cross_source_groups": 1
+    },
+    {
+      "threshold": 0.94,
+      "pair_edges": 10,
+      "groups": 1679,
+      "non_singleton_groups": 6,
+      "rows_in_non_singleton": 14,
+      "max_group_size": 3,
+      "cross_source_groups": 1
+    },
+    {
+      "threshold": 0.95,
+      "pair_edges": 5,
+      "groups": 1682,
+      "non_singleton_groups": 3,
+      "rows_in_non_singleton": 8,
+      "max_group_size": 3,
+      "cross_source_groups": 0
+    }
+  ],
+  "review": {
+    "bands": [
+      {
+        "name": "below_0.85",
+        "low_inclusive": 0.82,
+        "high_exclusive": 0.85,
+        "target_pairs": 12
+      },
+      {
+        "name": "just_above_0.85",
+        "low_inclusive": 0.85,
+        "high_exclusive": 0.87,
+        "target_pairs": 12
+      },
+      {
+        "name": "0.87_to_0.90",
+        "low_inclusive": 0.87,
+        "high_exclusive": 0.9,
+        "target_pairs": 10
+      },
+      {
+        "name": "0.90_plus",
+        "low_inclusive": 0.9,
+        "high_exclusive": 1.01,
+        "target_pairs": 10
+      }
+    ],
+    "selection": "deterministic_even_spacing_after_similarity_sort",
+    "labels_included": false,
+    "review_file": "prompt_only_grouping_blinded_review.csv"
+  },
+  "files": {
+    "development_source": {
+      "path": "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet",
+      "sha256": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336"
+    },
+    "embeddings": {
+      "path": "prompt_only_grouping_embeddings_audit.npz",
+      "sha256": "7940b96458c6f213a76c5353ccf1b9625b44ce4658e09052412848a7945e910a"
+    },
+    "review": {
+      "path": "prompt_only_grouping_blinded_review.csv",
+      "sha256": "0f60477ac2c84b02d85b63614b0e50d5b44fa6305ac84481a4b52e491a03a8d9"
+    }
+  }
+}

@@ -49,7 +49,12 @@ def _numeric_vector(
 def primary_equivalence_margin_ms(
     absolute_cost_budget_ms: float,
 ) -> float:
-    """Frozen primary margin: max(1 ms, 1% of budget)."""
+    """Historical frozen v2 engineering margin.
+
+    This preserves max(1 ms, 1% of budget) for historical
+    reproducibility. It is not an externally justified universal
+    equivalence margin and must not be promoted to that role.
+    """
 
     if (
         not np.isfinite(absolute_cost_budget_ms)

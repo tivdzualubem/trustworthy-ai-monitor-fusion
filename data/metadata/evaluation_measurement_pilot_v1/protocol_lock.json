@@ -1,0 +1,19 @@
+{
+  "protocol_id": "evaluation_measurement_pilot_v1",
+  "protocol_version": "1.1.0",
+  "status": "locked_before_pilot_outcomes",
+  "locked_at": "2026-08-21T13:01:40.008033+00:00",
+  "supersedes_local_preoutcome_lock_sha256": "405d932d9d92b0ef179b2183e6dccc88255a4c11bb3a402b0e8daf833c37bae5",
+  "preoutcome_outcomes_used_for_hardening": false,
+  "files": {
+    "configs/evaluation_measurement_pilot_v1.json": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+    "data/metadata/evaluation_measurement_pilot_v1/dependency_grouping_spec.json": "c937fe221208f9ddb2b178baf421b2a7cbf6ddcc221608ec7f927eeef3cf999f",
+    "data/metadata/evaluation_measurement_pilot_v1/development_dependency_groups.csv": "ab7abc4c9a6569597987419b5a9fd96dc05c1ed982efd06df146a1baf05f4ef1",
+    "data/metadata/evaluation_measurement_pilot_v1/prompt_only_grouping_embeddings.npz": "7940b96458c6f213a76c5353ccf1b9625b44ce4658e09052412848a7945e910a",
+    "data/metadata/evaluation_measurement_pilot_v1/prompt_only_grouping_audit_manifest.json": "4ea6fac8e6918841923482de20127013277f242b76d06a3245465bdaab6c38f2",
+    "data/metadata/evaluation_measurement_pilot_v1/composite_grouping_structural_audit.json": "06fcd82332baa9a5d974adcec6d0f5d0e20a4a8778a3fb4608ded0c30cf7f539",
+    "scripts/rebuild_evaluation_measurement_dependency_groups.py": "3796b138defe0be7cc6a7776a2894ed1c8f87c4054e51dd40d61f6aca4306ace",
+    "tests/test_evaluation_measurement_pilot_v1_protocol.py": "58d6765245d1a095fab5e5a05effcb388cecb4ab863bf6102b631fd3ae9162ac",
+    "tests/test_evaluation_measurement_grouping_reproduction.py": "e1510fcf77175a20a819bddc6cc6ca21bd94f3f179a333c63596d4c63af6e38a"
+  }
+}

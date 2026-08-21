@@ -1,0 +1,105 @@
+{
+  "artifact": "dependency_grouping_spec",
+  "status": "frozen_for_evaluation_measurement_pilot_v1",
+  "selection_boundary": {
+    "labels_used": false,
+    "monitor_outputs_used": false,
+    "downstream_performance_used": false,
+    "protected_legacy_splits_opened": false
+  },
+  "primary_rule": {
+    "grouping_unit": "connected_component",
+    "edge_if_any": [
+      "normalized_prompt_exact_match",
+      "prompt_only_minilm_cosine_similarity >= 0.90",
+      "lowercased_binary_word_5gram_jaccard >= 0.75"
+    ],
+    "semantic_threshold": 0.9,
+    "lexical_5gram_jaccard_threshold": 0.75,
+    "semantic_model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "semantic_model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "semantic_input_template": "[PROMPT]\n{prompt}",
+    "semantic_truncation": false
+  },
+  "prespecified_grouping_sensitivity": {
+    "semantic_thresholds": [
+      0.87,
+      0.92
+    ],
+    "lexical_threshold_fixed": 0.75,
+    "purpose": "robustness of conclusions to conservative near-duplicate boundary; not policy tuning"
+  },
+  "rationale": {
+    "semantic_primary": "0.90 chosen conservatively after label-blinded prompt-only boundary review; the 0.85 band contained related but non-duplicate prompts, while >=0.90 was dominated by clear paraphrases/template siblings.",
+    "lexical_primary": "0.75 is the highest threshold on the observed 0.60-0.75 structural plateau and preserved the shared-template component structure before the 0.80 threshold began dropping links."
+  },
+  "development_structure": {
+    "primary": {
+      "semantic_threshold": 0.9,
+      "lexical_5gram_jaccard_threshold": 0.75,
+      "exact_prompt_edges": 0,
+      "semantic_edges": 18,
+      "lexical_edges": 241,
+      "union_edges": 256,
+      "groups": 1642,
+      "non_singleton_groups": 9,
+      "rows_in_non_singleton": 54,
+      "maximum_group_size": 34,
+      "cross_source_groups": 1
+    },
+    "semantic_0.87": {
+      "semantic_threshold": 0.87,
+      "lexical_5gram_jaccard_threshold": 0.75,
+      "exact_prompt_edges": 0,
+      "semantic_edges": 40,
+      "lexical_edges": 241,
+      "union_edges": 274,
+      "groups": 1634,
+      "non_singleton_groups": 12,
+      "rows_in_non_singleton": 65,
+      "maximum_group_size": 41,
+      "cross_source_groups": 2
+    },
+    "semantic_0.92": {
+      "semantic_threshold": 0.92,
+      "lexical_5gram_jaccard_threshold": 0.75,
+      "exact_prompt_edges": 0,
+      "semantic_edges": 13,
+      "lexical_edges": 241,
+      "union_edges": 252,
+      "groups": 1645,
+      "non_singleton_groups": 7,
+      "rows_in_non_singleton": 49,
+      "maximum_group_size": 33,
+      "cross_source_groups": 1
+    }
+  },
+  "inputs": {
+    "development": {
+      "path": "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet",
+      "sha256": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336"
+    },
+    "prompt_only_embeddings": {
+      "path": "data/metadata/evaluation_measurement_pilot_v1/prompt_only_grouping_embeddings.npz",
+      "sha256": "7940b96458c6f213a76c5353ccf1b9625b44ce4658e09052412848a7945e910a",
+      "note": "Hash-verified prompt-only MiniLM embeddings created without labels, monitor outputs, downstream performance, or protected splits."
+    },
+    "prompt_only_audit_manifest": {
+      "path": "data/metadata/evaluation_measurement_pilot_v1/prompt_only_grouping_audit_manifest.json",
+      "sha256": "4ea6fac8e6918841923482de20127013277f242b76d06a3245465bdaab6c38f2"
+    },
+    "composite_structural_audit": {
+      "path": "data/metadata/evaluation_measurement_pilot_v1/composite_grouping_structural_audit.json",
+      "sha256": "06fcd82332baa9a5d974adcec6d0f5d0e20a4a8778a3fb4608ded0c30cf7f539"
+    }
+  },
+  "outputs": {
+    "groups_csv": {
+      "path": "data/metadata/evaluation_measurement_pilot_v1/development_dependency_groups.csv",
+      "sha256": "ab7abc4c9a6569597987419b5a9fd96dc05c1ed982efd06df146a1baf05f4ef1"
+    }
+  },
+  "frozen_at": "2026-08-21T12:00:14.627921+00:00",
+  "canonical_generator": "scripts/rebuild_evaluation_measurement_dependency_groups.py",
+  "reproduction_command": "python scripts/rebuild_evaluation_measurement_dependency_groups.py --check"
+}

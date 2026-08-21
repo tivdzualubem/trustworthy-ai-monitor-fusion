@@ -1,4 +1,4 @@
-.PHONY: install verify test reproduce-cpu
+.PHONY: install verify test reproduce-cpu reproduce-v2-historical
 
 install:
 	python -m pip install -r requirements.txt
@@ -12,3 +12,6 @@ test:
 
 reproduce-cpu:
 	bash scripts/reproduce_cpu_results.sh
+
+reproduce-v2-historical:
+	bash scripts/reproduce_historical_v2_evidence.sh

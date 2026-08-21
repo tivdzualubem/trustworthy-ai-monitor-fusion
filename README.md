@@ -1,21 +1,51 @@
-# Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion
+# Evaluation and Measurement of Runtime Safety-Monitor Cascades
 <!-- V2_STATUS_START -->
 
-## Exact-cost risk-cascade v2
+## Current research direction: evaluation and measurement
 
-The current v2 study evaluates selective safety-monitor acquisition under a frozen exact-cost and risk-constrained protocol with repeated grouped splits, multiple model families, deployable threshold semantics, stronger baselines, heterogeneous latency measurement, and protected-data boundaries.
+Following the August 17 review, the router is a **no-go on the existing data**.
+The project is now focused on an evaluation/measurement study using this
+system as the first case study.
 
-**Development outcome:** no signed-value model family had a jointly feasible development operating point. Ridge, HistGradientBoostingRegressor, and RandomForestRegressor each passed **1 of 16** primary pairwise cost-equivalence comparisons. No router family was therefore selected.
+The historical v2 development results must be interpreted with these
+limitations:
 
-This repository does **not** claim that the router improves recall under controlled FPR and cost. Independent fresh calibration and fresh source- and time-separated multi-rater confirmatory data were unavailable, so formal joint-risk certification and the confirmatory superiority gate were not executed. The protected legacy `final_test` and `held_out_shift` splits remained sealed.
+- the reported development costs are **summed measured component latencies**,
+  not the frozen direct wall-clock end-to-end policy-latency estimand;
+- the 1,687 development examples resolve to **1,687 effective groups**, so the
+  historical grouping does not protect against template or near-duplicate
+  dependence;
+- the 35 s value used by bounded-cost code was a post-hoc recording cap, not a
+  demonstrated mechanically enforced runtime bound;
+- the historical `max(1 ms, 1% of budget)` cost-equivalence margin was
+  prespecified but **not externally justified**;
+- the historical v2 CSV snapshot is not fully regenerable from committed raw
+  timing artifacts because downstream raw timing provenance is incomplete;
+- fresh calibration, joint FPR+cost certification, fresh source/time-separated
+  confirmation, and multi-rater labels were not obtained.
 
-The supported contribution is an **evaluation and measurement methodology for exact-cost, risk-constrained safety-monitor cascades**.
+No signed-value family had a jointly feasible historical development operating
+point, and no router was selected. The protected legacy `final_test` and
+`held_out_shift` partitions remain sealed.
 
-- [Research report](paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf)
+The historical component-cost tables are retained unchanged for auditability.
+Corrected experiments must use a new measurement namespace and direct E2E cost
+when making E2E or exact-cost claims.
+
+Future evaluation distinguishes two questions:
+
+1. **Iso-cost comparison:** use an externally justified equivalence margin.
+2. **Pareto comparison:** test higher recall, non-higher cost, and controlled
+   FPR without requiring two-sided cost equivalence first.
+
+- [Current v2 report](paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf)
 - [Publication source](paper/v2_publication/main.tex)
+- [Historical v2 provenance status](reports/exact_cost_risk_cascade_v2/historical_v2_provenance_status.json)
 - [Frozen v2 protocol](configs/exact_cost_risk_cascade_protocol_v2.json)
-- [Protocol amendment](configs/exact_cost_risk_cascade_protocol_v2_amendment_001.json)
-- [v2 evaluation evidence](reports/exact_cost_risk_cascade_v2/)
+- [v2 evidence snapshot](reports/exact_cost_risk_cascade_v2/)
+
+
+The historical bounded-cost analysis normalized per-example cost with a 35 s constant. That constant was not a demonstrated mechanically enforced runtime bound; it was an analysis normalization bound, so the historical bounded-mean cost calculation is not a deployment runtime-bound certificate.
 
 <!-- V2_STATUS_END -->
 
@@ -30,7 +60,7 @@ the response should be intercepted because, in the context of the prompt, it
 materially provides, facilitates, endorses, or contains disallowed harmful
 content. Benign answers, safe refusals, and safe redirections are negative.
 
-## Final scientific result
+## Earlier decision-value result
 
 The result is mixed and remains **no-go** under the prespecified development
 milestone:
@@ -52,7 +82,7 @@ detection of correlated monitor failures, or deployment readiness.
 ## Final report
 
 - [Compiled technical report](paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf)
-- [LaTeX source](paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex)
+- [Current publication source](paper/v2_publication/main.tex)
 - [Bibliography](paper/references.bib)
 - [Report figures](paper/figures/)
 

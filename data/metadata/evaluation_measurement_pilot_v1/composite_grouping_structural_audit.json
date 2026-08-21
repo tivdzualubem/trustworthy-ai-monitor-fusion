@@ -1,0 +1,108 @@
+{
+  "artifact": "composite_dependency_grouping_structural_audit",
+  "scope": {
+    "development_only": true,
+    "labels_used": false,
+    "monitor_outputs_used": false,
+    "downstream_performance_used": false,
+    "protected_splits_opened": false
+  },
+  "candidate_rule": {
+    "grouping_unit": "connected_component",
+    "semantic_representation": {
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "requested_revision": "1110a24",
+      "resolved_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "input_template": "[PROMPT]\n{prompt}",
+      "truncation": false,
+      "long_text_strategy": "deterministic_non_overlapping_content_token_chunks",
+      "chunk_aggregation": "content_token_count_weighted_mean_then_l2_normalize",
+      "dimension": 384,
+      "device": "cpu",
+      "batch_size": 64
+    },
+    "semantic_threshold": 0.85,
+    "lexical_representation": "lowercased binary word 5-gram sets",
+    "lexical_similarity": "Jaccard",
+    "lexical_thresholds_swept": [
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8
+    ],
+    "edge_union": "semantic_near_duplicate OR lexical_template_similarity"
+  },
+  "sweep": [
+    {
+      "semantic_threshold": 0.85,
+      "lexical_5gram_jaccard_threshold": 0.6,
+      "lexical_edges": 556,
+      "semantic_edges": 54,
+      "union_edges": 586,
+      "groups": 1627,
+      "non_singleton_groups": 19,
+      "rows_in_non_singleton": 79,
+      "maximum_group_size": 41,
+      "cross_source_groups": 3
+    },
+    {
+      "semantic_threshold": 0.85,
+      "lexical_5gram_jaccard_threshold": 0.65,
+      "lexical_edges": 556,
+      "semantic_edges": 54,
+      "union_edges": 586,
+      "groups": 1627,
+      "non_singleton_groups": 19,
+      "rows_in_non_singleton": 79,
+      "maximum_group_size": 41,
+      "cross_source_groups": 3
+    },
+    {
+      "semantic_threshold": 0.85,
+      "lexical_5gram_jaccard_threshold": 0.7,
+      "lexical_edges": 512,
+      "semantic_edges": 54,
+      "union_edges": 542,
+      "groups": 1627,
+      "non_singleton_groups": 19,
+      "rows_in_non_singleton": 79,
+      "maximum_group_size": 41,
+      "cross_source_groups": 3
+    },
+    {
+      "semantic_threshold": 0.85,
+      "lexical_5gram_jaccard_threshold": 0.75,
+      "lexical_edges": 241,
+      "semantic_edges": 54,
+      "union_edges": 285,
+      "groups": 1627,
+      "non_singleton_groups": 19,
+      "rows_in_non_singleton": 79,
+      "maximum_group_size": 41,
+      "cross_source_groups": 3
+    },
+    {
+      "semantic_threshold": 0.85,
+      "lexical_5gram_jaccard_threshold": 0.8,
+      "lexical_edges": 60,
+      "semantic_edges": 54,
+      "union_edges": 109,
+      "groups": 1631,
+      "non_singleton_groups": 20,
+      "rows_in_non_singleton": 76,
+      "maximum_group_size": 36,
+      "cross_source_groups": 3
+    }
+  ],
+  "review": {
+    "file": "composite_grouping_blinded_review.csv",
+    "sha256": "947300005c1d1352529319beac82e95ecc1771a5a273874e0ae330a16e148a59",
+    "selection_uses_labels": false
+  },
+  "inputs": {
+    "development_sha256": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336",
+    "prompt_only_embeddings_sha256": "7940b96458c6f213a76c5353ccf1b9625b44ce4658e09052412848a7945e910a",
+    "prompt_only_audit_manifest_sha256": "4ea6fac8e6918841923482de20127013277f242b76d06a3245465bdaab6c38f2"
+  }
+}
