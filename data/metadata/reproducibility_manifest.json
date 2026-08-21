@@ -68,7 +68,8 @@
     "reproduce_v2_historical": "bash scripts/reproduce_historical_v2_evidence.sh",
     "test": "pytest -q",
     "verify": "python scripts/verify_reproducibility.py --strict-hashes",
-    "verify_pilot_grouping": "python scripts/rebuild_evaluation_measurement_dependency_groups.py --check"
+    "verify_pilot_grouping": "python scripts/rebuild_evaluation_measurement_dependency_groups.py --check",
+    "reproduce_pilot_cpu": "python scripts/run_evaluation_measurement_pilot_v1_cpu.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
@@ -194,7 +195,16 @@
     "data/metadata/evaluation_measurement_pilot_v1/composite_grouping_structural_audit.json": "06fcd82332baa9a5d974adcec6d0f5d0e20a4a8778a3fb4608ded0c30cf7f539",
     "scripts/rebuild_evaluation_measurement_dependency_groups.py": "3796b138defe0be7cc6a7776a2894ed1c8f87c4054e51dd40d61f6aca4306ace",
     "tests/test_evaluation_measurement_pilot_v1_protocol.py": "58d6765245d1a095fab5e5a05effcb388cecb4ab863bf6102b631fd3ae9162ac",
-    "tests/test_evaluation_measurement_grouping_reproduction.py": "e1510fcf77175a20a819bddc6cc6ca21bd94f3f179a333c63596d4c63af6e38a"
+    "tests/test_evaluation_measurement_grouping_reproduction.py": "e1510fcf77175a20a819bddc6cc6ca21bd94f3f179a333c63596d4c63af6e38a",
+    "scripts/run_evaluation_measurement_pilot_v1_cpu.py": "bb85bd28cc578b4e62fa2f7969681300a80a2b69f18cf388a742ec7d156aecdd",
+    "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json": "4bec8c058f33585149c4ce7cd7e427d63425be9fb6a00c756f7ea29e95a8b2ad",
+    "reports/evaluation_measurement_pilot_v1/cpu/fold_assignments.csv": "f878cfac4837d9ea75604f14c4b17bd844515e911e09381b3930f54df2479db8",
+    "reports/evaluation_measurement_pilot_v1/cpu/holdout_predictions.parquet": "4408a8f98d5414b7ab2c2079da76cba02d93f01d1d20584b4185c7e587050152",
+    "reports/evaluation_measurement_pilot_v1/cpu/policy_summary.csv": "c3c6a9a6cb945baf1b49edaf7a438ab7e5b2e044074a1270089deac74c5612bf",
+    "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json": "7b9537fdd5176386ce4ebfb2f827fc9a5f942f67d26a807789d38dc9716fb2a4",
+    "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_prediction_matrix.parquet": "a2d29cf1689bee2d9eec29dee2ae6a0f3f6c78cd7319e465b8e0c86974958e5b",
+    "reports/evaluation_measurement_pilot_v1/cpu/source_metrics.csv": "9a81a86bc3aa0949784689e755cfbcf28d40216893de3c09e798b862714ec6c5",
+    "reports/evaluation_measurement_pilot_v1/cpu/timing_sample.parquet": "a01099573c96188f5cfd67ffc3215de14ab8215be218c4c269786b909ea91823"
   },
   "final_report": {
     "analysis_baseline_commit": "788cc51",
@@ -218,5 +228,13 @@
   "paper_direction": "decision_value_acquisition_evaluation",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-21T13:01:40.033155+00:00"
+  "updated_at": "2026-08-21T13:38:49.315313+00:00",
+  "evaluation_measurement_pilot_v1_cpu": {
+    "status": "development_only_cpu_outcomes_recorded",
+    "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
+    "protected_splits_opened": false,
+    "direct_e2e_timing_pending": true,
+    "pareto_claim_available": false,
+    "artifact_manifest": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json"
+  }
 }

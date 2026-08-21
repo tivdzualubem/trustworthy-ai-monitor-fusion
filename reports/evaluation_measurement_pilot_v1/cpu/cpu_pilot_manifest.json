@@ -1,0 +1,91 @@
+{
+  "artifact": "evaluation_measurement_pilot_v1_cpu",
+  "claim_boundary": "CPU outputs characterize predictive/risk/routing measurement effects only. Direct wall-clock E2E cost is not available until the frozen T4 timing stage, so no Pareto or iso-cost conclusion is permitted from this artifact alone.",
+  "counts": {
+    "holdout_prediction_rows": 403392,
+    "policy_summary_rows": 960,
+    "primary_prediction_rows": 6300,
+    "source_metric_rows": 2880,
+    "timing_sample_rows": 363
+  },
+  "current_head": "b9759bf1610f726396183bd7c79c11983bd8956b",
+  "data_boundary": {
+    "authorized_splits": [
+      "calibration",
+      "policy_selection",
+      "policy_train"
+    ],
+    "development_only": true,
+    "development_rows": 1687,
+    "mixed_full_data_containers_opened": false,
+    "protected_splits_opened": false
+  },
+  "design": {
+    "direct_e2e_timing_pending": true,
+    "grouping_conditions": {
+      "dependency_primary": "primary_dependency_group",
+      "semantic_0_87": "sensitivity_semantic_0_87_group",
+      "semantic_0_92": "sensitivity_semantic_0_92_group",
+      "singleton_weak": "example_id"
+    },
+    "label_conditions": {
+      "audited": "y",
+      "original": "y_original"
+    },
+    "monitor_stacks": [
+      "rule_to_compact",
+      "compact_to_qwen",
+      "rule_compact_to_qwen"
+    ],
+    "offline_ranked_is_diagnostic_only": true,
+    "pareto_claim_available": false,
+    "primary_cost_estimand_available": false,
+    "primary_inference_seed": 1729,
+    "repeated_seed_pooling": false,
+    "seeds": [
+      1729,
+      2718,
+      3141,
+      5772,
+      8111
+    ],
+    "target_acquisition_rates": [
+      0.1,
+      0.25,
+      0.5
+    ]
+  },
+  "environment": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.18.0"
+  },
+  "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
+  "generated_at": "2026-08-21T13:19:47.001569+00:00",
+  "generator": {
+    "path": "scripts/run_evaluation_measurement_pilot_v1_cpu.py",
+    "sha256": "bb85bd28cc578b4e62fa2f7969681300a80a2b69f18cf388a742ec7d156aecdd"
+  },
+  "inputs": {
+    "data/metadata/evaluation_measurement_pilot_v1/dependency_grouping_spec.json": "c937fe221208f9ddb2b178baf421b2a7cbf6ddcc221608ec7f927eeef3cf999f",
+    "data/metadata/evaluation_measurement_pilot_v1/development_dependency_groups.csv": "ab7abc4c9a6569597987419b5a9fd96dc05c1ed982efd06df146a1baf05f4ef1",
+    "data/processed/v2_development_view/manifest.json": "d5802360e62304628323def5103531d8e2fdaf7fd2b84909b380e21e53536d83",
+    "data/processed/v2_development_view/monitor_score_cache_v3.development.parquet": "e567937e5ea8f3c024cfb719e1774a3a52d9d31e163b6a5deada57b23185d0c3",
+    "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336"
+  },
+  "outputs": {
+    "fold_assignments.csv": "f878cfac4837d9ea75604f14c4b17bd844515e911e09381b3930f54df2479db8",
+    "holdout_predictions.parquet": "4408a8f98d5414b7ab2c2079da76cba02d93f01d1d20584b4185c7e587050152",
+    "policy_summary.csv": "c3c6a9a6cb945baf1b49edaf7a438ab7e5b2e044074a1270089deac74c5612bf",
+    "primary_policy_definitions.json": "7b9537fdd5176386ce4ebfb2f827fc9a5f942f67d26a807789d38dc9716fb2a4",
+    "primary_policy_prediction_matrix.parquet": "a2d29cf1689bee2d9eec29dee2ae6a0f3f6c78cd7319e465b8e0c86974958e5b",
+    "source_metrics.csv": "9a81a86bc3aa0949784689e755cfbcf28d40216893de3c09e798b862714ec6c5",
+    "timing_sample.parquet": "a01099573c96188f5cfd67ffc3215de14ab8215be218c4c269786b909ea91823"
+  },
+  "protocol_sha256": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+  "protocol_version": "1.1.0",
+  "status": "development_only_cpu_outcomes"
+}

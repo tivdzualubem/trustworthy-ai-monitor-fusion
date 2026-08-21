@@ -1,0 +1,333 @@
+{
+  "artifact": "evaluation_measurement_pilot_v1_primary_policy_definitions",
+  "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
+  "grouping_condition": "dependency_primary",
+  "label_condition": "audited",
+  "model_family": "logistic_regression",
+  "protocol_sha256": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+  "seed": 1729,
+  "stacks": {
+    "compact_to_qwen": {
+      "cheap_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          0.927410879848061
+        ],
+        "features": [
+          "compact_unsafe_score"
+        ],
+        "intercept": -1.6253868967549245,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "full_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          0.5834892734962622,
+          4.889626105590393
+        ],
+        "features": [
+          "compact_unsafe_score",
+          "qwen_prompt_response_score"
+        ],
+        "intercept": -3.3980358063279263,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "policies": [
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.16751394939059142,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.0,
+          "policy_kind": "cheap_only",
+          "selection_acquisition_rate": 0.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.27918314152718254,
+          "deployable": true,
+          "holdout_acquisition_rate": 1.0,
+          "policy_kind": "full_information",
+          "selection_acquisition_rate": 1.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": 0.33366633350716274,
+          "decision_threshold": 0.1660626955539586,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.10238095238095238,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.1660626955539586,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.1,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": 0.33444284223022036,
+          "decision_threshold": 0.1655324055456269,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.29285714285714287,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.25,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.1655324055456269,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.25,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.25,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": 0.3346354750818326,
+          "decision_threshold": 0.27914111979667494,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.5452380952380952,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.5,
+          "target_rate": 0.5
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.27914111979667494,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.5,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.5,
+          "target_rate": 0.5
+        }
+      ]
+    },
+    "rule_compact_to_qwen": {
+      "cheap_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          1.8218340879031758,
+          1.0585884659860603
+        ],
+        "features": [
+          "rule_score",
+          "compact_unsafe_score"
+        ],
+        "intercept": -2.0144905493041962,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "full_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          0.8178958181384944,
+          0.622628906859154,
+          4.801667306502278
+        ],
+        "features": [
+          "rule_score",
+          "compact_unsafe_score",
+          "qwen_prompt_response_score"
+        ],
+        "intercept": -3.534145705120112,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "policies": [
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.0,
+          "policy_kind": "cheap_only",
+          "selection_acquisition_rate": 0.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.3083743296292341,
+          "deployable": true,
+          "holdout_acquisition_rate": 1.0,
+          "policy_kind": "full_information",
+          "selection_acquisition_rate": 1.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": 0.2180882940630201,
+          "decision_threshold": 0.21564062400966832,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.12142857142857143,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.21564062400966832,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.1,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": 0.32512549166426685,
+          "decision_threshold": 0.16278857107010844,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.2904761904761905,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.25,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.16278857107010844,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.25,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.25,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": 0.3812932653902908,
+          "decision_threshold": 0.1186737516249771,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.5285714285714286,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.5,
+          "target_rate": 0.5
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.1186737516249771,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.5,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.5,
+          "target_rate": 0.5
+        }
+      ]
+    },
+    "rule_to_compact": {
+      "cheap_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          1.8039245107078632
+        ],
+        "features": [
+          "rule_score"
+        ],
+        "intercept": -1.9814029892712157,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "full_model": {
+        "classes": [
+          0,
+          1
+        ],
+        "coef": [
+          1.8218340879031758,
+          1.0585884659860603
+        ],
+        "features": [
+          "rule_score",
+          "compact_unsafe_score"
+        ],
+        "intercept": -2.0144905493041962,
+        "probability": "sigmoid(intercept + dot(coef, features))"
+      },
+      "policies": [
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.27527507015033825,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.0,
+          "policy_kind": "cheap_only",
+          "selection_acquisition_rate": 0.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": true,
+          "holdout_acquisition_rate": 1.0,
+          "policy_kind": "full_information",
+          "selection_acquisition_rate": 1.0,
+          "target_rate": null
+        },
+        {
+          "acquisition_threshold": 0.21888244779390553,
+          "decision_threshold": 0.27527507015033825,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.11428571428571428,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.27527507015033825,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.1,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.10046728971962617,
+          "target_rate": 0.1
+        },
+        {
+          "acquisition_threshold": 0.3345110359855733,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": true,
+          "holdout_acquisition_rate": 0.3047619047619048,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 0.26869158878504673,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.25,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.25,
+          "target_rate": 0.25
+        },
+        {
+          "acquisition_threshold": 0.3788306421336455,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": true,
+          "holdout_acquisition_rate": 1.0,
+          "policy_kind": "selective_deployable",
+          "selection_acquisition_rate": 1.0,
+          "target_rate": 0.5
+        },
+        {
+          "acquisition_threshold": null,
+          "decision_threshold": 0.28163923752772757,
+          "deployable": false,
+          "holdout_acquisition_rate": 0.5,
+          "policy_kind": "offline_ranked_diagnostic",
+          "selection_acquisition_rate": 0.5,
+          "target_rate": 0.5
+        }
+      ]
+    }
+  }
+}
