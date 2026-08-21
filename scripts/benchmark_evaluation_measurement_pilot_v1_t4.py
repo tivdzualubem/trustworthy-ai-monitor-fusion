@@ -10,6 +10,7 @@ import os
 import platform
 import re
 import subprocess
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -138,14 +139,24 @@ def compact_text(prompt: str, response: str) -> str:
 
 def load_rule_function(package_root: Path):
     module_path = package_root / "code/rule_filter.py"
+    module_name = "frozen_rule_filter"
     spec = importlib.util.spec_from_file_location(
-        "frozen_rule_filter",
+        module_name,
         module_path,
     )
     if spec is None or spec.loader is None:
         raise RuntimeError("Unable to load frozen rule filter.")
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+
+    # Python 3.12 dataclasses inspect sys.modules while decorators execute.
+    # Register the dynamically loaded module before exec_module.
+    sys.modules[module_name] = module
+    try:
+        spec.loader.exec_module(module)
+    except Exception:
+        sys.modules.pop(module_name, None)
+        raise
+
     return module.score_prompt_response
 
 

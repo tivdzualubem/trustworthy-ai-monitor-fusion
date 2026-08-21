@@ -245,9 +245,14 @@ def main() -> None:
     progress("[1/8] Verifying CPU commit and frozen CPU artifacts...")
     if git("branch", "--show-current") != BRANCH:
         raise SystemExit("Unexpected branch.")
-    if git("rev-parse", "HEAD") != CPU_COMMIT:
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", CPU_COMMIT, "HEAD"],
+        cwd=ROOT,
+        check=False,
+    )
+    if ancestor.returncode != 0:
         raise SystemExit(
-            "HEAD must be the committed CPU pilot before packaging."
+            "The committed CPU pilot must remain in the branch ancestry."
         )
 
     cpu_manifest = json.loads(
