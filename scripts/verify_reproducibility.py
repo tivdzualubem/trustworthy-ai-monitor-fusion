@@ -159,10 +159,10 @@ def verify(strict_hashes: bool) -> None:
         "Qwen mismatch unique examples:",
         timing["score_validation"]["qwen_mismatch_unique_examples"],
     )
-    print("paper direction: decision-value acquisition evaluation")
-    print("value-predictability gate: no-go")
-    print("common-risk frontier gate: pass")
-    print("overall milestone: no-go")
+    print("current paper direction: evaluation/measurement of runtime safety-monitor cascades")
+    print("historical decision-value milestone: no-go")
+    print("current evaluation/measurement pilot: completed (development only)")
+    print("router superiority claim: none")
 
 
 def main() -> None:

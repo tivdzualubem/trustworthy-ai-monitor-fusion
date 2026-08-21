@@ -62,7 +62,6 @@
     "status": "development_only_completed"
   },
   "entry_points": {
-    "build_report": "bash paper/build_report.sh",
     "gpu_timing_package": "exports/final_v3_policy_timing_package.zip",
     "reproduce_cpu": "bash scripts/reproduce_cpu_results.sh",
     "reproduce_v2_historical": "bash scripts/reproduce_historical_v2_evidence.sh",
@@ -72,11 +71,13 @@
     "reproduce_pilot_cpu": "python scripts/run_evaluation_measurement_pilot_v1_cpu.py",
     "build_pilot_t4_package": "python scripts/build_evaluation_measurement_pilot_v1_kaggle_package.py",
     "run_pilot_t4_benchmark": "python benchmark_evaluation_measurement_pilot_v1_t4.py --package-root <package_root> --output-dir <output_dir>",
-    "analyze_evaluation_measurement_pilot_v1": "python scripts/analyze_evaluation_measurement_pilot_v1.py"
+    "analyze_evaluation_measurement_pilot_v1": "python scripts/analyze_evaluation_measurement_pilot_v1.py",
+    "build_historical_decision_value_report": "bash paper/build_report.sh",
+    "current_report": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "f27d2ffd9de1581d5eb4ef18eeded8ad47bbcfc0567145ca9dd31ce3000cfd57",
+    "README.md": "94942439af2260a876fb0f4d212daac329085d14eb2201db3c23741979d4864a",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -170,7 +171,7 @@
     "scripts/run_policy_evaluation_v3.py": "6f6fac3bba5e2ba77caecece64757988d92e25bf36cdb693f09704f17540d497",
     "scripts/train_serialize_fusion_models_v3.py": "d4c177a7c894f8c41d2b0ab217e26fd0651e85d54f6ca966bdbc3eb02e819740",
     "scripts/validate_full_text_embedding_protocol.py": "41abdfe609391c21074375742cd56c88ce928e00372af7f3270a2d480181565d",
-    "scripts/verify_reproducibility.py": "2b2a3758cb11114717622fbcac09cb964bd2bbb13eaa5a2482c08e31760aec42",
+    "scripts/verify_reproducibility.py": "365318ead198b1a390c6e05d2b19769a4cdc38e27866762424ee1145b17c9533",
     "scripts/write_stop_go_decision_v3.py": "dec580ceffa2f753bdea57caad50458ee59fa6077ed109a4881dd31ddc6bc77b",
     "src/monitor_fusion/evaluation/comparison_objectives.py": "96849225b70e2e2ece95c391b466b3e0a123281f7e17956d8f1817e39ba40d5a",
     "src/monitor_fusion/evaluation/cost_equivalence.py": "e9b79b9376bab0d9927720234692409f9378861889545d72818d5c9ae5d2fb65",
@@ -227,36 +228,30 @@
     "reports/evaluation_measurement_pilot_v1/analysis/analysis_manifest.json": "db4622a043efe1e950aa0c5e366b3ee99f2b388b8ec5835b0166fa74b65d828d",
     "reports/evaluation_measurement_pilot_v1/analysis/measurement_conclusion_matrix.csv": "dc9f6c4444c3cc5e44a5f0640f31c7bd12ed1a3596a961d952414203e3a528a7",
     "reports/evaluation_measurement_pilot_v1/analysis/pilot_closure_summary.json": "4580f7d649bfe1ce88f1b503558628daae43b0e2660985b8d0cf5eacdcb6bb87",
-    "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619"
+    "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619",
+    "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "021096ff074bd63f0dd26204ef0dca7c4a3071f6994757a3b075c9d005239724"
   },
   "final_report": {
-    "analysis_baseline_commit": "788cc51",
-    "bibliography": "paper/references.bib",
-    "compatibility_pdf": "paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf",
-    "decision_status": "no-go",
-    "deployment_readiness_claim_made": false,
-    "figures_directory": "paper/figures",
-    "final_test_used": false,
-    "frontier_condition_pass": true,
-    "held_out_shift_used": false,
-    "new_method_claim_made": false,
-    "overall_milestone_pass": false,
-    "page_count": 17,
-    "pdf": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.pdf",
-    "predictability_condition_pass": false,
-    "source": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex",
-    "status": "comprehensive_final_report_completed",
-    "title": "Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion"
+    "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
+    "pdf": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf",
+    "page_count": 8,
+    "status": "completed_development_only_evaluation_measurement_report",
+    "historical_v2_router_status": "no-go",
+    "router_superiority_claim_made": false,
+    "pareto_claim_available": false,
+    "fresh_joint_fpr_cost_certification": false,
+    "fresh_source_time_separated_confirmation": false,
+    "multi_rater_confirmation": false
   },
-  "paper_direction": "decision_value_acquisition_evaluation",
+  "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-21T20:58:12.921949+00:00",
+  "updated_at": "2026-08-21T22:40:00.683764+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
     "protected_splits_opened": false,
-    "direct_e2e_timing_pending": true,
+    "direct_e2e_timing_pending": false,
     "pareto_claim_available": false,
     "artifact_manifest": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json"
   },
@@ -299,5 +294,24 @@
     "multi_rater_confirmation": false,
     "protected_legacy_sets_opened": false,
     "router_superiority_claim": false
+  },
+  "historical_final_report": {
+    "analysis_baseline_commit": "788cc51",
+    "bibliography": "paper/references.bib",
+    "compatibility_pdf": "paper/Exact_Cost_Development_Screening_and_Risk_Constrained_Evaluation.pdf",
+    "decision_status": "no-go",
+    "deployment_readiness_claim_made": false,
+    "figures_directory": "paper/figures",
+    "final_test_used": false,
+    "frontier_condition_pass": true,
+    "held_out_shift_used": false,
+    "new_method_claim_made": false,
+    "overall_milestone_pass": false,
+    "page_count": 17,
+    "pdf": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.pdf",
+    "predictability_condition_pass": false,
+    "source": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex",
+    "status": "comprehensive_final_report_completed",
+    "title": "Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion"
   }
 }
