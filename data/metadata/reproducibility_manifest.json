@@ -71,7 +71,8 @@
     "verify_pilot_grouping": "python scripts/rebuild_evaluation_measurement_dependency_groups.py --check",
     "reproduce_pilot_cpu": "python scripts/run_evaluation_measurement_pilot_v1_cpu.py",
     "build_pilot_t4_package": "python scripts/build_evaluation_measurement_pilot_v1_kaggle_package.py",
-    "run_pilot_t4_benchmark": "python benchmark_evaluation_measurement_pilot_v1_t4.py --package-root <package_root> --output-dir <output_dir>"
+    "run_pilot_t4_benchmark": "python benchmark_evaluation_measurement_pilot_v1_t4.py --package-root <package_root> --output-dir <output_dir>",
+    "analyze_evaluation_measurement_pilot_v1": "python scripts/analyze_evaluation_measurement_pilot_v1.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
@@ -209,7 +210,24 @@
     "reports/evaluation_measurement_pilot_v1/cpu/timing_sample.parquet": "a01099573c96188f5cfd67ffc3215de14ab8215be218c4c269786b909ea91823",
     "scripts/benchmark_evaluation_measurement_pilot_v1_t4.py": "3c57ad1d6e58c508b88cf463ee1f25fc29d66cd2544de0143959d40969361ce6",
     "scripts/build_evaluation_measurement_pilot_v1_kaggle_package.py": "df3b4a756841ca9ae0e3a5a0d4e2b8036c6c02a70d0e476f67ee239568b24e0e",
-    "data/metadata/evaluation_measurement_pilot_v1_t4_package_manifest.json": "140c189576d187224955db870176fcbd1ead3e2fbbe3edc10d7b7d2d7f3e1b46"
+    "data/metadata/evaluation_measurement_pilot_v1_t4_package_manifest.json": "140c189576d187224955db870176fcbd1ead3e2fbbe3edc10d7b7d2d7f3e1b46",
+    "scripts/analyze_evaluation_measurement_pilot_v1.py": "4248a746ed09c266d0edbec433c54745cb75258adb176071243060c61d9eae52",
+    "reports/evaluation_measurement_pilot_v1/t4/cost_ranking_reversals.csv": "58a1d189c7ee922ef192bc906dda473158a4e2c644da8f2b8664782bc26a903e",
+    "reports/evaluation_measurement_pilot_v1/t4/environment.json": "d3d0cf9ed2e6976e052b9cb867fcd6732e78e634794aa712e42d2f2b5802724b",
+    "reports/evaluation_measurement_pilot_v1/t4/measurement_order.csv": "74b04b162e068786ac5fa25167146e30c56659a4ef2770e22869ef680b9adbbf",
+    "reports/evaluation_measurement_pilot_v1/t4/nvidia_smi.txt": "188eb1178cf633a2d5626fbc47a93687cdbd47e3380ae00df03860acd3db09d9",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_raw.parquet": "2d4e8e715d0680f8b844a4e4245e484c02bde25c3ed53b85eaf3f99088de700c",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_summary.csv": "7c9f3715f1dbb4f7a5a6160c32d70e84fed3ca44f60e4a98b9ff4a56c4168dae",
+    "reports/evaluation_measurement_pilot_v1/t4/prediction_mismatches.csv": "1aa141fdf3295bd114e726ad892b218b3ca7c014ba00d2edd134306b9965bed6",
+    "reports/evaluation_measurement_pilot_v1/t4/qwen_raw_generations.jsonl": "7c2fb60075e64f38034f31bbbba1ffdd49e52815e08e5ce812cba8c75d26675a",
+    "reports/evaluation_measurement_pilot_v1/t4/route_mismatches.csv": "439ef2a8999e1c366efed52b4ace2887fb1b4fdb2f65b5e1c0580c04018db908",
+    "reports/evaluation_measurement_pilot_v1/t4/score_and_route_validation.json": "b2ea981ad470d848a812839178198f2d27bfedd3f2b65b918987b7aa9dab69d2",
+    "reports/evaluation_measurement_pilot_v1/t4/source_latency_summary.csv": "2ac60a8152e6b558fc0d407cba5be96823541252abac9a0586547f5d23dbada7",
+    "reports/evaluation_measurement_pilot_v1/t4/t4_timing_manifest.json": "a8b95ab839d0ee0c1ca88658dc0d70a4e66df0ca68b82f97d030715994104c8d",
+    "reports/evaluation_measurement_pilot_v1/analysis/analysis_manifest.json": "db4622a043efe1e950aa0c5e366b3ee99f2b388b8ec5835b0166fa74b65d828d",
+    "reports/evaluation_measurement_pilot_v1/analysis/measurement_conclusion_matrix.csv": "dc9f6c4444c3cc5e44a5f0640f31c7bd12ed1a3596a961d952414203e3a528a7",
+    "reports/evaluation_measurement_pilot_v1/analysis/pilot_closure_summary.json": "4580f7d649bfe1ce88f1b503558628daae43b0e2660985b8d0cf5eacdcb6bb87",
+    "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619"
   },
   "final_report": {
     "analysis_baseline_commit": "788cc51",
@@ -233,7 +251,7 @@
   "paper_direction": "decision_value_acquisition_evaluation",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-21T19:10:55.691626+00:00",
+  "updated_at": "2026-08-21T20:58:12.921949+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -258,5 +276,28 @@
     "scientific_protocol_changed": false,
     "primary_estimand": "direct_wall_clock_end_to_end_policy_latency_ms",
     "comparison_estimand": "same_run_sum_of_monitor_component_latencies_ms"
+  },
+  "evaluation_measurement_pilot_v1_closure": {
+    "status": "completed_development_only_measurement_pilot",
+    "result_zip_sha256": "b1bfe237dc47fed892f7aa52625f79c0ae3cbc4a4623786dc9c58b3a90f88837",
+    "frozen_package_sha256": "72abce307da932d9433b5d7d8e71dfe274e264cc312da9e123321640b0dde355",
+    "t4_gpu": "Tesla T4",
+    "batch_size": 1,
+    "timing_rows": 363,
+    "deployable_policies": 15,
+    "raw_policy_calls": 5445,
+    "component_sum_vs_direct_e2e_ranking_reversals": 0,
+    "empirical_vs_risk_conclusion_flips": 36,
+    "singleton_vs_dependency_grouping_conclusion_flips": 19,
+    "original_vs_audited_label_conclusion_flips": 14,
+    "ranked_vs_deployable_conclusion_flips": 4,
+    "route_mismatch_rows": 2,
+    "cpu_cost_join_valid": false,
+    "pareto_claim_available": false,
+    "bounded_mean_cost_certificate": false,
+    "fresh_external_confirmation": false,
+    "multi_rater_confirmation": false,
+    "protected_legacy_sets_opened": false,
+    "router_superiority_claim": false
   }
 }

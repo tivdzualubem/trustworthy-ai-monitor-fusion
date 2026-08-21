@@ -1,0 +1,52 @@
+{
+  "artifact": "evaluation_measurement_pilot_v1_t4_timing",
+  "bounded_mean_cost_certification": false,
+  "bounded_mean_cost_reason": "No mechanically enforced runtime support bound; raw uncapped latency is retained.",
+  "comparison_estimand": "same_run_sum_of_monitor_component_latencies_ms",
+  "cost_ranking_reversal_pairs": 0,
+  "cpu_commit": "20dd2ab38d09036a23db27406472122d7506abfa",
+  "deployable_policies": 15,
+  "files": {
+    "cost_ranking_reversals.csv": "58a1d189c7ee922ef192bc906dda473158a4e2c644da8f2b8664782bc26a903e",
+    "environment.json": "d3d0cf9ed2e6976e052b9cb867fcd6732e78e634794aa712e42d2f2b5802724b",
+    "measurement_order.csv": "74b04b162e068786ac5fa25167146e30c56659a4ef2770e22869ef680b9adbbf",
+    "nvidia_smi.txt": "188eb1178cf633a2d5626fbc47a93687cdbd47e3380ae00df03860acd3db09d9",
+    "policy_latency_raw.parquet": "2d4e8e715d0680f8b844a4e4245e484c02bde25c3ed53b85eaf3f99088de700c",
+    "policy_latency_summary.csv": "7c9f3715f1dbb4f7a5a6160c32d70e84fed3ca44f60e4a98b9ff4a56c4168dae",
+    "prediction_mismatches.csv": "1aa141fdf3295bd114e726ad892b218b3ca7c014ba00d2edd134306b9965bed6",
+    "qwen_raw_generations.jsonl": "7c2fb60075e64f38034f31bbbba1ffdd49e52815e08e5ce812cba8c75d26675a",
+    "route_mismatches.csv": "439ef2a8999e1c366efed52b4ace2887fb1b4fdb2f65b5e1c0580c04018db908",
+    "score_and_route_validation.json": "b2ea981ad470d848a812839178198f2d27bfedd3f2b65b918987b7aa9dab69d2",
+    "source_latency_summary.csv": "2ac60a8152e6b558fc0d407cba5be96823541252abac9a0586547f5d23dbada7"
+  },
+  "measurement_design": {
+    "comparison_estimand": "same_run_sum_of_monitor_component_latencies_ms",
+    "cpu_cost_join_integrity_rule": "All selective routing decisions must match the cached-score reference on the timing sample before direct-E2E cost is joined to frozen CPU recall for Pareto analysis.",
+    "cuda_synchronization": true,
+    "model_load_time_included": false,
+    "policy_measurement_order": "deterministic cyclic rotation across 15 deployable policies by timing-example index",
+    "posthoc_clipping": false,
+    "primary_estimand": "direct_wall_clock_end_to_end_policy_latency_ms",
+    "timeout_or_capping": false,
+    "tokenization_transfer_policy_logic_parse_included": true,
+    "warmup_requests": 20,
+    "warmup_type": "untimed maximal rule+compact+qwen requests"
+  },
+  "package_sha256": null,
+  "primary_estimand": "direct_wall_clock_end_to_end_policy_latency_ms",
+  "protocol_sha256": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+  "raw_policy_calls": 5445,
+  "score_and_route_validation": {
+    "compact_max_abs_difference": 1.1189840734004974e-06,
+    "cpu_cost_join_rule": "Direct-E2E timing may be joined to frozen CPU recall for Pareto analysis only if all deployable selective routing decisions match the cached-score reference on the timing sample.",
+    "cpu_cost_join_valid": false,
+    "prediction_match_rate": 0.9990817263544536,
+    "prediction_mismatch_rows": 5,
+    "qwen_max_abs_difference": 0.0,
+    "route_match_rate": 0.9996326905417815,
+    "route_mismatch_rows": 2,
+    "rule_max_abs_difference": 0.0
+  },
+  "status": "completed_fixed_hardware_direct_e2e_measurement",
+  "timing_rows": 363
+}

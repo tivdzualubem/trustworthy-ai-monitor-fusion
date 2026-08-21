@@ -1,0 +1,16 @@
+{
+  "artifact": "evaluation_measurement_pilot_v1_analysis_manifest",
+  "entry_point": "python scripts/analyze_evaluation_measurement_pilot_v1.py",
+  "generated_at": "2026-08-21T20:58:11.344466+00:00",
+  "inputs": {
+    "cpu_holdout_predictions_sha256": "4408a8f98d5414b7ab2c2079da76cba02d93f01d1d20584b4185c7e587050152",
+    "cpu_policy_summary_sha256": "c3c6a9a6cb945baf1b49edaf7a438ab7e5b2e044074a1270089deac74c5612bf",
+    "t4_manifest_sha256": "a8b95ab839d0ee0c1ca88658dc0d70a4e66df0ca68b82f97d030715994104c8d",
+    "t4_raw_latency_sha256": "2d4e8e715d0680f8b844a4e4245e484c02bde25c3ed53b85eaf3f99088de700c"
+  },
+  "outputs": {
+    "measurement_conclusion_matrix.csv": "dc9f6c4444c3cc5e44a5f0640f31c7bd12ed1a3596a961d952414203e3a528a7",
+    "pilot_closure_summary.json": "4580f7d649bfe1ce88f1b503558628daae43b0e2660985b8d0cf5eacdcb6bb87",
+    "primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619"
+  }
+}

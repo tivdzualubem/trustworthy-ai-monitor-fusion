@@ -1,0 +1,35 @@
+{
+  "batch_size": 1,
+  "clock": "time.perf_counter_ns",
+  "cuda_runtime": "12.8",
+  "cuda_synchronize": true,
+  "device": "cuda:0",
+  "generated_at": "2026-08-21T20:25:28.211978+00:00",
+  "gpu_name": "Tesla T4",
+  "gpu_total_memory_bytes": 15636037632,
+  "model_load_time_included": false,
+  "models": {
+    "compact": {
+      "dtype": "float32",
+      "model_id": "KoalaAI/Text-Moderation",
+      "revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c"
+    },
+    "qwen": {
+      "dtype": "float16",
+      "method": "official_chat_template_generate_structured_parse",
+      "model_id": "Qwen/Qwen3Guard-Gen-4B",
+      "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108"
+    }
+  },
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "policy_order": "deterministic cyclic rotation across 15 deployable policies by timing-example index",
+  "posthoc_clipping": false,
+  "python": "3.12.13",
+  "timeout_or_capping": false,
+  "torch": "2.10.0+cu128",
+  "transformers": "5.0.0",
+  "warmup_excluded": true,
+  "warmup_requests": 20
+}

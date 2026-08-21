@@ -1,0 +1,65 @@
+{
+  "artifact": "evaluation_measurement_pilot_v1_closure",
+  "batch_size": 1,
+  "bounded_mean_cost_certificate": false,
+  "cost_ranking_reversal_pairs": 0,
+  "cpu_cost_join_valid": false,
+  "deployable_policies_timed": 15,
+  "direct_e2e_measurement_completed": true,
+  "fresh_external_confirmation": false,
+  "generated_at": "2026-08-21T20:58:11.343682+00:00",
+  "gpu": "Tesla T4",
+  "measurement_factors": {
+    "component_sum_vs_true_direct_e2e": {
+      "conclusion_flip_n": 0,
+      "eligible_n": 105,
+      "status": "negative_result_no_ranking_reversal"
+    },
+    "empirical_fpr_vs_finite_sample_risk": {
+      "conclusion_flip_n": 36,
+      "eligible_n": 75,
+      "status": "material_change"
+    },
+    "grouping_sensitivity_semantic_0_87": {
+      "conclusion_flip_n": 12,
+      "eligible_n": 75,
+      "status": "sensitivity_analysis"
+    },
+    "grouping_sensitivity_semantic_0_92": {
+      "conclusion_flip_n": 14,
+      "eligible_n": 75,
+      "status": "sensitivity_analysis"
+    },
+    "historical_1pct_isocost_vs_pareto": {
+      "conclusion_flip_n": null,
+      "eligible_n": 0,
+      "status": "not_estimable_in_this_pilot"
+    },
+    "original_vs_audited_labels": {
+      "conclusion_flip_n": 14,
+      "eligible_n": 75,
+      "status": "material_change"
+    },
+    "ranked_vs_deployable_routing": {
+      "conclusion_flip_n": 4,
+      "eligible_n": 45,
+      "status": "material_change"
+    },
+    "weak_grouping_vs_dependency_grouping": {
+      "conclusion_flip_n": 19,
+      "eligible_n": 75,
+      "status": "material_change"
+    }
+  },
+  "multi_rater_confirmation": false,
+  "next_project_action": "Continue directly with the remaining evaluation/measurement experiments: prompt-only versus response-only versus prompt-response diagnostics and selection-stability analysis; then freeze and run the broader documented multi-stack/multi-dataset expansion before the final report and README rewrite.",
+  "pareto_claim_available": false,
+  "pareto_unavailable_reason": "Frozen cost/recall join requires exact route parity; 2 runtime route mismatches occurred.",
+  "pilot_scope": "development_only_measurement_pilot",
+  "prediction_mismatch_rows": 5,
+  "protected_legacy_sets_opened": false,
+  "raw_policy_calls": 5445,
+  "route_mismatch_rows": 2,
+  "router_superiority_claim": false,
+  "timing_rows": 363
+}

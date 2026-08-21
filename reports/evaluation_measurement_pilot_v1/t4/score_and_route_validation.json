@@ -1,0 +1,11 @@
+{
+  "compact_max_abs_difference": 1.1189840734004974e-06,
+  "cpu_cost_join_rule": "Direct-E2E timing may be joined to frozen CPU recall for Pareto analysis only if all deployable selective routing decisions match the cached-score reference on the timing sample.",
+  "cpu_cost_join_valid": false,
+  "prediction_match_rate": 0.9990817263544536,
+  "prediction_mismatch_rows": 5,
+  "qwen_max_abs_difference": 0.0,
+  "route_match_rate": 0.9996326905417815,
+  "route_mismatch_rows": 2,
+  "rule_max_abs_difference": 0.0
+}
