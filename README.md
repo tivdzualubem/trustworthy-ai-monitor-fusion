@@ -110,6 +110,14 @@ The **fixed-policy measurement** layer freezes the evaluation rows, fitted model
 
 The 75-policy aggregate counts are descriptive across the five prespecified seeds; they are **not pooled inferential observations**. Seed-specific contrasts and factorial interaction diagnostics are retained under `reports/factorial_measurement_decomposition_v1/`.
 
+## Numerical route stability
+
+The numerical-stability analysis is in progress. The archived mismatch taxonomy is **two route-threshold mismatches and five prediction mismatches**; two prediction mismatches are downstream consequences of the route flips and three are pure decision-threshold mismatches.
+
+The completed CPU phase evaluates the full archived 5,445-call margin population, a prespecified dead-band grid, and frozen policy arithmetic across Python scalar, NumPy, and PyTorch CPU implementations at float64/float32 precision. No dead-band epsilon is selected post hoc.
+
+The controlled hardware phase is still required before this stage is complete. It compares the same float32 compact monitor and the same PyTorch policy arithmetic on CPU versus NVIDIA T4, with T4 float16 retained only as an exploratory precision sensitivity. `final_test` and `held_out_shift` are not used.
+
 ## Direct E2E timing
 
 Timing was performed on a single NVIDIA Tesla T4 with:
@@ -209,4 +217,4 @@ Earlier reports are kept for traceability. The current project status is defined
 
 ## Current work
 
-The factorial measurement decomposition is complete. The next step is the numerical route-stability analysis of the two route and five prediction mismatches, including precision/runtime/hardware stability and a principled route-invariance/dead-band analysis.
+The numerical route-stability analysis is in progress. CPU runtime/precision analysis is complete; controlled CPU-versus-T4 hardware validation and the final perturbation-envelope/dead-band analysis remain before this stage can be closed.

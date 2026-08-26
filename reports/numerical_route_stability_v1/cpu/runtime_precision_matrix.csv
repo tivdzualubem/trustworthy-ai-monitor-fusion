@@ -1,0 +1,6 @@
+implementation,precision,hardware,rows,max_abs_final_probability_delta_vs_python_float64,route_flip_n_vs_python_float64,prediction_flip_n_vs_python_float64,max_abs_route_margin_delta,max_abs_decision_margin_delta
+python_scalar,float64,cpu,5445,0.0,0,0,0.0,0.0
+numpy,float64,cpu,5445,2.220446049250313e-16,0,0,1.1102230246251565e-16,2.220446049250313e-16
+numpy,float32,cpu,5445,0.13304346547800078,2,4,6.576219624410129e-08,0.13304346547800075
+torch_cpu,float64,cpu,5445,2.220446049250313e-16,0,0,1.1102230246251565e-16,2.220446049250313e-16
+torch_cpu,float32,cpu,5445,0.13304346547800078,2,8,6.576219624410129e-08,0.13304346547800075

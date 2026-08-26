@@ -1,0 +1,9 @@
+epsilon,route_rows,route_reference_ambiguous_n,route_runtime_ambiguous_n,route_union_ambiguous_n,route_mismatch_n,route_mismatches_covered_by_union_deadband_n,decision_rows,decision_reference_ambiguous_n,decision_runtime_ambiguous_n,decision_union_ambiguous_n,prediction_mismatch_n,prediction_mismatches_covered_by_union_deadband_n
+0.0,3267,200,198,200,2,2,5445,8,2,8,5,2
+1e-12,3267,200,198,200,2,2,5445,13,6,13,5,3
+1e-11,3267,200,198,200,2,2,5445,13,6,13,5,3
+1e-10,3267,200,198,200,2,2,5445,13,6,13,5,3
+1e-09,3267,200,200,200,2,2,5445,13,8,13,5,3
+1e-08,3267,200,200,200,2,2,5445,13,13,13,5,3
+1e-07,3267,200,200,200,2,2,5445,13,13,13,5,3
+1e-06,3267,200,200,200,2,2,5445,15,15,15,5,3

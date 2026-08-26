@@ -74,11 +74,14 @@
     "analyze_evaluation_measurement_pilot_v1": "python scripts/analyze_evaluation_measurement_pilot_v1.py",
     "build_historical_decision_value_report": "bash paper/build_report.sh",
     "current_report": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf",
-    "factorial_measurement_decomposition": "python scripts/run_factorial_measurement_decomposition.py"
+    "factorial_measurement_decomposition": "python scripts/run_factorial_measurement_decomposition.py",
+    "run_numerical_route_stability_cpu": "python scripts/run_numerical_route_stability_cpu.py",
+    "build_numerical_route_stability_t4_package": "python scripts/build_numerical_route_stability_t4_package.py",
+    "run_numerical_route_stability_t4": "python benchmark_numerical_route_stability_t4.py --package-root <package_root> --output-dir <output_dir>"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "0704a3a41f8082271df8216793c9b0b48a989d7e939967c1fe09c84185c905e2",
+    "README.md": "9b3158723a3ab3d09af47bdd139b671a9771e386d8bfcb6329749698c7230048",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -243,7 +246,21 @@
     "reports/factorial_measurement_decomposition_v1/factorial_cells.csv": "c70dda0a20a624fb7c29fab461e65b7f09d730be1ef2fe4427b01f8298727de9",
     "reports/factorial_measurement_decomposition_v1/interaction_summary.csv": "67ac806a6606ef369e16cc7b3417cdb571b57185d826f44d5d1075483e69ea37",
     "reports/factorial_measurement_decomposition_v1/manifest.json": "1b920d5835b89ab7689df94ee50c9511c89a06b1e996c12b3d72ef10c8f23461",
-    "reports/factorial_measurement_decomposition_v1/paired_policy_contrasts.csv": "c0c720440fe266c9e3541b16ea0c619ff5cf428e2947ce3e9551ba1bedbe5742"
+    "reports/factorial_measurement_decomposition_v1/paired_policy_contrasts.csv": "c0c720440fe266c9e3541b16ea0c619ff5cf428e2947ce3e9551ba1bedbe5742",
+    "configs/numerical_route_stability_v1.json": "82248762322c9853d49d53d53ddd3ee96cb02ec25b0660f5d0a901034a60e6de",
+    "scripts/run_numerical_route_stability_cpu.py": "5436963de3ceaf544b9ecebef208791c48d72bc292f11291754fb70c2e70ff5a",
+    "scripts/benchmark_numerical_route_stability_t4.py": "2fa23161cd45a4cc9aa31a88120e4797ede44a589566117eaf7bca500a9dea10",
+    "scripts/build_numerical_route_stability_t4_package.py": "6f0913b25d86332b973c7c1ead59b6a57fddce4978e6cccd6fe139133a57d131",
+    "tests/test_numerical_route_stability_protocol.py": "e783150e6a31f8a666e067645d651947bae7f554957d945465e996fb997f47db",
+    "tests/test_numerical_route_stability_outputs.py": "66c5820b0706865b1775ac7a4d04822ebd9eab263d1fdb751624545a7a7d7e15",
+    "reports/numerical_route_stability_v1/cpu/mismatch_taxonomy.csv": "da436e8e60a87ee72fdacc86cccf9dd21b382a79c33b84825bc9219b372d704c",
+    "reports/numerical_route_stability_v1/cpu/mismatch_margins.csv": "77ab446ad7bd255fc643e8c38d9e818ce27849047bc2f9ba0ebc5e72466e55ab",
+    "reports/numerical_route_stability_v1/cpu/margin_population.parquet": "4ba41c8fd0343ca96257c57e4fe06e31f11069cf1361be8be9dbf3508bbb5270",
+    "reports/numerical_route_stability_v1/cpu/deadband_sweep.csv": "1f3c70d9b935d351ea849c13b0806445c25533bf2843ac426dbe2472b9adfa33",
+    "reports/numerical_route_stability_v1/cpu/runtime_precision_matrix.csv": "1346ffe47bbb1bdfed8ed621d8ab5442361b9e8712f23408a0b75439e8aa007a",
+    "reports/numerical_route_stability_v1/cpu/analytic_perturbation_bounds.csv": "6a3769c934f20766bd04d6fcfd541e4a091c029e857b80010ad256200ea13d14",
+    "reports/numerical_route_stability_v1/cpu/summary.json": "e62ec493411e6a46069a44089a9c0dbdf24058aa98351570001333aa94cd2633",
+    "reports/numerical_route_stability_v1/cpu/manifest.json": "32ec66356bad0630b6ad7c1b0239ed680270bc0eb74c5d0980b483608609acb4"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -266,7 +283,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-26T10:53:17.128659+00:00",
+  "updated_at": "2026-08-26T11:26:47.252460+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -353,7 +370,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "numerical_route_stability",
+  "next_project_action": "numerical_route_stability_hardware_phase",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -371,5 +388,24 @@
     "full_protocol_grouping_flip_n": 19,
     "full_protocol_label_flip_n": 14,
     "next_step": "numerical_route_stability"
+  },
+  "numerical_route_stability_v1": {
+    "status": "cpu_runtime_precision_complete_hardware_pending",
+    "freeze_commit": "4f12e8fe8537eed84d0f5cc1b41368bdd30eca20",
+    "protocol": "configs/numerical_route_stability_v1.json",
+    "cpu_entry_point": "scripts/run_numerical_route_stability_cpu.py",
+    "t4_package_builder": "scripts/build_numerical_route_stability_t4_package.py",
+    "t4_benchmark": "scripts/benchmark_numerical_route_stability_t4.py",
+    "cpu_artifact_manifest": "reports/numerical_route_stability_v1/cpu/manifest.json",
+    "route_mismatch_rows": 2,
+    "prediction_mismatch_rows": 5,
+    "pure_decision_threshold_rows": 3,
+    "route_induced_prediction_rows": 2,
+    "protected_legacy_splits_used": false,
+    "fresh_confirmatory_claim": false,
+    "security_control_plane_study_started": false,
+    "final_deadband_available": false,
+    "hardware_phase_required": true,
+    "t4_package_sha256": "ee760fffd0c05b048e8e785eb88a569b98acf1a3b275a1d5064d6f41036e9761"
   }
 }
