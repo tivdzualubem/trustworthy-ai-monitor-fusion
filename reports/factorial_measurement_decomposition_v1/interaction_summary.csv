@@ -1,0 +1,16 @@
+layer,metric,eligible_n,finite_n,nonzero_interaction_n,mean_difference_in_differences,max_abs_difference_in_differences,descriptive_only
+fixed_policy_measurement,risk_gate_pass,75,75,0,0.0,0.0,True
+fixed_policy_measurement,recall,75,75,0,0.0,0.0,True
+fixed_policy_measurement,fpr,75,75,0,0.0,0.0,True
+fixed_policy_measurement,row_fpr_upper95,75,75,0,0.0,0.0,True
+fixed_policy_measurement,dependency_group_event_upper95,75,75,64,1.2919829210126614e-07,5.019679200186922e-05,True
+retraining_reselection,risk_gate_pass,75,75,6,-0.02666666666666667,1.0,True
+retraining_reselection,recall,75,75,51,0.009577464788732391,0.08450704225352113,True
+retraining_reselection,fpr,75,75,61,0.0028653295128939836,0.0343839541547278,True
+retraining_reselection,row_fpr_upper95,75,75,63,0.0033329288713906655,0.03954387064717921,True
+retraining_reselection,dependency_group_event_upper95,75,75,63,0.0033517585153663943,0.0397669434499484,True
+full_protocol,risk_gate_pass,75,75,26,-0.16,2.0,True
+full_protocol,recall,75,75,75,0.04409271866613175,0.3241336910350995,True
+full_protocol,fpr,75,75,74,0.01496171373993724,0.1030208759721655,True
+full_protocol,row_fpr_upper95,75,75,74,0.017559552901933086,0.12281869362876091,True
+full_protocol,dependency_group_event_upper95,75,75,75,0.01771597863739064,0.12366119454063991,True

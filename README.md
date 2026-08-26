@@ -81,7 +81,7 @@ Forty of 75 deployable policy evaluations have empirical FPR at or below 0.05, b
 
 ### Grouping and label contrasts
 
-The existing grouping comparison changes **19 of 75** conclusions and the existing label comparison changes **14 of 75**. These are **full-protocol contrasts, not isolated grouping or label effects**: the variants also change fold assignments, training data, fitted models, and thresholds. They are therefore pending the required factorial decomposition into fixed-policy measurement, retraining/reselection, and full-protocol effects.
+The earlier **19/75 grouping** and **14/75 label** numbers remain full-protocol contrasts, not isolated grouping or label effects. The completed factorial decomposition separates measurement-only changes from retraining/reselection changes on a common outer holdout; the results are summarized below.
 
 ### Ranked vs deployable routing
 
@@ -94,6 +94,21 @@ Direct wall-clock E2E latency is slightly higher than the same-run component sum
 However, none of the **105 pairwise mean-cost orderings** reverses.
 
 This is a useful negative result: direct E2E remains the correct cost estimand, but correcting the measurement does not change policy ordering in this pilot.
+
+
+## Factorial measurement decomposition
+
+The 2×2 decomposition varies audited versus original labels and dependency-aware versus singleton grouping at three levels:
+
+| Decomposition layer | Grouping contrast | Label contrast |
+|---|---:|---:|
+| Fixed-policy measurement | 0/75 | 1/75 |
+| Retraining/reselection with fixed outer holdout | 6/75 | 4/75 |
+| Full protocol | 19/75 | 14/75 |
+
+The **fixed-policy measurement** layer freezes the evaluation rows, fitted models, thresholds, routes, and predictions and changes only the evaluation label or risk grouping. The **retraining/reselection** layer freezes a dependency-closed outer holdout and always measures it with audited labels and dependency-aware risk grouping while allowing the 2×2 conditions to change training and selection. The **full-protocol** layer retains the original condition-specific folds, training data, models, thresholds, labels, and holdouts.
+
+The 75-policy aggregate counts are descriptive across the five prespecified seeds; they are **not pooled inferential observations**. Seed-specific contrasts and factorial interaction diagnostics are retained under `reports/factorial_measurement_decomposition_v1/`.
 
 ## Direct E2E timing
 
@@ -146,6 +161,7 @@ bash scripts/reproduce_historical_v2_evidence.sh
 python scripts/rebuild_evaluation_measurement_dependency_groups.py --check
 python scripts/run_evaluation_measurement_pilot_v1_cpu.py
 python scripts/analyze_evaluation_measurement_pilot_v1.py
+python scripts/run_factorial_measurement_decomposition.py
 python scripts/verify_reproducibility.py --strict-hashes
 ```
 
@@ -193,4 +209,4 @@ Earlier reports are kept for traceability. The current project status is defined
 
 ## Current work
 
-The next step is the factorial measurement decomposition of the grouping and label contrasts into fixed-policy measurement, retraining/reselection, and full-protocol effects. Numerical route-stability testing follows only after that decomposition.
+The factorial measurement decomposition is complete. The next step is the numerical route-stability analysis of the two route and five prediction mismatches, including precision/runtime/hardware stability and a principled route-invariance/dead-band analysis.

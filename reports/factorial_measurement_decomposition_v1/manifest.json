@@ -1,0 +1,27 @@
+{
+  "artifact": "factorial_measurement_decomposition_v1_manifest",
+  "entry_point": "python scripts/run_factorial_measurement_decomposition.py",
+  "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
+  "generated_at": "2026-08-26T10:53:16.270077+00:00",
+  "inputs": {
+    "configs/evaluation_measurement_pilot_v1.json": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+    "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2",
+    "data/metadata/evaluation_measurement_pilot_v1/development_dependency_groups.csv": "ab7abc4c9a6569597987419b5a9fd96dc05c1ed982efd06df146a1baf05f4ef1",
+    "data/processed/v2_development_view/monitor_score_cache_v3.development.parquet": "e567937e5ea8f3c024cfb719e1774a3a52d9d31e163b6a5deada57b23185d0c3",
+    "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336",
+    "reports/evaluation_measurement_pilot_v1/cpu/holdout_predictions.parquet": "4408a8f98d5414b7ab2c2079da76cba02d93f01d1d20584b4185c7e587050152",
+    "reports/evaluation_measurement_pilot_v1/cpu/policy_summary.csv": "c3c6a9a6cb945baf1b49edaf7a438ab7e5b2e044074a1270089deac74c5612bf",
+    "scripts/run_evaluation_measurement_pilot_v1_cpu.py": "bb85bd28cc578b4e62fa2f7969681300a80a2b69f18cf388a742ec7d156aecdd"
+  },
+  "outputs": {
+    "reports/factorial_measurement_decomposition_v1/contrast_summary.csv": "feec9e467661b9151b4957b1fb425b3391de955f2547929a0a6d8e0ccb365da6",
+    "reports/factorial_measurement_decomposition_v1/contrast_summary_by_seed.csv": "f483936af2aadacc8ab1b9e7f50eabbfad7e1a979e99d8174725f7ef10f4b1af",
+    "reports/factorial_measurement_decomposition_v1/decomposition_summary.json": "d95c66f6d07dc653769dbc17ac32cc32bef31c8710511945143b40a36e042f8f",
+    "reports/factorial_measurement_decomposition_v1/factorial_cells.csv": "c70dda0a20a624fb7c29fab461e65b7f09d730be1ef2fe4427b01f8298727de9",
+    "reports/factorial_measurement_decomposition_v1/interaction_summary.csv": "67ac806a6606ef369e16cc7b3417cdb571b57185d826f44d5d1075483e69ea37",
+    "reports/factorial_measurement_decomposition_v1/paired_policy_contrasts.csv": "c0c720440fe266c9e3541b16ea0c619ff5cf428e2947ce3e9551ba1bedbe5742"
+  },
+  "protocol_sha256": "ff7f4e2255d4bdf0211e2e9c1e39044edaec5d3297ae0bdaf665ba1cf18c3c2e",
+  "runner_sha256": "d8bc2a206c7a9fa0d97e3d6141919c819eb72c6cde1eec6b6df29e383f056db4",
+  "status": "completed"
+}

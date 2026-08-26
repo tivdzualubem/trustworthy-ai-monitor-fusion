@@ -1,0 +1,121 @@
+{
+  "artifact": "factorial_measurement_decomposition_v1",
+  "base_commit": "ffb02e4c1b144d56ce6d8c034212967bf71f63b8",
+  "development_rows": 1687,
+  "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
+  "fresh_confirmatory_claim": false,
+  "full_protocol_validation": {
+    "grouping_eligible_n": 75,
+    "grouping_flip_n": 19,
+    "label_eligible_n": 75,
+    "label_flip_n": 14
+  },
+  "generated_at": "2026-08-26T10:53:16.254320+00:00",
+  "inferential_pooling_across_seeds": false,
+  "layers": {
+    "fixed_policy_measurement": {
+      "definition": "Frozen audited/dependency-primary pilot policies, rows, predictions, thresholds, and routes; only evaluation label and risk grouping are varied in a 2x2 measurement factorial.",
+      "grouping_at_audited": {
+        "contrast": "grouping_at_audited",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "fixed_policy_measurement",
+        "left_fail_right_pass_n": 0,
+        "left_pass_n": 4,
+        "left_pass_right_fail_n": 0,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.00043211142647652597,
+        "mean_fpr_delta_left_minus_right": 0.0,
+        "mean_recall_delta_left_minus_right": 0.0,
+        "mean_row_fpr_upper95_delta_left_minus_right": 0.0,
+        "pass_flip_n": 0,
+        "right_pass_n": 4
+      },
+      "label_at_dependency": {
+        "contrast": "label_at_dependency",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "fixed_policy_measurement",
+        "left_fail_right_pass_n": 1,
+        "left_pass_n": 3,
+        "left_pass_right_fail_n": 0,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.0002604991531959732,
+        "mean_fpr_delta_left_minus_right": -0.0002636189068789376,
+        "mean_recall_delta_left_minus_right": -0.004085863328116848,
+        "mean_row_fpr_upper95_delta_left_minus_right": -0.00026036995490387194,
+        "pass_flip_n": 1,
+        "right_pass_n": 4
+      }
+    },
+    "full_protocol": {
+      "definition": "Existing pilot-v1 condition-specific folds, training data, models, thresholds, labels, and holdouts. Risk aggregation remains primary dependency grouping as implemented in pilot v1.",
+      "grouping_at_audited": {
+        "contrast": "grouping_at_audited",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "full_protocol",
+        "left_fail_right_pass_n": 3,
+        "left_pass_n": 17,
+        "left_pass_right_fail_n": 16,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.011971331445035708,
+        "mean_fpr_delta_left_minus_right": -0.009933142311365812,
+        "mean_recall_delta_left_minus_right": -0.03202453176695892,
+        "mean_row_fpr_upper95_delta_left_minus_right": -0.011682329927465833,
+        "pass_flip_n": 19,
+        "right_pass_n": 4
+      },
+      "label_at_dependency": {
+        "contrast": "label_at_dependency",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "full_protocol",
+        "left_fail_right_pass_n": 2,
+        "left_pass_n": 14,
+        "left_pass_right_fail_n": 12,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.009652098683470646,
+        "mean_fpr_delta_left_minus_right": -0.008416100422977208,
+        "mean_recall_delta_left_minus_right": -0.03802280348759221,
+        "mean_row_fpr_upper95_delta_left_minus_right": -0.0097853047164241,
+        "pass_flip_n": 14,
+        "right_pass_n": 4
+      }
+    },
+    "retraining_reselection": {
+      "definition": "A common dependency-closed outer holdout is frozen per seed. The remaining development data are retrained/reselected under the 2x2 label/grouping factorial, while outer evaluation is always audited-label and dependency-primary.",
+      "grouping_at_audited": {
+        "contrast": "grouping_at_audited",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "retraining_reselection",
+        "left_fail_right_pass_n": 2,
+        "left_pass_n": 6,
+        "left_pass_right_fail_n": 4,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.002744084497427093,
+        "mean_fpr_delta_left_minus_right": -0.0024068767908309464,
+        "mean_recall_delta_left_minus_right": -0.009765258215962441,
+        "mean_row_fpr_upper95_delta_left_minus_right": -0.002728715519881818,
+        "pass_flip_n": 6,
+        "right_pass_n": 4
+      },
+      "label_at_dependency": {
+        "contrast": "label_at_dependency",
+        "descriptive_seed_pooling_only": true,
+        "eligible_n": 75,
+        "layer": "retraining_reselection",
+        "left_fail_right_pass_n": 0,
+        "left_pass_n": 8,
+        "left_pass_right_fail_n": 4,
+        "mean_dependency_group_upper95_delta_left_minus_right": -0.005667405533088235,
+        "mean_fpr_delta_left_minus_right": -0.004775549188156638,
+        "mean_recall_delta_left_minus_right": -0.013708920187793421,
+        "mean_row_fpr_upper95_delta_left_minus_right": -0.005635531447201047,
+        "pass_flip_n": 4,
+        "right_pass_n": 4
+      }
+    }
+  },
+  "next_step": "numerical_route_stability",
+  "policy_universe_per_primary_contrast": 75,
+  "protected_legacy_splits_used": false,
+  "router_superiority_claim": false,
+  "status": "completed_development_only"
+}

@@ -73,11 +73,12 @@
     "run_pilot_t4_benchmark": "python benchmark_evaluation_measurement_pilot_v1_t4.py --package-root <package_root> --output-dir <output_dir>",
     "analyze_evaluation_measurement_pilot_v1": "python scripts/analyze_evaluation_measurement_pilot_v1.py",
     "build_historical_decision_value_report": "bash paper/build_report.sh",
-    "current_report": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf"
+    "current_report": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf",
+    "factorial_measurement_decomposition": "python scripts/run_factorial_measurement_decomposition.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "e479a73e7c96194a77e59b9cbbd380e3451a68ed105aa00ea4010bb49c57b322",
+    "README.md": "0704a3a41f8082271df8216793c9b0b48a989d7e939967c1fe09c84185c905e2",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -231,7 +232,18 @@
     "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619",
     "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "021096ff074bd63f0dd26204ef0dca7c4a3071f6994757a3b075c9d005239724",
     "tests/test_v2_readme_status.py": "2f436ecb03a3205cc0c0500dd3f83d5adc3470785979cc1574656f2b1760755d",
-    "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2"
+    "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2",
+    "configs/factorial_measurement_decomposition_v1.json": "ff7f4e2255d4bdf0211e2e9c1e39044edaec5d3297ae0bdaf665ba1cf18c3c2e",
+    "scripts/run_factorial_measurement_decomposition.py": "d8bc2a206c7a9fa0d97e3d6141919c819eb72c6cde1eec6b6df29e383f056db4",
+    "tests/test_factorial_measurement_decomposition_protocol.py": "3fd493db806dc604f4a397ad6733921848433c5df0b38977538facd4105d639d",
+    "tests/test_factorial_measurement_decomposition_outputs.py": "ac299f4526cc26590bf5f57b86fea00d8dafb974c9cfb2b944065d432abb78d9",
+    "reports/factorial_measurement_decomposition_v1/contrast_summary.csv": "feec9e467661b9151b4957b1fb425b3391de955f2547929a0a6d8e0ccb365da6",
+    "reports/factorial_measurement_decomposition_v1/contrast_summary_by_seed.csv": "f483936af2aadacc8ab1b9e7f50eabbfad7e1a979e99d8174725f7ef10f4b1af",
+    "reports/factorial_measurement_decomposition_v1/decomposition_summary.json": "d95c66f6d07dc653769dbc17ac32cc32bef31c8710511945143b40a36e042f8f",
+    "reports/factorial_measurement_decomposition_v1/factorial_cells.csv": "c70dda0a20a624fb7c29fab461e65b7f09d730be1ef2fe4427b01f8298727de9",
+    "reports/factorial_measurement_decomposition_v1/interaction_summary.csv": "67ac806a6606ef369e16cc7b3417cdb571b57185d826f44d5d1075483e69ea37",
+    "reports/factorial_measurement_decomposition_v1/manifest.json": "1b920d5835b89ab7689df94ee50c9511c89a06b1e996c12b3d72ef10c8f23461",
+    "reports/factorial_measurement_decomposition_v1/paired_policy_contrasts.csv": "c0c720440fe266c9e3541b16ea0c619ff5cf428e2947ce3e9551ba1bedbe5742"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -254,7 +266,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-26T10:02:19.557835+00:00",
+  "updated_at": "2026-08-26T10:53:17.128659+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -262,7 +274,7 @@
     "direct_e2e_timing_pending": false,
     "pareto_claim_available": false,
     "artifact_manifest": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json",
-    "protected_splits_opened_scope": "development_development_only_pilot_only"
+    "protected_splits_opened_scope": "development_only_pilot_only"
   },
   "evaluation_measurement_pilot_v1_t4_package": {
     "status": "implementation_repaired_and_refrozen_before_gpu_timing_outcomes",
@@ -341,5 +353,23 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "Run the factorial measurement decomposition before numerical route-stability testing."
+  "next_project_action": "numerical_route_stability",
+  "factorial_measurement_decomposition_v1": {
+    "status": "completed_development_only",
+    "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
+    "protocol": "configs/factorial_measurement_decomposition_v1.json",
+    "entry_point": "scripts/run_factorial_measurement_decomposition.py",
+    "artifact_manifest": "reports/factorial_measurement_decomposition_v1/manifest.json",
+    "protected_legacy_splits_used": false,
+    "fresh_confirmatory_claim": false,
+    "inferential_pooling_across_seeds": false,
+    "policy_universe_per_primary_contrast": 75,
+    "fixed_policy_grouping_flip_n": 0,
+    "fixed_policy_label_flip_n": 1,
+    "retraining_reselection_grouping_flip_n": 6,
+    "retraining_reselection_label_flip_n": 4,
+    "full_protocol_grouping_flip_n": 19,
+    "full_protocol_label_flip_n": 14,
+    "next_step": "numerical_route_stability"
+  }
 }
