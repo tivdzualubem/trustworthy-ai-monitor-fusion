@@ -13,7 +13,7 @@ def test_readme_states_real_historical_v2_status():
         "not fully regenerable",
         "fresh calibration",
         "multi-rater labels",
-        "protected legacy `final_test`",
+        "historically evaluated and included in the label audit",
         "Pareto comparison",
     ]
 
@@ -23,3 +23,16 @@ def test_readme_states_real_historical_v2_status():
 
 def test_readme_does_not_present_router_as_selected():
     assert "no router was selected" in README.lower()
+
+def test_readme_records_legacy_split_freshness_correctly():
+    lower = README.lower()
+    assert "not used in the development-only pilot" in lower
+    assert "neither split is eligible as fresh confirmatory data" in lower
+    assert "remain sealed" not in lower
+    assert "remain unopened" not in lower
+
+
+def test_readme_does_not_treat_19_75_or_14_75_as_isolated_effects():
+    assert "Grouping full-protocol contrast (confounded)" in README
+    assert "Label full-protocol contrast (confounded)" in README
+    assert "full-protocol contrasts, not isolated grouping or label effects" in README

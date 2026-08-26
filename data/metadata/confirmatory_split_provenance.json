@@ -1,0 +1,39 @@
+{
+  "artifact": "legacy_split_confirmatory_status",
+  "evidence": {
+    "development_pilot_manifest": {
+      "path": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json",
+      "sha256": "4bec8c058f33585149c4ce7cd7e427d63425be9fb6a00c756f7ea29e95a8b2ad"
+    },
+    "historical_policy_metrics": {
+      "path": "results/tables/final_prespecified_policy_metrics_v3.csv",
+      "sha256": "537a6359f5637df9b835da1c7ccd04936777a554434ae44a50cab5e036d5c702"
+    },
+    "label_audit_split_counts": {
+      "path": "reports/label_audit/audited_split_label_counts.csv",
+      "sha256": "12bcf5db0bcf36f0dd9a1c9541517a251c2292851ecf8fc250f8eadc304175f7"
+    }
+  },
+  "provenance_rule": "final_test and held_out_shift were historically evaluated and included in the label audit; they cannot be used as fresh confirmatory data.",
+  "recorded_at": "2026-08-26T10:02:15.377790+00:00",
+  "scope_distinction": "The development-only evaluation/measurement pilot was development-only and did not use final_test or held_out_shift. That pilot-specific exclusion must not be interpreted as the legacy splits having been historically unopened.",
+  "splits": {
+    "final_test": {
+      "audited_rows": 422,
+      "fresh_confirmatory_eligible": false,
+      "freshness_reason": "Historically evaluated and included in the label audit.",
+      "historically_evaluated": true,
+      "included_in_label_audit": true,
+      "used_in_development_only_pilot": false
+    },
+    "held_out_shift": {
+      "audited_rows": 50,
+      "fresh_confirmatory_eligible": false,
+      "freshness_reason": "Historically evaluated and included in the label audit.",
+      "historically_evaluated": true,
+      "included_in_label_audit": true,
+      "used_in_development_only_pilot": false
+    }
+  },
+  "status": "evidence_based_provenance_correction"
+}

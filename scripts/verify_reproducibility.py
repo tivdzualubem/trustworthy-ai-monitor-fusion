@@ -36,6 +36,36 @@ def as_bool(series: pd.Series) -> pd.Series:
 def verify(strict_hashes: bool) -> None:
     manifest = json.loads(require(MANIFEST).read_text(encoding="utf-8"))
 
+    legacy_status = json.loads(
+        require(
+            ROOT / "data/metadata/confirmatory_split_provenance.json"
+        ).read_text(encoding="utf-8")
+    )
+    for split_name, expected_rows in {
+        "final_test": 422,
+        "held_out_shift": 50,
+    }.items():
+        record = legacy_status["splits"][split_name]
+        assert record["historically_evaluated"] is True
+        assert record["included_in_label_audit"] is True
+        assert record["audited_rows"] == expected_rows
+        assert record["used_in_development_only_pilot"] is False
+        assert record["fresh_confirmatory_eligible"] is False
+
+    audited_counts = pd.read_csv(
+        require(ROOT / "reports/label_audit/audited_split_label_counts.csv")
+    )
+    totals = audited_counts.groupby("split")["n"].sum().astype(int).to_dict()
+    assert totals["final_test"] == 422
+    assert totals["held_out_shift"] == 50
+
+    historical_metrics = pd.read_csv(
+        require(ROOT / "results/tables/final_prespecified_policy_metrics_v3.csv")
+    )
+    historical_splits = set(historical_metrics["split"].astype(str))
+    assert "final_test" in historical_splits
+    assert "held_out_shift" in historical_splits
+
     if strict_hashes:
         for relative, expected in manifest["files"].items():
             path = require(ROOT / relative)

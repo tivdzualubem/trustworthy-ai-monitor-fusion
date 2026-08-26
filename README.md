@@ -16,7 +16,7 @@ The historical v2 results remain in the repository for auditability, with the fo
 - the historical `max(1 ms, 1% of budget)` equivalence margin was a prespecified engineering choice and was **not externally justified** as a confirmatory equivalence margin;
 - the historical final v2 CSV snapshot is **not fully regenerable** from the committed repository because complete downstream timing provenance was not preserved; the available historical evidence and its audit entry point are retained;
 - fresh calibration, joint FPR+cost certification, fresh source/time-separated confirmation, and **multi-rater labels** were not available;
-- the **protected legacy `final_test`** and `held_out_shift` partitions remain sealed.
+- `final_test` and `held_out_shift` were **historically evaluated and included in the label audit**. They were not used in the development-only pilot, but neither split is eligible as fresh confirmatory data.
 
 These limitations define the claim boundary for the historical router analysis.
 
@@ -70,8 +70,8 @@ The label-blind, dependency-closed T4 timing sample contains **363 examples**:
 | Evaluation comparison | Changed conclusions |
 |---|---:|
 | Empirical FPR vs finite-sample risk gate | 36 / 75 |
-| Singleton vs dependency-aware grouping | 19 / 75 |
-| Original vs audited labels | 14 / 75 |
+| Grouping full-protocol contrast (confounded) | 19 / 75 |
+| Label full-protocol contrast (confounded) | 14 / 75 |
 | Ranked vs deployable routing | 4 / 45 |
 | Component-sum vs direct E2E mean-cost ordering | 0 / 105 |
 
@@ -79,13 +79,9 @@ The label-blind, dependency-closed T4 timing sample contains **363 examples**:
 
 Forty of 75 deployable policy evaluations have empirical FPR at or below 0.05, but only four pass the frozen finite-sample row-and-dependency risk gate. This changes **36 of 75** policy conclusions.
 
-### Grouping
+### Grouping and label contrasts
 
-Replacing singleton grouping with dependency-aware grouping changes **19 of 75** conclusions.
-
-### Label quality
-
-Replacing the original labels with the audited harmful-response labels changes **14 of 75** conclusions.
+The existing grouping comparison changes **19 of 75** conclusions and the existing label comparison changes **14 of 75**. These are **full-protocol contrasts, not isolated grouping or label effects**: the variants also change fold assignments, training data, fitted models, and thresholds. They are therefore pending the required factorial decomposition into fixed-policy measurement, retraining/reselection, and full-protocol effects.
 
 ### Ranked vs deployable routing
 
@@ -177,9 +173,11 @@ pytest -q
 
 ## Current report
 
-Current PDF: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
+Report snapshot: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
 
-The current report presents:
+**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those two statements in the PDF until the next report revision.
+
+The report snapshot presents:
 
 - the corrected interpretation of the historical v2 study;
 - direct E2E timing;
@@ -195,4 +193,4 @@ Earlier reports are kept for traceability. The current project status is defined
 
 ## Current work
 
-The project now examines how cost measurement, routing procedure, grouping, FPR treatment, and label quality affect conclusions about selective safety-monitor cascades. The existing router system is the development case study for this evaluation.
+The next step is the factorial measurement decomposition of the grouping and label contrasts into fixed-policy measurement, retraining/reselection, and full-protocol effects. Numerical route-stability testing follows only after that decomposition.

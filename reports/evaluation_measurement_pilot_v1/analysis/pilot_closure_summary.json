@@ -7,8 +7,12 @@
   "deployable_policies_timed": 15,
   "direct_e2e_measurement_completed": true,
   "fresh_external_confirmation": false,
-  "generated_at": "2026-08-21T20:58:11.343682+00:00",
+  "generated_at": "2026-08-26T10:02:18.688173+00:00",
   "gpu": "Tesla T4",
+  "legacy_splits_fresh_confirmatory_eligible": false,
+  "legacy_splits_historically_evaluated": true,
+  "legacy_splits_included_in_label_audit": true,
+  "legacy_splits_used_by_this_pilot": false,
   "measurement_factors": {
     "component_sum_vs_true_direct_e2e": {
       "conclusion_flip_n": 0,
@@ -23,12 +27,12 @@
     "grouping_sensitivity_semantic_0_87": {
       "conclusion_flip_n": 12,
       "eligible_n": 75,
-      "status": "sensitivity_analysis"
+      "status": "full_protocol_sensitivity_confounded_pending_decomposition"
     },
     "grouping_sensitivity_semantic_0_92": {
       "conclusion_flip_n": 14,
       "eligible_n": 75,
-      "status": "sensitivity_analysis"
+      "status": "full_protocol_sensitivity_confounded_pending_decomposition"
     },
     "historical_1pct_isocost_vs_pareto": {
       "conclusion_flip_n": null,
@@ -38,7 +42,7 @@
     "original_vs_audited_labels": {
       "conclusion_flip_n": 14,
       "eligible_n": 75,
-      "status": "material_change"
+      "status": "full_protocol_contrast_confounded_pending_decomposition"
     },
     "ranked_vs_deployable_routing": {
       "conclusion_flip_n": 4,
@@ -48,16 +52,15 @@
     "weak_grouping_vs_dependency_grouping": {
       "conclusion_flip_n": 19,
       "eligible_n": 75,
-      "status": "material_change"
+      "status": "full_protocol_contrast_confounded_pending_decomposition"
     }
   },
   "multi_rater_confirmation": false,
-  "next_project_action": "Continue directly with the remaining evaluation/measurement experiments: prompt-only versus response-only versus prompt-response diagnostics and selection-stability analysis; then freeze and run the broader documented multi-stack/multi-dataset expansion before the final report and README rewrite.",
+  "next_project_action": "Run the factorial measurement decomposition next: separate grouping and label contrasts into fixed-policy measurement, retraining/reselection, and full-protocol effects before numerical route-stability testing.",
   "pareto_claim_available": false,
   "pareto_unavailable_reason": "Frozen cost/recall join requires exact route parity; 2 runtime route mismatches occurred.",
   "pilot_scope": "development_only_measurement_pilot",
   "prediction_mismatch_rows": 5,
-  "protected_legacy_sets_opened": false,
   "raw_policy_calls": 5445,
   "route_mismatch_rows": 2,
   "router_superiority_claim": false,

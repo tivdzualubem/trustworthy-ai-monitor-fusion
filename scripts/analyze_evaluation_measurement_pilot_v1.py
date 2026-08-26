@@ -137,10 +137,13 @@ def main():
             "conclusion_flip_n": int(
                 (p["a_pass"].astype(bool) != p["b_pass"].astype(bool)).sum()
             ),
-            "status": "material_change",
+            "status": "full_protocol_contrast_confounded_pending_decomposition",
             "interpretation": (
-                "Grouping choice changes risk-pass conclusions; singleton grouping is "
-                "not an adequate dependence control."
+                "This 19/75 result is a full-protocol contrast, not an isolated "
+                "grouping measurement effect: changing grouping also changes fold "
+                "assignments, training data, fitted models, and thresholds. It is "
+                "pending decomposition into fixed-policy measurement, "
+                "retraining/reselection, and full-protocol effects."
             ),
         }
     )
@@ -163,10 +166,13 @@ def main():
             "conclusion_flip_n": int(
                 (p["a_pass"].astype(bool) != p["b_pass"].astype(bool)).sum()
             ),
-            "status": "material_change",
+            "status": "full_protocol_contrast_confounded_pending_decomposition",
             "interpretation": (
-                "Label validity changes policy-level risk conclusions and is a core "
-                "measurement factor rather than a minor limitation."
+                "This 14/75 result is a full-protocol contrast, not an isolated "
+                "label measurement effect: changing labels also changes fold "
+                "assignments, training data, fitted models, and thresholds. It is "
+                "pending decomposition into fixed-policy measurement, "
+                "retraining/reselection, and full-protocol effects."
             ),
         }
     )
@@ -250,10 +256,12 @@ def main():
                 "conclusion_flip_n": int(
                     (p["a_pass"].astype(bool) != p["b_pass"].astype(bool)).sum()
                 ),
-                "status": "sensitivity_analysis",
+                "status": "full_protocol_sensitivity_confounded_pending_decomposition",
                 "interpretation": (
-                    "The semantic grouping threshold is not treated as ground truth; "
-                    "risk conclusions are reported across frozen sensitivities."
+                    "The semantic grouping threshold is not treated as ground truth. "
+                    "This is a full-protocol sensitivity because changing grouping "
+                    "also changes folds, training data, fitted models, and thresholds; "
+                    "it is not an isolated grouping measurement effect."
                 ),
             }
         )
@@ -331,7 +339,10 @@ def main():
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "pilot_scope": "development_only_measurement_pilot",
         "router_superiority_claim": False,
-        "protected_legacy_sets_opened": False,
+        "legacy_splits_historically_evaluated": True,
+        "legacy_splits_included_in_label_audit": True,
+        "legacy_splits_used_by_this_pilot": False,
+        "legacy_splits_fresh_confirmatory_eligible": False,
         "direct_e2e_measurement_completed": True,
         "gpu": "Tesla T4",
         "batch_size": 1,
@@ -367,9 +378,10 @@ def main():
             for row in rows
         },
         "next_project_action": (
-            "Run a professor-requirement gap audit on the completed pilot, then freeze "
-            "the next evaluation/measurement expansion protocol before any final "
-            "report or README rewrite."
+            "Run the factorial measurement decomposition next: "
+            "separate grouping and label contrasts into fixed-policy measurement, "
+            "retraining/reselection, and full-protocol effects before numerical "
+            "route-stability testing."
         ),
     }
     (OUT_DIR / "pilot_closure_summary.json").write_text(

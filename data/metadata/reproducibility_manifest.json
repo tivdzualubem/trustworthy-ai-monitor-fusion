@@ -77,7 +77,7 @@
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "94942439af2260a876fb0f4d212daac329085d14eb2201db3c23741979d4864a",
+    "README.md": "e479a73e7c96194a77e59b9cbbd380e3451a68ed105aa00ea4010bb49c57b322",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -171,7 +171,7 @@
     "scripts/run_policy_evaluation_v3.py": "6f6fac3bba5e2ba77caecece64757988d92e25bf36cdb693f09704f17540d497",
     "scripts/train_serialize_fusion_models_v3.py": "d4c177a7c894f8c41d2b0ab217e26fd0651e85d54f6ca966bdbc3eb02e819740",
     "scripts/validate_full_text_embedding_protocol.py": "41abdfe609391c21074375742cd56c88ce928e00372af7f3270a2d480181565d",
-    "scripts/verify_reproducibility.py": "365318ead198b1a390c6e05d2b19769a4cdc38e27866762424ee1145b17c9533",
+    "scripts/verify_reproducibility.py": "1fe105e36bc04322b91b57e06c7030af6117d3ab732537d748ff1c245b492a7a",
     "scripts/write_stop_go_decision_v3.py": "dec580ceffa2f753bdea57caad50458ee59fa6077ed109a4881dd31ddc6bc77b",
     "src/monitor_fusion/evaluation/comparison_objectives.py": "96849225b70e2e2ece95c391b466b3e0a123281f7e17956d8f1817e39ba40d5a",
     "src/monitor_fusion/evaluation/cost_equivalence.py": "e9b79b9376bab0d9927720234692409f9378861889545d72818d5c9ae5d2fb65",
@@ -212,7 +212,7 @@
     "scripts/benchmark_evaluation_measurement_pilot_v1_t4.py": "3c57ad1d6e58c508b88cf463ee1f25fc29d66cd2544de0143959d40969361ce6",
     "scripts/build_evaluation_measurement_pilot_v1_kaggle_package.py": "df3b4a756841ca9ae0e3a5a0d4e2b8036c6c02a70d0e476f67ee239568b24e0e",
     "data/metadata/evaluation_measurement_pilot_v1_t4_package_manifest.json": "140c189576d187224955db870176fcbd1ead3e2fbbe3edc10d7b7d2d7f3e1b46",
-    "scripts/analyze_evaluation_measurement_pilot_v1.py": "4248a746ed09c266d0edbec433c54745cb75258adb176071243060c61d9eae52",
+    "scripts/analyze_evaluation_measurement_pilot_v1.py": "2937975ec68144f605ba745d4e4aac9f77a77c93e43e6ffcd81588a96c37d458",
     "reports/evaluation_measurement_pilot_v1/t4/cost_ranking_reversals.csv": "58a1d189c7ee922ef192bc906dda473158a4e2c644da8f2b8664782bc26a903e",
     "reports/evaluation_measurement_pilot_v1/t4/environment.json": "d3d0cf9ed2e6976e052b9cb867fcd6732e78e634794aa712e42d2f2b5802724b",
     "reports/evaluation_measurement_pilot_v1/t4/measurement_order.csv": "74b04b162e068786ac5fa25167146e30c56659a4ef2770e22869ef680b9adbbf",
@@ -225,35 +225,44 @@
     "reports/evaluation_measurement_pilot_v1/t4/score_and_route_validation.json": "b2ea981ad470d848a812839178198f2d27bfedd3f2b65b918987b7aa9dab69d2",
     "reports/evaluation_measurement_pilot_v1/t4/source_latency_summary.csv": "2ac60a8152e6b558fc0d407cba5be96823541252abac9a0586547f5d23dbada7",
     "reports/evaluation_measurement_pilot_v1/t4/t4_timing_manifest.json": "a8b95ab839d0ee0c1ca88658dc0d70a4e66df0ca68b82f97d030715994104c8d",
-    "reports/evaluation_measurement_pilot_v1/analysis/analysis_manifest.json": "db4622a043efe1e950aa0c5e366b3ee99f2b388b8ec5835b0166fa74b65d828d",
-    "reports/evaluation_measurement_pilot_v1/analysis/measurement_conclusion_matrix.csv": "dc9f6c4444c3cc5e44a5f0640f31c7bd12ed1a3596a961d952414203e3a528a7",
-    "reports/evaluation_measurement_pilot_v1/analysis/pilot_closure_summary.json": "4580f7d649bfe1ce88f1b503558628daae43b0e2660985b8d0cf5eacdcb6bb87",
+    "reports/evaluation_measurement_pilot_v1/analysis/analysis_manifest.json": "5085de0592f669b7e642d4b6285e2fbf010925f16813fab97352ca6d1914edf2",
+    "reports/evaluation_measurement_pilot_v1/analysis/measurement_conclusion_matrix.csv": "7a4dd1bb4d645a52d6fa58cb1d5cc26465391c9b2441645b5b3713b8ddf428d3",
+    "reports/evaluation_measurement_pilot_v1/analysis/pilot_closure_summary.json": "a3119090adcfbdc4f3cad8a62e0e7e1f4448c14294d169363a29a1d031e162a0",
     "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619",
-    "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "021096ff074bd63f0dd26204ef0dca7c4a3071f6994757a3b075c9d005239724"
+    "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "021096ff074bd63f0dd26204ef0dca7c4a3071f6994757a3b075c9d005239724",
+    "tests/test_v2_readme_status.py": "2f436ecb03a3205cc0c0500dd3f83d5adc3470785979cc1574656f2b1760755d",
+    "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
     "pdf": "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf",
     "page_count": 8,
-    "status": "completed_development_only_evaluation_measurement_report",
+    "status": "pre_provenance_correction_snapshot",
     "historical_v2_router_status": "no-go",
     "router_superiority_claim_made": false,
     "pareto_claim_available": false,
     "fresh_joint_fpr_cost_certification": false,
     "fresh_source_time_separated_confirmation": false,
-    "multi_rater_confirmation": false
+    "multi_rater_confirmation": false,
+    "superseded_statements": [
+      "legacy final_test/held_out_shift described as unopened",
+      "19/75 grouping contrast interpreted as an isolated grouping effect",
+      "14/75 label contrast interpreted as an isolated label effect"
+    ],
+    "current_correction_source": "data/metadata/confirmatory_split_provenance.json"
   },
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-21T22:40:00.683764+00:00",
+  "updated_at": "2026-08-26T10:02:19.557835+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
     "protected_splits_opened": false,
     "direct_e2e_timing_pending": false,
     "pareto_claim_available": false,
-    "artifact_manifest": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json"
+    "artifact_manifest": "reports/evaluation_measurement_pilot_v1/cpu/cpu_pilot_manifest.json",
+    "protected_splits_opened_scope": "development_development_only_pilot_only"
   },
   "evaluation_measurement_pilot_v1_t4_package": {
     "status": "implementation_repaired_and_refrozen_before_gpu_timing_outcomes",
@@ -292,8 +301,11 @@
     "bounded_mean_cost_certificate": false,
     "fresh_external_confirmation": false,
     "multi_rater_confirmation": false,
-    "protected_legacy_sets_opened": false,
-    "router_superiority_claim": false
+    "router_superiority_claim": false,
+    "legacy_splits_historically_evaluated": true,
+    "legacy_splits_included_in_label_audit": true,
+    "legacy_splits_used_by_this_pilot": false,
+    "legacy_splits_fresh_confirmatory_eligible": false
   },
   "historical_final_report": {
     "analysis_baseline_commit": "788cc51",
@@ -313,5 +325,21 @@
     "source": "paper/Risk_Controlled_Decision_Value_Acquisition_Report.tex",
     "status": "comprehensive_final_report_completed",
     "title": "Risk-Controlled Decision-Value Acquisition for Runtime Safety Monitor Fusion"
-  }
+  },
+  "confirmatory_data_status": {
+    "final_test": {
+      "historically_evaluated": true,
+      "included_in_label_audit": true,
+      "used_in_development_only_pilot": false,
+      "fresh_confirmatory_eligible": false
+    },
+    "held_out_shift": {
+      "historically_evaluated": true,
+      "included_in_label_audit": true,
+      "used_in_development_only_pilot": false,
+      "fresh_confirmatory_eligible": false
+    },
+    "source": "data/metadata/confirmatory_split_provenance.json"
+  },
+  "next_project_action": "Run the factorial measurement decomposition before numerical route-stability testing."
 }
