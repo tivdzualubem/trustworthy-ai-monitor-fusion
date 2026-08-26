@@ -1,0 +1,152 @@
+{
+  "archived_environment": {
+    "compact_dtype": "float32",
+    "compact_max_abs_difference": 1.1189840734004974e-06,
+    "gpu": "Tesla T4",
+    "qwen_dtype": "float16",
+    "qwen_max_abs_difference": 0.0,
+    "rule_max_abs_difference": 0.0
+  },
+  "base_commit": "3bda6950c56caf26be8788cf4bd338e899408697",
+  "completion_rule": "Step 3 is not complete after the CPU/runtime/precision phase. It completes only after controlled T4 hardware results are ingested and the final route-invariance/dead-band analysis is produced.",
+  "deadband": {
+    "ambiguous_rule": "abs(margin) <= epsilon",
+    "envelope_rule": "After all controlled axes are measured, report the empirical perturbation envelope and conservative sigmoid-Lipschitz bound separately; do not tune epsilon post hoc to make mismatches disappear.",
+    "epsilon_grid": [
+      0.0,
+      1e-12,
+      1e-11,
+      1e-10,
+      1e-09,
+      1e-08,
+      1e-07,
+      1e-06
+    ],
+    "final_invariance_envelope_requires_hardware_results": true,
+    "select_epsilon_to_eliminate_mismatches": false
+  },
+  "hardware_phase": {
+    "compact_model_id": "KoalaAI/Text-Moderation",
+    "compact_revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c",
+    "deterministic_settings": {
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "tf32_disabled": true
+    },
+    "example_count": 5,
+    "mismatch_examples_only": true,
+    "qwen_rerun_reason": "Archived Qwen score parity is exact (max absolute difference 0.0); all five mismatches are localized to compact-score/policy-threshold behavior.",
+    "qwen_rerun_required": false,
+    "repetitions": 10
+  },
+  "layers": {
+    "monitor_score_generation": "Separate monitor-score perturbation from downstream policy arithmetic. Archived rule and Qwen score differences are exactly zero; compact-score differences are the observed upstream numerical source.",
+    "policy_arithmetic": "Recompute frozen logistic probabilities, route margins, and decision margins under controlled implementations, precisions, and hardware."
+  },
+  "margin_definitions": {
+    "decision_invariant_at_epsilon": "abs(decision_margin) > epsilon",
+    "decision_margin": "policy_probability - decision_threshold",
+    "decision_rule": "positive iff decision_margin >= 0",
+    "route_invariant_at_epsilon": "abs(route_margin) > epsilon",
+    "route_margin": "acquisition_threshold - abs(cheap_probability - 0.5)",
+    "route_rule": "acquire iff route_margin >= 0"
+  },
+  "mismatches": {
+    "prediction_mismatch_rows": 5,
+    "pure_decision_threshold_rows": 3,
+    "route_induced_prediction_rows": 2,
+    "route_mismatch_cases": [
+      [
+        "rule_compact_to_qwen::selective_deployable::0.50",
+        "wildguard-1101"
+      ],
+      [
+        "compact_to_qwen::selective_deployable::0.25",
+        "wildguard-0953"
+      ]
+    ],
+    "route_mismatch_rows": 2,
+    "unique_prediction_mismatch_cases": [
+      [
+        "rule_compact_to_qwen::selective_deployable::0.25",
+        "wildguard-0394"
+      ],
+      [
+        "rule_compact_to_qwen::selective_deployable::0.50",
+        "wildguard-1101"
+      ],
+      [
+        "compact_to_qwen::selective_deployable::0.25",
+        "wildguard-0953"
+      ],
+      [
+        "compact_to_qwen::selective_deployable::0.10",
+        "wildguard-1677"
+      ],
+      [
+        "compact_to_qwen::full_information",
+        "wildguard-1474"
+      ]
+    ]
+  },
+  "next_step_after_completion": "small_safety_availability_control_plane_kill_study",
+  "prerequisite": {
+    "factorial_measurement_decomposition_complete": true,
+    "factorial_outcome_commit": "3bda6950c56caf26be8788cf4bd338e899408697",
+    "provenance_reproducibility_complete": true
+  },
+  "protocol_id": "numerical_route_stability_v1",
+  "reporting": {
+    "all_5445_archived_policy_calls_margin_population": true,
+    "analytic_sigmoid_lipschitz_bound": true,
+    "controlled_cpu_t4_hardware_comparison": true,
+    "deadband_sweep": true,
+    "mismatch_taxonomy": true,
+    "negative_results_required": true,
+    "runtime_precision_matrix": true
+  },
+  "research_question": "Are the archived route and prediction mismatches caused by numerical instability at frozen acquisition/decision thresholds, and what perturbation envelope is required for principled route/prediction invariance?",
+  "scope": {
+    "cost_or_pareto_claim": false,
+    "development_only": true,
+    "fresh_confirmatory_claim": false,
+    "protected_legacy_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
+    "protected_legacy_splits_used": false,
+    "router_superiority_claim": false,
+    "security_control_plane_study_started": false
+  },
+  "stability_axes": {
+    "hardware": {
+      "controlled_comparison": "same_float32_compact_model_cpu_vs_nvidia_t4",
+      "implementation_fixed": "torch",
+      "policy_arithmetic_comparison": "same_torch_arithmetic_cpu_vs_nvidia_t4",
+      "purpose": "Vary hardware while holding implementation, model revision, inputs, and precision fixed.",
+      "required_gpu": "NVIDIA T4"
+    },
+    "precision": {
+      "compact_monitor": [
+        "float32_primary",
+        "float16_exploratory_on_t4"
+      ],
+      "policy_arithmetic": [
+        "float64",
+        "float32",
+        "float16_exploratory_on_t4"
+      ],
+      "primary_precision_comparison": "float64_vs_float32_policy_arithmetic"
+    },
+    "runtime_implementation": {
+      "hardware_fixed": "cpu",
+      "paths": [
+        "python_scalar_math",
+        "numpy_vectorized",
+        "torch_cpu"
+      ],
+      "purpose": "Vary implementation/runtime while holding hardware and frozen inputs fixed."
+    }
+  },
+  "status": "frozen_before_new_stability_outcomes"
+}
