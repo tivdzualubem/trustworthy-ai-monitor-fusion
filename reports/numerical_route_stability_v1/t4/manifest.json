@@ -1,0 +1,11 @@
+{
+  "artifact": "numerical_route_stability_v1_t4_results",
+  "files": {
+    "compact_monitor_cpu_t4_comparison.csv": "5d6d2325c680218bd0ff79021c619b8124218a0b1905c0c9151e5ff58632d9e3",
+    "compact_monitor_hardware_precision.csv": "a8d8806ef760f6927421ed6b20a2f489e791d982a2aefe2355fd354e9e886203",
+    "compact_monitor_summary.csv": "c1c5e7b75cb14eb53c7b6a37e1a8f60fd4eb041c53ff04e7e4c636141513003e",
+    "environment.json": "25f08000d1b1d38291fa1e84eb0cd97dfb4b0e7c1fe3f67b2221b0a07a63080b",
+    "policy_arithmetic_hardware_precision.csv": "657ded0c7c44decbdc8585d441ed92f41f31b87f6760abebcd8eb37a5ad004fd"
+  },
+  "generated_at": "2026-08-26T11:52:41.162094+00:00"
+}

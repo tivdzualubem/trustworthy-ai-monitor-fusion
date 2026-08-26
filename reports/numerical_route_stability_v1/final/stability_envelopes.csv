@@ -1,0 +1,6 @@
+axis,supported,max_margin_or_same_route_probability_perturbation
+runtime_implementation_float64_cpu,True,2.220446049250313e-16
+precision_float32_cpu,True,9.357650498920123e-08
+hardware_float32_cpu_vs_t4_arithmetic,True,1.4901161193847656e-08
+hardware_float32_compact_monitor_lipschitz_bound,True,1.948667936772641e-09
+t4_float16_exploratory,False,

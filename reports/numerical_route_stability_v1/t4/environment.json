@@ -1,0 +1,19 @@
+{
+  "compact_model_id": "KoalaAI/Text-Moderation",
+  "compact_revision": "838ade0edb66dcffc5532d08ff6ed5c899abfb5c",
+  "cuda_runtime": "12.8",
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": true,
+  "generated_at": "2026-08-26T11:52:41.160187+00:00",
+  "gpu_compute_capability": [
+    7,
+    5
+  ],
+  "gpu_name": "Tesla T4",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "python": "3.12.13",
+  "repetitions": 10,
+  "tf32_disabled": true,
+  "torch": "2.10.0+cu128",
+  "transformers": "5.0.0"
+}

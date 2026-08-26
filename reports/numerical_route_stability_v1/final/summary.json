@@ -1,0 +1,77 @@
+{
+  "archived_mismatch_taxonomy": {
+    "prediction_mismatches": 5,
+    "pure_decision_threshold_mismatches": 3,
+    "route_induced_prediction_mismatches": 2,
+    "route_threshold_mismatches": 2
+  },
+  "artifact": "numerical_route_stability_v1_final",
+  "claim_boundary": {
+    "fresh_confirmatory_claim": false,
+    "pareto_claim_available": false,
+    "protected_legacy_splits_used": false,
+    "router_superiority_claim": false,
+    "security_control_plane_study_started": false,
+    "universal_hardware_invariance_claim": false
+  },
+  "deadband": {
+    "decision_ambiguous_fraction": 0.0027548209366391185,
+    "diagnostic_flip_coverage": {
+      "numpy_float32": {
+        "route_flip_covered_n": 2,
+        "route_flip_n": 2,
+        "same_route_prediction_flip_covered_n": 2,
+        "same_route_prediction_flip_n": 2
+      },
+      "torch_cpu_float32": {
+        "route_flip_covered_n": 2,
+        "route_flip_n": 2,
+        "same_route_prediction_flip_covered_n": 6,
+        "same_route_prediction_flip_n": 6
+      }
+    },
+    "interpretation": "Margins inside the dead-band are numerically ambiguous; this study does not assign a deployment action to ambiguity.",
+    "prespecified_grid": [
+      0.0,
+      1e-12,
+      1e-11,
+      1e-10,
+      1e-09,
+      1e-08,
+      1e-07,
+      1e-06
+    ],
+    "previous_prespecified_epsilon": 1e-07,
+    "reporting_epsilon": 1e-06,
+    "required_nonexploratory_envelope": 1.1042633411982153e-07,
+    "route_ambiguous_fraction": 0.061218243036424855,
+    "selected_to_eliminate_mismatches": false,
+    "selection_rule": "first prespecified grid point covering the conservative non-exploratory perturbation envelope"
+  },
+  "generated_at": "2026-08-26T12:19:32.545769+00:00",
+  "hardware": {
+    "float32_monitor_max_abs_score_difference_cpu_vs_t4": 7.363269105553627e-09,
+    "float32_monitor_max_repeat_std": 0.0,
+    "float32_policy_arithmetic_max_margin_delta_cpu_vs_t4": 1.4901161193847656e-08,
+    "float32_policy_arithmetic_prediction_flips_cpu_vs_t4": 0,
+    "float32_policy_arithmetic_route_flips_cpu_vs_t4": 0,
+    "gpu": "Tesla T4"
+  },
+  "next_step": "small_safety_availability_control_plane_kill_study",
+  "precision": {
+    "float16_supported_path": false,
+    "float32_cpu_route_envelope": 6.576219624410129e-08,
+    "float32_cpu_same_route_decision_envelope": 9.357650498920123e-08,
+    "numpy_float32_prediction_flips": 4,
+    "numpy_float32_route_flips": 2,
+    "t4_float16_exploratory_prediction_flips_on_five_cases": 5,
+    "t4_float16_exploratory_route_flips_on_five_cases": 2,
+    "torch_float32_prediction_flips": 8,
+    "torch_float32_route_flips": 2
+  },
+  "runtime_implementation": {
+    "float64_cpu_max_perturbation": 2.220446049250313e-16,
+    "interpretation": "float64 Python/NumPy/PyTorch CPU arithmetic is effectively invariant"
+  },
+  "status": "completed_development_only"
+}

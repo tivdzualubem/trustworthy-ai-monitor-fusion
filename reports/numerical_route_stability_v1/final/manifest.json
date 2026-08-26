@@ -1,0 +1,23 @@
+{
+  "artifact": "numerical_route_stability_v1_final_manifest",
+  "generated_at": "2026-08-26T12:19:32.546157+00:00",
+  "inputs": {
+    "configs/numerical_route_stability_v1.json": "82248762322c9853d49d53d53ddd3ee96cb02ec25b0660f5d0a901034a60e6de",
+    "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json": "7b9537fdd5176386ce4ebfb2f827fc9a5f942f67d26a807789d38dc9716fb2a4",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_raw.parquet": "2d4e8e715d0680f8b844a4e4245e484c02bde25c3ed53b85eaf3f99088de700c",
+    "reports/numerical_route_stability_v1/cpu/deadband_sweep.csv": "1f3c70d9b935d351ea849c13b0806445c25533bf2843ac426dbe2472b9adfa33",
+    "reports/numerical_route_stability_v1/cpu/runtime_precision_matrix.csv": "1346ffe47bbb1bdfed8ed621d8ab5442361b9e8712f23408a0b75439e8aa007a",
+    "reports/numerical_route_stability_v1/t4/compact_monitor_cpu_t4_comparison.csv": "5d6d2325c680218bd0ff79021c619b8124218a0b1905c0c9151e5ff58632d9e3",
+    "reports/numerical_route_stability_v1/t4/compact_monitor_summary.csv": "c1c5e7b75cb14eb53c7b6a37e1a8f60fd4eb041c53ff04e7e4c636141513003e",
+    "reports/numerical_route_stability_v1/t4/environment.json": "25f08000d1b1d38291fa1e84eb0cd97dfb4b0e7c1fe3f67b2221b0a07a63080b",
+    "reports/numerical_route_stability_v1/t4/manifest.json": "0b3b08969b6bf8a53d7906e6f793bb4609bed917ec46d54d877636d9f9938fe3",
+    "reports/numerical_route_stability_v1/t4/policy_arithmetic_hardware_precision.csv": "657ded0c7c44decbdc8585d441ed92f41f31b87f6760abebcd8eb37a5ad004fd"
+  },
+  "outputs": {
+    "final_deadband_summary.csv": "0747cda3fc65adea17c224c84f5b5675b43f012dd3e352d26e10474d1f0db1d9",
+    "full_population_axis_diagnostics.parquet": "f20ecb3d9b548166ddcc6e9abe64b5ff2d7a6dce0c5605f7160a54ae7a656263",
+    "hardware_axis_summary.csv": "0dc19b61845b0a7448e07febf75e54d3b52f90a1e2ed541bf3127ab86c78ab2d",
+    "stability_envelopes.csv": "5ab3e7491d1c8ece20035fc15f8ab737d13e306cded2d6d31f77fc6bd7658ec7",
+    "summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c"
+  }
+}

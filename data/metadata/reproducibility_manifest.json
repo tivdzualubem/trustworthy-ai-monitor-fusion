@@ -77,11 +77,12 @@
     "factorial_measurement_decomposition": "python scripts/run_factorial_measurement_decomposition.py",
     "run_numerical_route_stability_cpu": "python scripts/run_numerical_route_stability_cpu.py",
     "build_numerical_route_stability_t4_package": "python scripts/build_numerical_route_stability_t4_package.py",
-    "run_numerical_route_stability_t4": "python benchmark_numerical_route_stability_t4.py --package-root <package_root> --output-dir <output_dir>"
+    "run_numerical_route_stability_t4": "python benchmark_numerical_route_stability_t4.py --package-root <package_root> --output-dir <output_dir>",
+    "finalize_numerical_route_stability": "python scripts/finalize_numerical_route_stability.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "9b3158723a3ab3d09af47bdd139b671a9771e386d8bfcb6329749698c7230048",
+    "README.md": "95a68ea790bb079c743e3e9b818590e49a933329ead7a8522ac1291c9e69a29e",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -260,7 +261,21 @@
     "reports/numerical_route_stability_v1/cpu/runtime_precision_matrix.csv": "1346ffe47bbb1bdfed8ed621d8ab5442361b9e8712f23408a0b75439e8aa007a",
     "reports/numerical_route_stability_v1/cpu/analytic_perturbation_bounds.csv": "6a3769c934f20766bd04d6fcfd541e4a091c029e857b80010ad256200ea13d14",
     "reports/numerical_route_stability_v1/cpu/summary.json": "e62ec493411e6a46069a44089a9c0dbdf24058aa98351570001333aa94cd2633",
-    "reports/numerical_route_stability_v1/cpu/manifest.json": "32ec66356bad0630b6ad7c1b0239ed680270bc0eb74c5d0980b483608609acb4"
+    "reports/numerical_route_stability_v1/cpu/manifest.json": "32ec66356bad0630b6ad7c1b0239ed680270bc0eb74c5d0980b483608609acb4",
+    "scripts/finalize_numerical_route_stability.py": "e57eddbb1de64897dcbdfcd2013c2254de326d12f718384614a1ff11ceb07dff",
+    "tests/test_numerical_route_stability_final.py": "f1cdceaadb502c598263e368cc4a117650af9dad8e128d615c2666bb53f9eebf",
+    "reports/numerical_route_stability_v1/t4/compact_monitor_cpu_t4_comparison.csv": "5d6d2325c680218bd0ff79021c619b8124218a0b1905c0c9151e5ff58632d9e3",
+    "reports/numerical_route_stability_v1/t4/compact_monitor_hardware_precision.csv": "a8d8806ef760f6927421ed6b20a2f489e791d982a2aefe2355fd354e9e886203",
+    "reports/numerical_route_stability_v1/t4/compact_monitor_summary.csv": "c1c5e7b75cb14eb53c7b6a37e1a8f60fd4eb041c53ff04e7e4c636141513003e",
+    "reports/numerical_route_stability_v1/t4/environment.json": "25f08000d1b1d38291fa1e84eb0cd97dfb4b0e7c1fe3f67b2221b0a07a63080b",
+    "reports/numerical_route_stability_v1/t4/manifest.json": "0b3b08969b6bf8a53d7906e6f793bb4609bed917ec46d54d877636d9f9938fe3",
+    "reports/numerical_route_stability_v1/t4/policy_arithmetic_hardware_precision.csv": "657ded0c7c44decbdc8585d441ed92f41f31b87f6760abebcd8eb37a5ad004fd",
+    "reports/numerical_route_stability_v1/final/final_deadband_summary.csv": "0747cda3fc65adea17c224c84f5b5675b43f012dd3e352d26e10474d1f0db1d9",
+    "reports/numerical_route_stability_v1/final/full_population_axis_diagnostics.parquet": "f20ecb3d9b548166ddcc6e9abe64b5ff2d7a6dce0c5605f7160a54ae7a656263",
+    "reports/numerical_route_stability_v1/final/hardware_axis_summary.csv": "0dc19b61845b0a7448e07febf75e54d3b52f90a1e2ed541bf3127ab86c78ab2d",
+    "reports/numerical_route_stability_v1/final/manifest.json": "739ebcdeec132da9d11bfa97f095673aa32f093126f21f997a51588b41467cd1",
+    "reports/numerical_route_stability_v1/final/stability_envelopes.csv": "5ab3e7491d1c8ece20035fc15f8ab737d13e306cded2d6d31f77fc6bd7658ec7",
+    "reports/numerical_route_stability_v1/final/summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -283,7 +298,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-26T11:26:47.252460+00:00",
+  "updated_at": "2026-08-26T12:19:33.031704+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -370,7 +385,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "numerical_route_stability_hardware_phase",
+  "next_project_action": "small_safety_availability_control_plane_kill_study",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -390,22 +405,30 @@
     "next_step": "numerical_route_stability"
   },
   "numerical_route_stability_v1": {
-    "status": "cpu_runtime_precision_complete_hardware_pending",
+    "status": "completed_development_only",
     "freeze_commit": "4f12e8fe8537eed84d0f5cc1b41368bdd30eca20",
+    "cpu_phase_commit": "7e16db9249fe869292e50eeff96dde1866cde9aa",
     "protocol": "configs/numerical_route_stability_v1.json",
-    "cpu_entry_point": "scripts/run_numerical_route_stability_cpu.py",
-    "t4_package_builder": "scripts/build_numerical_route_stability_t4_package.py",
-    "t4_benchmark": "scripts/benchmark_numerical_route_stability_t4.py",
     "cpu_artifact_manifest": "reports/numerical_route_stability_v1/cpu/manifest.json",
+    "t4_artifact_manifest": "reports/numerical_route_stability_v1/t4/manifest.json",
+    "final_artifact_manifest": "reports/numerical_route_stability_v1/final/manifest.json",
+    "t4_package_sha256": "ee760fffd0c05b048e8e785eb88a569b98acf1a3b275a1d5064d6f41036e9761",
+    "t4_results_zip_sha256": "0e333779b4369d2080cc13f3992264afb9c055343e1bf46ddf2992a26225ea6e",
     "route_mismatch_rows": 2,
     "prediction_mismatch_rows": 5,
     "pure_decision_threshold_rows": 3,
     "route_induced_prediction_rows": 2,
+    "reporting_deadband_epsilon": 1e-06,
+    "deadband_selected_to_eliminate_mismatches": false,
+    "float16_supported_path": false,
     "protected_legacy_splits_used": false,
     "fresh_confirmatory_claim": false,
+    "router_superiority_claim": false,
+    "pareto_claim_available": false,
+    "universal_hardware_invariance_claim": false,
     "security_control_plane_study_started": false,
-    "final_deadband_available": false,
-    "hardware_phase_required": true,
-    "t4_package_sha256": "ee760fffd0c05b048e8e785eb88a569b98acf1a3b275a1d5064d6f41036e9761"
+    "hardware_phase_required": false,
+    "final_deadband_available": true,
+    "next_step": "small_safety_availability_control_plane_kill_study"
   }
 }

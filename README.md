@@ -112,11 +112,15 @@ The 75-policy aggregate counts are descriptive across the five prespecified seed
 
 ## Numerical route stability
 
-The numerical-stability analysis is in progress. The archived mismatch taxonomy is **two route-threshold mismatches and five prediction mismatches**; two prediction mismatches are downstream consequences of the route flips and three are pure decision-threshold mismatches.
+The numerical route-stability study is complete on the development-only evidence. The archived taxonomy is **two route-threshold mismatches and five prediction mismatches**: two prediction changes are downstream of the route flips and three are pure decision-threshold mismatches. The original mismatches sit at frozen boundaries: the reference route margins for the two routing cases are exactly zero, while the three pure decision cases are at or effectively at their frozen decision thresholds.
 
-The completed CPU phase evaluates the full archived 5,445-call margin population, a prespecified dead-band grid, and frozen policy arithmetic across Python scalar, NumPy, and PyTorch CPU implementations at float64/float32 precision. No dead-band epsilon is selected post hoc.
+Across the full archived 5,445 policy-call population, float64 Python/NumPy/PyTorch CPU arithmetic is effectively invariant. Float32 arithmetic is materially more sensitive near frozen boundaries and produces route/prediction flips in the diagnostic recomputation, so exact bit-level parity is not an appropriate invariance criterion.
 
-The controlled hardware phase is still required before this stage is complete. It compares the same float32 compact monitor and the same PyTorch policy arithmetic on CPU versus NVIDIA T4, with T4 float16 retained only as an exploratory precision sensitivity. `final_test` and `held_out_shift` are not used.
+In the controlled hardware study, the same float32 PyTorch policy arithmetic produced **0/5 route flips** and **0/5 prediction flips** between CPU and Tesla T4. The compact monitor was deterministic within each repeated hardware/precision cell, with maximum CPU-versus-T4 float32 score difference **7.363e-09**. T4 float16 was exploratory and is not a supported path: it changed **2/5 routes** and **5/5 predictions** relative to T4 float32.
+
+The dead-band analysis uses the prespecified epsilon grid rather than choosing a tolerance to erase mismatches. The first prespecified grid point covering the conservative non-exploratory perturbation envelope is **1e-06**. At that reporting point, **6.12%** of archived selective-route evaluations and **0.28%** of archived decision evaluations are numerically ambiguous. This is an invariance/measurement result, not a deployment rule: no accept/defer/reject action is assigned here.
+
+`final_test` and `held_out_shift` were not used, and no fresh-confirmatory, router-superiority, Pareto, universal-hardware-invariance, or production claim is made.
 
 ## Direct E2E timing
 
@@ -199,7 +203,7 @@ pytest -q
 
 Report snapshot: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
 
-**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those two statements in the PDF until the next report revision.
+**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those statements in the PDF. The snapshot also predates the completed factorial decomposition and numerical route-stability results; a comprehensive report revision is deferred until the ordered methodological studies are complete.
 
 The report snapshot presents:
 
@@ -217,4 +221,4 @@ Earlier reports are kept for traceability. The current project status is defined
 
 ## Current work
 
-The numerical route-stability analysis is in progress. CPU runtime/precision analysis is complete; controlled CPU-versus-T4 hardware validation and the final perturbation-envelope/dead-band analysis remain before this stage can be closed.
+The provenance correction, factorial measurement decomposition, and numerical route-stability analysis are complete. The next and only next stage is the small safety–availability/control-plane novelty-kill study on adversarial routing/bypass pressure and adversarial load/escalation pressure.
