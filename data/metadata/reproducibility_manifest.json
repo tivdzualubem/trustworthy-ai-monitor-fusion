@@ -78,11 +78,12 @@
     "run_numerical_route_stability_cpu": "python scripts/run_numerical_route_stability_cpu.py",
     "build_numerical_route_stability_t4_package": "python scripts/build_numerical_route_stability_t4_package.py",
     "run_numerical_route_stability_t4": "python benchmark_numerical_route_stability_t4.py --package-root <package_root> --output-dir <output_dir>",
-    "finalize_numerical_route_stability": "python scripts/finalize_numerical_route_stability.py"
+    "finalize_numerical_route_stability": "python scripts/finalize_numerical_route_stability.py",
+    "run_safety_availability_control_plane_kill_study": "python scripts/run_safety_availability_control_plane_kill_study.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "95a68ea790bb079c743e3e9b818590e49a933329ead7a8522ac1291c9e69a29e",
+    "README.md": "6f2622541d487660e8937aec1d55e412ff55b1be6b49fbec74f1488ab00ca074",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -275,7 +276,19 @@
     "reports/numerical_route_stability_v1/final/hardware_axis_summary.csv": "0dc19b61845b0a7448e07febf75e54d3b52f90a1e2ed541bf3127ab86c78ab2d",
     "reports/numerical_route_stability_v1/final/manifest.json": "739ebcdeec132da9d11bfa97f095673aa32f093126f21f997a51588b41467cd1",
     "reports/numerical_route_stability_v1/final/stability_envelopes.csv": "5ab3e7491d1c8ece20035fc15f8ab737d13e306cded2d6d31f77fc6bd7658ec7",
-    "reports/numerical_route_stability_v1/final/summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c"
+    "reports/numerical_route_stability_v1/final/summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c",
+    "configs/safety_availability_control_plane_kill_study_v1.json": "eae4ad2972bd29bcb237711244cd9b1c844f57eeeb90b3255dd5808b53e14c03",
+    "scripts/run_safety_availability_control_plane_kill_study.py": "703fd18b7ed5ed8ee63fab5cc37697dc8e51c3aef7eb07015d2c3d311ddaca94",
+    "tests/test_safety_availability_control_plane_kill_protocol.py": "fb7bd85932b9b2bc11ef1cfb4ecc1bf71567be6588263b76f9dfbfcc9d56b3f8",
+    "tests/test_safety_availability_control_plane_kill_outputs.py": "20a0a5b07777e505544fbe96d96d50e4f5d79b5da864439ca7384dd9655310d9",
+    "reports/safety_availability_control_plane_kill_study_v1/capacity_calibration.csv": "4a72a8a756a8f7a70f6114dc1f799862b2a591078c2ae97ae01abba1e2bf6451",
+    "reports/safety_availability_control_plane_kill_study_v1/formal_necessity.json": "6a6447cb1a742bf6f1ec9bf0f7d511a1b1896eb9ae264ea4e4bf0db61a8aab65",
+    "reports/safety_availability_control_plane_kill_study_v1/load_capacity_sweep.csv": "e41471b0894f8b951ce57a9e8b7e016d588ece4efc0bea83400bcd2e9ae3c846",
+    "reports/safety_availability_control_plane_kill_study_v1/manifest.json": "9a2dd7d8ba1c0d00af87b09b22040bf005457104fbf7cefa894c477c537f02f8",
+    "reports/safety_availability_control_plane_kill_study_v1/routing_bypass_sweep.csv": "389f475d922b634bb7c0845e4023cff2be7b6152d581118d9185d28ac83cac85",
+    "reports/safety_availability_control_plane_kill_study_v1/routing_escalation_sweep.csv": "036522cc978c07c229e72135f60bc67151284ab9c51bda768609febd2e92241d",
+    "reports/safety_availability_control_plane_kill_study_v1/safety_witness_summary.csv": "a1bf79645a050b2e04159761ad4c7a113b4e3c9bc434587c79838ba00434ab9b",
+    "reports/safety_availability_control_plane_kill_study_v1/summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -298,7 +311,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-26T12:19:33.031704+00:00",
+  "updated_at": "2026-08-26T13:08:59.289763+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -385,7 +398,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "small_safety_availability_control_plane_kill_study",
+  "next_project_action": "integrate_ordered_studies_and_reassess_paper_direction",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -430,5 +443,34 @@
     "hardware_phase_required": false,
     "final_deadband_available": true,
     "next_step": "small_safety_availability_control_plane_kill_study"
+  },
+  "safety_availability_control_plane_kill_study_v1": {
+    "status": "completed_development_only",
+    "initial_freeze_commit": "365ff4320caaf73b8fa00450d8f78cbaa4c32831",
+    "methodology_revision_commit": "40deb07c8495aea242a1cdcc047621cb8c8edbef",
+    "methodology_revision_reason": "correct_development_score_cache_join_before_outcomes",
+    "outcomes_observed_before_methodology_revision": false,
+    "protocol": "configs/safety_availability_control_plane_kill_study_v1.json",
+    "entry_point": "scripts/run_safety_availability_control_plane_kill_study.py",
+    "artifact_manifest": "reports/safety_availability_control_plane_kill_study_v1/manifest.json",
+    "routing_bypass_pressure_completed": true,
+    "routing_escalation_pressure_completed": true,
+    "load_escalation_pressure_completed": true,
+    "strategies_compared": [
+      "fail_open_budget_cap",
+      "fail_closed_no_admission",
+      "fail_closed_defer_reject"
+    ],
+    "route_deadband_epsilon": 1e-06,
+    "standalone_security_direction": "standalone_security_paper_not_supported_by_internal_kill_study",
+    "internal_continue_signal": false,
+    "literature_novelty_claim": false,
+    "development_score_cache_join": "one_to_one_on_example_id",
+    "protected_legacy_splits_used": false,
+    "fresh_confirmatory_claim": false,
+    "router_superiority_claim": false,
+    "pareto_claim_available": false,
+    "production_claim": false,
+    "next_step": "integrate_ordered_studies_and_reassess_paper_direction"
   }
 }

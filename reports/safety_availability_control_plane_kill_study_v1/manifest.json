@@ -1,0 +1,22 @@
+{
+  "artifact": "safety_availability_control_plane_kill_study_v1_manifest",
+  "generated_at": "2026-08-26T13:08:59.039725+00:00",
+  "inputs": {
+    "configs/safety_availability_control_plane_kill_study_v1.json": "eae4ad2972bd29bcb237711244cd9b1c844f57eeeb90b3255dd5808b53e14c03",
+    "data/processed/v2_development_view/manifest.json": "d5802360e62304628323def5103531d8e2fdaf7fd2b84909b380e21e53536d83",
+    "data/processed/v2_development_view/monitor_score_cache_v3.development.parquet": "e567937e5ea8f3c024cfb719e1774a3a52d9d31e163b6a5deada57b23185d0c3",
+    "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336",
+    "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json": "7b9537fdd5176386ce4ebfb2f827fc9a5f942f67d26a807789d38dc9716fb2a4",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_summary.csv": "7c9f3715f1dbb4f7a5a6160c32d70e84fed3ca44f60e4a98b9ff4a56c4168dae",
+    "reports/numerical_route_stability_v1/final/summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c"
+  },
+  "outputs": {
+    "capacity_calibration.csv": "4a72a8a756a8f7a70f6114dc1f799862b2a591078c2ae97ae01abba1e2bf6451",
+    "formal_necessity.json": "6a6447cb1a742bf6f1ec9bf0f7d511a1b1896eb9ae264ea4e4bf0db61a8aab65",
+    "load_capacity_sweep.csv": "e41471b0894f8b951ce57a9e8b7e016d588ece4efc0bea83400bcd2e9ae3c846",
+    "routing_bypass_sweep.csv": "389f475d922b634bb7c0845e4023cff2be7b6152d581118d9185d28ac83cac85",
+    "routing_escalation_sweep.csv": "036522cc978c07c229e72135f60bc67151284ab9c51bda768609febd2e92241d",
+    "safety_witness_summary.csv": "a1bf79645a050b2e04159761ad4c7a113b4e3c9bc434587c79838ba00434ab9b",
+    "summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072"
+  }
+}

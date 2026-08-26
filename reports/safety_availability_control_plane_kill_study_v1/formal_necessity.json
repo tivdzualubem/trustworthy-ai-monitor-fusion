@@ -1,0 +1,9 @@
+{
+  "artifact": "safety_availability_control_plane_kill_study_v1_formal_necessity",
+  "defer_reject_or_worst_case_provisioning_necessary_when_budget_insufficient": true,
+  "defer_reject_or_worst_case_provisioning_necessary_when_q_lambda_gt_mu": true,
+  "finite_budget_condition": "B >= N*c_e for accept-all all-expensive fail-closed service",
+  "interpretation": "The necessity result is a capacity/admission-control condition, not by itself a standalone security novelty claim.",
+  "queue_stability_condition": "q*lambda <= mu has no positive backlog drift in the deterministic fluid model; q*lambda > mu is overloaded",
+  "worst_case_q": 1.0
+}

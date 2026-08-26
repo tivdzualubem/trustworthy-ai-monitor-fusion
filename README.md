@@ -122,6 +122,24 @@ The dead-band analysis uses the prespecified epsilon grid rather than choosing a
 
 `final_test` and `held_out_shift` were not used, and no fresh-confirmatory, router-superiority, Pareto, universal-hardware-invariance, or production claim is made.
 
+## Safety–availability control-plane kill study
+
+A small development-only novelty-kill study tests both **routing/bypass pressure** and **load/escalation pressure** for the existing selective cascades. It uses the prespecified 0.25 selective policy from each stack, with `rule_compact_to_qwen` primary and the other two stacks as sensitivities. No model is retrained and no router is rescued.
+
+The routing study is a synthetic control-plane probability stress test, not a realizable adversarial-attack claim. It incorporates the completed numerical-stability dead-band (`1e-6`) as fail-closed routing ambiguity: ambiguous requests escalate rather than silently bypass.
+
+The load study compares three behaviors:
+
+- **fail-open budget cap** — bounds expensive work but can bypass the stronger monitor under overflow;
+- **fail-closed without admission control** — preserves the expensive-check requirement but accumulates backlog when escalated arrival exceeds expensive-stage capacity;
+- **fail-closed with defer/reject** — preserves the expensive-check requirement for ordinary responses while bounding expensive-stage load by making overflow explicit.
+
+The formal result is a necessary-condition result rather than a novel security theorem: if all accepted requests can be forced onto an expensive stage with cost `c_e`, serving all `N` requests requires `B >= N*c_e`; and if escalated arrival exceeds expensive service capacity, accept-all fail-closed service has positive backlog drift. Unless the system is provisioned for the all-expensive worst case, an explicit admission/defer/reject action is therefore necessary to preserve a hard resource bound without silently failing open.
+
+The internal kill criterion did not produce the prespecified nontrivial dead-band-scale bypass signal across enough stacks. The overload result reduces to the generic finite-capacity/admission-control condition, so this study does not support a standalone security-paper direction on its own.
+
+`final_test` and `held_out_shift` are not used. The study makes no fresh-confirmatory, router-superiority, Pareto, production, or external literature-novelty claim.
+
 ## Direct E2E timing
 
 Timing was performed on a single NVIDIA Tesla T4 with:
@@ -203,7 +221,7 @@ pytest -q
 
 Report snapshot: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
 
-**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those statements in the PDF. The snapshot also predates the completed factorial decomposition and numerical route-stability results; a comprehensive report revision is deferred until the ordered methodological studies are complete.
+**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those statements in the PDF. The snapshot also predates the completed factorial decomposition, numerical route-stability analysis, and safety–availability control-plane kill study. A comprehensive report revision should integrate all four ordered studies.
 
 The report snapshot presents:
 
@@ -221,4 +239,4 @@ Earlier reports are kept for traceability. The current project status is defined
 
 ## Current work
 
-The provenance correction, factorial measurement decomposition, and numerical route-stability analysis are complete. The next and only next stage is the small safety–availability/control-plane novelty-kill study on adversarial routing/bypass pressure and adversarial load/escalation pressure.
+The four ordered studies are complete. The internal control-plane kill study does not support a standalone security-paper direction on its own; the next action is to integrate the corrected provenance, factorial, numerical-stability, and safety–availability results into the paper direction.

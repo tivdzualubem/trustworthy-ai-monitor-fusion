@@ -1,0 +1,54 @@
+{
+  "artifact": "safety_availability_control_plane_kill_study_v1",
+  "claim_boundary": {
+    "fresh_confirmatory_claim": false,
+    "pareto_claim_available": false,
+    "production_claim": false,
+    "protected_legacy_splits_used": false,
+    "router_superiority_claim": false
+  },
+  "data_boundary": {
+    "authorized_splits": [
+      "calibration",
+      "policy_selection",
+      "policy_train"
+    ],
+    "development_only": true,
+    "development_rows": 1687,
+    "mixed_full_data_containers_opened": false,
+    "protected_splits_opened": false,
+    "score_cache_join": "one_to_one_on_example_id"
+  },
+  "deadband_scale_incremental_bypass_signal_stacks": [],
+  "formal_necessity": {
+    "artifact": "safety_availability_control_plane_kill_study_v1_formal_necessity",
+    "defer_reject_or_worst_case_provisioning_necessary_when_budget_insufficient": true,
+    "defer_reject_or_worst_case_provisioning_necessary_when_q_lambda_gt_mu": true,
+    "finite_budget_condition": "B >= N*c_e for accept-all all-expensive fail-closed service",
+    "interpretation": "The necessity result is a capacity/admission-control condition, not by itself a standalone security novelty claim.",
+    "queue_stability_condition": "q*lambda <= mu has no positive backlog drift in the deterministic fluid model; q*lambda > mu is overloaded",
+    "worst_case_q": 1.0
+  },
+  "generated_at": "2026-08-26T13:08:59.039163+00:00",
+  "internal_continue_signal": false,
+  "literature_novelty_claim": false,
+  "load_escalation_pressure_completed": true,
+  "next_step": "integrate_ordered_studies_and_reassess_paper_direction",
+  "route_deadband_epsilon": 1e-06,
+  "routing_bypass_pressure_completed": true,
+  "routing_escalation_pressure_completed": true,
+  "rows": 1687,
+  "stacks": [
+    "rule_compact_to_qwen",
+    "compact_to_qwen",
+    "rule_to_compact"
+  ],
+  "standalone_security_direction": "standalone_security_paper_not_supported_by_internal_kill_study",
+  "status": "completed_development_only",
+  "strategies_compared": [
+    "fail_open_budget_cap",
+    "fail_closed_no_admission",
+    "fail_closed_defer_reject"
+  ],
+  "target_rate": 0.25
+}
