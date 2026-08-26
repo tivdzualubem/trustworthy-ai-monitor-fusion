@@ -1,0 +1,172 @@
+{
+  "base_commit": "ffb02e4c1b144d56ce6d8c034212967bf71f63b8",
+  "conditional_factorial_contrasts": [
+    "grouping_at_audited",
+    "grouping_at_original",
+    "label_at_dependency",
+    "label_at_singleton"
+  ],
+  "created_at": "2026-08-26T10:35:08.161070+00:00",
+  "factorial_cells": [
+    "audited__dependency_primary",
+    "audited__singleton_weak",
+    "original__dependency_primary",
+    "original__singleton_weak"
+  ],
+  "factors": {
+    "grouping": {
+      "columns": {
+        "dependency_primary": "primary_dependency_group",
+        "singleton_weak": "example_id"
+      },
+      "conditions": [
+        "dependency_primary",
+        "singleton_weak"
+      ]
+    },
+    "label": {
+      "columns": {
+        "audited": "y",
+        "original": "y_original"
+      },
+      "conditions": [
+        "audited",
+        "original"
+      ]
+    }
+  },
+  "inference": {
+    "aggregate_flip_counts_role": "descriptive_comparison_to_existing_19_of_75_and_14_of_75",
+    "pool_across_seeds": false
+  },
+  "inputs": {
+    "configs/evaluation_measurement_pilot_v1.json": "da4aff3a298e959d2e4fd5a1fa3f70a4ca69e078afc27225b25549aeeff4f4da",
+    "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2",
+    "data/metadata/evaluation_measurement_pilot_v1/development_dependency_groups.csv": "ab7abc4c9a6569597987419b5a9fd96dc05c1ed982efd06df146a1baf05f4ef1",
+    "data/processed/v2_development_view/monitor_score_cache_v3.development.parquet": "e567937e5ea8f3c024cfb719e1774a3a52d9d31e163b6a5deada57b23185d0c3",
+    "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet": "f752fe74c7d3cc254ce7864382defeb445982438f14195c81823641132d0b336",
+    "reports/evaluation_measurement_pilot_v1/cpu/holdout_predictions.parquet": "4408a8f98d5414b7ab2c2079da76cba02d93f01d1d20584b4185c7e587050152",
+    "reports/evaluation_measurement_pilot_v1/cpu/policy_summary.csv": "c3c6a9a6cb945baf1b49edaf7a438ab7e5b2e044074a1270089deac74c5612bf",
+    "scripts/run_evaluation_measurement_pilot_v1_cpu.py": "bb85bd28cc578b4e62fa2f7969681300a80a2b69f18cf388a742ec7d156aecdd"
+  },
+  "layers": {
+    "fixed_policy_measurement": {
+      "freeze": [
+        "evaluation_rows",
+        "fitted_models",
+        "acquisition_thresholds",
+        "decision_thresholds",
+        "routes",
+        "predictions"
+      ],
+      "policy_source": "audited__dependency_primary",
+      "purpose": "Isolate the measurement effect with no refitting, reselection, rerouting, or row changes.",
+      "vary_only": [
+        "evaluation_label",
+        "risk_grouping"
+      ]
+    },
+    "full_protocol": {
+      "condition_specific": [
+        "fold_assignments",
+        "training_data",
+        "fitted_models",
+        "thresholds",
+        "evaluation_rows",
+        "evaluation_labels"
+      ],
+      "purpose": "Retain the existing confounded contrast as the full-protocol reference rather than relabeling it as an isolated effect.",
+      "reproduce_existing_grouping_flip_n": 19,
+      "reproduce_existing_label_flip_n": 14,
+      "risk_grouping_as_implemented": "dependency_primary_for_all_factorial_conditions",
+      "source": "reports/evaluation_measurement_pilot_v1/cpu/policy_summary.csv"
+    },
+    "retraining_reselection": {
+      "group_key": "factor_grouping",
+      "model_family": "same_logistic_regression_as_pilot_v1",
+      "outer_dependency_group_closed": true,
+      "outer_holdout_fixed_across_factorial_cells": true,
+      "outer_holdout_source": "audited__dependency_primary_internal_risk_holdout",
+      "outer_measurement_grouping": "dependency_primary",
+      "outer_measurement_label": "audited",
+      "purpose": "Allow factor-specific training and threshold selection while holding outer rows and measurement standard fixed.",
+      "remaining_data_n_splits": 3,
+      "remaining_data_splitter": "StratifiedGroupKFold",
+      "remaining_fold_roles": {
+        "0": "policy_selection",
+        "1": "policy_train",
+        "2": "policy_train"
+      },
+      "role_fraction_rationale": "The fixed outer holdout removes approximately one quarter of rows. Splitting the remaining three quarters into one selection fold and two training folds preserves the original approximately 25% selection / 50% training / 25% outer role fractions without allowing the factor condition to change the outer evaluation rows.",
+      "stratification_key": "source_dataset|factor_label",
+      "threshold_rules": "same_as_pilot_v1"
+    }
+  },
+  "next_step_after_completion": "numerical_route_stability",
+  "policy_universe": {
+    "aggregate_descriptive_n": 75,
+    "deployable_only": true,
+    "deployable_policies_per_seed": 15,
+    "monitor_stacks": [
+      "rule_to_compact",
+      "compact_to_qwen",
+      "rule_compact_to_qwen"
+    ],
+    "policy_kinds": [
+      "cheap_only",
+      "full_information",
+      "selective_deployable"
+    ],
+    "selective_target_rates": [
+      0.1,
+      0.25,
+      0.5
+    ]
+  },
+  "primary_contrasts": {
+    "grouping": {
+      "left": "audited__singleton_weak",
+      "right": "audited__dependency_primary"
+    },
+    "label": {
+      "left": "original__dependency_primary",
+      "right": "audited__dependency_primary"
+    }
+  },
+  "protocol_id": "factorial_measurement_decomposition_v1",
+  "reporting": {
+    "directional_flip_counts": true,
+    "factorial_interaction_diagnostics": true,
+    "negative_results_required": true,
+    "recall_and_fpr_deltas": true,
+    "risk_pass_flip_counts": true,
+    "seed_specific_results": true
+  },
+  "research_question": "How much of the previously reported grouping and label conclusion changes arise from measurement alone, retraining/reselection, or the full condition-specific protocol?",
+  "risk": {
+    "confidence": 0.95,
+    "gate": "row_fpr_upper95 <= 0.05 and dependency_group_event_upper95 <= 0.05",
+    "group_bound": "one_sided_exact_binomial",
+    "maximum_risk": 0.05,
+    "row_bound": "one_sided_exact_binomial"
+  },
+  "scope": {
+    "cost_or_pareto_claim": false,
+    "development_only": true,
+    "fresh_confirmatory_claim": false,
+    "protected_legacy_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
+    "protected_split_action": "raise_before_read",
+    "router_superiority_claim": false
+  },
+  "seeds": [
+    1729,
+    2718,
+    3141,
+    5772,
+    8111
+  ],
+  "status": "frozen_before_decomposition_outcomes"
+}
