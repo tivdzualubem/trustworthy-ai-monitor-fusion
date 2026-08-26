@@ -40,3 +40,28 @@ def test_internal_novelty_rule_is_prespecified_and_not_literature_claim():
     assert k["deadband_scale_incremental_bypass_threshold"] == 0.01
     assert k["minimum_stacks_for_nontrivial_signal"] == 2
     assert k["literature_novelty_claim"] is False
+
+
+def test_authorized_development_dataset_and_score_cache_are_joined_one_to_one():
+    p = load()
+    c = p["input_contract"]
+    assert c["expected_rows"] == 1687
+    assert c["join_key"] == "example_id"
+    assert c["join_validation"] == "one_to_one"
+    assert c["authorized_splits"] == [
+        "calibration",
+        "policy_selection",
+        "policy_train",
+    ]
+    assert c["protected_splits"] == ["final_test", "held_out_shift"]
+    assert c["mixed_full_data_containers_opened"] is False
+    assert c["score_cache"].endswith(
+        "monitor_score_cache_v3.development.parquet"
+    )
+
+
+def test_input_contract_revision_precedes_outcomes():
+    p = load()
+    r = p["methodology_revision"]
+    assert r["initial_freeze_commit"] == "365ff4320caaf73b8fa00450d8f78cbaa4c32831"
+    assert r["outcomes_observed_before_revision"] is False

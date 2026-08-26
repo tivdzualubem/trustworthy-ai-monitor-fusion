@@ -12,11 +12,25 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "configs/safety_availability_control_plane_kill_study_v1.json"
-DEV = ROOT / "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet"
+DEV_MANIFEST = ROOT / "data/processed/v2_development_view/manifest.json"
+DEV_DATASET = (
+    ROOT
+    / "data/processed/v2_development_view/"
+    / "unified_dataset_label_audited_v1.development.parquet"
+)
+DEV_CACHE = (
+    ROOT
+    / "data/processed/v2_development_view/"
+    / "monitor_score_cache_v3.development.parquet"
+)
 DEFS = ROOT / "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json"
 LATENCY = ROOT / "reports/evaluation_measurement_pilot_v1/t4/policy_latency_summary.csv"
 STABILITY = ROOT / "reports/numerical_route_stability_v1/final/summary.json"
 OUT = ROOT / "reports/safety_availability_control_plane_kill_study_v1"
+
+EXPECTED_ROWS = 1687
+ALLOWED_SPLITS = {"policy_train", "policy_selection", "calibration"}
+PROTECTED_SPLITS = {"final_test", "held_out_shift"}
 
 FEATURES = [
     "rule_score",
@@ -31,6 +45,110 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def load_authorized_development_frame() -> pd.DataFrame:
+    for path in (DEV_MANIFEST, DEV_DATASET, DEV_CACHE):
+        if not path.is_file():
+            raise RuntimeError(
+                f"Missing authorized development-only input: {path.relative_to(ROOT)}. "
+                "Do not substitute a mixed full-data container."
+            )
+
+    manifest = json.loads(DEV_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("protected_rows_materialized") is not False:
+        raise RuntimeError("Development-view manifest is not fail-closed.")
+
+    outputs = {item["path"]: item for item in manifest["outputs"]}
+    expected_paths = {
+        str(DEV_DATASET.relative_to(ROOT)),
+        str(DEV_CACHE.relative_to(ROOT)),
+    }
+    if set(outputs) != expected_paths:
+        raise RuntimeError(
+            "Development-view manifest must describe exactly the authorized "
+            "development dataset and development score cache."
+        )
+
+    for path in (DEV_DATASET, DEV_CACHE):
+        rel = str(path.relative_to(ROOT))
+        record = outputs[rel]
+        if int(record["row_count"]) != EXPECTED_ROWS:
+            raise RuntimeError(f"Unexpected development row count in manifest for {rel}.")
+        if sha256(path) != record["sha256"]:
+            raise RuntimeError(f"Development-view hash mismatch for {rel}.")
+
+    dataset = pd.read_parquet(DEV_DATASET)
+    cache = pd.read_parquet(DEV_CACHE)
+
+    dataset_required = {
+        "example_id",
+        "split",
+        "source_dataset",
+        "prompt",
+        "response",
+        "y",
+        "y_original",
+    }
+    cache_required = {"example_id", "split", *FEATURES}
+
+    for name, frame, required in (
+        ("dataset", dataset, dataset_required),
+        ("cache", cache, cache_required),
+    ):
+        missing = sorted(required - set(frame.columns))
+        if missing:
+            raise RuntimeError(f"{name} missing required columns: {missing}")
+        if len(frame) != EXPECTED_ROWS:
+            raise RuntimeError(
+                f"{name} row count != {EXPECTED_ROWS}: observed {len(frame)}"
+            )
+        if not frame["example_id"].astype(str).is_unique:
+            raise RuntimeError(f"{name} contains duplicate example_id.")
+
+        observed_splits = set(frame["split"].astype(str).unique().tolist())
+        if observed_splits.intersection(PROTECTED_SPLITS):
+            raise RuntimeError(f"{name} contains a protected split.")
+        if observed_splits != ALLOWED_SPLITS:
+            raise RuntimeError(
+                f"{name} does not contain exactly the authorized splits: "
+                f"{sorted(observed_splits)}"
+            )
+
+    if set(dataset["example_id"].astype(str)) != set(cache["example_id"].astype(str)):
+        raise RuntimeError("Dataset/cache development example IDs do not match exactly.")
+
+    split_check = dataset[["example_id", "split"]].merge(
+        cache[["example_id", "split"]],
+        on="example_id",
+        how="inner",
+        suffixes=("_dataset", "_cache"),
+        validate="one_to_one",
+    )
+    if len(split_check) != EXPECTED_ROWS:
+        raise RuntimeError("Dataset/cache split-check join lost development rows.")
+    if not (
+        split_check["split_dataset"].astype(str)
+        == split_check["split_cache"].astype(str)
+    ).all():
+        raise RuntimeError("Dataset/cache split assignments differ.")
+
+    score_frame = cache[["example_id", *FEATURES]].copy()
+    frame = dataset.merge(
+        score_frame,
+        on="example_id",
+        how="inner",
+        validate="one_to_one",
+    )
+    if len(frame) != EXPECTED_ROWS:
+        raise RuntimeError("Merged authorized development frame row count mismatch.")
+    if not frame["example_id"].astype(str).is_unique:
+        raise RuntimeError("Merged authorized development frame has duplicate IDs.")
+
+    if not np.isfinite(frame[FEATURES].to_numpy(dtype=np.float64)).all():
+        raise RuntimeError("Authorized development score cache contains non-finite scores.")
+
+    return frame
 
 
 def sigmoid(z: np.ndarray) -> np.ndarray:
@@ -313,17 +431,19 @@ def load_capacity_stress(
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     protocol = json.loads(PROTOCOL.read_text(encoding="utf-8"))
-    frame = pd.read_parquet(DEV)
+    frame = load_authorized_development_frame()
     defs = json.loads(DEFS.read_text(encoding="utf-8"))
     latency = pd.read_csv(LATENCY)
     stability = json.loads(STABILITY.read_text(encoding="utf-8"))
 
-    if len(frame) != 1687:
-        raise RuntimeError(f"Expected 1,687 development rows, found {len(frame)}")
+    if len(frame) != EXPECTED_ROWS:
+        raise RuntimeError(
+            f"Expected {EXPECTED_ROWS:,} merged development rows, found {len(frame)}"
+        )
     required = {"example_id", "y", *FEATURES}
     missing = sorted(required - set(frame.columns))
     if missing:
-        raise RuntimeError(f"Development view is missing required columns: {missing}")
+        raise RuntimeError(f"Merged development frame is missing required columns: {missing}")
     if set(frame["y"].dropna().astype(int).unique()) - {0, 1}:
         raise RuntimeError("Audited label y is not binary.")
     if int(frame["y"].sum()) != 291:
@@ -490,6 +610,14 @@ def main() -> None:
         "internal_continue_signal": continue_signal,
         "standalone_security_direction": direction,
         "literature_novelty_claim": False,
+        "data_boundary": {
+            "development_only": True,
+            "development_rows": int(len(frame)),
+            "authorized_splits": sorted(ALLOWED_SPLITS),
+            "protected_splits_opened": False,
+            "mixed_full_data_containers_opened": False,
+            "score_cache_join": "one_to_one_on_example_id",
+        },
         "claim_boundary": {
             "protected_legacy_splits_used": False,
             "fresh_confirmatory_claim": False,
@@ -518,7 +646,15 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "inputs": {
             str(p.relative_to(ROOT)): sha256(p)
-            for p in [PROTOCOL, DEV, DEFS, LATENCY, STABILITY]
+            for p in [
+                PROTOCOL,
+                DEV_MANIFEST,
+                DEV_DATASET,
+                DEV_CACHE,
+                DEFS,
+                LATENCY,
+                STABILITY,
+            ]
         },
         "outputs": {
             str(p.relative_to(OUT)): sha256(p)

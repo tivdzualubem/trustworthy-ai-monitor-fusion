@@ -5,6 +5,25 @@
     "finite_budget": "If N accepted requests all require expensive evaluation with per-request expensive cost c_e > 0, then accept-all fail-closed service requires B >= N*c_e. If B < N*c_e, an explicit non-service action or worst-case provisioning is necessary.",
     "queue_stability": "If escalated arrival rate q*lambda > expensive service rate mu, an accept-all fail-closed queue has positive backlog drift. Explicit admission control, defer/reject, or provisioning for that worst-case rate is necessary."
   },
+  "input_contract": {
+    "authorized_splits": [
+      "calibration",
+      "policy_selection",
+      "policy_train"
+    ],
+    "dataset": "data/processed/v2_development_view/unified_dataset_label_audited_v1.development.parquet",
+    "expected_rows": 1687,
+    "join_key": "example_id",
+    "join_validation": "one_to_one",
+    "manifest": "data/processed/v2_development_view/manifest.json",
+    "mixed_full_data_containers_opened": false,
+    "protected_splits": [
+      "final_test",
+      "held_out_shift"
+    ],
+    "reason": "The audited development dataset carries labels/text while the authorized development score cache carries the frozen monitor scores. The study must join those two development-only artifacts exactly as the frozen evaluation pipeline does; the mixed full-data containers remain unopened.",
+    "score_cache": "data/processed/v2_development_view/monitor_score_cache_v3.development.parquet"
+  },
   "internal_novelty_kill_rule": {
     "continue_signal": "At perturbation <= the frozen Step-3 dead-band, at least 1% of full-caught unsafe development examples become newly bypassable in at least two stacks.",
     "deadband_scale_incremental_bypass_threshold": 0.01,
@@ -30,6 +49,11 @@
       1.5,
       2.0
     ]
+  },
+  "methodology_revision": {
+    "initial_freeze_commit": "365ff4320caaf73b8fa00450d8f78cbaa4c32831",
+    "outcomes_observed_before_revision": false,
+    "revision_reason": "correct_development_score_cache_join_before_outcomes"
   },
   "numerical_fail_closed_rule": {
     "ambiguous_route_action": "escalate",
@@ -97,5 +121,5 @@
     "router_tuning_or_rescue": false,
     "standalone_security_paper_claim": false
   },
-  "status": "frozen_before_outcomes"
+  "status": "frozen_before_outcomes_revised_input_contract"
 }
