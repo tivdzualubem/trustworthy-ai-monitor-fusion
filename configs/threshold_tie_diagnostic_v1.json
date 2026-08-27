@@ -16,6 +16,13 @@
     "route_deadband_rule": "abs(reference_route_margin) <= epsilon OR abs(runtime_route_margin) <= epsilon",
     "route_distance_mass_rule": "reference_distance = abs(reference_cheap_probability - 0.5); encode by float.hex(); a routing-distance mass point is repeated when the exact distance occurs for at least two distinct examples within the same monitor stack."
   },
+  "implementation_correction": {
+    "diagnostic_outcomes_observed_before_correction": false,
+    "frozen_definitions_changed": false,
+    "reason": "Select prespecified epsilon-grid rows by exact equality. The default absolute tolerance in numpy.isclose aliases distinct small grid values near zero and is inconsistent with the frozen exact grid-point lookup.",
+    "reporting_epsilon_changed": false,
+    "thresholds_or_models_changed": false
+  },
   "inputs": {
     "archived_policy_calls": "reports/evaluation_measurement_pilot_v1/t4/policy_latency_raw.parquet",
     "margin_population": "reports/numerical_route_stability_v1/cpu/margin_population.parquet",

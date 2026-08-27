@@ -54,3 +54,17 @@ def test_completion_boundary_closes_existing_data_discovery():
         boundary["next_step"]
         == "prepare_preregistered_fresh_risk_certificate_transport_protocol"
     )
+
+
+def test_prespecified_epsilon_rows_use_exact_lookup():
+    assert 'np.isclose(prior_sweep["epsilon"]' not in SCRIPT
+    assert 'prior_sweep["epsilon"].astype(float).eq(0.0)' in SCRIPT
+    assert 'prior_sweep["epsilon"].astype(float).eq(epsilon)' in SCRIPT
+
+
+def test_implementation_correction_does_not_change_frozen_definitions():
+    correction = PROTOCOL["implementation_correction"]
+    assert correction["diagnostic_outcomes_observed_before_correction"] is False
+    assert correction["frozen_definitions_changed"] is False
+    assert correction["reporting_epsilon_changed"] is False
+    assert correction["thresholds_or_models_changed"] is False

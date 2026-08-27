@@ -243,8 +243,12 @@ def main() -> None:
             f"Expected {EXPECTED_ROUTE_ROWS} selective route rows, found {len(selective)}."
         )
 
-    zero_row = prior_sweep[np.isclose(prior_sweep["epsilon"], 0.0)]
-    eps_row = prior_sweep[np.isclose(prior_sweep["epsilon"], epsilon)]
+    zero_row = prior_sweep[
+        prior_sweep["epsilon"].astype(float).eq(0.0)
+    ]
+    eps_row = prior_sweep[
+        prior_sweep["epsilon"].astype(float).eq(epsilon)
+    ]
     if len(zero_row) != 1 or len(eps_row) != 1:
         raise RuntimeError("Prior dead-band sweep is missing frozen reporting rows.")
     zero_row = zero_row.iloc[0]
@@ -261,6 +265,15 @@ def main() -> None:
     expected_fraction = EXPECTED_PRIOR_EXACT_REFERENCE_TIES / EXPECTED_ROUTE_ROWS
     if not math.isclose(prior_fraction, expected_fraction, rel_tol=0.0, abs_tol=1e-15):
         raise RuntimeError("Prior reported 6.12% route fraction changed.")
+
+    controlled_route_flips = int(
+        prior_final["hardware"]["float32_policy_arithmetic_route_flips_cpu_vs_t4"]
+    )
+    controlled_prediction_flips = int(
+        prior_final["hardware"]["float32_policy_arithmetic_prediction_flips_cpu_vs_t4"]
+    )
+    if controlled_route_flips != 0 or controlled_prediction_flips != 0:
+        raise RuntimeError("Controlled CPU-T4 float32 no-flip result changed.")
 
     cheap_features, thresholds = frozen_maps(defs)
     states = build_stack_example_states(raw, margins, cheap_features)
@@ -352,6 +365,13 @@ def main() -> None:
     repeated_distance_tie_n = int(
         (dead["exact_threshold_tie"] & dead["repeated_route_distance_mass"]).sum()
     )
+    runtime_exact_tie_n = int(dead["runtime_exact_threshold_tie"].sum())
+    reference_ties_shifted_off_exact_runtime_n = int(
+        (
+            dead["exact_threshold_tie"]
+            & ~dead["runtime_exact_threshold_tie"]
+        ).sum()
+    )
 
     if computed_deadband_n != int(eps_row["route_union_ambiguous_n"]):
         raise RuntimeError("Recomputed route dead-band count does not match prior study.")
@@ -386,7 +406,10 @@ def main() -> None:
     ]
     dead[dead_columns].to_csv(OUT / "deadband_rows.csv", index=False)
 
-    policy_summary = grouped_summary(selective, ["stack", "policy_id", "target_rate"])
+    policy_summary = grouped_summary(
+        selective,
+        ["stack", "policy_id", "target_rate", "acquisition_threshold"],
+    )
     policy_summary.to_csv(OUT / "policy_summary.csv", index=False)
 
     stack_summary = grouped_summary(selective, ["stack"])
@@ -397,6 +420,7 @@ def main() -> None:
         state_rows.append(
             {
                 "stack": str(stack),
+                "cheap_monitor_features": ",".join(cheap_features[str(stack)]),
                 "unique_stack_example_states": int(len(g)),
                 "raw_state_support_size": int(g["raw_state_key"].nunique()),
                 "cheap_probability_support_size": int(
@@ -474,6 +498,12 @@ def main() -> None:
         "route_mismatch_n": route_mismatch_n,
         "route_mismatch_at_exact_tie_n": route_mismatch_at_tie_n,
         "route_mismatch_nonexact_n": route_mismatch_nonexact_n,
+        "runtime_exact_threshold_tie_n_in_deadband": runtime_exact_tie_n,
+        "reference_ties_shifted_off_exact_runtime_n": (
+            reference_ties_shifted_off_exact_runtime_n
+        ),
+        "controlled_cpu_t4_float32_route_flips": controlled_route_flips,
+        "controlled_cpu_t4_float32_prediction_flips": controlled_prediction_flips,
         "max_route_margin_reconstruction_error": max_margin_error,
         "interpretation": interpretation,
         "claim_boundary": {
@@ -543,6 +573,16 @@ def main() -> None:
     print(f"route_mismatch_n={route_mismatch_n}")
     print(f"route_mismatch_at_exact_tie_n={route_mismatch_at_tie_n}")
     print(f"route_mismatch_nonexact_n={route_mismatch_nonexact_n}")
+    print(f"runtime_exact_threshold_tie_n_in_deadband={runtime_exact_tie_n}")
+    print(
+        "reference_ties_shifted_off_exact_runtime_n="
+        f"{reference_ties_shifted_off_exact_runtime_n}"
+    )
+    print(f"controlled_cpu_t4_float32_route_flips={controlled_route_flips}")
+    print(
+        "controlled_cpu_t4_float32_prediction_flips="
+        f"{controlled_prediction_flips}"
+    )
     print("existing_data_discovery_closed=true")
     print("next_step=prepare_preregistered_fresh_risk_certificate_transport_protocol")
 
