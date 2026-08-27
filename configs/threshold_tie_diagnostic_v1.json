@@ -1,0 +1,48 @@
+{
+  "base_commit": "af72450a9892599cb47725c5d011b7d288c9f047",
+  "completion_boundary": {
+    "after_diagnostic_existing_data_discovery_allowed": false,
+    "confirmation_router_retuning_allowed": false,
+    "fresh_data_collection_before_protocol_review": false,
+    "next_step": "prepare_preregistered_fresh_risk_certificate_transport_protocol"
+  },
+  "frozen_reporting": {
+    "causal_language_rule": "Report overlap and residual counts. Do not claim that repeated outputs or floating-point arithmetic are universal causal mechanisms outside this archived diagnostic population.",
+    "exact_threshold_tie_rule": "reference_route_margin == 0.0 exactly",
+    "non_tied_crossing_rule": "route_mismatch == true AND exact_threshold_tie == false",
+    "observed_route_crossing_rule": "archived route_mismatch == true",
+    "raw_cheap_state_rule": "Use only the exact pre-routing monitor-score tuple consumed by the frozen cheap model. Encode each float by float.hex(); a state is discrete/repeated when the same tuple occurs for at least two distinct examples within the same monitor stack.",
+    "reporting_epsilon": 1e-06,
+    "route_deadband_rule": "abs(reference_route_margin) <= epsilon OR abs(runtime_route_margin) <= epsilon",
+    "route_distance_mass_rule": "reference_distance = abs(reference_cheap_probability - 0.5); encode by float.hex(); a routing-distance mass point is repeated when the exact distance occurs for at least two distinct examples within the same monitor stack."
+  },
+  "inputs": {
+    "archived_policy_calls": "reports/evaluation_measurement_pilot_v1/t4/policy_latency_raw.parquet",
+    "margin_population": "reports/numerical_route_stability_v1/cpu/margin_population.parquet",
+    "policy_definitions": "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json",
+    "prior_deadband_sweep": "reports/numerical_route_stability_v1/cpu/deadband_sweep.csv",
+    "prior_final_summary": "reports/numerical_route_stability_v1/final/summary.json"
+  },
+  "primary_outputs": [
+    "deadband_rows.csv",
+    "policy_summary.csv",
+    "stack_summary.csv",
+    "cheap_state_summary.csv",
+    "summary.json",
+    "manifest.json"
+  ],
+  "protocol_id": "threshold_tie_diagnostic_v1",
+  "research_question": "How much of the previously reported 6.12% route dead-band is exact threshold-tie/discrete cheap-output mass versus observed numerical perturbation across a non-tied routing boundary?",
+  "scope": {
+    "development_only_archived_evidence": true,
+    "fresh_confirmatory_claim": false,
+    "general_safety_failure_claim": false,
+    "model_fitting": false,
+    "new_data_collection": false,
+    "protected_legacy_splits_used": false,
+    "router_retuning": false,
+    "router_superiority_claim": false,
+    "threshold_reselection": false
+  },
+  "status": "frozen_before_diagnostic_outcomes"
+}
