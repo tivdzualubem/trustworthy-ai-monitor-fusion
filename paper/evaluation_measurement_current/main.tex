@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.25em}
+\setlength{\emergencystretch}{2em}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{Evaluation and Measurement of Runtime Safety-Monitor Cascades:\\
+A Development-Only Pilot with a Corrected Claim Boundary}
+\author{Tivdzua Lubem Noah\\Innopolis University}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report re-states a development-only study of selective runtime safety-monitor cascades after four follow-up analyses corrected the interpretation of the original pilot. The pilot covers three monitor stacks and three data sources and examines false-positive-rate (FPR) treatment, grouping, label choice, deployable routing, and direct end-to-end (E2E) latency. The earlier 19/75 grouping and 14/75 label changes are not isolated measurement effects: with policies, rows, predictions, thresholds, and routes frozen, the corresponding pass/fail changes are 0/75 and 1/75; retraining/reselection changes 6/75 and 4/75; the original 19/75 and 14/75 remain full-protocol contrasts. Numerical mismatches are likewise a boundary and finite-precision diagnostic rather than evidence of a general safety failure. Float64 CPU arithmetic is effectively invariant, float32 changes some decisions near frozen thresholds, and controlled CPU-versus-Tesla-T4 float32 testing produces 0/5 route and 0/5 prediction flips on the controlled mismatch cases. A prespecified dead-band analysis reports 6.12\% route ambiguity at $\epsilon=10^{-6}$, but the contribution of exact threshold ties and discrete cheap-monitor outputs to that fraction has not yet been decomposed. A small safety-availability/control-plane kill study produces no dead-band-scale continuation signal across the three stacks and does not support a standalone security-paper direction. The current evidence is therefore best treated as a pilot. Stronger claims require genuinely fresh source- and time-separated data, independent multi-rater labels, genuinely different monitor families, and a preregistered test of risk-certificate transport without retuning on confirmation data.
+\end{abstract}
+
+\section{Scope and corrected provenance}
+The original project asked whether inexpensive monitors could selectively invoke a stronger monitor while maintaining harmful-response recall, controlling false positives, and reducing monitoring cost. The present evidence does not support a router-superiority claim. It is used instead as a development-only case study for evaluation and measurement.
+
+The authorized development view contains 1,687 prompt-response examples from JailbreakBench judge-comparison, WildGuardTest, and XSTest-safe. The monitor stacks are rule $\rightarrow$ compact, compact $\rightarrow$ Qwen3Guard, and rule + compact $\rightarrow$ Qwen3Guard. The primary pilot uses audited harmful-response labels and dependency-aware grouping.
+
+A provenance correction is essential. The legacy \texttt{final\_test} and \texttt{held\_out\_shift} splits were historically evaluated and were included in the label audit. They were excluded from the later development-only pilot, but they are not fresh confirmatory data and are not eligible for future confirmation. No result in this report is presented as fresh confirmation.
+
+Historical v2 limitations remain part of the claim boundary. Reported v2 costs were summed measured component latencies rather than direct wall-clock E2E policy latency; historical grouping was effectively one group per example; the 35 s quantity used in bounded-cost analysis was not a demonstrated mechanically enforced runtime bound; the 1\% cost-equivalence margin was an engineering choice rather than an externally justified confirmatory margin; and fresh joint FPR+cost certification, fresh source/time-separated confirmation, and multi-rater labels were not available.
+
+\section{Pilot evaluation results}
+\subsection{Effects that remain directly attributable to the evaluation procedure}
+Several pilot findings remain useful without attributing them to router quality. Empirical FPR screening and the frozen finite-sample row-and-dependency risk gate disagree on 36 of 75 deployable policy evaluations. Offline exact-ranked acquisition and the reusable deployable threshold disagree on 4 of 45 matched risk conclusions, and realized acquisition differs in all 45 matched comparisons. Direct E2E latency is slightly larger than the same-run component sum for every timed policy, but none of the 105 pairwise mean-cost orderings reverses.
+
+These findings are descriptive properties of this development-only pilot. They are not evidence that the same effects will replicate across different monitor families or fresh data.
+
+\subsection{Factorial decomposition of grouping and labels}
+The earlier 19/75 grouping and 14/75 label results were full-protocol comparisons. Changing grouping or labels also changed folds, training data, fitted models, selected policies, thresholds, and holdouts. They therefore cannot be interpreted as isolated measurement effects.
+
+The completed 2-by-2 decomposition separates three layers. The primary grouping contrast is dependency-aware versus singleton grouping at audited labels; the primary label contrast is audited versus original labels under dependency-aware grouping.
+
+\begin{table}[h]
+\centering
+\caption{Primary grouping and label contrasts after decomposition. Counts are descriptive across 75 policy instances; the five seeds are not pooled as independent inferential observations.}
+\begin{tabular}{lcc}
+\toprule
+Layer & Grouping pass/fail changes & Label pass/fail changes \\
+\midrule
+Fixed-policy measurement & 0/75 & 1/75 \\
+Retraining/reselection, fixed outer holdout & 6/75 & 4/75 \\
+Full protocol & 19/75 & 14/75 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At the fixed-policy layer, evaluation rows, fitted models, thresholds, routes, and predictions are frozen and only the evaluation label or risk grouping changes. The small 0/75 and 1/75 effects show that the original 19/75 and 14/75 should not be described as pure grouping or label measurement effects. The larger retraining/reselection and full-protocol differences show that much of the observed variation arises through the development pipeline itself.
+
+\section{Numerical route stability}
+The archived mismatch taxonomy contains two route-threshold mismatches and five prediction mismatches. Two of the prediction mismatches are downstream consequences of route changes; three are pure decision-threshold mismatches.
+
+The follow-up analysis separates runtime/implementation, precision, and hardware. Float64 Python, NumPy, and PyTorch CPU arithmetic is effectively invariant, with maximum perturbation $2.22\times10^{-16}$. Float32 is more sensitive near the frozen boundaries: diagnostic NumPy recomputation produces 2 route and 4 prediction flips, and PyTorch CPU produces 2 route and 8 prediction flips across the archived population. In the controlled hardware comparison, the same float32 PyTorch arithmetic produces 0/5 route and 0/5 prediction flips between CPU and Tesla T4; the compact monitor's maximum CPU-versus-T4 float32 score difference is $7.36\times10^{-9}$. T4 float16 is exploratory rather than supported and changes 2/5 routes and 5/5 predictions relative to T4 float32.
+
+The dead-band analysis uses a prespecified grid rather than choosing a tolerance to erase the observed mismatches. The conservative non-exploratory perturbation envelope is $1.104\times10^{-7}$, so the first prespecified grid point that covers it is $\epsilon=10^{-6}$. At that point, 6.12\% of archived selective-route evaluations and 0.275\% of archived decision evaluations are classified as numerically ambiguous.
+
+This result is a boundary/finite-precision diagnostic, not evidence of a general safety failure or universal hardware instability. In particular, the 6.12\% route-ambiguity fraction must not be interpreted as 6.12\% of routes being changed by floating-point noise. Exact threshold ties and discrete cheap-monitor outputs may contribute materially to this mass. Their contribution remains to be quantified by the planned threshold-tie diagnostic.
+
+\section{Safety-availability/control-plane kill study}
+A small development-only kill study tests both routing/bypass pressure and load/escalation pressure using the existing three stacks. It compares a fail-open budget cap, fail-closed operation without admission control, and fail-closed operation with explicit defer/reject.
+
+At the frozen $10^{-6}$ dead-band scale, the prespecified incremental bypass continuation criterion is not met in any of the three stacks (0/3). Under the deterministic capacity model, if all accepted requests require an expensive stage with incremental cost $c_e$, serving $N$ accepted requests requires budget $B\geq N c_e$. Likewise, if escalated arrival $q\lambda$ exceeds expensive-stage service capacity $\mu$, accept-all fail-closed operation has positive backlog drift. In that overloaded regime, a hard resource bound requires either provisioning for the worst case or an explicit admission/defer/reject action rather than silent fail-open behavior.
+
+This is a generic capacity/admission-control condition. The kill study does not establish a novel security theorem, a realizable attack result, or sufficient evidence for a standalone security-paper direction.
+
+\section{Corrected claim boundary}
+The existing evidence supports the following narrow statements:
+\begin{itemize}
+    \item empirical FPR screening can materially disagree with the frozen finite-sample risk gate in this pilot;
+    \item ranked acquisition and a deployable threshold are operationally different in this pilot;
+    \item direct E2E latency is the appropriate cost estimand, although correcting component-sum cost does not reverse mean-cost ordering here;
+    \item the earlier grouping and label counts are mostly development-protocol effects rather than isolated fixed-policy measurement effects;
+    \item the observed numerical mismatches are concentrated at frozen boundaries and are sensitive to precision, while controlled CPU-T4 float32 testing shows no policy flips in the five controlled mismatch cases;
+    \item the control-plane kill study does not support a standalone security-paper pivot.
+\end{itemize}
+
+The evidence does \textbf{not} establish router superiority, Pareto dominance, fresh joint FPR+cost certification, fresh source/time-separated confirmation, multi-rater confirmation, universal hardware invariance, arbitrary distribution-shift robustness, production readiness, or literature novelty for the control-plane result.
+
+The current evaluation/measurement story should therefore be treated as a pilot rather than as a completed general result. A narrow evaluation/measurement paper would require the main phenomena to replicate on genuinely different monitor families and genuinely fresh data.
+
+\section{Next-study boundary}
+The stronger research question motivated by the pilot is whether finite-sample safety/risk certificates transport across source or attack-family shift, particularly when examples are dependent or template-generated. The next work is deliberately ordered and limited.
+
+First, one cheap diagnostic will decompose the reported 6.12\% route dead-band into exact threshold ties, discrete cheap-monitor output mass, and genuinely near-boundary floating-point perturbation. After that diagnostic, the existing data will no longer be used for discovery.
+
+Second, before any new data are collected or evaluated, a fresh-data protocol will be frozen. It will define genuinely fresh source- and time-separated examples, independent multi-rater labels, genuinely different monitor families, dependency/template handling, and a sample-size/power calculation for a 5\% FPR certificate. The confirmatory experiment will test whether a certificate calibrated in one source or attack family remains valid under another, with no router retuning on confirmation data.
+
+No transport result is claimed in this report because that preregistered study has not yet been run.
+
+\section{Reproducibility and evidence map}
+The numerical values in this report are tied to committed repository artifacts. The primary evidence files are:
+\begin{itemize}
+    \item Legacy confirmatory status: \path{data/metadata/confirmatory_split_provenance.json}
+    \item Factorial decomposition: \path{reports/factorial_measurement_decomposition_v1/decomposition_summary.json}
+    \item Numerical stability: \path{reports/numerical_route_stability_v1/final/summary.json}
+    \item Control-plane kill study: \path{reports/safety_availability_control_plane_kill_study_v1/summary.json}
+    \item Pilot timing/evaluation: \path{reports/evaluation_measurement_pilot_v1/}
+\end{itemize}
+
+\section{Conclusion}
+The follow-up analyses narrow rather than expand the original claims. The strongest pilot effect remains the difference between empirical FPR screening and finite-sample risk treatment. By contrast, the earlier grouping and label counts largely reflect retraining/reselection and full-protocol changes, and the numerical mismatches are boundary-sensitive finite-precision behavior rather than a general hardware or safety failure. The small control-plane study provides a capacity/admission-control condition but no standalone security signal.
+
+The appropriate role of the current repository is therefore as a carefully documented pilot and measurement foundation. Any stronger publication claim now requires a frozen fresh-data study of risk-certificate transport, with independent labels and no retuning on confirmation data.
+
+\end{document}

@@ -2,7 +2,7 @@
 
 This repository studies **runtime safety-monitor cascades for prompt–response systems**. The original project investigated whether inexpensive safety monitors could selectively invoke a stronger monitor while maintaining harmful-response recall, controlling false positives, and reducing runtime cost.
 
-The current work uses that system as a case study in **evaluation and measurement**. The main question is whether common evaluation choices can change the apparent conclusion of a selective safety-monitor experiment.
+The current evidence is treated as a **development-only evaluation/measurement pilot**. The stronger next research question is whether finite-sample safety/risk certificates transport across source or attack-family shift, especially with dependent or template-generated examples. A narrow evaluation/measurement paper remains a fallback only if the main pilot phenomena replicate on genuinely different monitor families and genuinely fresh data.
 
 ## Project status
 
@@ -120,6 +120,8 @@ In the controlled hardware study, the same float32 PyTorch policy arithmetic pro
 
 The dead-band analysis uses the prespecified epsilon grid rather than choosing a tolerance to erase mismatches. The first prespecified grid point covering the conservative non-exploratory perturbation envelope is **1e-06**. At that reporting point, **6.12%** of archived selective-route evaluations and **0.28%** of archived decision evaluations are numerically ambiguous. This is an invariance/measurement result, not a deployment rule: no accept/defer/reject action is assigned here.
 
+The **6.12% route-ambiguity fraction is not yet attributed entirely to floating-point perturbation**. Exact threshold ties and discrete cheap-monitor outputs may account for part of the mass. The next and only diagnostic on the existing data is a threshold-tie/discreteness decomposition; its result is not prejudged here.
+
 `final_test` and `held_out_shift` were not used, and no fresh-confirmatory, router-superiority, Pareto, universal-hardware-invariance, or production claim is made.
 
 ## Safety–availability control-plane kill study
@@ -180,6 +182,8 @@ The current evidence does **not** establish:
 
 The finite-sample risk bounds used in the pilot are internal development safeguards, not external deployment certificates.
 
+The current grouping/label and numerical phenomena have not yet been replicated on genuinely different monitor families and genuinely fresh data. The present evaluation/measurement evidence is therefore a pilot, not a completed general publication result.
+
 ## Reproducibility
 
 The corrected evaluation/measurement workflow has committed entry points and hash-recorded artifacts.
@@ -219,24 +223,27 @@ pytest -q
 
 ## Current report
 
-Report snapshot: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
+Current PDF: `paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf`
 
-**Provenance correction:** the PDF predates the provenance clarification that `final_test` and `held_out_shift` were historically evaluated and included in the label audit, and it also predates the clarification that the reported 19/75 grouping and 14/75 label differences are confounded full-protocol contrasts. The README, `data/metadata/confirmatory_split_provenance.json`, and regenerated analysis summaries supersede those statements in the PDF. The snapshot also predates the completed factorial decomposition, numerical route-stability analysis, and safety–availability control-plane kill study. A comprehensive report revision should integrate all four ordered studies.
+Current source: `paper/evaluation_measurement_current/main.tex`
 
-The report snapshot presents:
+Build command:
 
-- the corrected interpretation of the historical v2 study;
-- direct E2E timing;
-- dependency-aware grouping;
-- ranked vs deployable routing;
-- empirical vs finite-sample FPR treatment;
-- label-audit sensitivity;
-- the completed multi-stack / multi-dataset pilot;
-- source-specific and tail-latency results;
-- the current claim boundary.
+```bash
+bash paper/evaluation_measurement_current/build.sh
+```
 
-Earlier reports are kept for traceability. The current project status is defined by the corrected v2 interpretation and the completed evaluation/measurement pilot.
+The current report integrates the corrected legacy-split provenance, the factorial grouping/label decomposition, the numerical route-stability analysis, and the small safety-availability/control-plane kill study. It explicitly treats the existing evidence as a development-only pilot and does not claim router superiority, fresh confirmation, a general numerical safety failure, or a standalone security-paper result.
+
+The report also records that the origin of the 6.12% route dead-band remains partly unresolved until the threshold-tie/discreteness diagnostic is completed.
 
 ## Current work
 
-The four ordered studies are complete. The internal control-plane kill study does not support a standalone security-paper direction on its own; the next action is to integrate the corrected provenance, factorial, numerical-stability, and safety–availability results into the paper direction.
+The immediate work is intentionally limited and ordered:
+
+1. Run the **threshold-tie diagnostic** to determine how much of the 6.12% route dead-band is due to exact threshold ties/discrete cheap-monitor outputs versus genuine floating-point perturbation.
+2. After that diagnostic, **stop using the existing data for discovery**.
+3. **Prepare -- but do not run -- a preregistered fresh-data protocol** for risk-certificate transport across source/attack-family shift. The protocol must specify genuinely fresh source- and time-separated examples, independent multi-rater labels, genuinely different monitor families, dependency/template handling, and a sample-size/power calculation for a 5% FPR certificate.
+4. **No router retuning on confirmation data** is permitted. Confirmation data must not be used for threshold changes, model selection, monitor selection, or other post-hoc method selection.
+
+No fresh data should be collected or evaluated under the new direction until that protocol is frozen and reviewed.

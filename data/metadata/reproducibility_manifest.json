@@ -79,11 +79,13 @@
     "build_numerical_route_stability_t4_package": "python scripts/build_numerical_route_stability_t4_package.py",
     "run_numerical_route_stability_t4": "python benchmark_numerical_route_stability_t4.py --package-root <package_root> --output-dir <output_dir>",
     "finalize_numerical_route_stability": "python scripts/finalize_numerical_route_stability.py",
-    "run_safety_availability_control_plane_kill_study": "python scripts/run_safety_availability_control_plane_kill_study.py"
+    "run_safety_availability_control_plane_kill_study": "python scripts/run_safety_availability_control_plane_kill_study.py",
+    "current_report_source": "paper/evaluation_measurement_current/main.tex",
+    "build_current_report": "bash paper/evaluation_measurement_current/build.sh"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "6f2622541d487660e8937aec1d55e412ff55b1be6b49fbec74f1488ab00ca074",
+    "README.md": "5bb507d6e4e0fee1226e296843105ced1071a892026f4372aecd35f07b46c712",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -235,7 +237,7 @@
     "reports/evaluation_measurement_pilot_v1/analysis/measurement_conclusion_matrix.csv": "7a4dd1bb4d645a52d6fa58cb1d5cc26465391c9b2441645b5b3713b8ddf428d3",
     "reports/evaluation_measurement_pilot_v1/analysis/pilot_closure_summary.json": "a3119090adcfbdc4f3cad8a62e0e7e1f4448c14294d169363a29a1d031e162a0",
     "reports/evaluation_measurement_pilot_v1/analysis/primary_seed_category_metrics.csv": "56da9a680f4a8eb38084af8c7f14b537d512ed6eb36e4fe4817ae8e1e919e619",
-    "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "021096ff074bd63f0dd26204ef0dca7c4a3071f6994757a3b075c9d005239724",
+    "paper/Evaluation_Measurement_Runtime_Safety_Monitor_Cascades.pdf": "e695b935a031a3c5dc623da2f56eca710c8bbfbca25ea19ee69124dd460082dd",
     "tests/test_v2_readme_status.py": "2f436ecb03a3205cc0c0500dd3f83d5adc3470785979cc1574656f2b1760755d",
     "data/metadata/confirmatory_split_provenance.json": "b8806c4e41b9d009b87cb2211a58dcc255c492a213561be543129a6724fd98d2",
     "configs/factorial_measurement_decomposition_v1.json": "ff7f4e2255d4bdf0211e2e9c1e39044edaec5d3297ae0bdaf665ba1cf18c3c2e",
@@ -288,7 +290,10 @@
     "reports/safety_availability_control_plane_kill_study_v1/routing_bypass_sweep.csv": "389f475d922b634bb7c0845e4023cff2be7b6152d581118d9185d28ac83cac85",
     "reports/safety_availability_control_plane_kill_study_v1/routing_escalation_sweep.csv": "036522cc978c07c229e72135f60bc67151284ab9c51bda768609febd2e92241d",
     "reports/safety_availability_control_plane_kill_study_v1/safety_witness_summary.csv": "a1bf79645a050b2e04159761ad4c7a113b4e3c9bc434587c79838ba00434ab9b",
-    "reports/safety_availability_control_plane_kill_study_v1/summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072"
+    "reports/safety_availability_control_plane_kill_study_v1/summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072",
+    "paper/evaluation_measurement_current/main.tex": "58c1377378e8625c04788c973c1028fed81f583b32a0f23e8fdf531bcb4f1174",
+    "paper/evaluation_measurement_current/build.sh": "28d0ee9fe0e47a70550b51b6baf4c8a913a14d264b298b06169c2a1622654965",
+    "tests/test_current_claim_boundary.py": "1b3643965322a2ca0360179059442ef84a468c25115af61339827fd4afd1daec"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -311,7 +316,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-26T13:08:59.289763+00:00",
+  "updated_at": "2026-08-27T16:07:53.114722+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -398,7 +403,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "integrate_ordered_studies_and_reassess_paper_direction",
+  "next_project_action": "threshold_tie_diagnostic",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -472,5 +477,26 @@
     "pareto_claim_available": false,
     "production_claim": false,
     "next_step": "integrate_ordered_studies_and_reassess_paper_direction"
+  },
+  "current_claim_boundary_revision": {
+    "status": "paper_revised_before_threshold_tie_diagnostic",
+    "base_commit": "f1383daa7239119223fb231c903c1b06bf463560",
+    "development_only_pilot": true,
+    "legacy_splits_fresh_confirmatory_eligible": false,
+    "grouping_fixed_policy_flip_n": 0,
+    "label_fixed_policy_flip_n": 1,
+    "grouping_retraining_reselection_flip_n": 6,
+    "label_retraining_reselection_flip_n": 4,
+    "grouping_full_protocol_flip_n": 19,
+    "label_full_protocol_flip_n": 14,
+    "numerical_result_interpretation": "boundary_finite_precision_diagnostic",
+    "controlled_cpu_t4_float32_route_flips": 0,
+    "controlled_cpu_t4_float32_prediction_flips": 0,
+    "route_deadband_fraction": 0.061218243036424855,
+    "threshold_tie_decomposition_completed": false,
+    "standalone_security_paper_supported": false,
+    "existing_data_discovery_after_threshold_tie_diagnostic": false,
+    "next_step": "threshold_tie_diagnostic",
+    "subsequent_step": "preregister_fresh_risk_certificate_transport_protocol_before_new_data"
   }
 }
