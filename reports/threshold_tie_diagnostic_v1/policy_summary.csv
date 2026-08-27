@@ -1,0 +1,10 @@
+stack,policy_id,target_rate,acquisition_threshold,route_rows,deadband_n,exact_threshold_tie_n,nonexact_deadband_n,deadband_repeated_raw_state_n,deadband_repeated_distance_mass_n,route_mismatch_n,route_mismatch_at_exact_tie_n,route_mismatch_nonexact_n
+compact_to_qwen,compact_to_qwen::selective_deployable::0.10,0.1,0.33366633350716274,363,0,0,0,0,0,0,0,0
+compact_to_qwen,compact_to_qwen::selective_deployable::0.25,0.25,0.33444284223022036,363,1,1,0,0,0,1,1,0
+compact_to_qwen,compact_to_qwen::selective_deployable::0.50,0.5,0.3346354750818326,363,0,0,0,0,0,0,0,0
+rule_compact_to_qwen,rule_compact_to_qwen::selective_deployable::0.10,0.1,0.2180882940630201,363,0,0,0,0,0,0,0,0
+rule_compact_to_qwen,rule_compact_to_qwen::selective_deployable::0.25,0.25,0.32512549166426685,363,0,0,0,0,0,0,0,0
+rule_compact_to_qwen,rule_compact_to_qwen::selective_deployable::0.50,0.5,0.3812932653902908,363,1,1,0,0,0,1,1,0
+rule_to_compact,rule_to_compact::selective_deployable::0.10,0.1,0.21888244779390553,363,1,1,0,0,0,0,0,0
+rule_to_compact,rule_to_compact::selective_deployable::0.25,0.25,0.3345110359855733,363,7,7,0,7,7,0,0,0
+rule_to_compact,rule_to_compact::selective_deployable::0.50,0.5,0.3788306421336455,363,190,190,0,190,190,0,0,0

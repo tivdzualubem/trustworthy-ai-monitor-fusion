@@ -1,0 +1,4 @@
+stack,cheap_monitor_features,unique_stack_example_states,raw_state_support_size,cheap_probability_support_size,route_distance_support_size,examples_in_repeated_raw_states,examples_in_repeated_probability_mass,examples_in_repeated_distance_mass,max_raw_state_multiplicity,max_probability_multiplicity,max_distance_multiplicity
+compact_to_qwen,compact_unsafe_score,363,363,363,363,0,0,0,1,1,1
+rule_compact_to_qwen,"rule_score,compact_unsafe_score",363,363,363,363,0,0,0,1,1,1
+rule_to_compact,rule_score,363,94,93,92,299,300,300,190,190,190

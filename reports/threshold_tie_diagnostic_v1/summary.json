@@ -1,0 +1,48 @@
+{
+  "artifact": "threshold_tie_diagnostic_v1",
+  "base_commit": "af72450a9892599cb47725c5d011b7d288c9f047",
+  "claim_boundary": {
+    "floating_point_general_safety_failure_claim": false,
+    "fresh_confirmatory_claim": false,
+    "protected_legacy_splits_used": false,
+    "router_superiority_claim": false,
+    "universal_causal_attribution_claim": false
+  },
+  "controlled_cpu_t4_float32_prediction_flips": 0,
+  "controlled_cpu_t4_float32_route_flips": 0,
+  "data_boundary": {
+    "labels_used": false,
+    "model_fitting": false,
+    "new_data_collected": false,
+    "router_retuning": false,
+    "threshold_reselection": false
+  },
+  "deadband_ambiguous_fraction": 0.061218243036424855,
+  "deadband_ambiguous_n": 200,
+  "exact_threshold_tie_n": 200,
+  "exact_threshold_tie_share_of_deadband": 1.0,
+  "exact_ties_with_repeated_raw_cheap_state_n": 197,
+  "exact_ties_with_repeated_raw_cheap_state_share": 0.985,
+  "exact_ties_with_repeated_route_distance_mass_n": 197,
+  "exact_ties_with_repeated_route_distance_mass_share": 0.985,
+  "interpretation": "At the frozen 1e-6 reporting epsilon, every route-deadband row already has exactly zero canonical reference route margin. The epsilon adds no non-tied route rows. The observed route flips occur on exact ties, with no observed non-tied route crossing. Repeated cheap-score states and routing-distance mass points are reported separately to quantify discreteness; the result is specific to this archived development-only population.",
+  "max_route_margin_reconstruction_error": 0.0,
+  "nonexact_deadband_fraction_of_route_rows": 0.0,
+  "nonexact_deadband_n": 0,
+  "reference_ties_shifted_off_exact_runtime_n": 2,
+  "reporting_epsilon": 1e-06,
+  "route_mismatch_at_exact_tie_n": 2,
+  "route_mismatch_n": 2,
+  "route_mismatch_nonexact_n": 0,
+  "route_rows": 3267,
+  "runtime_exact_threshold_tie_n_in_deadband": 198,
+  "status": "completed_development_only_archived_diagnostic",
+  "workflow_boundary": {
+    "existing_data_discovery_closed": true,
+    "fresh_data_collection_started": false,
+    "fresh_transport_protocol_run": false,
+    "new_discovery_on_existing_data_allowed": false,
+    "next_step": "prepare_preregistered_fresh_risk_certificate_transport_protocol",
+    "threshold_tie_diagnostic_complete": true
+  }
+}

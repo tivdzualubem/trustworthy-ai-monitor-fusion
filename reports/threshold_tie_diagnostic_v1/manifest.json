@@ -1,0 +1,21 @@
+{
+  "artifact": "threshold_tie_diagnostic_v1_manifest",
+  "created_at": "2026-08-27T16:36:56.658221+00:00",
+  "inputs": {
+    "reports/evaluation_measurement_pilot_v1/cpu/primary_policy_definitions.json": "7b9537fdd5176386ce4ebfb2f827fc9a5f942f67d26a807789d38dc9716fb2a4",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_raw.parquet": "2d4e8e715d0680f8b844a4e4245e484c02bde25c3ed53b85eaf3f99088de700c",
+    "reports/numerical_route_stability_v1/cpu/deadband_sweep.csv": "1f3c70d9b935d351ea849c13b0806445c25533bf2843ac426dbe2472b9adfa33",
+    "reports/numerical_route_stability_v1/cpu/margin_population.parquet": "4ba41c8fd0343ca96257c57e4fe06e31f11069cf1361be8be9dbf3508bbb5270",
+    "reports/numerical_route_stability_v1/final/summary.json": "9fdf26ba3178d09fa8ae277978c722764e9119634b1b7892f8acb79cf1db421c"
+  },
+  "new_data_collected": false,
+  "outputs": {
+    "reports/threshold_tie_diagnostic_v1/cheap_state_summary.csv": "36e1968d90d04c74bd0b7d03cb5b5c958aa8aed49d6948eb89d73e637f9cefe6",
+    "reports/threshold_tie_diagnostic_v1/deadband_rows.csv": "311ded917a8dcc319e9de8daca7e5e38435bb6f4fe1cea5b49a509bd149423a2",
+    "reports/threshold_tie_diagnostic_v1/policy_summary.csv": "407f7b7ac6db7dadd4b8bdf854a7c1e28082d5d106cbef380324ae1a89d7c739",
+    "reports/threshold_tie_diagnostic_v1/stack_summary.csv": "87757cf758b5cc2900a08574783d4c5bf39fc94aabb6653675236d26a9e682ab",
+    "reports/threshold_tie_diagnostic_v1/summary.json": "8ef352cc6817a3539d407d76b87bad3dd876f0490d019f89296d0cb1ebd332fd"
+  },
+  "protected_legacy_splits_used": false,
+  "protocol_sha256": "9a9690f949f3ff116086472d53eab9c9b84f7799a43916cc600cbecf6db8a0e6"
+}

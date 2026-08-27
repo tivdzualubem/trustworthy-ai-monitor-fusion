@@ -120,7 +120,7 @@ In the controlled hardware study, the same float32 PyTorch policy arithmetic pro
 
 The dead-band analysis uses the prespecified epsilon grid rather than choosing a tolerance to erase mismatches. The first prespecified grid point covering the conservative non-exploratory perturbation envelope is **1e-06**. At that reporting point, **6.12%** of archived selective-route evaluations and **0.28%** of archived decision evaluations are numerically ambiguous. This is an invariance/measurement result, not a deployment rule: no accept/defer/reject action is assigned here.
 
-The **6.12% route-ambiguity fraction is not yet attributed entirely to floating-point perturbation**. Exact threshold ties and discrete cheap-monitor outputs may account for part of the mass. The next and only diagnostic on the existing data is a threshold-tie/discreteness decomposition; its result is not prejudged here.
+The threshold-tie diagnostic resolves the previously reported route dead-band on the archived development-only population. At the frozen `1e-6` reporting epsilon, 200/3267 route evaluations (6.12%) are ambiguous, and all 200 already have exactly zero canonical reference route margin; the epsilon adds 0 non-tied route rows. Among the exact-tie rows, 197 share an exactly repeated raw cheap-monitor input state and 197 lie on an exactly repeated routing-distance mass point. At runtime, 198 remain exact ties and 2 reference ties move off exact equality. Both 2 archived route flips occur at exact reference ties (2/2), with 0 observed non-tied route crossings. This is an archived boundary/mass-point diagnostic, not evidence of a general floating-point safety failure. The separate controlled CPU–T4 float32 study remains 0/5 route flips and 0/5 prediction flips.
 
 `final_test` and `held_out_shift` were not used, and no fresh-confirmatory, router-superiority, Pareto, universal-hardware-invariance, or production claim is made.
 
@@ -239,11 +239,8 @@ The report also records that the origin of the 6.12% route dead-band remains par
 
 ## Current work
 
-The immediate work is intentionally limited and ordered:
+The threshold-tie diagnostic is complete. **Stop using the existing data for discovery**: the existing project data are now closed to further hypothesis selection, model selection, threshold selection, or router rescue. They remain available only for reproducibility, audit, and reporting of the completed pilot analyses.
 
-1. Run the **threshold-tie diagnostic** to determine how much of the 6.12% route dead-band is due to exact threshold ties/discrete cheap-monitor outputs versus genuine floating-point perturbation.
-2. After that diagnostic, **stop using the existing data for discovery**.
-3. **Prepare -- but do not run -- a preregistered fresh-data protocol** for risk-certificate transport across source/attack-family shift. The protocol must specify genuinely fresh source- and time-separated examples, independent multi-rater labels, genuinely different monitor families, dependency/template handling, and a sample-size/power calculation for a 5% FPR certificate.
-4. **No router retuning on confirmation data** is permitted. Confirmation data must not be used for threshold changes, model selection, monitor selection, or other post-hoc method selection.
+The next task is to **prepare -- but do not run -- a preregistered fresh-data protocol** for risk-certificate transport across source/attack-family shift. The protocol must specify genuinely fresh source- and time-separated examples, independent multi-rater labels, genuinely different monitor families, dependency/template handling, and a sample-size/power calculation for a 5% FPR certificate.
 
-No fresh data should be collected or evaluated under the new direction until that protocol is frozen and reviewed.
+**No router retuning on confirmation data** is permitted. **No fresh data should be collected or evaluated** under the new direction until the preregistered protocol is frozen and reviewed.

@@ -81,11 +81,12 @@
     "finalize_numerical_route_stability": "python scripts/finalize_numerical_route_stability.py",
     "run_safety_availability_control_plane_kill_study": "python scripts/run_safety_availability_control_plane_kill_study.py",
     "current_report_source": "paper/evaluation_measurement_current/main.tex",
-    "build_current_report": "bash paper/evaluation_measurement_current/build.sh"
+    "build_current_report": "bash paper/evaluation_measurement_current/build.sh",
+    "run_threshold_tie_diagnostic": "python scripts/run_threshold_tie_diagnostic.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "5bb507d6e4e0fee1226e296843105ced1071a892026f4372aecd35f07b46c712",
+    "README.md": "065fe6135bb8b449cde7a93240ea9394c493acaeac1db925e056776968bd8cd3",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -293,7 +294,17 @@
     "reports/safety_availability_control_plane_kill_study_v1/summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072",
     "paper/evaluation_measurement_current/main.tex": "58c1377378e8625c04788c973c1028fed81f583b32a0f23e8fdf531bcb4f1174",
     "paper/evaluation_measurement_current/build.sh": "28d0ee9fe0e47a70550b51b6baf4c8a913a14d264b298b06169c2a1622654965",
-    "tests/test_current_claim_boundary.py": "1b3643965322a2ca0360179059442ef84a468c25115af61339827fd4afd1daec"
+    "tests/test_current_claim_boundary.py": "1b3643965322a2ca0360179059442ef84a468c25115af61339827fd4afd1daec",
+    "configs/threshold_tie_diagnostic_v1.json": "9a9690f949f3ff116086472d53eab9c9b84f7799a43916cc600cbecf6db8a0e6",
+    "scripts/run_threshold_tie_diagnostic.py": "bbca344a15184f5dd9edc148fe94b331b8c43ec1b21cdd814762d88b8dda03d9",
+    "tests/test_threshold_tie_diagnostic_protocol.py": "f330e22c440b3e9b75e50ad2df4b2314045219220faf78c8297243dde7efe49f",
+    "tests/test_threshold_tie_diagnostic_outputs.py": "1a3affa6b3c028ae162542f305d208149cf9b741d656d2df7e23e624c92660e6",
+    "reports/threshold_tie_diagnostic_v1/deadband_rows.csv": "311ded917a8dcc319e9de8daca7e5e38435bb6f4fe1cea5b49a509bd149423a2",
+    "reports/threshold_tie_diagnostic_v1/policy_summary.csv": "407f7b7ac6db7dadd4b8bdf854a7c1e28082d5d106cbef380324ae1a89d7c739",
+    "reports/threshold_tie_diagnostic_v1/stack_summary.csv": "87757cf758b5cc2900a08574783d4c5bf39fc94aabb6653675236d26a9e682ab",
+    "reports/threshold_tie_diagnostic_v1/cheap_state_summary.csv": "36e1968d90d04c74bd0b7d03cb5b5c958aa8aed49d6948eb89d73e637f9cefe6",
+    "reports/threshold_tie_diagnostic_v1/summary.json": "8ef352cc6817a3539d407d76b87bad3dd876f0490d019f89296d0cb1ebd332fd",
+    "reports/threshold_tie_diagnostic_v1/manifest.json": "7c2f9f04265224695444202f707fc4eb6823a5cf5a636f5329655be13fb504d3"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -316,7 +327,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-27T16:07:53.114722+00:00",
+  "updated_at": "2026-08-27T16:36:56.802432+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -403,7 +414,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "threshold_tie_diagnostic",
+  "next_project_action": "prepare_preregistered_fresh_risk_certificate_transport_protocol",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -498,5 +509,33 @@
     "existing_data_discovery_after_threshold_tie_diagnostic": false,
     "next_step": "threshold_tie_diagnostic",
     "subsequent_step": "preregister_fresh_risk_certificate_transport_protocol_before_new_data"
-  }
+  },
+  "threshold_tie_diagnostic_v1": {
+    "status": "completed_development_only_archived_diagnostic",
+    "base_commit": "af72450a9892599cb47725c5d011b7d288c9f047",
+    "freeze_commit": "787fd266497e722e1ecc0084cd85f8d72018041f",
+    "implementation_correction_commit": "e5c831a561c174bc8c03bc0f2600629fde9cbd27",
+    "reporting_epsilon": 1e-06,
+    "route_rows": 3267,
+    "deadband_ambiguous_n": 200,
+    "deadband_ambiguous_fraction": 0.061218243036424855,
+    "exact_threshold_tie_n": 200,
+    "exact_threshold_tie_share_of_deadband": 1.0,
+    "nonexact_deadband_n": 0,
+    "exact_ties_with_repeated_raw_cheap_state_n": 197,
+    "exact_ties_with_repeated_route_distance_mass_n": 197,
+    "runtime_exact_threshold_tie_n_in_deadband": 198,
+    "reference_ties_shifted_off_exact_runtime_n": 2,
+    "route_mismatch_n": 2,
+    "route_mismatch_at_exact_tie_n": 2,
+    "route_mismatch_nonexact_n": 0,
+    "controlled_cpu_t4_float32_route_flips": 0,
+    "controlled_cpu_t4_float32_prediction_flips": 0,
+    "existing_data_discovery_closed": true,
+    "fresh_data_collection_started": false,
+    "fresh_transport_protocol_run": false,
+    "protected_legacy_splits_used": false,
+    "next_step": "prepare_preregistered_fresh_risk_certificate_transport_protocol"
+  },
+  "existing_data_discovery_closed": true
 }

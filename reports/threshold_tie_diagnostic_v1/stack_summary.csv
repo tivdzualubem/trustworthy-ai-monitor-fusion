@@ -1,0 +1,4 @@
+stack,route_rows,deadband_n,exact_threshold_tie_n,nonexact_deadband_n,deadband_repeated_raw_state_n,deadband_repeated_distance_mass_n,route_mismatch_n,route_mismatch_at_exact_tie_n,route_mismatch_nonexact_n
+compact_to_qwen,1089,1,1,0,0,0,1,1,0
+rule_compact_to_qwen,1089,1,1,0,0,0,1,1,0
+rule_to_compact,1089,198,198,0,197,197,0,0,0
