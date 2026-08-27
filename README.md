@@ -239,8 +239,10 @@ The report also records that the origin of the 6.12% route dead-band remains par
 
 ## Current work
 
-The threshold-tie diagnostic is complete. **Stop using the existing data for discovery**: the existing project data are now closed to further hypothesis selection, model selection, threshold selection, or router rescue. They remain available only for reproducibility, audit, and reporting of the completed pilot analyses.
+The threshold-tie diagnostic is complete. **Stop using the existing data for discovery**: the existing project data remain closed to further hypothesis selection, model selection, threshold selection, or router rescue. They remain available only for reproducibility, audit, overlap exclusion, and reporting of completed pilot analyses.
 
-The next task is to **prepare -- but do not run -- a preregistered fresh-data protocol** for risk-certificate transport across source/attack-family shift. The protocol must specify genuinely fresh source- and time-separated examples, independent multi-rater labels, genuinely different monitor families, dependency/template handling, and a sample-size/power calculation for a 5% FPR certificate.
+The **preregistered fresh-data protocol** for risk-certificate transport has been prepared. It specifies source/attack-family and time separation, **independent multi-rater labels**, dependency/template handling, **genuinely different monitor families**, and a **sample-size/power calculation for a 5% FPR certificate**. **Do not run** the study yet.
 
-**No router retuning on confirmation data** is permitted. **No fresh data should be collected or evaluated** under the new direction until the preregistered protocol is frozen and reviewed.
+**No router retuning on confirmation data** is permitted. **No fresh data should be collected or evaluated** until the protocol has been reviewed and the exact pre-scoring monitor/source/template registries are frozen.
+
+Next action: submit the protocol for review.
