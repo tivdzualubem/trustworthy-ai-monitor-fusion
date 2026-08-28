@@ -235,14 +235,16 @@ bash paper/evaluation_measurement_current/build.sh
 
 The current report integrates the corrected legacy-split provenance, the factorial grouping/label decomposition, the numerical route-stability analysis, and the small safety-availability/control-plane kill study. It explicitly treats the existing evidence as a development-only pilot and does not claim router superiority, fresh confirmation, a general numerical safety failure, or a standalone security-paper result.
 
-The report also records that the origin of the 6.12% route dead-band remains partly unresolved until the threshold-tie/discreteness diagnostic is completed.
+The completed threshold-tie diagnostic shows that all 200 rows in the 6.12% route dead-band at epsilon=1e-6 are exact canonical threshold ties; 197/200 occur on repeated/discrete cheap-state mass points, and the two archived route mismatches also occur at exact ties.
 
 ## Current work
 
-The threshold-tie diagnostic is complete. **Stop using the existing data for discovery**: the existing project data remain closed to further hypothesis selection, model selection, threshold selection, or router rescue. They remain available only for reproducibility, audit, overlap exclusion, and reporting of completed pilot analyses.
+The threshold-tie diagnostic is complete. **Stop using the existing data for discovery**: the completed project data remain closed to further hypothesis selection, source/attack selection, monitor selection, threshold selection, or router rescue. They remain available only for reproducibility, audit, overlap exclusion, and reporting of completed pilot analyses.
 
-The **preregistered fresh-data protocol** for risk-certificate transport has been prepared. It specifies source/attack-family and time separation, **independent multi-rater labels**, dependency/template handling, **genuinely different monitor families**, and a **sample-size/power calculation for a 5% FPR certificate**. **Do not run** the study yet.
+The current prospective study is **external validation of frozen safety-monitor operating points under source and attack-family shift**. **False-negative rate (FNR)** is the primary safety outcome because it measures missed harmful responses. FPR is treated separately as an **overblocking** outcome rather than as a safety certificate.
 
-**No router retuning on confirmation data** is permitted. **No fresh data should be collected or evaluated** until the protocol has been reviewed and the exact pre-scoring monitor/source/template registries are frozen.
+The approved design uses a contemporaneous **2 x 2** source-by-attack factorial in **W1**, including a human/direct **temporal anchor**, plus independent human/direct W0 optimization and baseline-validation sets. It specifies independent multi-rater labels, common-ontology mapping, provenance-aware clustering, deterministic threshold selection, explicit sampling/stopping rules, FNR power planning, the 5% individual-cell FPR operating constraint, and multiplicity control.
 
-Next action: submit the protocol for review.
+**W0 collection has not started.** Before W0 begins, the exact **precollection registries** and analysis implementation must be frozen: source-generation rules, attack-family transformations, collection windows, target-assistant contract, common ontology, annotation instructions, dependency/provenance schema, monitor revisions and inference contracts, sampling quotas, and analysis code. **Confirmation-domain retuning is not permitted.**
+
+Next action: freeze the precollection registries and analysis implementation.

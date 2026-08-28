@@ -70,34 +70,24 @@ def test_next_study_boundary_matches_ordered_plan():
         assert phrase in TEX
 
 
-def test_readme_matches_current_direction():
-    readme_lower = README.lower()
+def test_readme_matches_current_precollection_stage():
+    readme = README.lower()
     required = [
         "development-only evaluation/measurement pilot",
-        "risk-certificate transport",
         "threshold-tie diagnostic",
         "stop using the existing data for discovery",
-        "preregistered fresh-data protocol",
-        "do not run",
-        "independent multi-rater labels",
-        "genuinely different monitor families",
-        "sample-size/power calculation for a 5% fpr certificate",
+        "external validation of frozen safety-monitor operating points",
+        "false-negative rate (fnr)",
+        "overblocking",
+        "2 x 2",
+        "temporal anchor",
+        "precollection registries",
     ]
     for phrase in required:
-        assert phrase in readme_lower
+        assert phrase in readme
 
-    current_work = README.split("## Current work", 1)[1].lower()
-    assert "threshold-tie diagnostic" in current_work
-    assert "stop using the existing data for discovery" in current_work
-    assert "preregistered fresh-data protocol" in current_work
-    assert "do not run" in current_work
-    assert "router retuning" in current_work
-    assert "confirmation data" in current_work
-    assert (
-        "no router retuning on confirmation data" in current_work
-        or (
-            "confirmation data must not be used" in current_work
-            and "router retuning" in current_work
-        )
-    )
-    assert "no fresh data should be collected or evaluated" in current_work
+    current = README.split("## Current work", 1)[1].lower()
+    assert "w0 collection has not started" in current
+    assert "precollection registries" in current
+    assert "confirmation-domain retuning" in current
+    assert "next action: freeze the precollection registries and analysis implementation" in current

@@ -83,12 +83,12 @@
     "current_report_source": "paper/evaluation_measurement_current/main.tex",
     "build_current_report": "bash paper/evaluation_measurement_current/build.sh",
     "run_threshold_tie_diagnostic": "python scripts/run_threshold_tie_diagnostic.py",
-    "risk_certificate_transport_preregistration": "docs/risk_certificate_transport_preregistration.md",
-    "calculate_risk_certificate_sample_size": "python scripts/calculate_risk_certificate_sample_size.py"
+    "safety_monitor_external_validation_preregistration": "docs/safety_monitor_external_validation_preregistration.md",
+    "calculate_external_validation_design": "python scripts/calculate_external_validation_design.py"
   },
   "files": {
     "Makefile": "e14575991a5b5cdf75455d94f570681203a8a3141fe0da6c6f5208c6997a302c",
-    "README.md": "26fd36f13647c63fd981e64ee95e3f194b0686c8d5ecb305971e9ac8d9bd9e66",
+    "README.md": "ca53b64a78468a1a61f4a784abf48521478b22171e55ed4cf76de72072a1416e",
     "artifacts/final_v3_policy_timing_results.zip": "2ce479e8bca3abbe730081481dda875ab8b4b45204d2f3a0c103486ffc41943e",
     "artifacts/fusion_models_v3/frozen_operating_points_v3.json": "4e7eea7224c1819598bd03da61ff303c9841e25e8f188253113155f6a4ac2418",
     "artifacts/fusion_models_v3/fusion_bundle.joblib": "3eaf137e418d67cf0d26ba2004a1676945e0c8a9065c64bf6f0acafb68fd63ee",
@@ -296,7 +296,7 @@
     "reports/safety_availability_control_plane_kill_study_v1/summary.json": "e6ae0a8b6ecbff350f629b1be8ae1576db20d75e7a1ea77ddb41f8db55a9d072",
     "paper/evaluation_measurement_current/main.tex": "58c1377378e8625c04788c973c1028fed81f583b32a0f23e8fdf531bcb4f1174",
     "paper/evaluation_measurement_current/build.sh": "28d0ee9fe0e47a70550b51b6baf4c8a913a14d264b298b06169c2a1622654965",
-    "tests/test_current_claim_boundary.py": "1b3643965322a2ca0360179059442ef84a468c25115af61339827fd4afd1daec",
+    "tests/test_current_claim_boundary.py": "13a00ef867c5a55a22ebc56b3ceadfa4a07dfe09e3b09e737e4c8ca41d036425",
     "configs/threshold_tie_diagnostic_v1.json": "9a9690f949f3ff116086472d53eab9c9b84f7799a43916cc600cbecf6db8a0e6",
     "scripts/run_threshold_tie_diagnostic.py": "bbca344a15184f5dd9edc148fe94b331b8c43ec1b21cdd814762d88b8dda03d9",
     "tests/test_threshold_tie_diagnostic_protocol.py": "f330e22c440b3e9b75e50ad2df4b2314045219220faf78c8297243dde7efe49f",
@@ -307,13 +307,13 @@
     "reports/threshold_tie_diagnostic_v1/cheap_state_summary.csv": "36e1968d90d04c74bd0b7d03cb5b5c958aa8aed49d6948eb89d73e637f9cefe6",
     "reports/threshold_tie_diagnostic_v1/summary.json": "8ef352cc6817a3539d407d76b87bad3dd876f0490d019f89296d0cb1ebd332fd",
     "reports/threshold_tie_diagnostic_v1/manifest.json": "7c2f9f04265224695444202f707fc4eb6823a5cf5a636f5329655be13fb504d3",
-    "docs/risk_certificate_transport_preregistration.md": "4a3a56734259701687b9dff1668a3cbb1414511cceed6ffb889354804845047d",
-    "configs/risk_certificate_transport_preregistration_v1.json": "3871079691a683298c510c44e4f454da0b385620668e719d8dbb6537a2ca54ef",
-    "scripts/calculate_risk_certificate_sample_size.py": "5b4422fd645c2d589e31ddee6c01b30d0a09bb87564b603500a1b5bcded6cd70",
-    "tests/test_risk_certificate_transport_preregistration.py": "a3c12a13795fe6d8f93dfb88f9e3c966f82bbd08432d5c259106e5c46acd07c7",
-    "tests/test_risk_certificate_transport_sample_size.py": "3f0a9d3d8992128b64a7ca027ddf66ff955ab1b4cf29d338382d78bcb806c93b",
-    "reports/risk_certificate_transport_preregistration_v1/sample_size_power.csv": "63c7ff6ffb1a37848765c85b4e09eae5e8761af12ecb9feb41bf392fff0dc7e5",
-    "reports/risk_certificate_transport_preregistration_v1/sample_size_summary.json": "60486268b73d292a4e6632714e63a47a6f0a22087b2f505bae9e9c1a2a67ed86"
+    "docs/safety_monitor_external_validation_preregistration.md": "99a1de635cb364ad11830885a7bf30797635e33ead861bc9f08ed2ab99895714",
+    "configs/safety_monitor_external_validation_preregistration_v1.json": "59db65d226b75a1d89efaa49ac37af241a87e50d5d2bcea0b418da3dcf9a17ae",
+    "scripts/calculate_external_validation_design.py": "dd2848ee5639ec3d2ac117a08dc493f025bc91ec4407a66d5f86244550877d65",
+    "tests/test_safety_monitor_external_validation_preregistration.py": "f6c553131edbb78414a7fa23ce2d8992d698b9230a667191078044f90c92d0c1",
+    "tests/test_external_validation_design.py": "169f36cd2cbef035cc988e9b81f00a3dcd10f642c3618df2b3c359e19b0e057d",
+    "reports/safety_monitor_external_validation_preregistration_v1/design_sensitivity.csv": "d3ea841ddb791be8d3660aa9d258a68dbe0374b8841d168892ddba083120d322",
+    "reports/safety_monitor_external_validation_preregistration_v1/design_summary.json": "e2555ce734db54526119279407e3c7547c87a96b46d1c47ebd2ba85e571c04ed"
   },
   "final_report": {
     "title": "Evaluating Runtime Safety-Monitor Cascades: A Multi-Stack Measurement Pilot",
@@ -336,7 +336,7 @@
   "paper_direction": "evaluation_measurement_runtime_safety_monitor_cascades",
   "routing_stop_go": "no_go",
   "status": "validated",
-  "updated_at": "2026-08-27T19:30:10.420022+00:00",
+  "updated_at": "2026-08-28T18:46:47.769021+00:00",
   "evaluation_measurement_pilot_v1_cpu": {
     "status": "development_only_cpu_outcomes_recorded",
     "freeze_commit": "b9759bf1610f726396183bd7c79c11983bd8956b",
@@ -423,7 +423,7 @@
     },
     "source": "data/metadata/confirmatory_split_provenance.json"
   },
-  "next_project_action": "submit_risk_certificate_transport_preregistration_for_review",
+  "next_project_action": "freeze_precollection_registries_and_analysis_implementation",
   "factorial_measurement_decomposition_v1": {
     "status": "completed_development_only",
     "freeze_commit": "90eebd2bc4aa70e091161d4ffb1aff68adba92e2",
@@ -547,27 +547,20 @@
     "next_step": "prepare_preregistered_fresh_risk_certificate_transport_protocol"
   },
   "existing_data_discovery_closed": true,
-  "risk_certificate_transport_preregistration_v1": {
-    "status": "prepared_for_review_before_fresh_data",
-    "base_commit": "06324465e5fe1c7fb614241fbc0c82f18e61dea3",
+  "safety_monitor_external_validation_preregistration_v1": {
+    "status": "confirmed_precollection_design",
+    "supersedes_commit": "fa8fb5ad5f07c1ee71712b93993a53e475ac2b1a",
     "existing_data_discovery_closed": true,
-    "fresh_data_collection_started": false,
-    "new_labels_collected": false,
+    "W0_collection_started": false,
     "fresh_monitor_scoring_started": false,
-    "transport_evaluation_started": false,
-    "monitor_families": [
-      "meta-llama/Llama-Guard-3-1B",
-      "google/shieldgemma-2b",
-      "ibm-granite/granite-guardian-3.3-8b"
-    ],
-    "independent_raters_per_example": 3,
-    "risk_limit": 0.05,
-    "one_sided_alpha": 0.05,
-    "design_true_fpr": 0.025,
-    "minimum_independent_negative_units_per_certificate_cell": 361,
-    "maximum_false_positives_at_n": 11,
-    "achieved_power_at_design_fpr": 0.8030314156589886,
-    "confirmation_data_retuning_allowed": false,
-    "next_step": "submit_protocol_for_review"
+    "primary_safety_outcome": "FNR",
+    "overblocking_outcome": "FPR",
+    "W1_primary_design": "2x2_source_x_attack_with_human_direct_temporal_anchor",
+    "validation_Y1_per_cell": 600,
+    "validation_Y0_per_cell": 361,
+    "primary_FNR_tests": 9,
+    "multiplicity": "Holm",
+    "confirmation_domain_retuning_allowed": false,
+    "next_step": "freeze_precollection_registries_and_analysis_implementation"
   }
 }
