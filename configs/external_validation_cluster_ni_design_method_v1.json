@@ -1,0 +1,46 @@
+{
+  "contract_id": "external_validation_cluster_ni_design_method_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "design_evaluation_candidate_not_final",
+  "purpose": "Evaluate and calibrate the exact cluster-aware marginal absolute-FNR non-inferiority analysis before it is frozen for W0.",
+  "primary_margin": 0.03,
+  "prespecified_sensitivity_margins": [0.02, 0.05],
+  "one_sided_alpha": 0.025,
+  "estimand": {
+    "scale": "absolute marginal risk difference",
+    "definition": "row-marginal FNR(shift/later) minus row-marginal FNR(reference/earlier)",
+    "positive_direction": "higher FNR in the shift/later cell"
+  },
+  "candidate_analysis": {
+    "mean_model": "Gaussian identity-link GEE with independence working correlation; algebraically OLS for the marginal risk difference",
+    "cluster_field": "provenance_cluster_id",
+    "variance": "Kauermann-Carroll / CR2 bias-reduced cluster sandwich under the independence working model",
+    "reference_distribution": "Student t",
+    "degrees_of_freedom": "number of independent provenance clusters across the two compared cells minus 2",
+    "noninferiority_pass_rule": "one-sided 97.5% upper confidence bound for the marginal absolute FNR difference is strictly below 0.03",
+    "boundary_policy": "if corrected variance is zero/non-finite, leverage is invalid, or degrees of freedom are non-positive, the confirmatory NI result is not estimable and cannot pass"
+  },
+  "absolute_fnr_ceiling": {
+    "required_for_final_claim": true,
+    "value_frozen": false,
+    "candidate_analysis_if_value_is_supplied": "one-cell marginal FNR using the same KC/CR2 cluster sandwich, Student t with G-1 df, and a one-sided 97.5% upper bound",
+    "important": "this design-method record does not choose the ceiling"
+  },
+  "power_simulation": {
+    "method": "Monte Carlo simulation applying the exact candidate NI analysis to every generated replicate",
+    "clustered_binary_generator": "beta-binomial random-intercept construction with prespecified marginal FNR and Bernoulli ICC",
+    "independent_unit": "provenance cluster",
+    "supports_unequal_cluster_counts_and_sizes": true,
+    "type_I_boundary": "true absolute FNR difference equals 0.03",
+    "preservation_power_scenario": "true absolute FNR difference below 0.03; zero difference is evaluated explicitly",
+    "final_design_not_selected_by_this_commit": true
+  },
+  "freeze_gate": {
+    "must_empirically_check_type_I_error": true,
+    "must_empirically_check_power": true,
+    "must_evaluate_cluster_count_and_cluster_size_variation": true,
+    "must_choose_author_and_generator_batch_minima_and_caps_after_simulation": true,
+    "must_pair_final_preservation_claim_with_a_frozen_absolute_FNR_ceiling": true,
+    "W0_remains_blocked": true
+  }
+}
