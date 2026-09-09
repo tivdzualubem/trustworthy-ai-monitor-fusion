@@ -1,0 +1,36 @@
+{
+  "contract_id": "external_validation_exact_matched_cluster_stress_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "design_stress_test_not_frozen",
+  "candidate_inference": "external_validation_constrained_null_mc_candidate_v1",
+  "motivation": "The restricted-null Monte Carlo candidate was close to nominal with exactly matched independent provenance-cluster counts but was anti-conservative at 100 versus 80 clusters. The next design gate therefore tests exact cluster-count matching under harder ICC and cluster-size heterogeneity.",
+  "relative_NI": {
+    "margin": 0.03,
+    "one_sided_alpha": 0.025,
+    "exact_cluster_count_match_required_in_every_scenario": true,
+    "reference_and_comparison_cluster_size_distributions_may_differ": true,
+    "unequal_ICCs_required": true,
+    "low_FNR_boundary_scenarios_required": true
+  },
+  "one_sample_boundaries": {
+    "absolute_FNR": {
+      "boundary": 0.10,
+      "one_sided_alpha": 0.025
+    },
+    "FPR": {
+      "boundary": 0.05,
+      "one_sided_alpha": 0.05
+    }
+  },
+  "simulation": {
+    "outer_repetitions_per_scenario": 3000,
+    "inner_null_repetitions": 999,
+    "generators": [
+      "beta-binomial",
+      "two-point random-probability mixture"
+    ],
+    "nonestimable_outer_replicate_policy": "count as non-pass in the full denominator"
+  },
+  "decision_gate": "If the exact-matched design remains adequately calibrated under these harder scenarios, proceed to a final high-repetition validation including an additional misspecification generator before freezing exact matched cluster counts and using the method for power sizing. Otherwise abandon this inferential path.",
+  "W0_remains_blocked": true
+}
