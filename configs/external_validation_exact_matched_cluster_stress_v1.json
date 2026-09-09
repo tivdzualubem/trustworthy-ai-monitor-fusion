@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_exact_matched_cluster_stress_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "design_stress_test_not_frozen",
+  "status": "passed_stress_candidate_exact_matching_advances_to_final_validation",
   "candidate_inference": "external_validation_constrained_null_mc_candidate_v1",
   "motivation": "The restricted-null Monte Carlo candidate was close to nominal with exactly matched independent provenance-cluster counts but was anti-conservative at 100 versus 80 clusters. The next design gate therefore tests exact cluster-count matching under harder ICC and cluster-size heterogeneity.",
   "relative_NI": {
@@ -14,7 +14,7 @@
   },
   "one_sample_boundaries": {
     "absolute_FNR": {
-      "boundary": 0.10,
+      "boundary": 0.1,
       "one_sided_alpha": 0.025
     },
     "FPR": {
@@ -32,5 +32,21 @@
     "nonestimable_outer_replicate_policy": "count as non-pass in the full denominator"
   },
   "decision_gate": "If the exact-matched design remains adequately calibrated under these harder scenarios, proceed to a final high-repetition validation including an additional misspecification generator before freezing exact matched cluster counts and using the method for power sizing. Otherwise abandon this inferential path.",
-  "W0_remains_blocked": true
+  "W0_remains_blocked": true,
+  "stress_result": {
+    "outer_repetitions_per_scenario": 3000,
+    "inner_null_repetitions": 999,
+    "beta_binomial_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.02567,
+      "worst_absolute_FNR_false_pass": 0.02167,
+      "worst_FPR_false_pass": 0.05567
+    },
+    "two_point_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.01167,
+      "worst_absolute_FNR_false_pass": 0.01633,
+      "worst_FPR_false_pass": 0.02733
+    },
+    "decision": "No clear anti-conservative relative-NI signal remained under exact cluster-count matching despite unequal ICCs and unequal cluster-size distributions. Exact matching advances as a candidate design requirement."
+  },
+  "next_gate": "Run one final focused high-repetition validation on the hardest boundary scenarios using beta-binomial, two-point, and a calibrated logit-normal random-intercept generator. If satisfactory, freeze the inference/design architecture and move directly to the professor-requested full cluster power/type-I grid."
 }

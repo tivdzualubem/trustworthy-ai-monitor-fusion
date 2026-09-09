@@ -1,0 +1,30 @@
+{
+  "contract_id": "external_validation_final_inference_validation_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "final_focused_validation_not_frozen",
+  "professor_requirement_addressed": "choose and validate the cluster-aware FNR and FPR procedures under unequal ICCs and realistic cluster-size variation before the full cluster power/type-I grid",
+  "candidate_inference": "restricted-null beta-binomial nuisance fit plus plug-in parametric Monte Carlo tail test",
+  "candidate_design_requirement": "exactly equal independent provenance-cluster counts in each relative NI comparison",
+  "boundaries": {
+    "relative_FNR_NI_margin": 0.03,
+    "absolute_FNR_ceiling": 0.10,
+    "FPR_constraint": 0.05,
+    "safety_one_sided_alpha": 0.025,
+    "FPR_one_sided_alpha": 0.05
+  },
+  "simulation": {
+    "outer_repetitions_per_task": 10000,
+    "inner_null_repetitions": 999,
+    "generators": [
+      "beta-binomial",
+      "two-point random-probability mixture",
+      "calibrated logit-normal random-intercept cluster-probability model"
+    ],
+    "selected_scenarios": "hardest/worst cases from the exact-matched 3000-repetition stress plus small-cluster checks",
+    "parallel_workers_max": 4,
+    "checkpointing": true,
+    "nonestimable_outer_replicate_policy": "count as non-pass in the full denominator"
+  },
+  "decision_gate": "If no generator/scenario shows a clear anti-conservative signal relative to its nominal one-sided alpha, freeze the inference/design architecture and proceed immediately to the full cluster power/type-I grid. Do not continue exploratory method hunting.",
+  "W0_remains_blocked": true
+}
