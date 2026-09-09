@@ -1,0 +1,32 @@
+{
+  "contract_id": "external_validation_cluster_score_candidate_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "candidate_to_validate_not_frozen",
+  "motivation": "FG+t Wald-type upper bounds were materially anti-conservative at the 3 pp NI, 10% FNR, and 5% FPR boundaries, especially for low event probabilities and variable cluster sizes.",
+  "one_sample_candidate": {
+    "method": "cluster-adjusted Wilson score interval",
+    "variance_inflation": "Saha-Miller-Wang / Short clustered-proportion moment estimate",
+    "source_formula_reference": "ratesci::clusterpci with skew=FALSE",
+    "estimand": "response-average row-marginal proportion",
+    "absolute_FNR_constraint": 0.10,
+    "absolute_FNR_one_sided_alpha": 0.025,
+    "FPR_constraint": 0.05,
+    "FPR_one_sided_alpha": 0.05
+  },
+  "two_sample_candidate": {
+    "method": "Newcombe MOVER risk-difference upper bound formed from the two cluster-adjusted Wilson score intervals",
+    "estimand": "response-average marginal FNR(comparison)-FNR(reference)",
+    "margin": 0.03,
+    "one_sided_alpha": 0.025,
+    "important": "This clustered MOVER construction is a design candidate that combines established single-clustered-proportion score intervals with the established Newcombe MOVER risk-difference construction; it must be validated empirically before any preregistration freeze."
+  },
+  "validation": {
+    "matched_and_near_matched_cluster_counts": true,
+    "unequal_ICCs": true,
+    "cluster_size_CV_up_to_about_1": true,
+    "low_probability_boundary_scenarios": true,
+    "nonestimable_or_invalid_variance_inflation_fails_closed": true,
+    "repetitions_per_scenario": 20000
+  },
+  "W0_remains_blocked": true
+}
