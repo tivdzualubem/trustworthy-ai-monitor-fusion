@@ -1,14 +1,14 @@
 {
   "contract_id": "external_validation_cluster_score_candidate_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "candidate_to_validate_not_frozen",
+  "status": "rejected_after_boundary_calibration",
   "motivation": "FG+t Wald-type upper bounds were materially anti-conservative at the 3 pp NI, 10% FNR, and 5% FPR boundaries, especially for low event probabilities and variable cluster sizes.",
   "one_sample_candidate": {
     "method": "cluster-adjusted Wilson score interval",
     "variance_inflation": "Saha-Miller-Wang / Short clustered-proportion moment estimate",
     "source_formula_reference": "ratesci::clusterpci with skew=FALSE",
     "estimand": "response-average row-marginal proportion",
-    "absolute_FNR_constraint": 0.10,
+    "absolute_FNR_constraint": 0.1,
     "absolute_FNR_one_sided_alpha": 0.025,
     "FPR_constraint": 0.05,
     "FPR_one_sided_alpha": 0.05
@@ -28,5 +28,15 @@
     "nonestimable_or_invalid_variance_inflation_fails_closed": true,
     "repetitions_per_scenario": 20000
   },
-  "W0_remains_blocked": true
+  "W0_remains_blocked": true,
+  "calibration_result": {
+    "repetitions_per_scenario": 20000,
+    "relative_FNR_NI_boundary_worst_false_pass_rate": 0.0323,
+    "absolute_FNR_boundary_worst_false_pass_rate": 0.0305,
+    "FPR_boundary_worst_false_pass_rate": 0.05975,
+    "nominal_relative_and_absolute_FNR_alpha": 0.025,
+    "nominal_FPR_alpha": 0.05,
+    "decision": "improved_but_still_materially_anti_conservative_do_not_freeze"
+  },
+  "important": "The clustered-score candidate materially improved calibration relative to FG+t but still exceeded the prespecified type-I boundaries. It is rejected for confirmatory use and must not be used for power sizing."
 }
