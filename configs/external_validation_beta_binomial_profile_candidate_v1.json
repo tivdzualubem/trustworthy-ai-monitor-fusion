@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_beta_binomial_profile_candidate_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "candidate_screen_not_frozen",
+  "status": "promising_screen_not_final_advance_to_constrained_null_monte_carlo",
   "purpose": "Test whether likelihood-based clustered-binomial inference is sufficiently calibrated to justify a later constrained-null bootstrap implementation.",
   "model": {
     "sampling_model": "beta-binomial with cell-specific marginal probability and ICC",
@@ -19,5 +19,19 @@
     "matched_and_near_matched_cluster_counts": true
   },
   "decision_rule": "Do not freeze profile-LR inference from this screen. If both correctly specified and misspecified generators are promising, implement constrained-null parametric bootstrap and repeat calibration before power sizing.",
-  "W0_remains_blocked": true
+  "W0_remains_blocked": true,
+  "screen_result": {
+    "repetitions_per_scenario": 1200,
+    "beta_binomial_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.0325,
+      "worst_absolute_FNR_false_pass": 0.035,
+      "worst_FPR_false_pass": 0.0642
+    },
+    "two_point_misspecification_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.0167,
+      "worst_absolute_FNR_false_pass": 0.0158,
+      "worst_FPR_false_pass": 0.0525
+    },
+    "decision": "Profile likelihood is materially more promising than prior Wald/score candidates and did not collapse under the deliberate two-point misspecification generator, but it is not sufficiently calibrated to freeze."
+  }
 }
