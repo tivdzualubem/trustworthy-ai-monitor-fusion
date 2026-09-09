@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_constrained_null_mc_candidate_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "promising_but_near_matched_cluster_counts_failed_next_test_exact_matching",
+  "status": "rejected_after_final_logit_normal_robustness_validation",
   "purpose": "Calibrate a restricted-null parametric Monte Carlo test for the response-average marginal FNR risk difference and the absolute FNR/FPR boundaries.",
   "method": {
     "model": "beta-binomial cluster model with cell-specific ICCs",
@@ -54,5 +54,6 @@
     },
     "interpretation": "The only clear anti-conservative signal was relative NI with unequal independent provenance-cluster counts (100 versus 80) under the beta-binomial generator. Exact matching must therefore be stress-tested before either the procedure or cluster-count architecture is frozen."
   },
-  "next_gate": "Run a larger exact-matched-cluster-count stress calibration with unequal ICCs and unequal cluster-size distributions. Do not perform power sizing yet."
+  "next_gate": "Run a larger exact-matched-cluster-count stress calibration with unequal ICCs and unequal cluster-size distributions. Do not perform power sizing yet.",
+  "final_decision": "Do not use as confirmatory FNR/FPR procedure; the calibrated logit-normal generator produced clear anti-conservative type-I behavior."
 }

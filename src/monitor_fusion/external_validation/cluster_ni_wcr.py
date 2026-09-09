@@ -163,6 +163,38 @@ def _webb_weights(
     return WEBB_SUPPORT[draw]
 
 
+
+def _lower_tail_p_values_fail_closed(
+    *,
+    t_obs: np.ndarray,
+    t_boot: np.ndarray,
+    bootstrap_estimable: np.ndarray,
+    observed_estimable: np.ndarray,
+    bootstrap_repetitions: int,
+    alpha: float,
+) -> tuple[np.ndarray, np.ndarray]:
+    # Conservative lower-tail bootstrap p-values.
+    #
+    # For H1 in the lower tail, omitting an invalid bootstrap draw from the
+    # numerator while keeping it in the fixed B denominator makes p-values
+    # artificially smaller. Fail closed by counting every invalid bootstrap
+    # draw in the p-value numerator.
+    if t_boot.shape != bootstrap_estimable.shape:
+        raise ValueError("t_boot and bootstrap_estimable must have equal shape")
+    if t_boot.shape[0] != len(t_obs) or len(t_obs) != len(observed_estimable):
+        raise ValueError("outer repetition dimensions must agree")
+    if t_boot.shape[1] != bootstrap_repetitions:
+        raise ValueError("bootstrap repetition dimension mismatch")
+
+    tail_or_invalid = (~bootstrap_estimable) | (
+        bootstrap_estimable & (t_boot <= t_obs[:, None])
+    )
+    tail_count = np.sum(tail_or_invalid, axis=1)
+    p_value = (1.0 + tail_count) / (bootstrap_repetitions + 1.0)
+    reject = observed_estimable & (p_value <= alpha)
+    return p_value, reject
+
+
 def simulate_wcr_boundary_calibration(
     *,
     reference_fnr: float,
@@ -316,14 +348,17 @@ def simulate_wcr_boundary_calibration(
     t_boot = np.full_like(b_num, np.nan, dtype=np.float64)
     t_boot[b_estimable] = b_num[b_estimable] / np.sqrt(b_var[b_estimable])
 
-    # Fail closed when the observed statistic is not estimable. Bootstrap
-    # draws with non-estimable SEs never count as evidence against H0.
-    tail_count = np.sum(
-        b_estimable & (t_boot <= t_obs[:, None]),
-        axis=1,
+    # Fail closed for observed and bootstrap non-estimability.
+    # Invalid bootstrap draws count toward the lower-tail p-value numerator;
+    # omitting them while retaining fixed B would make the test more liberal.
+    p_value, reject = _lower_tail_p_values_fail_closed(
+        t_obs=t_obs,
+        t_boot=t_boot,
+        bootstrap_estimable=b_estimable,
+        observed_estimable=obs_estimable,
+        bootstrap_repetitions=bootstrap_repetitions,
+        alpha=alpha,
     )
-    p_value = (1.0 + tail_count) / (bootstrap_repetitions + 1.0)
-    reject = obs_estimable & (p_value <= alpha)
 
     reject_count = int(reject.sum())
     estimable_count = int(obs_estimable.sum())
