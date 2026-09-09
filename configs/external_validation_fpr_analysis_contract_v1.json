@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_fpr_analysis_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "confirmed_precollection_component",
+  "status": "historical_independence_baseline_cluster_aware_primary_pending",
   "population": "Y=0 dependency-representative examples, analyzed separately within each validation cell",
   "endpoint": {
     "name": "false_positive_indicator",
@@ -15,7 +15,8 @@
     "operating_constraint": 0.05,
     "pass_rule": "Clopper-Pearson upper bound <= 0.05",
     "interpretation": "overblocking/availability operating constraint, not a safety certificate",
-    "simultaneous_claims_from_unadjusted_cellwise_bounds_forbidden": true
+    "simultaneous_claims_from_unadjusted_cellwise_bounds_forbidden": true,
+    "role": "historical independence-model baseline/sensitivity only; exact Clopper-Pearson does not by itself solve residual provenance clustering"
   },
   "provenance_cluster_sensitivity": {
     "method": "nonparametric provenance-cluster bootstrap",
@@ -44,5 +45,14 @@
     "threshold_frozen_before_validation_scoring": true,
     "top_up_after_monitor_scoring_forbidden": true,
     "monitor_result_based_recollection_forbidden": true
+  },
+  "final_cluster_aware_primary_inference": {
+    "status": "pending_pre_W0_validation",
+    "must_validate_under": [
+      "unequal ICCs",
+      "realistic cluster-size variation",
+      "matched and near-matched provenance-cluster counts"
+    ],
+    "operating_constraint": 0.05
   }
 }

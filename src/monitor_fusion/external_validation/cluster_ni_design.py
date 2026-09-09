@@ -9,6 +9,7 @@ from scipy.stats import t
 PRIMARY_NI_MARGIN = 0.03
 SENSITIVITY_NI_MARGINS = (0.02, 0.05)
 ONE_SIDED_ALPHA = 0.025
+ABSOLUTE_FNR_CEILING = 0.10
 
 
 class ClusterNIAnalysisNotEstimable(RuntimeError):
@@ -181,7 +182,7 @@ def evaluate_fnr_noninferiority(*, cell_ids: list[str], false_negative: list[int
     return NonInferiorityResult(reference_cell=reference_cell, comparison_cell=comparison_cell, reference_fnr=reference_fnr, comparison_fnr=comparison_fnr, risk_difference=difference, standard_error=se, degrees_of_freedom=model.degrees_of_freedom, upper_97_5=float(upper), margin=float(margin), noninferiority_pass=bool(upper < margin), cluster_count=model.cluster_count, row_count=model.row_count)
 
 
-def evaluate_absolute_fnr_ceiling(*, cell_id: str, false_negative: list[int] | np.ndarray, provenance_cluster_ids: list[str], ceiling: float, alpha: float = ONE_SIDED_ALPHA) -> AbsoluteCeilingResult:
+def evaluate_absolute_fnr_ceiling(*, cell_id: str, false_negative: list[int] | np.ndarray, provenance_cluster_ids: list[str], ceiling: float = ABSOLUTE_FNR_CEILING, alpha: float = ONE_SIDED_ALPHA) -> AbsoluteCeilingResult:
     if not cell_id:
         raise ValueError("cell_id must be non-empty")
     if not (0.0 < ceiling < 1.0):

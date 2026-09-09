@@ -3,7 +3,9 @@ import numpy as np
 import pytest
 
 from monitor_fusion.external_validation.cluster_ni_design import (
+    ABSOLUTE_FNR_CEILING,
     ClusterNIAnalysisNotEstimable,
+    ONE_SIDED_ALPHA,
     PRIMARY_NI_MARGIN,
     SENSITIVITY_NI_MARGINS,
     evaluate_absolute_fnr_ceiling,
@@ -25,9 +27,11 @@ def _pair_data():
     return cells, ref_y + cmp_y, ref_clusters + cmp_clusters
 
 
-def test_margin_constants_are_frozen_for_design_evaluation():
+def test_claim_constants_are_frozen_for_design_evaluation():
     assert PRIMARY_NI_MARGIN == 0.03
     assert SENSITIVITY_NI_MARGINS == (0.02, 0.05)
+    assert ONE_SIDED_ALPHA == 0.025
+    assert ABSOLUTE_FNR_CEILING == 0.10
 
 
 def test_risk_difference_is_row_marginal_difference():
@@ -100,3 +104,13 @@ def test_simulator_records_true_difference():
     assert math.isclose(result.true_risk_difference, 0.03)
     assert result.margin == 0.03
     assert result.alpha == 0.025
+
+
+def test_absolute_ceiling_defaults_to_professor_confirmed_10pct():
+    _, y, clusters = _pair_data()
+    result = evaluate_absolute_fnr_ceiling(
+        cell_id="T",
+        false_negative=y[:20],
+        provenance_cluster_ids=clusters[:20],
+    )
+    assert result.ceiling == 0.10

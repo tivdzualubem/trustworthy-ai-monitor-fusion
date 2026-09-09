@@ -3,15 +3,17 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
+# Retained only for A-opt threshold-selection checkpoints.
 BATCH_SIZE = 250
+VALIDATION_CELLS = ("A_val", "T", "S", "F", "SF")
 
 CELL_SPECS = {
     "A_opt": {"Y1": 200, "Y0": 250, "cap": 2500, "window": "W0"},
-    "A_val": {"Y1": 600, "Y0": 361, "cap": 5000, "window": "W0"},
-    "T": {"Y1": 600, "Y0": 361, "cap": 5000, "window": "W1"},
-    "S": {"Y1": 600, "Y0": 361, "cap": 5000, "window": "W1"},
-    "F": {"Y1": 600, "Y0": 361, "cap": 5000, "window": "W1"},
-    "SF": {"Y1": 600, "Y0": 361, "cap": 5000, "window": "W1"},
+    "A_val": {"Y1": None, "Y0": None, "cap": None, "window": "W0"},
+    "T": {"Y1": None, "Y0": None, "cap": None, "window": "W1"},
+    "S": {"Y1": None, "Y0": None, "cap": None, "window": "W1"},
+    "F": {"Y1": None, "Y0": None, "cap": None, "window": "W1"},
+    "SF": {"Y1": None, "Y0": None, "cap": None, "window": "W1"},
 }
 
 ALLOWED_TOP_UP_REASONS = frozenset(
@@ -22,6 +24,10 @@ ALLOWED_TOP_UP_REASONS = frozenset(
         "quota_shortfall",
     }
 )
+
+
+class SamplingDesignNotFrozen(RuntimeError):
+    pass
 
 
 @dataclass(frozen=True)
@@ -41,11 +47,30 @@ class CollectionDecision:
     next_full_batch_allowed: bool
 
 
-def _spec(cell_id: str) -> dict[str, int | str]:
+def _spec(cell_id: str) -> dict[str, int | str | None]:
     try:
         return CELL_SPECS[cell_id]
     except KeyError as exc:
         raise ValueError(f"unknown study cell: {cell_id}") from exc
+
+
+def _require_frozen_collection_spec(
+    cell_id: str,
+    spec: dict[str, int | str | None],
+) -> tuple[int, int, int]:
+    y1 = spec["Y1"]
+    y0 = spec["Y0"]
+    cap = spec["cap"]
+
+    if y1 is None or y0 is None or cap is None:
+        raise SamplingDesignNotFrozen(
+            f"collection design for {cell_id} is not frozen: "
+            "Y1/Y0 quotas, provenance-cluster minima/caps, validation candidate "
+            "cap, and terminal-batch rule must be fixed after the full "
+            "cluster-aware design grid before collection is authorized"
+        )
+
+    return int(y1), int(y0), int(cap)
 
 
 def _validate_checkpoint(
@@ -54,8 +79,12 @@ def _validate_checkpoint(
     candidates_collected: int,
     eligible_y1: int,
     eligible_y0: int,
-) -> dict[str, int | str]:
+) -> tuple[dict[str, int | str | None], int, int, int]:
     spec = _spec(cell_id)
+    required_y1, required_y0, cap = _require_frozen_collection_spec(
+        cell_id,
+        spec,
+    )
 
     for name, value in (
         ("candidates_collected", candidates_collected),
@@ -66,8 +95,6 @@ def _validate_checkpoint(
             raise ValueError(f"{name} must be an integer")
         if value < 0:
             raise ValueError(f"{name} must be non-negative")
-
-    cap = int(spec["cap"])
 
     if candidates_collected > cap:
         raise ValueError("candidates_collected exceeds the frozen candidate cap")
@@ -82,7 +109,7 @@ def _validate_checkpoint(
             "eligible Y1 + Y0 dependency representatives cannot exceed raw candidates"
         )
 
-    return spec
+    return spec, required_y1, required_y0, cap
 
 
 def assess_collection_checkpoint(
@@ -93,7 +120,7 @@ def assess_collection_checkpoint(
     eligible_y0: int,
     fresh_monitor_scoring_started: bool = False,
 ) -> CollectionDecision:
-    spec = _validate_checkpoint(
+    spec, required_y1, required_y0, cap = _validate_checkpoint(
         cell_id=cell_id,
         candidates_collected=candidates_collected,
         eligible_y1=eligible_y1,
@@ -102,10 +129,6 @@ def assess_collection_checkpoint(
 
     if not isinstance(fresh_monitor_scoring_started, bool):
         raise ValueError("fresh_monitor_scoring_started must be boolean")
-
-    required_y1 = int(spec["Y1"])
-    required_y0 = int(spec["Y0"])
-    cap = int(spec["cap"])
 
     y1_shortfall = max(0, required_y1 - eligible_y1)
     y0_shortfall = max(0, required_y0 - eligible_y0)
@@ -191,6 +214,10 @@ def all_cells_collection_closed(
 ) -> bool:
     if set(checkpoints) != set(CELL_SPECS):
         raise ValueError("checkpoints must contain exactly A_opt,A_val,T,S,F,SF")
+
+    # This intentionally fails closed while any validation spec is pending.
+    for cell_id in VALIDATION_CELLS:
+        _require_frozen_collection_spec(cell_id, _spec(cell_id))
 
     decisions = [
         assess_collection_checkpoint(
