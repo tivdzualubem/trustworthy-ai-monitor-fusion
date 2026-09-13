@@ -1,19 +1,34 @@
 {
   "contract_id": "external_validation_cluster_power_typeI_grid_v2",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "broad_cluster_typeI_power_grid_not_frozen",
+  "status": "broad_grid_complete_candidate_G140_not_frozen",
   "professor_requirement_addressed": "complete the cluster-aware type-I/power grid needed to determine provenance-cluster minima/caps and Y1/Y0 validation quotas",
   "candidate_inference": "restricted-null beta-binomial nuisance plug-in Monte Carlo test preserving the exact observed cluster-size vector",
   "candidate_cluster_design": {
     "relative_NI_cluster_counts": "exactly equal independent provenance-cluster counts in the two compared cells",
-    "tight_cluster_size_pattern": [15, 18, 20, 22, 25],
+    "tight_cluster_size_pattern": [
+      15,
+      18,
+      20,
+      22,
+      25
+    ],
     "mean_cluster_size": 20,
     "candidate_minimum": 15,
     "candidate_cap": 25,
     "frozen": false
   },
   "grid": {
-    "clusters_per_cell": [60, 80, 100, 120, 140, 160, 180, 200],
+    "clusters_per_cell": [
+      60,
+      80,
+      100,
+      120,
+      140,
+      160,
+      180,
+      200
+    ],
     "outer_repetitions_per_task": 500,
     "inner_null_repetitions": 199,
     "typeI_generators": [
@@ -25,13 +40,13 @@
   },
   "boundaries": {
     "relative_FNR_NI_margin": 0.03,
-    "absolute_FNR_ceiling": 0.10,
+    "absolute_FNR_ceiling": 0.1,
     "FPR_constraint": 0.05,
     "safety_one_sided_alpha": 0.025,
     "FPR_one_sided_alpha": 0.05
   },
   "power_planning": {
-    "primary_target": 0.80,
+    "primary_target": 0.8,
     "target_origin": "continuity with the project's prior prespecified approximately-80%-power planning; the professor required recomputation under the corrected cluster-aware design but did not replace the planning target",
     "report_90_percent_sensitivity": true,
     "primary_relative_NI_alternatives": [
@@ -39,37 +54,37 @@
         "reference_FNR": 0.02,
         "comparison_FNR": 0.02,
         "ICC_reference": 0.05,
-        "ICC_comparison": 0.10
+        "ICC_comparison": 0.1
       },
       {
         "reference_FNR": 0.05,
         "comparison_FNR": 0.05,
         "ICC_reference": 0.05,
-        "ICC_comparison": 0.10
+        "ICC_comparison": 0.1
       }
     ],
     "stress_relative_NI_alternative": {
       "reference_FNR": 0.08,
       "comparison_FNR": 0.08,
       "ICC_reference": 0.05,
-      "ICC_comparison": 0.10,
+      "ICC_comparison": 0.1,
       "role": "sensitivity only; not used alone to select the primary design"
     },
     "primary_absolute_FNR_alternative": {
       "true_FNR": 0.05,
-      "boundary": 0.10,
-      "ICC": 0.10
+      "boundary": 0.1,
+      "ICC": 0.1
     },
     "absolute_FNR_stress_alternative": {
       "true_FNR": 0.075,
-      "boundary": 0.10,
-      "ICC": 0.10,
+      "boundary": 0.1,
+      "ICC": 0.1,
       "role": "sensitivity only"
     },
     "primary_FPR_alternative": {
       "true_FPR": 0.025,
       "boundary": 0.05,
-      "ICC": 0.10,
+      "ICC": 0.1,
       "rationale": "the frozen A-opt threshold-selection rule retains thresholds with empirical FPR <= 0.025"
     }
   },
@@ -79,5 +94,15 @@
     "final_freeze": "do not freeze from this 500x199 screen; run high-repetition confirmation at the selected G and neighboring G values with beta-binomial, two-point, and logit-normal generators"
   },
   "historical_power_code_status": "the old KC/CR2 power screen is historical only and cannot determine the final quotas because that inferential procedure was rejected",
-  "W0_remains_blocked": true
+  "W0_remains_blocked": true,
+  "broad_grid_result": {
+    "smallest_80pct_candidate_G_per_cell": 140,
+    "rows_per_cell_at_tight_pattern": 2800,
+    "G120_min_primary_power": 0.778,
+    "G140_min_primary_power": 0.836,
+    "G160_min_primary_power": 0.858,
+    "G180_point_power_exceeds_0_90_but_typeI_screen_failed": true,
+    "G200_min_primary_power": 0.946,
+    "important": "G=140 is only a broad-screen candidate. Final freeze requires high-repetition confirmation with beta-binomial, two-point, and logit-normal generators and unequal within-envelope cluster-size distributions."
+  }
 }
