@@ -67,8 +67,6 @@
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
   "mandatory_pre_W0_blockers": [
-    "freeze_cluster_aware_primary_FNR_inference_after_calibration",
-    "freeze_cluster_aware_primary_FPR_inference_after_calibration",
     "complete_full_cluster_aware_type_I_coverage_and_power_grid",
     "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
     "revise_annotation_adjudication_and_unanimous_audit_consequences",
@@ -162,6 +160,15 @@
     "separate_rater_pool_contract": {
       "status": "frozen",
       "contract": "configs/external_validation_rater_pool_contract_v1.json"
+    },
+    "cluster_aware_inference_calibration_contract": {
+      "status": "calibration_contract_frozen",
+      "primary_estimands": [
+        "FNR",
+        "FPR"
+      ],
+      "inference_unit": "provenance_block",
+      "calibration_required_before_final_estimation": true
     }
   },
   "in_progress_pre_W0_components": {}
