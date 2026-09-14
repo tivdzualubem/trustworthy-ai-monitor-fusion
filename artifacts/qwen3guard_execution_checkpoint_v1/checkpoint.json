@@ -1,0 +1,7 @@
+{
+  "status": "ready_for_kaggle_execution",
+  "created_at_utc": "2026-09-14T19:50:50.510164+00:00",
+  "precollection_freeze_verified": true,
+  "runtime_bundle_verified": true,
+  "qwen3guard_preflight_required": true
+}
