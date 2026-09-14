@@ -1,0 +1,30 @@
+{
+  "contract_id": "external_validation_confirmatory_joint_power_simulation_v1",
+  "purpose": "Estimate joint power under provenance-block confirmatory design",
+
+  "independence_unit": "provenance_block",
+
+  "claims": {
+    "relative_FNR_NI": {
+      "margin": 0.03,
+      "alpha": 0.025
+    },
+    "absolute_FNR_ceiling": {
+      "threshold": 0.10
+    },
+    "joint_success_required": true
+  },
+
+  "simulation_grid": {
+    "provenance_blocks": [40, 60, 80, 100, 120, 160, 200],
+    "samples_per_block": [10, 20, 30],
+    "repetitions": 5000
+  },
+
+  "outputs": [
+    "NI_power",
+    "absolute_ceiling_power",
+    "joint_power",
+    "recommended_minimum_blocks"
+  ]
+}
