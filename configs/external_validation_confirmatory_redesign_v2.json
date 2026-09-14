@@ -67,7 +67,6 @@
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
   "mandatory_pre_W0_blockers": [
-    "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
     "revise_annotation_adjudication_and_unanimous_audit_consequences",
     "freeze_terminal_batch_rule",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
@@ -176,6 +175,15 @@
         "results/external_validation_cluster_power_typeI_grid_v2.json",
         "results/external_validation_confirmatory_joint_power_v1.json",
         "results/external_validation_block_mc_power_v1.json"
+      ]
+    },
+    "Y1_Y0_quota_cap_contract": {
+      "status": "frozen",
+      "scope": [
+        "Y1_Y0_quotas",
+        "cluster_minima",
+        "cluster_caps",
+        "validation_candidate_caps"
       ]
     }
   },
