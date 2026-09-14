@@ -1,0 +1,1010 @@
+[
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9717
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8257
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.479
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9393
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.7693
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5003
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.976
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.8933
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.7333
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4807
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8687
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5173
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.998
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9637
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.802
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.503
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9827
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.91
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.737
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.504
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9923
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8883
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4907
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.999
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9633
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8133
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.486
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9803
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.916
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.7517
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5077
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9057
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.501
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9853
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8583
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4813
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9967
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9613
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.796
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4863
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9387
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.501
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9927
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8877
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5067
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.9983
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9683
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.816
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4807
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9527
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4993
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9957
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8987
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4757
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 0.998
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9713
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8257
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5007
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9657
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4893
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9363
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.509
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9943
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8763
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9847
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4987
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9997
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9527
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.493
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.9973
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8963
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5033
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9897
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5057
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9643
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4883
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 0.995
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.8987
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5067
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9957
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4993
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.985
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4887
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9547
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5077
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4907
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9927
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.504
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9647
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5137
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.4977
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.9943
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5097
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.0,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.01,
+    "NI_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.02,
+    "NI_power": 0.97
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_FNR_degradation": 0.03,
+    "NI_power": 0.5003
+  }
+]
