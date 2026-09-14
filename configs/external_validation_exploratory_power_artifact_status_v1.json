@@ -1,0 +1,60 @@
+{
+  "contract_id": "external_validation_exploratory_power_artifact_status_v1",
+  "status": "historical_noninferential_artifacts",
+  "purpose": "Prevent exploratory or placeholder power calculations from being cited as confirmatory evidence after the professor-directed redesign.",
+  "authoritative_rule": "Confirmatory power must simulate the actual frozen primary decision rule under scientifically meaningful alternative truths; type-I error must be evaluated separately at the null boundary.",
+  "artifacts": [
+    {
+      "script": "scripts/run_external_validation_confirmatory_joint_power_v1.py",
+      "status": "noninferential_placeholder",
+      "reason": "placeholder power formula; not generated from a statistical test"
+    },
+    {
+      "script": "scripts/run_external_validation_block_mc_power_v1.py",
+      "status": "noninferential_exploratory",
+      "reason": "uses raw observed risk-difference and ceiling inequalities rather than the final inferential decision rule"
+    },
+    {
+      "script": "scripts/run_external_validation_realistic_block_mc_power_v1.py",
+      "status": "noninferential_exploratory",
+      "reason": "evaluates raw empirical inequalities at null boundaries; this is not confirmatory power"
+    },
+    {
+      "script": "scripts/run_external_validation_realistic_power_grid_v2.py",
+      "status": "noninferential_exploratory",
+      "reason": "evaluates raw empirical inequalities at null boundaries; this is not confirmatory power"
+    },
+    {
+      "script": "scripts/run_external_validation_power_bottleneck_diagnosis_v1.py",
+      "status": "superseded_diagnostic",
+      "reason": "diagnoses outputs from a noninferential power grid and cannot establish the true confirmatory bottleneck"
+    },
+    {
+      "script": "scripts/run_external_validation_ni_feasibility_sensitivity_v1.py",
+      "status": "noninferential_exploratory",
+      "reason": "uses observed difference below 0.03 as a pass rule without confidence-bound or test calibration"
+    },
+    {
+      "script": "scripts/run_external_validation_ni_operating_characteristics_v1.py",
+      "status": "noninferential_exploratory",
+      "reason": "uses observed difference below 0.03 as a pass rule; boundary probability near 0.5 is not a valid type-I result"
+    },
+    {
+      "script": "scripts/run_external_validation_joint_operating_characteristics_v1.py",
+      "status": "noninferential_exploratory",
+      "reason": "uses raw NI and absolute inequalities rather than the final calibrated primary decision rule"
+    }
+  ],
+  "do_not_use_for": [
+    "confirmatory sample-size freeze",
+    "type-I error claims",
+    "coverage claims",
+    "primary power claims",
+    "W0 authorization"
+  ],
+  "retain_for": [
+    "design-development history",
+    "illustrating why boundary-event probabilities are not inferential power",
+    "reproducibility of the redesign process"
+  ]
+}

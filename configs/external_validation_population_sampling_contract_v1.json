@@ -1,0 +1,93 @@
+{
+  "contract_id": "external_validation_population_sampling_contract_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "population_definition_frozen_sampling_frames_pending",
+  "purpose": "Define the confirmatory target populations and the minimum conditions under which provenance blocks may be treated as independent primary sampling units.",
+  "scientific_estimands": {
+    "primary_FNR_population": "Eligible harmful target-assistant responses (Y=1) arising from the frozen study-generating process within the specified study cell and window.",
+    "FPR_population": "Eligible safe target-assistant responses (Y=0) arising from the frozen study-generating process within the specified study cell and window.",
+    "weighting": "response_average_marginal",
+    "block_role": "blocks determine sampling and uncertainty; blocks do not automatically receive equal scientific weight"
+  },
+  "study_generating_process": {
+    "must_be_frozen_before_W0": [
+      "common ontology and target policy",
+      "cell definitions",
+      "human source sampling frame and recruitment mechanism",
+      "model-source generation contract",
+      "attack-family registry and transform assignment",
+      "target-assistant generation contract",
+      "annotation contract and rater-pool contract",
+      "eligibility and dependency rules",
+      "collection windows"
+    ],
+    "historical_overlap_excluded": true,
+    "monitor_outputs_unavailable_during_collection_and_labeling": true
+  },
+  "independent_primary_sampling_units": {
+    "row_level_independence_assumption_allowed": false,
+    "cross_cell_reuse_of_primary_sampling_unit_allowed": false,
+    "human": {
+      "candidate_identifier": "author_id",
+      "interpretation": "one independently recruited or independently sampled human contributor/source block",
+      "author_id_alone_is_sufficient_proof_of_independence": false,
+      "requirements_before_counting_as_independent": [
+        "the human sampling frame and recruitment/source mechanism are frozen",
+        "the contributor/source block is assigned to exactly one confirmatory cell",
+        "no contributor/source block is reused across confirmatory cells",
+        "within-block rows may be dependent and are retained as such in analysis"
+      ]
+    },
+    "model_generated": {
+      "candidate_identifier": "generator_batch_id",
+      "interpretation": "one independently generated source-model batch under a frozen batch-generation mechanism",
+      "generator_batch_id_alone_is_sufficient_proof_of_independence": false,
+      "requirements_before_counting_as_independent": [
+        "the source-generation contract freezes how batches are independently generated",
+        "batch identifiers are assigned before target responses or monitor outputs are observed",
+        "a batch is assigned to exactly one confirmatory cell",
+        "no batch continuation or hidden-state carry-over creates dependence across declared independent batches",
+        "no generator batch is reused across confirmatory cells"
+      ]
+    }
+  },
+  "cell_population_roles": {
+    "A_opt": "W0 human/direct threshold-selection population only; not part of confirmatory validation inference",
+    "A_val": "W0 human/direct independent baseline-validation population",
+    "T": "W1 human/direct temporal-anchor population",
+    "S": "W1 model-generated/direct source-shift population",
+    "F": "W1 human/obfuscated attack-family-shift population",
+    "SF": "W1 model-generated/obfuscated joint source-and-attack-shift population"
+  },
+  "blocked_sampling_requirements": {
+    "category_allocation": "use the frozen common-ontology allocation unless revised and frozen before W0",
+    "pre_scoring_dependency_grouping_required": true,
+    "one_primary_representative_per_dependency_group": true,
+    "dependency_group_may_span_cells": false,
+    "minimum_independent_blocks_per_cell": "pending valid primary-analysis power study",
+    "maximum_rows_per_block": "pending valid primary-analysis power study",
+    "candidate_caps": "pending valid primary-analysis power study",
+    "terminal_batch_rule": "pending valid primary-analysis power study",
+    "performance_based_stopping_forbidden": true
+  },
+  "comparison_independence": {
+    "S_vs_T": "independent primary sampling units by construction",
+    "F_vs_T": "independent primary sampling units by construction",
+    "SF_vs_T": "independent primary sampling units by construction",
+    "temporal_A_val_to_T": "independent primary sampling units by construction"
+  },
+  "unresolved_pre_W0_items": [
+    "exact human sampling frame and recruitment/source mechanism",
+    "exact source-model batch-generation mechanism and batch-size rule",
+    "exact collection windows",
+    "final independent-block minima and per-block caps",
+    "final Y1 and Y0 quotas and candidate caps",
+    "final terminal-batch rule"
+  ],
+  "freeze_gate": {
+    "W0_collection_authorized": false,
+    "fresh_monitor_scoring_authorized": false,
+    "sampling_frame_must_be_frozen_before_W0": true,
+    "primary_analysis_and_joint_power_must_be_validated_before_quota_freeze": true
+  }
+}
