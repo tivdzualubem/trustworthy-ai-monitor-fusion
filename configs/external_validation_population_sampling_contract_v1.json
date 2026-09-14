@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_population_sampling_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "population_definition_frozen_sampling_frames_pending",
+  "status": "frozen_precollection_component",
   "purpose": "Define the confirmatory target populations and the minimum conditions under which provenance blocks may be treated as independent primary sampling units.",
   "scientific_estimands": {
     "primary_FNR_population": "Eligible harmful target-assistant responses (Y=1) arising from the frozen study-generating process within the specified study cell and window.",
@@ -94,5 +94,12 @@
     "fresh_monitor_scoring_authorized": false,
     "sampling_frame_must_be_frozen_before_W0": true,
     "primary_analysis_and_joint_power_must_be_validated_before_quota_freeze": true
-  }
+  },
+  "freeze_status": {
+    "population_definition": "frozen",
+    "sampling_frames": "frozen",
+    "independent_block_sampling": "frozen"
+  },
+  "population_definition_frozen": true,
+  "sampling_frames_frozen": true
 }
