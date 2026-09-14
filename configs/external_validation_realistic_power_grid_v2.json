@@ -1,0 +1,24 @@
+{
+  "contract_id": "external_validation_realistic_power_grid_v2",
+  "purpose": "Diagnose minimum provenance blocks required for informative confirmatory certificate",
+
+  "independence_unit": "provenance_block",
+
+  "grid": {
+    "blocks": [100,150,200,300,400,500,750,1000],
+    "samples_per_block": [10,20,50,100],
+    "rho": [0.05,0.10,0.20,0.30]
+  },
+
+  "scenarios": {
+    "relative_NI_boundary": {
+      "reference_FNR": [0.05,0.07,0.08],
+      "difference": 0.03
+    },
+    "absolute_ceiling_boundary": {
+      "FNR": 0.10
+    }
+  },
+
+  "target_joint_power": 0.80
+}
