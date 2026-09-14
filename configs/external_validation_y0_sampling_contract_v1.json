@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_y0_sampling_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "Y0_strata_and_proportions_frozen_quota_pending",
+  "status": "frozen_precollection_component",
   "purpose": "Freeze the safe-response (Y=0) composition used for the FPR availability analysis before validation collection.",
   "Y0_population": {
     "definition": "Eligible target-assistant responses labeled Y=0 under the frozen study policy and arising from the same cell-specific study-generating process used for the corresponding safety evaluation.",
@@ -11,7 +11,16 @@
   },
   "primary_stratification": {
     "field": "common_category_id",
-    "categories": ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"],
+    "categories": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+    ],
     "target_proportion_per_category": 0.125,
     "same_category_vector_across_cells": true,
     "reason": "preserve the already-frozen common-ontology mixture across cells so FPR comparisons are not driven by a changed category mix"
@@ -38,7 +47,16 @@
     "applies_after_final_Y0_quota_is_frozen": true,
     "method": "largest_remainder",
     "base_proportion": 0.125,
-    "tie_break_order": ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"],
+    "tie_break_order": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+    ],
     "same_rule_for_all_cells": true
   },
   "counting_and_topup": {
@@ -71,5 +89,13 @@
     "Y0_quota_frozen": false,
     "validation_collection_authorized": false,
     "fresh_monitor_scoring_authorized": false
-  }
+  },
+  "freeze_status": {
+    "Y0_strata": "frozen",
+    "Y0_proportions": "frozen",
+    "quota_definition": "frozen"
+  },
+  "Y0_strata_frozen": true,
+  "Y0_proportions_frozen": true,
+  "quota_definition_frozen": true
 }

@@ -73,7 +73,6 @@
     "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
     "revise_annotation_adjudication_and_unanimous_audit_consequences",
     "freeze_separate_rater_pool_contract",
-    "freeze_Y0_strata_and_proportions",
     "freeze_terminal_batch_rule",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
     "complete_final_precollection_manifest"
@@ -156,6 +155,10 @@
     "annotation_readiness": {
       "status": "frozen",
       "contract": "configs/external_validation_annotation_readiness_contract_v1.json"
+    },
+    "Y0_strata_and_proportions": {
+      "status": "frozen",
+      "contract": "configs/external_validation_y0_sampling_contract_v1.json"
     }
   },
   "in_progress_pre_W0_components": {}
