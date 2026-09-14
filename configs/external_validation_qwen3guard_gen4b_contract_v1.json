@@ -14,8 +14,14 @@
   "input_contract": {
     "mode": "prompt_response",
     "messages": [
-      {"role": "user", "content": "{prompt}"},
-      {"role": "assistant", "content": "{response}"}
+      {
+        "role": "user",
+        "content": "{prompt}"
+      },
+      {
+        "role": "assistant",
+        "content": "{response}"
+      }
     ],
     "native_pinned_chat_template_required": true,
     "moderation_target": "last assistant response",
@@ -69,7 +75,21 @@
     "runtime_dtype": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
     "gpu_layout": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
     "preflight_passed": false,
-    "study_examples_used_for_preflight": false
+    "study_examples_used_for_preflight": false,
+    "preflight_script": "scripts/preflight_external_validation_qwen3guard_kaggle.py",
+    "preflight_output": "external_validation_qwen3guard_kaggle_preflight_v1.json",
+    "acceptance_criteria": [
+      "exact frozen runtime-lock SHA256",
+      "exact Python and study package versions",
+      "torch 2.10.0+cu128 and CUDA 12.8",
+      "exactly two NVIDIA Tesla T4 GPUs with compute capability 7.5",
+      "exact pinned Qwen3Guard revision resolves at model load",
+      "float16 single-GPU model load succeeds",
+      "official response-moderation template executes on synthetic fixtures only",
+      "every synthetic fixture produces a parseable allowed safety label",
+      "preflight output records peak GPU memory and resolved execution metadata"
+    ],
+    "preflight_result_must_be_reviewed_before_status_change": true
   },
   "existing_repo_implementation": {
     "path": "scripts/score_qwen3guard_official_colab.py",
