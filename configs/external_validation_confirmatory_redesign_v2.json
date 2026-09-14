@@ -76,7 +76,6 @@
     "freeze_Y0_strata_and_proportions",
     "review_and_freeze_monitor_native_to_common_ontology_crosswalk",
     "freeze_source_generation_contract",
-    "freeze_obfuscation_generation_contract",
     "freeze_terminal_batch_rule",
     "add_and_pin_contemporary_comparator_monitor_or_monitors",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
@@ -135,6 +134,12 @@
       "within_monitor_simultaneous_claim": "intersection_union_all_required_cells_must_pass",
       "across_monitor_method_if_any-monitor_simultaneous_availability_claim_is_made": "Holm at familywise alpha 0.05",
       "final_cluster_aware_procedure_status": "pending_validation"
+    }
+  },
+  "completed_pre_W0_components": {
+    "obfuscation_generation_contract": {
+      "path": "configs/external_validation_obfuscation_generation_contract_v1.json",
+      "status": "frozen_precollection_component"
     }
   }
 }
