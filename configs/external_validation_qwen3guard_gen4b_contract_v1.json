@@ -82,14 +82,23 @@
       "exact frozen runtime-lock SHA256",
       "exact Python and study package versions",
       "torch 2.10.0+cu128 and CUDA 12.8",
-      "exactly two NVIDIA Tesla T4 GPUs with compute capability 7.5",
+      "exactly two Tesla T4 GPUs with compute capability 7.5; the optional vendor prefix 'NVIDIA ' in the runtime-reported device name is normalized before comparison",
       "exact pinned Qwen3Guard revision resolves at model load",
       "float16 single-GPU model load succeeds",
       "official response-moderation template executes on synthetic fixtures only",
       "every synthetic fixture produces a parseable allowed safety label",
       "preflight output records peak GPU memory and resolved execution metadata"
     ],
-    "preflight_result_must_be_reviewed_before_status_change": true
+    "preflight_result_must_be_reviewed_before_status_change": true,
+    "gpu_name_normalization": {
+      "canonical_name": "Tesla T4",
+      "accepted_runtime_aliases": [
+        "Tesla T4",
+        "NVIDIA Tesla T4"
+      ],
+      "rule": "strip an optional leading 'NVIDIA ' vendor prefix and normalize whitespace before equality comparison",
+      "scientific_or_hardware_change": false
+    }
   },
   "existing_repo_implementation": {
     "path": "scripts/score_qwen3guard_official_colab.py",

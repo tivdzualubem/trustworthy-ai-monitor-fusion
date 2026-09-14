@@ -55,4 +55,4 @@ def test_preflight_script_exists_and_uses_only_synthetic_fixtures():
     assert '"study_examples_used": False' in text
     assert "MODEL_REVISION" in text
     assert "torch.float16" in text
-    assert "NVIDIA Tesla T4" in text
+    assert 'EXPECTED_GPU_CANONICAL_NAME = "Tesla T4"' in text

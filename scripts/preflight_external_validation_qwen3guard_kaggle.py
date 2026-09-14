@@ -24,7 +24,7 @@ EXPECTED_RUNTIME = {
 }
 EXPECTED_CUDA = "12.8"
 EXPECTED_GPU_COUNT = 2
-EXPECTED_GPU_NAME = "NVIDIA Tesla T4"
+EXPECTED_GPU_CANONICAL_NAME = "Tesla T4"
 EXPECTED_CAPABILITY = (7, 5)
 
 MODEL_ID = "Qwen/Qwen3Guard-Gen-4B"
@@ -73,6 +73,13 @@ def check_equal(name: str, observed, expected, checks: list[dict]) -> None:
             "passed": bool(passed),
         }
     )
+
+
+def canonical_gpu_name(name: str) -> str:
+    value = " ".join(str(name).strip().split())
+    if value.lower().startswith("nvidia "):
+        value = value[7:]
+    return value
 
 
 def main() -> None:
@@ -164,7 +171,12 @@ def main() -> None:
             "total_memory_bytes": int(props.total_memory),
         }
         gpu_rows.append(row)
-        check_equal(f"gpu_{idx}_name", props.name, EXPECTED_GPU_NAME, checks)
+        check_equal(
+            f"gpu_{idx}_canonical_name",
+            canonical_gpu_name(props.name),
+            EXPECTED_GPU_CANONICAL_NAME,
+            checks,
+        )
         check_equal(
             f"gpu_{idx}_capability",
             [props.major, props.minor],
