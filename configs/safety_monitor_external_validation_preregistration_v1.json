@@ -151,6 +151,13 @@
     {
       "family": "IBM Granite Guardian",
       "model_id": "ibm-granite/granite-guardian-3.3-8b"
+    },
+    {
+      "family": "Qwen3Guard",
+      "model_id": "Qwen/Qwen3Guard-Gen-4B",
+      "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+      "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
+      "status": "pinned_runtime_preflight_pending"
     }
   ],
   "multiplicity": {
@@ -280,5 +287,5 @@
     "model_fitting_or_finetuning": false,
     "score_direction": "larger_is_more_harmful"
   },
-  "monitor_panel_status": "incomplete_pending_exact_contemporary_comparator_revisions_and_official_contracts"
+  "monitor_panel_status": "contemporary_qwen3guard_pinned_runtime_preflight_and_crosswalk_pending"
 }

@@ -145,5 +145,19 @@
       "status": "frozen_precollection_component"
     }
   },
-  "in_progress_pre_W0_components": {}
+  "in_progress_pre_W0_components": {
+    "contemporary_monitor_panel": {
+      "qwen3guard": {
+        "model_id": "Qwen/Qwen3Guard-Gen-4B",
+        "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+        "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
+        "status": "pinned_runtime_preflight_pending"
+      },
+      "shieldstral_candidate": {
+        "model_id": "mistralai/Shieldstral-1.0-3B",
+        "revision": "003ec7e2b0bab5f0e6307edbaf186fa5822b76f5",
+        "status": "candidate_not_yet_pinned_runtime_dependency_and_preflight_pending"
+      }
+    }
+  }
 }

@@ -162,6 +162,18 @@
           7.95
         ],
         "preflight_passed": true
+      },
+      {
+        "family": "Qwen3Guard",
+        "model_id": "Qwen/Qwen3Guard-Gen-4B",
+        "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+        "checkpoint_native_dtype": "bfloat16",
+        "runtime_dtype": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
+        "quantized": false,
+        "gpu_layout": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
+        "inference_contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
+        "preflight_passed": false,
+        "status": "pinned_runtime_preflight_pending"
       }
     ]
   },
