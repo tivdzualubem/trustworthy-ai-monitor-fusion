@@ -1,0 +1,10 @@
+{
+  "artifact": "external_validation_precollection_freeze_v1",
+  "created_at_utc": "2026-09-14T19:49:14.356625+00:00",
+  "files": {
+    "external_validation_confirmatory_redesign_v2.json": "eda94af823edcbd6c9b86775ed9399c9f5c5953e0eaf905f5477c649ac920875",
+    "external_validation_final_precollection_readiness_v1.json": "731152a6df47c20839f530dd14a3172598b0b449b4787c778052558ce1125a0b",
+    "external_validation_kaggle_runtime_lock_v1.json": "0402b8677e8de8cac0ec376d24758e1340e34968a4b69280905deea6956570b2",
+    "external_validation_model_runtime_registry_v1.json": "f53b4aa38cf04c2c0a10673d957256d7527cc9a25b002e123d2fff835a7fa343"
+  }
+}
