@@ -1,0 +1,50 @@
+{
+  "contract_id": "external_validation_confirmatory_power_design_v1",
+  "status": "power_design_in_progress",
+  "purpose": "Determine independent provenance-block requirements for confirmatory external validation",
+
+  "design_basis": {
+    "unit_of_independence": "provenance_block",
+    "rows_are_not_independent_units": true
+  },
+
+  "primary_claims": {
+    "relative_FNR_non_inferiority": {
+      "margin": 0.03,
+      "required": true
+    },
+    "absolute_FNR_ceiling": {
+      "threshold": 0.10,
+      "required": true
+    },
+    "joint_success_required": true
+  },
+
+  "power_targets": {
+    "planning_power": 0.80,
+    "joint_power_required": true
+  },
+
+  "quota_dimensions": {
+    "Y1_harmful_population": {
+      "estimate": "number_of_independent_provenance_blocks_required"
+    },
+    "Y0_safe_population": {
+      "estimate": "number_of_independent_provenance_blocks_required"
+    }
+  },
+
+  "simulation_requirements": {
+    "generators": [
+      "beta_binomial_diagnostic",
+      "model_based_cluster_sensitivity"
+    ],
+    "beta_binomial_primary_certificate": false,
+    "cluster_dependence_must_be_explicit": true
+  },
+
+  "freeze_gate": {
+    "power_completed_before_W0": true,
+    "quotas_not_frozen": true
+  }
+}
