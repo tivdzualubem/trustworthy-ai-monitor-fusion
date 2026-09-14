@@ -67,7 +67,6 @@
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
   "mandatory_pre_W0_blockers": [
-    "revise_annotation_adjudication_and_unanimous_audit_consequences",
     "freeze_terminal_batch_rule",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
     "complete_final_precollection_manifest"
@@ -184,6 +183,14 @@
         "cluster_minima",
         "cluster_caps",
         "validation_candidate_caps"
+      ]
+    },
+    "annotation_adjudication_consequence_contract": {
+      "status": "frozen",
+      "scope": [
+        "adjudication_rules",
+        "unanimous_audit_consequences",
+        "label_disagreement_handling"
       ]
     }
   },
