@@ -1,0 +1,108 @@
+{
+  "total_designs": 384,
+  "criterion_counts": {
+    "NI_pass": 0,
+    "absolute_pass": 128,
+    "joint_pass": 0
+  },
+  "failure_counts": {
+    "NI_failure": 384,
+    "absolute_failure": 256,
+    "joint_failure": 384
+  },
+  "highest_joint_power_designs": [
+    {
+      "blocks": 400,
+      "samples_per_block": 100,
+      "rho": 0.2,
+      "reference_FNR": 0.05,
+      "NI_power": 0.536,
+      "absolute_power": 0.999,
+      "joint_power": 0.536
+    },
+    {
+      "blocks": 400,
+      "samples_per_block": 20,
+      "rho": 0.1,
+      "reference_FNR": 0.05,
+      "NI_power": 0.532,
+      "absolute_power": 1.0,
+      "joint_power": 0.532
+    },
+    {
+      "blocks": 300,
+      "samples_per_block": 100,
+      "rho": 0.1,
+      "reference_FNR": 0.05,
+      "NI_power": 0.5265,
+      "absolute_power": 1.0,
+      "joint_power": 0.5265
+    },
+    {
+      "blocks": 500,
+      "samples_per_block": 20,
+      "rho": 0.2,
+      "reference_FNR": 0.05,
+      "NI_power": 0.525,
+      "absolute_power": 0.9995,
+      "joint_power": 0.525
+    },
+    {
+      "blocks": 1000,
+      "samples_per_block": 100,
+      "rho": 0.3,
+      "reference_FNR": 0.05,
+      "NI_power": 0.5235,
+      "absolute_power": 1.0,
+      "joint_power": 0.5235
+    },
+    {
+      "blocks": 400,
+      "samples_per_block": 50,
+      "rho": 0.1,
+      "reference_FNR": 0.05,
+      "NI_power": 0.522,
+      "absolute_power": 1.0,
+      "joint_power": 0.522
+    },
+    {
+      "blocks": 300,
+      "samples_per_block": 10,
+      "rho": 0.2,
+      "reference_FNR": 0.05,
+      "NI_power": 0.518,
+      "absolute_power": 0.9855,
+      "joint_power": 0.518
+    },
+    {
+      "blocks": 100,
+      "samples_per_block": 100,
+      "rho": 0.05,
+      "reference_FNR": 0.05,
+      "NI_power": 0.5175,
+      "absolute_power": 0.9975,
+      "joint_power": 0.5175
+    },
+    {
+      "blocks": 200,
+      "samples_per_block": 50,
+      "rho": 0.1,
+      "reference_FNR": 0.05,
+      "NI_power": 0.5165,
+      "absolute_power": 0.996,
+      "joint_power": 0.5165
+    },
+    {
+      "blocks": 750,
+      "samples_per_block": 50,
+      "rho": 0.1,
+      "reference_FNR": 0.05,
+      "NI_power": 0.5165,
+      "absolute_power": 1.0,
+      "joint_power": 0.5165
+    }
+  ],
+  "interpretation_gate": {
+    "next_question": "determine whether failure is driven by NI, absolute ceiling, or dependence assumptions"
+  }
+}
