@@ -67,7 +67,6 @@
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
   "mandatory_pre_W0_blockers": [
-    "complete_full_cluster_aware_type_I_coverage_and_power_grid",
     "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
     "revise_annotation_adjudication_and_unanimous_audit_consequences",
     "freeze_terminal_batch_rule",
@@ -169,6 +168,15 @@
       ],
       "inference_unit": "provenance_block",
       "calibration_required_before_final_estimation": true
+    },
+    "cluster_aware_type_I_power_grid": {
+      "status": "validated",
+      "required_before_W0": true,
+      "artifacts": [
+        "results/external_validation_cluster_power_typeI_grid_v2.json",
+        "results/external_validation_confirmatory_joint_power_v1.json",
+        "results/external_validation_block_mc_power_v1.json"
+      ]
     }
   },
   "in_progress_pre_W0_components": {}
