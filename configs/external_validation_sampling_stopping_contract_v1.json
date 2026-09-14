@@ -56,7 +56,8 @@
   "counting_rule": {
     "quota_counts_are_post_label_post_exclusion_dependency_representatives": true,
     "candidate_count_is_raw_collected_prompt_response_pairs": true,
-    "eligible_Y1_plus_Y0_may_be_less_than_candidates_due_to_exclusions_or_dependency_collapse": true
+    "eligible_Y1_plus_Y0_may_be_less_than_candidates_due_to_exclusions_or_dependency_collapse": true,
+    "Y0_category_allocation_applies_to": "eligible post-label post-exclusion dependency representatives"
   },
   "stopping_rule": {
     "A_opt": "current threshold-selection rule remains available; W0 itself remains blocked by the precollection manifest",
@@ -83,5 +84,12 @@
     "no_post_scoring_replacement": true,
     "no_source_attack_target_or_label_rule_change_to_rescue_a_cell": true
   },
-  "important_boundary": "The old validation quotas of Y1=600 and Y0=361 and validation candidate cap=5000 are not active design assumptions. They must be replaced by the professor-requested full cluster-aware type-I/coverage/power design."
+  "important_boundary": "The old validation quotas of Y1=600 and Y0=361 and validation candidate cap=5000 are not active design assumptions. They must be replaced by the professor-requested full cluster-aware type-I/coverage/power design.",
+  "Y0_sampling_contract": {
+    "path": "configs/external_validation_y0_sampling_contract_v1.json",
+    "status": "Y0_strata_and_proportions_frozen_quota_pending",
+    "primary_stratum": "common_category_id",
+    "target_proportion_per_category": 0.125,
+    "same_category_vector_across_cells": true
+  }
 }
