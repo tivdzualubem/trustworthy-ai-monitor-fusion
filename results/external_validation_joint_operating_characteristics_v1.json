@@ -1,0 +1,1622 @@
+[
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 0.9993,
+    "absolute_power": 1.0,
+    "joint_power": 0.9993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 0.9717,
+    "absolute_power": 1.0,
+    "joint_power": 0.9717
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.8257,
+    "absolute_power": 0.9993,
+    "joint_power": 0.8257
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.479,
+    "absolute_power": 0.9893,
+    "joint_power": 0.479
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.1903,
+    "absolute_power": 0.8703,
+    "joint_power": 0.19
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 0.993,
+    "absolute_power": 1.0,
+    "joint_power": 0.993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9393,
+    "absolute_power": 1.0,
+    "joint_power": 0.9393
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.7693,
+    "absolute_power": 0.998,
+    "joint_power": 0.7693
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.5003,
+    "absolute_power": 0.964,
+    "joint_power": 0.5003
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.2147,
+    "absolute_power": 0.8337,
+    "joint_power": 0.2147
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.976,
+    "absolute_power": 1.0,
+    "joint_power": 0.976
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.8933,
+    "absolute_power": 1.0,
+    "joint_power": 0.8933
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.7333,
+    "absolute_power": 0.9847,
+    "joint_power": 0.733
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.4807,
+    "absolute_power": 0.9293,
+    "joint_power": 0.4803
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.292,
+    "absolute_power": 0.7757,
+    "joint_power": 0.2897
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 0.993,
+    "absolute_power": 1.0,
+    "joint_power": 0.993
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.8687,
+    "absolute_power": 1.0,
+    "joint_power": 0.8687
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.5173,
+    "absolute_power": 0.9953,
+    "joint_power": 0.5173
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.137,
+    "absolute_power": 0.9063,
+    "joint_power": 0.137
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 0.998,
+    "absolute_power": 1.0,
+    "joint_power": 0.998
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9637,
+    "absolute_power": 1.0,
+    "joint_power": 0.9637
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.802,
+    "absolute_power": 0.9987,
+    "joint_power": 0.802
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.503,
+    "absolute_power": 0.9797,
+    "joint_power": 0.503
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.208,
+    "absolute_power": 0.8577,
+    "joint_power": 0.207
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.9827,
+    "absolute_power": 1.0,
+    "joint_power": 0.9827
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.91,
+    "absolute_power": 0.9997,
+    "joint_power": 0.91
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.737,
+    "absolute_power": 0.9883,
+    "joint_power": 0.7367
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.504,
+    "absolute_power": 0.936,
+    "joint_power": 0.5037
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.2707,
+    "absolute_power": 0.7653,
+    "joint_power": 0.269
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 0.9923,
+    "absolute_power": 1.0,
+    "joint_power": 0.9923
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.8883,
+    "absolute_power": 1.0,
+    "joint_power": 0.8883
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4907,
+    "absolute_power": 0.9993,
+    "joint_power": 0.4907
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.1247,
+    "absolute_power": 0.9287,
+    "joint_power": 0.1247
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 0.999,
+    "absolute_power": 1.0,
+    "joint_power": 0.999
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9633,
+    "absolute_power": 1.0,
+    "joint_power": 0.9633
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.8133,
+    "absolute_power": 0.9997,
+    "joint_power": 0.8133
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.486,
+    "absolute_power": 0.981,
+    "joint_power": 0.486
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.193,
+    "absolute_power": 0.8617,
+    "joint_power": 0.193
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.9803,
+    "absolute_power": 1.0,
+    "joint_power": 0.9803
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.916,
+    "absolute_power": 0.9993,
+    "joint_power": 0.9157
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.7517,
+    "absolute_power": 0.991,
+    "joint_power": 0.7513
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5077,
+    "absolute_power": 0.9453,
+    "joint_power": 0.5063
+  },
+  {
+    "blocks": 100,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.256,
+    "absolute_power": 0.7843,
+    "joint_power": 0.2537
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9057,
+    "absolute_power": 1.0,
+    "joint_power": 0.9057
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.501,
+    "absolute_power": 0.9993,
+    "joint_power": 0.501
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.1037,
+    "absolute_power": 0.945,
+    "joint_power": 0.1037
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9853,
+    "absolute_power": 1.0,
+    "joint_power": 0.9853
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.8583,
+    "absolute_power": 1.0,
+    "joint_power": 0.8583
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.4813,
+    "absolute_power": 0.993,
+    "joint_power": 0.4813
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.1617,
+    "absolute_power": 0.9037,
+    "joint_power": 0.1617
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.9967,
+    "absolute_power": 1.0,
+    "joint_power": 0.9967
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.9613,
+    "absolute_power": 1.0,
+    "joint_power": 0.9613
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.796,
+    "absolute_power": 0.999,
+    "joint_power": 0.796
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.4863,
+    "absolute_power": 0.9813,
+    "joint_power": 0.4863
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.2137,
+    "absolute_power": 0.8397,
+    "joint_power": 0.213
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9387,
+    "absolute_power": 1.0,
+    "joint_power": 0.9387
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.501,
+    "absolute_power": 0.9993,
+    "joint_power": 0.501
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.0603,
+    "absolute_power": 0.967,
+    "joint_power": 0.0603
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9927,
+    "absolute_power": 1.0,
+    "joint_power": 0.9927
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.8877,
+    "absolute_power": 1.0,
+    "joint_power": 0.8877
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.5067,
+    "absolute_power": 0.9977,
+    "joint_power": 0.5067
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.1273,
+    "absolute_power": 0.9257,
+    "joint_power": 0.1273
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.9983,
+    "absolute_power": 1.0,
+    "joint_power": 0.9983
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.9683,
+    "absolute_power": 1.0,
+    "joint_power": 0.9683
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.816,
+    "absolute_power": 1.0,
+    "joint_power": 0.816
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.4807,
+    "absolute_power": 0.981,
+    "joint_power": 0.4807
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.2067,
+    "absolute_power": 0.8557,
+    "joint_power": 0.2063
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9527,
+    "absolute_power": 1.0,
+    "joint_power": 0.9527
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4993,
+    "absolute_power": 1.0,
+    "joint_power": 0.4993
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.0467,
+    "absolute_power": 0.9773,
+    "joint_power": 0.0467
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9957,
+    "absolute_power": 1.0,
+    "joint_power": 0.9957
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.8987,
+    "absolute_power": 1.0,
+    "joint_power": 0.8987
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.4757,
+    "absolute_power": 0.999,
+    "joint_power": 0.4757
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.1177,
+    "absolute_power": 0.9373,
+    "joint_power": 0.1177
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 0.998,
+    "absolute_power": 1.0,
+    "joint_power": 0.998
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.9713,
+    "absolute_power": 1.0,
+    "joint_power": 0.9713
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.8257,
+    "absolute_power": 0.9997,
+    "joint_power": 0.8257
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5007,
+    "absolute_power": 0.9873,
+    "joint_power": 0.5007
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.1963,
+    "absolute_power": 0.863,
+    "joint_power": 0.1963
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9657,
+    "absolute_power": 1.0,
+    "joint_power": 0.9657
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4893,
+    "absolute_power": 1.0,
+    "joint_power": 0.4893
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.042,
+    "absolute_power": 0.9873,
+    "joint_power": 0.042
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.9363,
+    "absolute_power": 1.0,
+    "joint_power": 0.9363
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.509,
+    "absolute_power": 1.0,
+    "joint_power": 0.509
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.0693,
+    "absolute_power": 0.9647,
+    "joint_power": 0.0693
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.9943,
+    "absolute_power": 1.0,
+    "joint_power": 0.9943
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.8763,
+    "absolute_power": 1.0,
+    "joint_power": 0.8763
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5,
+    "absolute_power": 0.999,
+    "joint_power": 0.5
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.127,
+    "absolute_power": 0.923,
+    "joint_power": 0.127
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9847,
+    "absolute_power": 1.0,
+    "joint_power": 0.9847
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4987,
+    "absolute_power": 1.0,
+    "joint_power": 0.4987
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.0187,
+    "absolute_power": 0.9947,
+    "joint_power": 0.0187
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 0.9997,
+    "absolute_power": 1.0,
+    "joint_power": 0.9997
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.9527,
+    "absolute_power": 1.0,
+    "joint_power": 0.9527
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.493,
+    "absolute_power": 1.0,
+    "joint_power": 0.493
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.049,
+    "absolute_power": 0.9737,
+    "joint_power": 0.049
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.9973,
+    "absolute_power": 1.0,
+    "joint_power": 0.9973
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.8963,
+    "absolute_power": 1.0,
+    "joint_power": 0.8963
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5033,
+    "absolute_power": 0.998,
+    "joint_power": 0.5033
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.1147,
+    "absolute_power": 0.9333,
+    "joint_power": 0.1147
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9897,
+    "absolute_power": 1.0,
+    "joint_power": 0.9897
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.5057,
+    "absolute_power": 1.0,
+    "joint_power": 0.5057
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.009,
+    "absolute_power": 0.9983,
+    "joint_power": 0.009
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.9643,
+    "absolute_power": 1.0,
+    "joint_power": 0.9643
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.4883,
+    "absolute_power": 1.0,
+    "joint_power": 0.4883
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.0467,
+    "absolute_power": 0.9813,
+    "joint_power": 0.0467
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 0.995,
+    "absolute_power": 1.0,
+    "joint_power": 0.995
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.8987,
+    "absolute_power": 1.0,
+    "joint_power": 0.8987
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5067,
+    "absolute_power": 0.999,
+    "joint_power": 0.5067
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.108,
+    "absolute_power": 0.9353,
+    "joint_power": 0.108
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 0.9957,
+    "absolute_power": 1.0,
+    "joint_power": 0.9957
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4993,
+    "absolute_power": 1.0,
+    "joint_power": 0.4993
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.005,
+    "absolute_power": 0.9993,
+    "joint_power": 0.005
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.985,
+    "absolute_power": 1.0,
+    "joint_power": 0.985
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.4887,
+    "absolute_power": 1.0,
+    "joint_power": 0.4887
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.017,
+    "absolute_power": 0.9963,
+    "joint_power": 0.017
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.9547,
+    "absolute_power": 1.0,
+    "joint_power": 0.9547
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5077,
+    "absolute_power": 1.0,
+    "joint_power": 0.5077
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 20,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.0523,
+    "absolute_power": 0.9777,
+    "joint_power": 0.0523
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4907,
+    "absolute_power": 1.0,
+    "joint_power": 0.4907
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.0003,
+    "absolute_power": 1.0,
+    "joint_power": 0.0003
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.9927,
+    "absolute_power": 1.0,
+    "joint_power": 0.9927
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.504,
+    "absolute_power": 1.0,
+    "joint_power": 0.504
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.0113,
+    "absolute_power": 0.9973,
+    "joint_power": 0.0113
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.9647,
+    "absolute_power": 1.0,
+    "joint_power": 0.9647
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5137,
+    "absolute_power": 1.0,
+    "joint_power": 0.5137
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.042,
+    "absolute_power": 0.9783,
+    "joint_power": 0.042
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.02,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.03,
+    "NI_power": 0.4977,
+    "absolute_power": 1.0,
+    "joint_power": 0.4977
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "degradation": 0.04,
+    "NI_power": 0.0,
+    "absolute_power": 1.0,
+    "joint_power": 0.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.02,
+    "NI_power": 0.9943,
+    "absolute_power": 1.0,
+    "joint_power": 0.9943
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.03,
+    "NI_power": 0.5097,
+    "absolute_power": 1.0,
+    "joint_power": 0.5097
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "degradation": 0.04,
+    "NI_power": 0.0057,
+    "absolute_power": 0.9977,
+    "joint_power": 0.0057
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.0,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.01,
+    "NI_power": 1.0,
+    "absolute_power": 1.0,
+    "joint_power": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.02,
+    "NI_power": 0.97,
+    "absolute_power": 1.0,
+    "joint_power": 0.97
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.03,
+    "NI_power": 0.5003,
+    "absolute_power": 1.0,
+    "joint_power": 0.5003
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "degradation": 0.04,
+    "NI_power": 0.0367,
+    "absolute_power": 0.9837,
+    "joint_power": 0.0367
+  }
+]
