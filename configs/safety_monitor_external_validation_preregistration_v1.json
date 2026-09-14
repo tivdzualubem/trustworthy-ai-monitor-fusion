@@ -157,7 +157,8 @@
       "model_id": "Qwen/Qwen3Guard-Gen-4B",
       "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
       "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
-      "status": "pinned_runtime_preflight_pending"
+      "status": "verified_precollection_component",
+      "runtime_preflight_evidence": "data/metadata/external_validation_qwen3guard_kaggle_preflight_v1.json"
     }
   ],
   "multiplicity": {
@@ -287,5 +288,12 @@
     "model_fitting_or_finetuning": false,
     "score_direction": "larger_is_more_harmful"
   },
-  "monitor_panel_status": "contemporary_qwen3guard_pinned_runtime_preflight_and_crosswalk_pending"
+  "monitor_panel_status": "frozen_with_contemporary_qwen3guard_crosswalk_pending",
+  "contemporary_panel_decision": {
+    "included": "Qwen/Qwen3Guard-Gen-4B",
+    "included_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+    "runtime_preflight_passed": true,
+    "shieldstral_1_0_status": "not_in_v1_confirmatory_panel; optional future secondary comparator only unless separately frozen before W0",
+    "reason": "The preregistration requirement to add and pin a contemporary comparator is satisfied by the exact-revision Qwen3Guard-Gen-4B response-moderation comparator with successful frozen-runtime preflight."
+  }
 }

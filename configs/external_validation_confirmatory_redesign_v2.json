@@ -76,7 +76,6 @@
     "freeze_Y0_strata_and_proportions",
     "review_and_freeze_monitor_native_to_common_ontology_crosswalk",
     "freeze_terminal_batch_rule",
-    "add_and_pin_contemporary_comparator_monitor_or_monitors",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
     "complete_final_precollection_manifest"
   ],
@@ -143,21 +142,14 @@
     "source_generation_contract": {
       "path": "configs/external_validation_source_generation_contract_v1.json",
       "status": "frozen_precollection_component"
+    },
+    "contemporary_monitor_panel": {
+      "status": "frozen_qwen3guard_comparator",
+      "model_id": "Qwen/Qwen3Guard-Gen-4B",
+      "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+      "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
+      "preflight_evidence": "data/metadata/external_validation_qwen3guard_kaggle_preflight_v1.json"
     }
   },
-  "in_progress_pre_W0_components": {
-    "contemporary_monitor_panel": {
-      "qwen3guard": {
-        "model_id": "Qwen/Qwen3Guard-Gen-4B",
-        "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
-        "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
-        "status": "pinned_runtime_preflight_pending"
-      },
-      "shieldstral_candidate": {
-        "model_id": "mistralai/Shieldstral-1.0-3B",
-        "revision": "003ec7e2b0bab5f0e6307edbaf186fa5822b76f5",
-        "status": "candidate_not_yet_pinned_runtime_dependency_and_preflight_pending"
-      }
-    }
-  }
+  "in_progress_pre_W0_components": {}
 }

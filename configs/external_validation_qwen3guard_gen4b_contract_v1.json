@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_qwen3guard_gen4b_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "identity_parser_and_inference_contract_frozen_runtime_preflight_pending",
+  "status": "frozen_precollection_component",
   "purpose": "Pin Qwen3Guard-Gen-4B as a contemporary response-moderation comparator before W0 using its official response-moderation template and parser semantics.",
   "model": {
     "family": "Qwen3Guard",
@@ -72,9 +72,9 @@
     "required_environment": "configs/external_validation_kaggle_runtime_lock_v1.json",
     "required_transformers_version": "5.16.1",
     "hardware_class": "NVIDIA Tesla T4 x2",
-    "runtime_dtype": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
-    "gpu_layout": "TO_BE_VERIFIED_BY_PRECOLLECTION_PREFLIGHT",
-    "preflight_passed": false,
+    "runtime_dtype": "float16",
+    "gpu_layout": "single_gpu_cuda0",
+    "preflight_passed": true,
     "study_examples_used_for_preflight": false,
     "preflight_script": "scripts/preflight_external_validation_qwen3guard_kaggle.py",
     "preflight_output": "external_validation_qwen3guard_kaggle_preflight_v1.json",
@@ -98,7 +98,18 @@
       ],
       "rule": "strip an optional leading 'NVIDIA ' vendor prefix and normalize whitespace before equality comparison",
       "scientific_or_hardware_change": false
-    }
+    },
+    "preflight_evidence": {
+      "path": "data/metadata/external_validation_qwen3guard_kaggle_preflight_v1.json",
+      "sha256": "132dde5ccc0285e811e743cc1d44d86c0360cfcb84423f08eae4595d0a4baf44",
+      "created_at_utc": "2026-09-14T18:52:22.625054+00:00",
+      "overall_pass": true,
+      "check_count": 24,
+      "failed_check_count": 0,
+      "model_load_seconds": 7.792573795999942,
+      "peak_memory_fraction_gpu0": 0.5895599665949947
+    },
+    "preflight_result_reviewed": true
   },
   "existing_repo_implementation": {
     "path": "scripts/score_qwen3guard_official_colab.py",
@@ -121,6 +132,7 @@
   "gate": {
     "panel_membership_pinned": true,
     "runtime_preflight_required_before_panel_is_fully_frozen": true,
-    "fresh_confirmatory_scoring_authorized": false
+    "fresh_confirmatory_scoring_authorized": false,
+    "runtime_preflight_satisfied": true
   }
 }

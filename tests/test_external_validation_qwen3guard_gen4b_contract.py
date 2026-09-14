@@ -35,15 +35,17 @@ def test_qwen3guard_parser_and_score_mapping_are_frozen():
     assert c["score_contract"]["threshold_retuning_on_validation_cells_allowed"] is False
 
 
-def test_qwen3guard_runtime_preflight_is_still_required():
+def test_qwen3guard_runtime_preflight_passed_and_scoring_still_globally_blocked():
     c = load("external_validation_qwen3guard_gen4b_contract_v1.json")
-    assert c["runtime"]["preflight_passed"] is False
-    assert c["gate"]["panel_membership_pinned"] is True
-    assert c["gate"]["runtime_preflight_required_before_panel_is_fully_frozen"] is True
+    assert c["status"] == "frozen_precollection_component"
+    assert c["runtime"]["preflight_passed"] is True
+    assert c["runtime"]["runtime_dtype"] == "float16"
+    assert c["runtime"]["gpu_layout"] == "single_gpu_cuda0"
+    assert c["gate"]["runtime_preflight_satisfied"] is True
     assert c["gate"]["fresh_confirmatory_scoring_authorized"] is False
 
 
-def test_runtime_registry_contains_pinned_qwen3guard_pending_preflight():
+def test_runtime_registry_contains_verified_qwen3guard():
     r = load("external_validation_model_runtime_registry_v1.json")
     hits = [
         m for m in r["models"]["safety_monitors"]
@@ -51,18 +53,20 @@ def test_runtime_registry_contains_pinned_qwen3guard_pending_preflight():
     ]
     assert len(hits) == 1
     assert hits[0]["revision"] == "6ec42827da0c1ff11e7a49dc269d2e810d27e108"
-    assert hits[0]["preflight_passed"] is False
+    assert hits[0]["preflight_passed"] is True
+    assert hits[0]["status"] == "verified_precollection_component"
 
 
-def test_prereg_contains_qwen3guard_and_panel_remains_pending():
+def test_prereg_panel_is_frozen_with_qwen3guard():
     p = load("safety_monitor_external_validation_preregistration_v1.json")
     ids = [m["model_id"] for m in p["monitors"]]
     assert "Qwen/Qwen3Guard-Gen-4B" in ids
-    assert p["monitor_panel_status"] == "contemporary_qwen3guard_pinned_runtime_preflight_and_crosswalk_pending"
+    assert p["monitor_panel_status"] == "frozen_with_contemporary_qwen3guard_crosswalk_pending"
 
 
-def test_redesign_keeps_panel_blocker_until_preflight():
+def test_redesign_closes_comparator_blocker_but_keeps_crosswalk_blocker():
     r = load("external_validation_confirmatory_redesign_v2.json")
-    assert "add_and_pin_contemporary_comparator_monitor_or_monitors" in r["mandatory_pre_W0_blockers"]
-    item = r["in_progress_pre_W0_components"]["contemporary_monitor_panel"]["qwen3guard"]
-    assert item["status"] == "pinned_runtime_preflight_pending"
+    assert "add_and_pin_contemporary_comparator_monitor_or_monitors" not in r["mandatory_pre_W0_blockers"]
+    assert "review_and_freeze_monitor_native_to_common_ontology_crosswalk" in r["mandatory_pre_W0_blockers"]
+    done = r["completed_pre_W0_components"]["contemporary_monitor_panel"]
+    assert done["status"] == "frozen_qwen3guard_comparator"
