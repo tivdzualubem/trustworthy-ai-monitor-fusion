@@ -295,5 +295,8 @@
     "runtime_preflight_passed": true,
     "shieldstral_1_0_status": "not_in_v1_confirmatory_panel; optional future secondary comparator only unless separately frozen before W0",
     "reason": "The preregistration requirement to add and pin a contemporary comparator is satisfied by the exact-revision Qwen3Guard-Gen-4B response-moderation comparator with successful frozen-runtime preflight."
-  }
+  },
+  "ontology_crosswalk_status": "frozen_precollection_component",
+  "ontology_crosswalk_contract": "configs/external_validation_ontology_crosswalk_contract_v1.json",
+  "remaining_pre_W0_requirements": []
 }

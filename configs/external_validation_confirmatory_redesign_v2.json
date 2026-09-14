@@ -74,7 +74,6 @@
     "revise_annotation_adjudication_and_unanimous_audit_consequences",
     "freeze_separate_rater_pool_contract",
     "freeze_Y0_strata_and_proportions",
-    "review_and_freeze_monitor_native_to_common_ontology_crosswalk",
     "freeze_terminal_batch_rule",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
     "complete_final_precollection_manifest"
@@ -149,6 +148,10 @@
       "revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
       "contract": "configs/external_validation_qwen3guard_gen4b_contract_v1.json",
       "preflight_evidence": "data/metadata/external_validation_qwen3guard_kaggle_preflight_v1.json"
+    },
+    "ontology_crosswalk": {
+      "status": "frozen",
+      "contract": "configs/external_validation_ontology_crosswalk_contract_v1.json"
     }
   },
   "in_progress_pre_W0_components": {}
