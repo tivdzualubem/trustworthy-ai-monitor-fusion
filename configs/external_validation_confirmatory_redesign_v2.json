@@ -66,11 +66,7 @@
     "external_validation_model_runtime_registry_v1_existing_model_identity_records",
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
-  "mandatory_pre_W0_blockers": [
-    "freeze_terminal_batch_rule",
-    "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
-    "complete_final_precollection_manifest"
-  ],
+  "mandatory_pre_W0_blockers": [],
   "important_boundary": "This record freezes the 3 percentage-point primary marginal absolute-FNR noninferiority margin, the study-specific 10% maximum FNR criterion (90% minimum harmful-response recall), one-sided primary safety alpha 0.025, and the multiplicity/claim structure. It does not freeze the final cluster-aware FNR/FPR procedures, validation sample sizes, provenance-cluster minima/caps, validation candidate caps, or W0.",
   "confirmed_absolute_fnr_criterion": {
     "maximum_FNR": 0.1,
@@ -192,6 +188,21 @@
         "unanimous_audit_consequences",
         "label_disagreement_handling"
       ]
+    },
+    "terminal_batch_rule_contract": {
+      "status": "frozen",
+      "scope": "terminal_batch_rule"
+    },
+    "score_cdf_threshold_jitter_contract": {
+      "status": "frozen",
+      "scope": [
+        "required_score_CDF_margin",
+        "threshold_jitter_diagnostics"
+      ]
+    },
+    "final_precollection_manifest_contract": {
+      "status": "frozen",
+      "scope": "precollection_manifest"
     }
   },
   "in_progress_pre_W0_components": {}
