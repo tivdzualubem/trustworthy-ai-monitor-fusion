@@ -1,0 +1,32 @@
+{
+  "contract_id": "external_validation_precollection_freeze_guard_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "guard_implementation_frozen_final_manifest_not_yet_created",
+  "purpose": "Fail closed before W0 unless the final precollection manifest is complete and every protected artifact matches its frozen SHA256.",
+  "final_manifest_requirements": {
+    "manifest_id": "external_validation_precollection_manifest_v1",
+    "complete": true,
+    "blockers": [],
+    "W0_collection_started_at_freeze": false,
+    "fresh_monitor_scoring_started_at_freeze": false,
+    "confirmation_domain_retuning_allowed": false,
+    "existing_data_discovery_closed": true,
+    "component_freeze_commit_required": true,
+    "protected_files_sha256_required": true
+  },
+  "verification_rules": {
+    "missing_protected_file": "fail",
+    "protected_file_hash_mismatch": "fail",
+    "nonempty_blocker_list": "fail",
+    "manifest_complete_false": "fail",
+    "W0_already_started_at_freeze": "fail",
+    "fresh_monitor_scoring_already_started_at_freeze": "fail",
+    "confirmation_domain_retuning_allowed_true": "fail",
+    "existing_data_discovery_closed_false": "fail"
+  },
+  "scope": {
+    "this_component_does_not_create_the_final_manifest": true,
+    "final_protected_file_list_is_defined_only_after_all_precollection_components_are complete": true,
+    "unresolved_component_names_or_paths_are_not_guessed_here": true
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "registry_id": "external_validation_model_runtime_registry_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "verified_precollection_component",
+  "scope": {
+    "includes": [
+      "model_identity",
+      "immutable_model_revision_or_checkpoint_hash",
+      "hardware_class",
+      "runtime_precision",
+      "quantization_status",
+      "software_environment",
+      "precollection_feasibility_evidence"
+    ],
+    "excludes_until_later_precollection_components": [
+      "target_system_policy",
+      "generation_parameters",
+      "source_generation_instructions",
+      "common_ontology",
+      "monitor_prompt_policy_mapping",
+      "collection_windows",
+      "annotation_contract",
+      "dependency_rules",
+      "threshold_implementation",
+      "confirmatory_analysis_implementation"
+    ]
+  },
+  "execution_boundary": {
+    "existing_data_discovery_closed": true,
+    "W0_collection_started": false,
+    "fresh_monitor_scoring_started": false,
+    "confirmation_domain_retuning_allowed": false
+  },
+  "hardware": {
+    "platform_class": "Kaggle managed notebook",
+    "accelerator_class": "NVIDIA Tesla T4 x2",
+    "gpu_count": 2,
+    "per_gpu_memory_mib": 15360,
+    "compute_capability": "7.5",
+    "preflight_driver_version": "580.159.04",
+    "preflight_nvidia_smi_cuda_version": "13.0",
+    "requirement": "Confirmatory execution must use the frozen accelerator class. Exact driver metadata is recorded at each execution rather than treated as an immutable study pin, and the observed driver must support the frozen runtime environment."
+  },
+  "software_environment": {
+    "authoritative_runtime_lock": {
+      "path": "configs/external_validation_kaggle_runtime_lock_v1.json",
+      "runtime_lock_id": "external_validation_kaggle_runtime_lock_v1",
+      "sha256": "0402b8677e8de8cac0ec376d24758e1340e34968a4b69280905deea6956570b2"
+    },
+    "execution_scope": "prospective external-validation target generation, model-source generation, and safety-monitor inference",
+    "platform": "Kaggle managed notebook",
+    "local_project_environment_separate": true,
+    "historical_project_runtime_manifests_authoritative": false,
+    "scoped_dependency_compatibility": "PASS"
+  },
+  "models": {
+    "target_assistant": {
+      "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "checkpoint_native_dtype": "bfloat16",
+      "runtime_dtype": "float16",
+      "quantized": false,
+      "gpu_layout": "single_gpu",
+      "preflight_peak_used_gib": [
+        7.6
+      ],
+      "preflight_passed": true
+    },
+    "model_generated_source": {
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "checkpoint_native_dtype": "bfloat16",
+      "runtime_dtype": "float16",
+      "quantized": false,
+      "gpu_layout": "two_gpu_balanced",
+      "max_memory_per_gpu": "13GiB",
+      "preflight_peak_used_gib": [
+        6.91,
+        6.86
+      ],
+      "preflight_passed": true
+    },
+    "safety_monitors": [
+      {
+        "family": "Meta Llama Guard",
+        "model_id": "meta-llama/Llama-Guard-3-1B",
+        "provenance": "official_meta_direct_checkpoint",
+        "checkpoint_native_dtype": "bfloat16",
+        "runtime_dtype": "bfloat16",
+        "quantized": false,
+        "runtime": "official Meta llama-models raw-checkpoint implementation",
+        "gpu_layout": "single_gpu",
+        "checkpoint_integrity": {
+          "meta_checklist_md5": {
+            "consolidated.00.pth": "f8926f4390aeaa0a07984ef00ed81ab1",
+            "params.json": "ea525bcaf082df3020dadc7bcc6451a1",
+            "tokenizer.model": "08292403f8b173e7524d7fba7bbbd2d3"
+          },
+          "sha256": {
+            "consolidated.00.pth": "10a6c07a5556355be37791a225cdf63352c37de1733910a2ab4b3e70077d8fd3",
+            "params.json": "1df36ad4278fc38db158ddbf5799f99d383d6b96cc2d190fc0b45fa09c6f0011",
+            "tokenizer.model": "82e9d31979e92ab929cd544440f129d9ecd797b69e327f80f17e1c50d5551b55",
+            "checklist.chk": "9c8e8e6faf7f3828b72b074f078546a8e055b765ee1a5208ea3221a4a25ed7c8"
+          }
+        },
+        "verdict_tokens": {
+          "safe": 19193,
+          "unsafe": 39257
+        },
+        "preflight_peak_used_gib": [
+          3.05
+        ],
+        "preflight_passed": true
+      },
+      {
+        "family": "Google ShieldGemma",
+        "model_id": "google/shieldgemma-2b",
+        "revision": "d1dffc9c8c9237a90aab09c61383791e718ef9e8",
+        "checkpoint_native_dtype": "bfloat16",
+        "runtime_dtype": "float16",
+        "quantized": false,
+        "gpu_layout": "single_gpu",
+        "verdict_tokens": {
+          "Yes": 3553,
+          "No": 1294
+        },
+        "preflight_peak_used_gib": [
+          5.03
+        ],
+        "preflight_passed": true
+      },
+      {
+        "family": "IBM Granite Guardian",
+        "model_id": "ibm-granite/granite-guardian-3.3-8b",
+        "revision": "b3421eda4ba6fc9f9a71121d7e62de08827469a4",
+        "checkpoint_native_dtype": "bfloat16",
+        "runtime_dtype": "float16",
+        "quantized": false,
+        "gpu_layout": "two_gpu_balanced",
+        "max_memory_per_gpu": "13GiB",
+        "verdict_token_matching": {
+          "normalization": "decode_then_strip_then_lower",
+          "yes_token_ids": [
+            7134,
+            9155,
+            10100,
+            10922,
+            19354,
+            24065
+          ],
+          "no_token_ids": [
+            1289,
+            1347,
+            2023,
+            2576,
+            3139,
+            4435
+          ]
+        },
+        "preflight_peak_used_gib": [
+          7.59,
+          7.95
+        ],
+        "preflight_passed": true
+      }
+    ]
+  },
+  "preflight_boundary": {
+    "study_examples_used": false,
+    "W0_or_W1_examples_used": false,
+    "purpose": "infrastructure, loading, tokenizer, and score-extraction feasibility only",
+    "date": "2026-09-01"
+  }
+}

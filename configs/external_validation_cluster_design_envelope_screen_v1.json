@@ -1,0 +1,92 @@
+{
+  "contract_id": "external_validation_cluster_design_envelope_screen_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "screen_complete_tight_envelope_advances_to_power_typeI_grid_not_frozen",
+  "professor_requirement_addressed": "determine a valid cluster-size envelope before the full type-I/power grid, while preserving the response-average marginal FNR estimand and exact matched independent provenance-cluster counts",
+  "inference_candidate": "restricted-null beta-binomial nuisance plug-in Monte Carlo test",
+  "reason_for_returning_to_this_candidate": "among tested procedures it had the best calibration under matched cluster counts and only failed clearly under high/vhigh cluster-size variation in the logit-normal stress generator",
+  "screen_purpose": "identify whether a bounded, operationally enforceable provenance-cluster size envelope can remove the misspecification-driven type-I inflation without changing the professor-approved estimand or claim",
+  "candidate_cluster_size_envelopes": {
+    "tight": [
+      15,
+      18,
+      20,
+      22,
+      25
+    ],
+    "moderate": [
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "wider": [
+      8,
+      14,
+      20,
+      26,
+      32
+    ]
+  },
+  "cluster_count_grid_per_cell": [
+    20,
+    40,
+    60
+  ],
+  "screen_generators": [
+    "beta-binomial",
+    "calibrated logit-normal random-intercept"
+  ],
+  "screen_boundaries": {
+    "relative_NI_lowrisk": {
+      "reference_FNR": 0.02,
+      "comparison_FNR": 0.05,
+      "ICC_reference": 0.05,
+      "ICC_comparison": 0.1,
+      "alpha": 0.025
+    },
+    "relative_NI_typical": {
+      "reference_FNR": 0.05,
+      "comparison_FNR": 0.08,
+      "ICC_reference": 0.05,
+      "ICC_comparison": 0.1,
+      "alpha": 0.025
+    },
+    "absolute_FNR": {
+      "boundary": 0.1,
+      "ICC": 0.1,
+      "alpha": 0.025
+    },
+    "FPR": {
+      "boundary": 0.05,
+      "ICC": 0.1,
+      "alpha": 0.05
+    }
+  },
+  "screen_simulation": {
+    "outer_repetitions_per_task": 1000,
+    "inner_null_repetitions": 199,
+    "checkpointing": true,
+    "parallel_workers_max": 3
+  },
+  "screen_decision_rule": "A design point is clearly inadmissible if the lower endpoint of the Monte Carlo 95% Clopper-Pearson interval exceeds the nominal alpha in any tested boundary/generator combination. This screen is only for pruning. Any surviving design must be rechecked at high repetitions with beta-binomial, two-point, and logit-normal generators before final freeze.",
+  "important": "Do not interpret a passing screen as a frozen design or sample size. The next step after this screen is a focused high-repetition confirmation of the surviving envelope/G region, followed immediately by the professor-requested full type-I/power grid and Y1/Y0 quota derivation.",
+  "W0_remains_blocked": true,
+  "screen_result": {
+    "all_tested_envelope_G_combinations_screen_admissible": true,
+    "candidate_advanced": "tight",
+    "candidate_cluster_sizes": [
+      15,
+      18,
+      20,
+      22,
+      25
+    ],
+    "candidate_mean_cluster_size": 20.0,
+    "candidate_minimum_cluster_size": 15,
+    "candidate_maximum_cluster_size": 25,
+    "reason": "All screen designs survived the clear-failure rule; the tight envelope is advanced because it is the narrowest operationally feasible design and therefore limits cluster-size heterogeneity without changing the response-average estimand.",
+    "important": "This advances a candidate envelope only. The minimum/cap and sample sizes are not frozen until the full type-I/power grid and targeted high-repetition confirmation are complete."
+  }
+}

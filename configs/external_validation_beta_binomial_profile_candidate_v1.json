@@ -1,0 +1,37 @@
+{
+  "contract_id": "external_validation_beta_binomial_profile_candidate_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "promising_screen_not_final_advance_to_constrained_null_monte_carlo",
+  "purpose": "Test whether likelihood-based clustered-binomial inference is sufficiently calibrated to justify a later constrained-null bootstrap implementation.",
+  "model": {
+    "sampling_model": "beta-binomial with cell-specific marginal probability and ICC",
+    "one_sample_test": "signed-root profile likelihood ratio against the boundary probability",
+    "two_sample_NI_test": "signed-root profile likelihood ratio with separate cell ICCs and constrained null FNR(comparison)-FNR(reference)=0.03",
+    "estimand": "response-average marginal probability / risk difference",
+    "one_sided_primary_safety_alpha": 0.025,
+    "FPR_alpha": 0.05
+  },
+  "robustness_screen": {
+    "generator_1": "beta-binomial, correctly specified",
+    "generator_2": "two-point random-probability cluster mixture matched to the same marginal probability and ICC, deliberately misspecified relative to the beta-binomial likelihood",
+    "cluster_size_variation": "equal through CV about 1",
+    "unequal_ICCs": true,
+    "matched_and_near_matched_cluster_counts": true
+  },
+  "decision_rule": "Do not freeze profile-LR inference from this screen. If both correctly specified and misspecified generators are promising, implement constrained-null parametric bootstrap and repeat calibration before power sizing.",
+  "W0_remains_blocked": true,
+  "screen_result": {
+    "repetitions_per_scenario": 1200,
+    "beta_binomial_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.0325,
+      "worst_absolute_FNR_false_pass": 0.035,
+      "worst_FPR_false_pass": 0.0642
+    },
+    "two_point_misspecification_generator": {
+      "worst_relative_FNR_NI_false_pass": 0.0167,
+      "worst_absolute_FNR_false_pass": 0.0158,
+      "worst_FPR_false_pass": 0.0525
+    },
+    "decision": "Profile likelihood is materially more promising than prior Wald/score candidates and did not collapse under the deliberate two-point misspecification generator, but it is not sufficiently calibrated to freeze."
+  }
+}

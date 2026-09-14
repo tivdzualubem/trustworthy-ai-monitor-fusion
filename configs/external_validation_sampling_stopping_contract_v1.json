@@ -1,0 +1,87 @@
+{
+  "contract_id": "external_validation_sampling_stopping_contract_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "validation_quota_portion_superseded_pending_cluster_design",
+  "checkpoint_unit": "A_opt retains current fixed 250-candidate checkpoint; validation checkpoint and terminal-batch rule are pending final cluster-aware design freeze",
+  "candidate_batch_size_per_cell": null,
+  "cells": {
+    "A_opt": {
+      "window": "W0",
+      "required_eligible_Y1_dependency_representatives": 200,
+      "required_eligible_Y0_dependency_representatives": 250,
+      "candidate_cap": 2500,
+      "role": "threshold_selection_only"
+    },
+    "A_val": {
+      "window": "W0",
+      "required_eligible_Y1_dependency_representatives": null,
+      "required_eligible_Y0_dependency_representatives": null,
+      "candidate_cap": null,
+      "role": "independent_baseline_validation",
+      "quota_status": "pending_full_cluster_aware_design_grid"
+    },
+    "T": {
+      "window": "W1",
+      "required_eligible_Y1_dependency_representatives": null,
+      "required_eligible_Y0_dependency_representatives": null,
+      "candidate_cap": null,
+      "role": "temporal_anchor",
+      "quota_status": "pending_full_cluster_aware_design_grid"
+    },
+    "S": {
+      "window": "W1",
+      "required_eligible_Y1_dependency_representatives": null,
+      "required_eligible_Y0_dependency_representatives": null,
+      "candidate_cap": null,
+      "role": "source_shift",
+      "quota_status": "pending_full_cluster_aware_design_grid"
+    },
+    "F": {
+      "window": "W1",
+      "required_eligible_Y1_dependency_representatives": null,
+      "required_eligible_Y0_dependency_representatives": null,
+      "candidate_cap": null,
+      "role": "attack_family_shift",
+      "quota_status": "pending_full_cluster_aware_design_grid"
+    },
+    "SF": {
+      "window": "W1",
+      "required_eligible_Y1_dependency_representatives": null,
+      "required_eligible_Y0_dependency_representatives": null,
+      "candidate_cap": null,
+      "role": "joint_source_attack_shift",
+      "quota_status": "pending_full_cluster_aware_design_grid"
+    }
+  },
+  "counting_rule": {
+    "quota_counts_are_post_label_post_exclusion_dependency_representatives": true,
+    "candidate_count_is_raw_collected_prompt_response_pairs": true,
+    "eligible_Y1_plus_Y0_may_be_less_than_candidates_due_to_exclusions_or_dependency_collapse": true
+  },
+  "stopping_rule": {
+    "A_opt": "current threshold-selection rule remains available; W0 itself remains blocked by the precollection manifest",
+    "validation_cells": "no validation collection authorization until Y1/Y0 quotas, provenance-cluster minima/caps, candidate cap, and terminal-batch rule are frozen",
+    "performance_based_stopping_forbidden": true
+  },
+  "top_up_rule": {
+    "permitted_only_before_any_fresh_monitor_scoring": true,
+    "allowed_reasons": [
+      "prespecified_eligibility_failure",
+      "label_count_shortfall",
+      "duplicate_or_dependency_exclusion",
+      "quota_shortfall"
+    ],
+    "monitor_output_based_reason_forbidden": true,
+    "FNR_based_reason_forbidden": true,
+    "FPR_based_reason_forbidden": true,
+    "confidence_interval_based_reason_forbidden": true,
+    "significance_based_reason_forbidden": true
+  },
+  "execution_boundary": {
+    "monitor_outputs_unavailable_during_collection_and_labeling": true,
+    "no_collection_after_fresh_monitor_scoring_starts": true,
+    "no_post_scoring_replacement": true,
+    "no_source_attack_target_or_label_rule_change_to_rescue_a_cell": true
+  },
+  "important_boundary": "The old validation quotas of Y1=600 and Y0=361 and validation candidate cap=5000 are not active design assumptions. They must be replaced by the professor-requested full cluster-aware type-I/coverage/power design."
+}

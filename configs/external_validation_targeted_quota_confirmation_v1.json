@@ -1,0 +1,58 @@
+{
+  "contract_id": "external_validation_targeted_quota_confirmation_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "targeted_high_rep_confirmation_not_frozen",
+  "professor_requirement_addressed": "finalize the cluster-aware FNR/FPR procedures and use the full type-I/power design to determine provenance-cluster minima/caps and Y1/Y0 quotas",
+  "inference_candidate": "restricted-null beta-binomial nuisance plug-in Monte Carlo test preserving exact observed cluster-size vectors",
+  "cluster_design": {
+    "exact_equal_independent_provenance_cluster_counts_for_relative_NI": true,
+    "allowed_cluster_size_range_candidate": [15, 25],
+    "reference_pattern": [15, 18, 20, 22, 25],
+    "comparison_stress_pattern": [15, 15, 20, 25, 25],
+    "both_patterns_mean": 20,
+    "purpose_of_mismatched_patterns": "confirm calibration under unequal but bounded cluster-size distributions while preserving equal independent cluster counts and equal expected rows"
+  },
+  "candidate_G_grids": {
+    "Y1_per_cell": [120, 140, 160],
+    "Y0_per_cell": [80, 100, 120]
+  },
+  "simulation": {
+    "outer_repetitions_per_task": 3000,
+    "inner_null_repetitions": 999,
+    "generators": [
+      "beta-binomial",
+      "two-point random-probability mixture",
+      "calibrated logit-normal random-intercept"
+    ],
+    "parallel_workers_max": 3,
+    "checkpointing": "one completed-task JSON per task"
+  },
+  "typeI_gate": {
+    "relative_FNR_NI_alpha": 0.025,
+    "absolute_FNR_alpha": 0.025,
+    "FPR_alpha": 0.05,
+    "rule": "no tested generator/boundary may have a Monte Carlo 95% Clopper-Pearson lower endpoint above its nominal alpha"
+  },
+  "power_gate": {
+    "planning_target": 0.80,
+    "primary_design_generators": [
+      "beta-binomial",
+      "logit-normal"
+    ],
+    "two_point_role": "stress sensitivity for power; still mandatory for type-I validity",
+    "final_rule": "for a quota candidate, every primary power task under beta-binomial and logit-normal must have Monte Carlo 95% lower confidence bound at least 0.80",
+    "Y1_primary_power_tasks": [
+      "relative_NI_zero_diff_lowrisk",
+      "relative_NI_zero_diff_primary",
+      "absolute_FNR_true_0p05"
+    ],
+    "Y0_primary_power_task": "FPR_true_0p025"
+  },
+  "boundaries": {
+    "relative_FNR_NI_margin": 0.03,
+    "absolute_FNR_ceiling": 0.10,
+    "FPR_constraint": 0.05
+  },
+  "important": "The 80% planning target is retained from the project's earlier prespecified planning-power convention; it is not attributed to the professor. This run does not authorize W0. If no candidate passes, stop rather than continue estimator hunting.",
+  "W0_remains_blocked": true
+}

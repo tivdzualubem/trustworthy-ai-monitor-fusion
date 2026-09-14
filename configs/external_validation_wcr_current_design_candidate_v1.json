@@ -1,0 +1,55 @@
+{
+  "contract_id": "external_validation_wcr_current_design_candidate_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "rejected_current_design_validation_clear_anti_conservative_signal",
+  "professor_requirement_addressed": "choose and validate cluster-aware FNR and FPR procedures under unequal ICCs and realistic cluster-size variation",
+  "method": {
+    "name": "WCR-C",
+    "description": "restricted wild-cluster bootstrap-t for a linear probability model with CRV1 studentization",
+    "bootstrap_weights": "Webb six-point",
+    "bootstrap_repetitions": 999,
+    "primary_estimand": "response-average marginal proportion / risk difference",
+    "relative_NI_null": "FNR(comparison)-FNR(reference)=0.03 at the least-favorable boundary",
+    "absolute_FNR_null": "FNR=0.10 at the boundary",
+    "FPR_null": "FPR=0.05 at the boundary",
+    "p_value_direction": "lower tail",
+    "nonestimable_policy": "fail closed"
+  },
+  "design": {
+    "relative_NI_requires_exact_equal_independent_provenance_cluster_counts": true,
+    "cluster_size_distributions_may_differ_between_cells": true,
+    "ICCs_may_differ_between_cells": true
+  },
+  "validation": {
+    "outer_repetitions_per_task": 10000,
+    "generators": [
+      "beta-binomial",
+      "two-point random-probability mixture",
+      "calibrated logit-normal random-intercept cluster-probability model"
+    ],
+    "selected_scenarios": "hardest current-design scenarios from prior stress/final validation plus small-cluster checks",
+    "simulation_gate": "no scenario may show a clear anti-conservative signal; operationally the lower endpoint of the Monte Carlo 95% Clopper-Pearson interval must not exceed the nominal one-sided alpha"
+  },
+  "important": "This is a validation of an existing WCR implementation under the professor-guided current exact-matched design, not a new estimand or claim. Passing this gate permits inference freeze and immediate transition to the full cluster type-I/power grid.",
+  "W0_remains_blocked": true,
+  "final_result": {
+    "outer_repetitions_per_task": 10000,
+    "bootstrap_repetitions": 999,
+    "beta_binomial_worst": {
+      "relative_FNR_NI": 0.0625,
+      "absolute_FNR": 0.0471,
+      "FPR": 0.0953
+    },
+    "two_point_worst": {
+      "relative_FNR_NI": 0.0416,
+      "absolute_FNR": 0.0312,
+      "FPR": 0.0704
+    },
+    "logit_normal_worst": {
+      "relative_FNR_NI": 0.0626,
+      "absolute_FNR": 0.0589,
+      "FPR": 0.1092
+    },
+    "decision": "WCR-C is rejected for the current confirmatory design. Do not continue WCR variant hunting."
+  }
+}
