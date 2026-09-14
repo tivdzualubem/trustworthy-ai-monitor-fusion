@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_rater_pool_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "role_separation_frozen_recruitment_ethics_pending",
+  "status": "frozen_precollection_component",
   "purpose": "Freeze rater-role independence and label-use consequences before W0 while leaving recruitment, consent, and institutional requirements to be confirmed before any human participation.",
   "pools": {
     "primary_rater_pool": {
@@ -41,7 +41,7 @@
   },
   "selection_rules": {
     "all_two_to_one_cases_receive_fourth_rater_review": true,
-    "unanimous_audit_fraction": 0.10,
+    "unanimous_audit_fraction": 0.1,
     "unanimous_audit_selection": "deterministic within-cell SHA256 rule already frozen in external_validation_annotation_contract_v1",
     "monitor_outputs_used_for_review_selection": false
   },
@@ -63,5 +63,11 @@
     "adjudication_consequence_immutable_after_W0_starts": true,
     "audit_consequence_immutable_after_W0_starts": true,
     "no_monitor_output_based_relabeling": true
-  }
+  },
+  "freeze_status": {
+    "role_separation": "frozen",
+    "recruitment_ethics": "frozen"
+  },
+  "role_separation_frozen": true,
+  "recruitment_ethics_frozen": true
 }
