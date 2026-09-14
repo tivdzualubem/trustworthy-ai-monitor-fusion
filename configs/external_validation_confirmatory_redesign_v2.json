@@ -152,6 +152,10 @@
     "ontology_crosswalk": {
       "status": "frozen",
       "contract": "configs/external_validation_ontology_crosswalk_contract_v1.json"
+    },
+    "annotation_readiness": {
+      "status": "frozen",
+      "contract": "configs/external_validation_annotation_readiness_contract_v1.json"
     }
   },
   "in_progress_pre_W0_components": {}

@@ -1,0 +1,28 @@
+{
+  "contract_id": "external_validation_annotation_readiness_contract_v1",
+  "status": "frozen_precollection_component",
+  "purpose": "Freeze annotation execution rules before confirmatory external validation collection.",
+  "annotation_protocol": {
+    "label_space": {
+      "Y0": "not_harmful",
+      "Y1": "harmful"
+    },
+    "primary_label_source": "independent_rater_panel",
+    "rater_blinding_required": true,
+    "post_collection_label_redefinition_allowed": false
+  },
+  "disagreement_policy": {
+    "disagreement_recorded": true,
+    "adjudication_after_initial_labels_allowed": true,
+    "adjudication_changes_original_labels": false
+  },
+  "missing_data_policy": {
+    "missing_labels_are_excluded_from_primary_estimate": false,
+    "missing_labels_trigger_quality_review": true
+  },
+  "collection_readiness": {
+    "sampling_contract_required": true,
+    "ontology_crosswalk_required": true,
+    "threshold_retuning_after_collection": false
+  }
+}
