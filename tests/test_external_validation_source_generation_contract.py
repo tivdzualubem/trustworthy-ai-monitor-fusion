@@ -18,51 +18,59 @@ def test_source_model_identity_matches_runtime_registry():
 
 def test_source_batches_are_stateless_and_never_cross_cells():
     c = load("external_validation_source_generation_contract_v1.json")
-    u = c["generation_unit"]
-    i = c["independent_batch_mechanism"]
-    assert u["cross_cell_batch_reuse_allowed"] is False
-    assert u["batch_continuation_or_hidden_state_carryover_allowed"] is False
-    assert i["stateless_generation_required"] is True
-    assert i["generator_batch_id_alone_is_not_sufficient_proof_of_independence"] is True
+    b = c["independent_batch_mechanism"]
+    assert b["rows_per_generator_batch"] == 1
+    assert b["generation_batch_size"] == 1
+    assert b["cross_cell_batch_reuse_allowed"] is False
+    assert b["stateless_generation_required"] is True
+    assert b["cross_batch_conversation_state_allowed"] is False
+    assert b["source_output_from_one_batch_may_condition_another_batch"] is False
 
 
-def test_unresolved_decoding_values_are_explicitly_not_invented():
+def test_decoding_and_instruction_are_now_explicitly_frozen():
     c = load("external_validation_source_generation_contract_v1.json")
-    pending = c["unresolved_values_that_must_be_frozen_before_W0"]
-    for key in [
-        "source_instruction_text",
-        "chat_template_contract",
-        "max_new_tokens",
-        "do_sample",
-        "temperature",
-        "top_p",
-        "top_k",
-        "repetition_penalty",
-        "generation_seed_derivation",
-        "rows_per_generator_batch",
-    ]:
-        assert key in pending
-        assert pending[key] is None
+    assert c["status"] == "frozen_precollection_component"
+
+    d = c["decoding"]
+    assert d["max_new_tokens"] == 256
+    assert d["do_sample"] is True
+    assert d["temperature"] == 0.35
+    assert d["top_p"] == 1.0
+    assert d["top_k"] == 0
+    assert d["repetition_penalty"] == 1.0
+    assert d["num_return_sequences"] == 1
+
+    s = c["source_instruction"]
+    assert s["system"]
+    assert s["user_template"]
+    assert s["one_candidate_per_generation_call"] is True
 
 
-def test_source_generation_remains_blocked_until_full_freeze():
+def test_source_generation_is_fully_frozen_but_global_W0_gate_remains():
     c = load("external_validation_source_generation_contract_v1.json")
     g = c["freeze_gate"]
-    assert g["source_generation_structure_frozen"] is True
-    assert g["source_generation_fully_frozen"] is False
-    assert g["S_or_SF_generation_authorized"] is False
-    assert g["blocker_remains_until_instruction_decoding_seed_and_batch_size_are_frozen"] is True
+    assert g["source_generation_fully_frozen"] is True
+    assert g["source_generation_contract_blocker_closed"] is True
+    assert g["W0_collection_authorized_by_this_contract"] is False
+    assert g["S_or_SF_generation_authorized_only_after_all_global_preW0_blockers_close"] is True
 
 
-def test_population_contract_requires_final_source_generation_freeze():
+def test_population_contract_links_final_source_generation_freeze():
     p = load("external_validation_population_sampling_contract_v1.json")
     m = p["independent_primary_sampling_units"]["model_generated"]
     assert m["source_generation_contract"] == "configs/external_validation_source_generation_contract_v1.json"
-    assert m["count_as_independent_before_source_contract_final_freeze"] is False
+    assert m["source_generation_contract_status"] == "frozen_precollection_component"
+    assert m["count_as_independent_after_contract_validation"] is True
+    assert m["rows_per_generator_batch"] == 1
 
 
-def test_redesign_keeps_source_generation_blocker():
+def test_redesign_closes_only_source_generation_blocker():
     r = load("external_validation_confirmatory_redesign_v2.json")
-    assert "freeze_source_generation_contract" in r["mandatory_pre_W0_blockers"]
-    item = r["in_progress_pre_W0_components"]["source_generation_contract"]
-    assert item["blocker_remains"] is True
+    assert "freeze_source_generation_contract" not in r["mandatory_pre_W0_blockers"]
+    done = r["completed_pre_W0_components"]["source_generation_contract"]
+    assert done["status"] == "frozen_precollection_component"
+
+    # Other global blockers must remain; this contract alone never authorizes W0.
+    assert "freeze_cluster_aware_primary_FNR_inference_after_calibration" in r["mandatory_pre_W0_blockers"]
+    assert "freeze_cluster_aware_primary_FPR_inference_after_calibration" in r["mandatory_pre_W0_blockers"]
+    assert "add_and_pin_contemporary_comparator_monitor_or_monitors" in r["mandatory_pre_W0_blockers"]

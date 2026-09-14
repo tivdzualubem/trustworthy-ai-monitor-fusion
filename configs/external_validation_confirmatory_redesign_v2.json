@@ -75,7 +75,6 @@
     "freeze_separate_rater_pool_contract",
     "freeze_Y0_strata_and_proportions",
     "review_and_freeze_monitor_native_to_common_ontology_crosswalk",
-    "freeze_source_generation_contract",
     "freeze_terminal_batch_rule",
     "add_and_pin_contemporary_comparator_monitor_or_monitors",
     "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
@@ -140,13 +139,11 @@
     "obfuscation_generation_contract": {
       "path": "configs/external_validation_obfuscation_generation_contract_v1.json",
       "status": "frozen_precollection_component"
-    }
-  },
-  "in_progress_pre_W0_components": {
+    },
     "source_generation_contract": {
       "path": "configs/external_validation_source_generation_contract_v1.json",
-      "status": "structure_frozen_decoding_and_instruction_pending",
-      "blocker_remains": true
+      "status": "frozen_precollection_component"
     }
-  }
+  },
+  "in_progress_pre_W0_components": {}
 }

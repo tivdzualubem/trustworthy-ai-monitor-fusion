@@ -50,8 +50,11 @@
         "no generator batch is reused across confirmatory cells"
       ],
       "source_generation_contract": "configs/external_validation_source_generation_contract_v1.json",
-      "source_generation_contract_status": "structure_frozen_decoding_and_instruction_pending",
-      "count_as_independent_before_source_contract_final_freeze": false
+      "source_generation_contract_status": "frozen_precollection_component",
+      "count_as_independent_before_source_contract_final_freeze": false,
+      "count_as_independent_after_contract_validation": true,
+      "rows_per_generator_batch": 1,
+      "independence_basis": "distinct stateless stochastic generation calls with globally unique preassigned generator_batch_id values and distinct deterministic seed streams under the frozen source-generation contract"
     }
   },
   "cell_population_roles": {
@@ -81,7 +84,6 @@
   },
   "unresolved_pre_W0_items": [
     "exact human sampling frame and recruitment/source mechanism",
-    "exact source-model batch-generation mechanism and batch-size rule",
     "exact collection windows",
     "final independent-block minima and per-block caps",
     "final Y1 and Y0 quotas and candidate caps",
