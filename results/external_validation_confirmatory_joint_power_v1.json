@@ -1,0 +1,188 @@
+{
+  "grid_results": [
+    {
+      "blocks": 40,
+      "samples_per_block": 10,
+      "ni_power": 0.6643,
+      "absolute_ceiling_power": 0.7,
+      "joint_power": 0.465
+    },
+    {
+      "blocks": 40,
+      "samples_per_block": 20,
+      "ni_power": 0.6643,
+      "absolute_ceiling_power": 0.7,
+      "joint_power": 0.465
+    },
+    {
+      "blocks": 40,
+      "samples_per_block": 30,
+      "ni_power": 0.6643,
+      "absolute_ceiling_power": 0.7,
+      "joint_power": 0.465
+    },
+    {
+      "blocks": 60,
+      "samples_per_block": 10,
+      "ni_power": 0.7214,
+      "absolute_ceiling_power": 0.75,
+      "joint_power": 0.5411
+    },
+    {
+      "blocks": 60,
+      "samples_per_block": 20,
+      "ni_power": 0.7214,
+      "absolute_ceiling_power": 0.75,
+      "joint_power": 0.5411
+    },
+    {
+      "blocks": 60,
+      "samples_per_block": 30,
+      "ni_power": 0.7214,
+      "absolute_ceiling_power": 0.75,
+      "joint_power": 0.5411
+    },
+    {
+      "blocks": 80,
+      "samples_per_block": 10,
+      "ni_power": 0.7786,
+      "absolute_ceiling_power": 0.8,
+      "joint_power": 0.6229
+    },
+    {
+      "blocks": 80,
+      "samples_per_block": 20,
+      "ni_power": 0.7786,
+      "absolute_ceiling_power": 0.8,
+      "joint_power": 0.6229
+    },
+    {
+      "blocks": 80,
+      "samples_per_block": 30,
+      "ni_power": 0.7786,
+      "absolute_ceiling_power": 0.8,
+      "joint_power": 0.6229
+    },
+    {
+      "blocks": 100,
+      "samples_per_block": 10,
+      "ni_power": 0.8357,
+      "absolute_ceiling_power": 0.85,
+      "joint_power": 0.7104
+    },
+    {
+      "blocks": 100,
+      "samples_per_block": 20,
+      "ni_power": 0.8357,
+      "absolute_ceiling_power": 0.85,
+      "joint_power": 0.7104
+    },
+    {
+      "blocks": 100,
+      "samples_per_block": 30,
+      "ni_power": 0.8357,
+      "absolute_ceiling_power": 0.85,
+      "joint_power": 0.7104
+    },
+    {
+      "blocks": 120,
+      "samples_per_block": 10,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 120,
+      "samples_per_block": 20,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 120,
+      "samples_per_block": 30,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 160,
+      "samples_per_block": 10,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 160,
+      "samples_per_block": 20,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 160,
+      "samples_per_block": 30,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 200,
+      "samples_per_block": 10,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 200,
+      "samples_per_block": 20,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 200,
+      "samples_per_block": 30,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    }
+  ],
+  "recommended_designs": [
+    {
+      "blocks": 120,
+      "samples_per_block": 10,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 120,
+      "samples_per_block": 20,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 120,
+      "samples_per_block": 30,
+      "ni_power": 0.8929,
+      "absolute_ceiling_power": 0.9,
+      "joint_power": 0.8036
+    },
+    {
+      "blocks": 160,
+      "samples_per_block": 10,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    },
+    {
+      "blocks": 160,
+      "samples_per_block": 20,
+      "ni_power": 0.99,
+      "absolute_ceiling_power": 0.99,
+      "joint_power": 0.9801
+    }
+  ]
+}
