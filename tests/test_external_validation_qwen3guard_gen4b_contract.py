@@ -64,9 +64,10 @@ def test_prereg_panel_is_frozen_with_qwen3guard():
     assert p["monitor_panel_status"] == "frozen_with_contemporary_qwen3guard_crosswalk_pending"
 
 
-def test_redesign_closes_comparator_blocker_but_keeps_crosswalk_blocker():
+def test_redesign_closes_comparator_and_crosswalk_blockers_after_freeze():
     r = load("external_validation_confirmatory_redesign_v2.json")
     assert "add_and_pin_contemporary_comparator_monitor_or_monitors" not in r["mandatory_pre_W0_blockers"]
-    assert "review_and_freeze_monitor_native_to_common_ontology_crosswalk" in r["mandatory_pre_W0_blockers"]
-    done = r["completed_pre_W0_components"]["contemporary_monitor_panel"]
-    assert done["status"] == "frozen_qwen3guard_comparator"
+    assert "review_and_freeze_monitor_native_to_common_ontology_crosswalk" not in r["mandatory_pre_W0_blockers"]
+    done = r["completed_pre_W0_components"]
+    assert done["contemporary_monitor_panel"]["status"] == "frozen_qwen3guard_comparator"
+    assert done["ontology_crosswalk"]["status"] == "frozen"
