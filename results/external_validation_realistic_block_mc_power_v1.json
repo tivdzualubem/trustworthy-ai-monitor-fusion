@@ -1,0 +1,149 @@
+[
+  {
+    "blocks": 40,
+    "block_size": 10,
+    "NI_power": 0.478,
+    "absolute_ceiling_power": 0.5334,
+    "joint_power": 0.3988
+  },
+  {
+    "blocks": 40,
+    "block_size": 20,
+    "NI_power": 0.4846,
+    "absolute_ceiling_power": 0.5354,
+    "joint_power": 0.3962
+  },
+  {
+    "blocks": 40,
+    "block_size": 30,
+    "NI_power": 0.4872,
+    "absolute_ceiling_power": 0.5206,
+    "joint_power": 0.394
+  },
+  {
+    "blocks": 60,
+    "block_size": 10,
+    "NI_power": 0.4972,
+    "absolute_ceiling_power": 0.5362,
+    "joint_power": 0.4032
+  },
+  {
+    "blocks": 60,
+    "block_size": 20,
+    "NI_power": 0.5036,
+    "absolute_ceiling_power": 0.5382,
+    "joint_power": 0.4094
+  },
+  {
+    "blocks": 60,
+    "block_size": 30,
+    "NI_power": 0.4922,
+    "absolute_ceiling_power": 0.5216,
+    "joint_power": 0.3958
+  },
+  {
+    "blocks": 80,
+    "block_size": 10,
+    "NI_power": 0.4846,
+    "absolute_ceiling_power": 0.523,
+    "joint_power": 0.3896
+  },
+  {
+    "blocks": 80,
+    "block_size": 20,
+    "NI_power": 0.4966,
+    "absolute_ceiling_power": 0.5296,
+    "joint_power": 0.4012
+  },
+  {
+    "blocks": 80,
+    "block_size": 30,
+    "NI_power": 0.4878,
+    "absolute_ceiling_power": 0.5194,
+    "joint_power": 0.3882
+  },
+  {
+    "blocks": 100,
+    "block_size": 10,
+    "NI_power": 0.4864,
+    "absolute_ceiling_power": 0.5218,
+    "joint_power": 0.3918
+  },
+  {
+    "blocks": 100,
+    "block_size": 20,
+    "NI_power": 0.5026,
+    "absolute_ceiling_power": 0.5234,
+    "joint_power": 0.4034
+  },
+  {
+    "blocks": 100,
+    "block_size": 30,
+    "NI_power": 0.4986,
+    "absolute_ceiling_power": 0.5184,
+    "joint_power": 0.3938
+  },
+  {
+    "blocks": 120,
+    "block_size": 10,
+    "NI_power": 0.4862,
+    "absolute_ceiling_power": 0.5174,
+    "joint_power": 0.3908
+  },
+  {
+    "blocks": 120,
+    "block_size": 20,
+    "NI_power": 0.4918,
+    "absolute_ceiling_power": 0.5256,
+    "joint_power": 0.3944
+  },
+  {
+    "blocks": 120,
+    "block_size": 30,
+    "NI_power": 0.4966,
+    "absolute_ceiling_power": 0.5198,
+    "joint_power": 0.3964
+  },
+  {
+    "blocks": 160,
+    "block_size": 10,
+    "NI_power": 0.4814,
+    "absolute_ceiling_power": 0.5234,
+    "joint_power": 0.3896
+  },
+  {
+    "blocks": 160,
+    "block_size": 20,
+    "NI_power": 0.4982,
+    "absolute_ceiling_power": 0.5122,
+    "joint_power": 0.3956
+  },
+  {
+    "blocks": 160,
+    "block_size": 30,
+    "NI_power": 0.4968,
+    "absolute_ceiling_power": 0.5146,
+    "joint_power": 0.395
+  },
+  {
+    "blocks": 200,
+    "block_size": 10,
+    "NI_power": 0.487,
+    "absolute_ceiling_power": 0.519,
+    "joint_power": 0.3918
+  },
+  {
+    "blocks": 200,
+    "block_size": 20,
+    "NI_power": 0.4964,
+    "absolute_ceiling_power": 0.5252,
+    "joint_power": 0.3944
+  },
+  {
+    "blocks": 200,
+    "block_size": 30,
+    "NI_power": 0.5086,
+    "absolute_ceiling_power": 0.5096,
+    "joint_power": 0.3912
+  }
+]
