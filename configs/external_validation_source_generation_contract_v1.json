@@ -1,0 +1,75 @@
+{
+  "contract_id": "external_validation_source_generation_contract_v1",
+  "protocol_id": "safety_monitor_external_validation_preregistration_v1",
+  "status": "structure_frozen_decoding_and_instruction_pending",
+  "purpose": "Freeze the reproducible block-generation architecture for model-generated source cells S and SF without inventing unresolved source-model decoding values or source instructions.",
+  "model": {
+    "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "runtime_registry": "configs/external_validation_model_runtime_registry_v1.json",
+    "runtime_dtype": "float16",
+    "quantized": false,
+    "hardware_layout": "two_gpu_balanced"
+  },
+  "cell_scope": {
+    "S": "W1 model-generated/direct source-shift cell",
+    "SF": "W1 model-generated/obfuscated joint source-and-attack-shift cell"
+  },
+  "generation_unit": {
+    "primary_provenance_identifier": "generator_batch_id",
+    "generator_id": "mistralai/Mistral-7B-Instruct-v0.3@c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "batch_id_assigned_before_generation": true,
+    "batch_id_assigned_before_target_response": true,
+    "batch_id_assigned_before_monitor_scoring": true,
+    "cross_cell_batch_reuse_allowed": false,
+    "batch_continuation_or_hidden_state_carryover_allowed": false
+  },
+  "independent_batch_mechanism": {
+    "stateless_generation_required": true,
+    "one_generation_request_may_not_condition_on_outputs_from_another_batch": true,
+    "unique_rng_stream_per_batch_required_if_sampling_is_enabled": true,
+    "seed_assignment_must_be_frozen_before_generation": true,
+    "seed_assignment_may_not_depend_on_generated_text_target_responses_labels_or_monitor_outputs": true,
+    "generator_batch_id_alone_is_not_sufficient_proof_of_independence": true,
+    "independence_claim_requires_final_generation_parameters_and_seed_mechanism": true
+  },
+  "category_and_template_assignment": {
+    "common_category_ids": ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"],
+    "category_target_proportions": "inherit frozen common-ontology allocation",
+    "base_intent_id_required_before_target_generation": true,
+    "template_id_required": true,
+    "dependency_text_required": true,
+    "assignment_may_not_use_monitor_outputs": true
+  },
+  "obfuscation_interaction": {
+    "S": "source-generated base prompt remains direct",
+    "SF": "apply the separately frozen external_validation_obfuscation_generation_contract_v1 after source base-prompt generation",
+    "source_model_does_not_adapt_to_obfuscation_result": true
+  },
+  "unresolved_values_that_must_be_frozen_before_W0": {
+    "source_instruction_text": null,
+    "chat_template_contract": null,
+    "max_new_tokens": null,
+    "do_sample": null,
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "repetition_penalty": null,
+    "generation_seed_derivation": null,
+    "rows_per_generator_batch": null
+  },
+  "forbidden_shortcuts": {
+    "reuse_historical_generated_prompts_as_confirmatory_source": true,
+    "choose_decoding_parameters_after_viewing_confirmatory_outputs": true,
+    "choose_batch_size_after_monitor_scoring": true,
+    "treat_different_batch_labels_as_independent_without_distinct_generation_sessions": true,
+    "allow_cross_batch_conversation_state": true
+  },
+  "freeze_gate": {
+    "source_generation_structure_frozen": true,
+    "source_generation_fully_frozen": false,
+    "W0_collection_authorized": false,
+    "S_or_SF_generation_authorized": false,
+    "blocker_remains_until_instruction_decoding_seed_and_batch_size_are_frozen": true
+  }
+}

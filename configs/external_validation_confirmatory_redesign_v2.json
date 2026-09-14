@@ -141,5 +141,12 @@
       "path": "configs/external_validation_obfuscation_generation_contract_v1.json",
       "status": "frozen_precollection_component"
     }
+  },
+  "in_progress_pre_W0_components": {
+    "source_generation_contract": {
+      "path": "configs/external_validation_source_generation_contract_v1.json",
+      "status": "structure_frozen_decoding_and_instruction_pending",
+      "blocker_remains": true
+    }
   }
 }

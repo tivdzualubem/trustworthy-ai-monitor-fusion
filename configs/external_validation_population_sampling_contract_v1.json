@@ -48,7 +48,10 @@
         "a batch is assigned to exactly one confirmatory cell",
         "no batch continuation or hidden-state carry-over creates dependence across declared independent batches",
         "no generator batch is reused across confirmatory cells"
-      ]
+      ],
+      "source_generation_contract": "configs/external_validation_source_generation_contract_v1.json",
+      "source_generation_contract_status": "structure_frozen_decoding_and_instruction_pending",
+      "count_as_independent_before_source_contract_final_freeze": false
     }
   },
   "cell_population_roles": {
