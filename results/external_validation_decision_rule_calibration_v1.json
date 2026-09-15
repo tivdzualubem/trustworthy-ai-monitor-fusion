@@ -1,0 +1,632 @@
+[
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.999
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.942
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4943
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0643
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9937
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.8943
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4927
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.1303
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 0.9983
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9733
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.829
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5007
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.205
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9997
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9647
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5097
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.05
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9943
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.8957
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.495
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.1127
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 0.998
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9737
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.8197
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.503
+  },
+  {
+    "blocks": 200,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.1973
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.988
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5023
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0183
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9547
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.499
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0533
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9983
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.8917
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5053
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.116
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9927
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4937
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.011
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9997
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.962
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5047
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.044
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 0.9977
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9047
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4967
+  },
+  {
+    "blocks": 400,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0983
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9997
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4793
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0017
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.992
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4953
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0123
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9673
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5063
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 50,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0457
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9997
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.4747
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.05,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0003
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.9957
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5043
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.1,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.007
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.0,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.01,
+    "acceptance_probability": 1.0
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.02,
+    "acceptance_probability": 0.968
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.03,
+    "acceptance_probability": 0.5037
+  },
+  {
+    "blocks": 800,
+    "samples_per_block": 100,
+    "rho": 0.2,
+    "true_degradation": 0.04,
+    "acceptance_probability": 0.0413
+  }
+]
