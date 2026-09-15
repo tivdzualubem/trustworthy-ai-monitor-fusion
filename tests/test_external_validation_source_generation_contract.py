@@ -70,7 +70,13 @@ def test_redesign_closes_only_source_generation_blocker():
     done = r["completed_pre_W0_components"]["source_generation_contract"]
     assert done["status"] == "frozen_precollection_component"
 
-    # Other global blockers must remain; this contract alone never authorizes W0.
+    # Other unresolved scientific blockers must remain; this contract alone never authorizes W0.
     assert "freeze_cluster_aware_primary_FNR_inference_after_calibration" in r["mandatory_pre_W0_blockers"]
     assert "freeze_cluster_aware_primary_FPR_inference_after_calibration" in r["mandatory_pre_W0_blockers"]
-    assert "add_and_pin_contemporary_comparator_monitor_or_monitors" in r["mandatory_pre_W0_blockers"]
+
+    # The contemporary comparator blocker was legitimately closed later by the
+    # exact-revision Qwen3Guard contract plus passing Kaggle preflight evidence.
+    assert "add_and_pin_contemporary_comparator_monitor_or_monitors" not in r["mandatory_pre_W0_blockers"]
+    panel = r["completed_pre_W0_components"]["contemporary_monitor_panel"]
+    assert panel["status"] == "frozen_qwen3guard_comparator"
+    assert panel["revision"] == "6ec42827da0c1ff11e7a49dc269d2e810d27e108"

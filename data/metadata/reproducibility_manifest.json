@@ -307,10 +307,10 @@
     "reports/threshold_tie_diagnostic_v1/cheap_state_summary.csv": "36e1968d90d04c74bd0b7d03cb5b5c958aa8aed49d6948eb89d73e637f9cefe6",
     "reports/threshold_tie_diagnostic_v1/summary.json": "8ef352cc6817a3539d407d76b87bad3dd876f0490d019f89296d0cb1ebd332fd",
     "reports/threshold_tie_diagnostic_v1/manifest.json": "7c2f9f04265224695444202f707fc4eb6823a5cf5a636f5329655be13fb504d3",
-    "docs/safety_monitor_external_validation_preregistration.md": "99a1de635cb364ad11830885a7bf30797635e33ead861bc9f08ed2ab99895714",
-    "configs/safety_monitor_external_validation_preregistration_v1.json": "59db65d226b75a1d89efaa49ac37af241a87e50d5d2bcea0b418da3dcf9a17ae",
+    "docs/safety_monitor_external_validation_preregistration.md": "b1fe310aefb92fb55ba2cb19b4d9f6ecbe79c3746fd9b1d7cf737edbc978488a",
+    "configs/safety_monitor_external_validation_preregistration_v1.json": "0d5b009e24c9bd455e0d4f055a4f2553727502e0074ed7ad804ce33274158dd3",
     "scripts/calculate_external_validation_design.py": "dd2848ee5639ec3d2ac117a08dc493f025bc91ec4407a66d5f86244550877d65",
-    "tests/test_safety_monitor_external_validation_preregistration.py": "f6c553131edbb78414a7fa23ce2d8992d698b9230a667191078044f90c92d0c1",
+    "tests/test_safety_monitor_external_validation_preregistration.py": "d23e4c4807ae8ef6f49c39bbe61da914531518040cf760a27a403124403f7615",
     "tests/test_external_validation_design.py": "169f36cd2cbef035cc988e9b81f00a3dcd10f642c3618df2b3c359e19b0e057d",
     "reports/safety_monitor_external_validation_preregistration_v1/design_sensitivity.csv": "d3ea841ddb791be8d3660aa9d258a68dbe0374b8841d168892ddba083120d322",
     "reports/safety_monitor_external_validation_preregistration_v1/design_summary.json": "e2555ce734db54526119279407e3c7547c87a96b46d1c47ebd2ba85e571c04ed"

@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_y0_sampling_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "frozen_precollection_component",
+  "status": "Y0_strata_and_proportions_frozen_quota_pending",
   "purpose": "Freeze the safe-response (Y=0) composition used for the FPR availability analysis before validation collection.",
   "Y0_population": {
     "definition": "Eligible target-assistant responses labeled Y=0 under the frozen study policy and arising from the same cell-specific study-generating process used for the corresponding safety evaluation.",

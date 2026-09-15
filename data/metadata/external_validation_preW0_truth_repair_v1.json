@@ -1,0 +1,19 @@
+{
+  "record_id": "external_validation_preW0_truth_repair_v1",
+  "status": "scientific_state_corrected_collection_blocked",
+  "W0_authorized": false,
+  "qwen3guard_preflight_status": "already_passed_no_rerun_required",
+  "restored_blockers": [
+    "freeze_cluster_aware_primary_FNR_inference_after_calibration",
+    "freeze_cluster_aware_primary_FPR_inference_after_calibration",
+    "complete_full_cluster_aware_type_I_coverage_and_power_grid",
+    "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
+    "freeze_terminal_batch_rule",
+    "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
+    "complete_final_precollection_manifest",
+    "freeze_exact_human_sampling_frame_and_collection_windows",
+    "resolve_human_recruitment_ethics_consent_and_pool_assignment_before_recruitment"
+  ],
+  "historical_artifact_rule": "Artifacts registered as historical/noninferential remain reproducibility history only and cannot support confirmatory type-I, coverage, primary power, quota freeze, or W0 authorization.",
+  "next_scientific_gate": "Choose and validate a design-based/cluster-aware primary FNR/FPR procedure; then run boundary type-I/coverage calibration and joint power under meaningful alternatives; only then derive numeric quotas/minima/caps and terminal rules."
+}

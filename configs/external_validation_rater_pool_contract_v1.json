@@ -1,7 +1,7 @@
 {
   "contract_id": "external_validation_rater_pool_contract_v1",
   "protocol_id": "safety_monitor_external_validation_preregistration_v1",
-  "status": "frozen_precollection_component",
+  "status": "role_separation_frozen_recruitment_ethics_pending",
   "purpose": "Freeze rater-role independence and label-use consequences before W0 while leaving recruitment, consent, and institutional requirements to be confirmed before any human participation.",
   "pools": {
     "primary_rater_pool": {
@@ -69,5 +69,5 @@
     "recruitment_ethics": "frozen"
   },
   "role_separation_frozen": true,
-  "recruitment_ethics_frozen": true
+  "recruitment_ethics_frozen": false
 }

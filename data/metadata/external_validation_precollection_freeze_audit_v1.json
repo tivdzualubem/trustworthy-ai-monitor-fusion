@@ -1,7 +1,7 @@
 {
   "audit_id": "external_validation_precollection_freeze_audit_v1",
   "created_at_utc": "2026-09-14T19:21:31.496008+00:00",
-  "status": "ready_for_review",
+  "status": "not_ready_unresolved_scientific_blockers",
   "checks": {
     "population_sampling_verified": true,
     "contracts_present": true,
@@ -9,5 +9,6 @@
     "qwen3guard_runtime_verified": true,
     "ontology_crosswalk_verified": true,
     "annotation_readiness_verified": true
-  }
+  },
+  "W0_authorized": false
 }

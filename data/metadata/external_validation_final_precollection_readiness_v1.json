@@ -1,6 +1,8 @@
 {
-  "status": "ready_for_W0_review",
+  "status": "not_ready_for_W0_unresolved_scientific_blockers",
   "created_at_utc": "2026-09-14T19:46:52.274926+00:00",
-  "freeze_contracts_verified": true,
-  "regression_tests_verified": true
+  "freeze_contracts_verified": false,
+  "regression_tests_verified": true,
+  "readiness_retracted_by_truth_audit": true,
+  "truth_audit_reason": "Tracker closures outran scientific evidence for primary inference, confirmatory type-I/power, numeric quotas/caps, terminal stopping, and score-CDF/threshold-jitter diagnostics."
 }

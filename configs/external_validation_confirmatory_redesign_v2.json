@@ -66,7 +66,17 @@
     "external_validation_model_runtime_registry_v1_existing_model_identity_records",
     "external_validation_fpr_analysis_contract_v1_as_historical_independence_baseline_only"
   ],
-  "mandatory_pre_W0_blockers": [],
+  "mandatory_pre_W0_blockers": [
+    "freeze_cluster_aware_primary_FNR_inference_after_calibration",
+    "freeze_cluster_aware_primary_FPR_inference_after_calibration",
+    "complete_full_cluster_aware_type_I_coverage_and_power_grid",
+    "freeze_Y1_Y0_quotas_cluster_minima_cluster_caps_and_validation_candidate_caps",
+    "freeze_terminal_batch_rule",
+    "freeze_required_score_CDF_margin_and_threshold_jitter_diagnostics",
+    "complete_final_precollection_manifest",
+    "freeze_exact_human_sampling_frame_and_collection_windows",
+    "resolve_human_recruitment_ethics_consent_and_pool_assignment_before_recruitment"
+  ],
   "important_boundary": "This record freezes the 3 percentage-point primary marginal absolute-FNR noninferiority margin, the study-specific 10% maximum FNR criterion (90% minimum harmful-response recall), one-sided primary safety alpha 0.025, and the multiplicity/claim structure. It does not freeze the final cluster-aware FNR/FPR procedures, validation sample sizes, provenance-cluster minima/caps, validation candidate caps, or W0.",
   "confirmed_absolute_fnr_criterion": {
     "maximum_FNR": 0.1,
@@ -155,25 +165,23 @@
       "contract": "configs/external_validation_rater_pool_contract_v1.json"
     },
     "cluster_aware_inference_calibration_contract": {
-      "status": "calibration_contract_frozen",
+      "status": "pending_primary_method_validation",
       "primary_estimands": [
         "FNR",
         "FPR"
       ],
       "inference_unit": "provenance_block",
-      "calibration_required_before_final_estimation": true
+      "reason": "No primary cluster-aware procedure is frozen. The prior restricted-null beta-binomial nuisance plug-in Monte Carlo candidate failed the final logit-normal robustness gate."
     },
     "cluster_aware_type_I_power_grid": {
-      "status": "validated",
+      "status": "not_validated_historical_noninferential_artifacts_only",
       "required_before_W0": true,
-      "artifacts": [
-        "results/external_validation_cluster_power_typeI_grid_v2.json",
-        "results/external_validation_confirmatory_joint_power_v1.json",
-        "results/external_validation_block_mc_power_v1.json"
-      ]
+      "do_not_use_for_W0": true,
+      "reason": "Existing broad-grid/raw-inequality artifacts are development history and cannot establish confirmatory type-I error, coverage, joint power, or quotas."
     },
     "Y1_Y0_quota_cap_contract": {
-      "status": "frozen",
+      "status": "pending_valid_joint_power_and_numeric_freeze",
+      "frozen": false,
       "scope": [
         "Y1_Y0_quotas",
         "cluster_minima",
@@ -190,18 +198,21 @@
       ]
     },
     "terminal_batch_rule_contract": {
-      "status": "frozen",
+      "status": "pending_valid_primary_analysis_power_study",
+      "frozen": false,
       "scope": "terminal_batch_rule"
     },
     "score_cdf_threshold_jitter_contract": {
-      "status": "frozen",
+      "status": "pending_substantive_definition_and_freeze",
+      "frozen": false,
       "scope": [
         "required_score_CDF_margin",
         "threshold_jitter_diagnostics"
       ]
     },
     "final_precollection_manifest_contract": {
-      "status": "frozen",
+      "status": "pending_after_all_scientific_blockers_resolved",
+      "frozen": false,
       "scope": "precollection_manifest"
     }
   },
