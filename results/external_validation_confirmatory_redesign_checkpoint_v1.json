@@ -1,0 +1,66 @@
+{
+  "checkpoint_id": "external_validation_confirmatory_redesign_checkpoint_v1",
+  "date": "2026-09-19",
+  "status": "supervisor_review_checkpoint_no_W0_authorization",
+  "repo_head_observed_by_feasibility_runs": "59d67337bfc730cf4dd76b151717ec1443d0294c",
+  "frozen_claim_inputs": {
+    "relative_FNR_NI_margin": 0.03,
+    "absolute_FNR_ceiling": 0.1,
+    "safety_alpha": 0.025,
+    "FPR_ceiling": 0.05,
+    "FPR_alpha": 0.05,
+    "planning_power_target": 0.8
+  },
+  "evidence": {
+    "singleton_independent_primary_units": {
+      "calibration": "no clear anti-conservative boundary rows in the tested screen",
+      "first_full_preservation_n_per_cell_with_MC95_lower_at_least_0_80": 1400,
+      "interpretation": "statistically viable candidate but operationally requires roughly the same order of distinct human authors in each human validation cell/label stratum"
+    },
+    "balanced_repeated_author_welch_t": {
+      "screen_candidate": {
+        "G_authors": 150,
+        "m_rows_per_author": 40,
+        "model_rows": 6000,
+        "w1": 0.9203333333333333,
+        "temporal": 0.9255,
+        "full": 0.8461666666666666,
+        "fpr5": 0.9926666666666667
+      },
+      "clear_typeI_failure_count": 36,
+      "survives_targeted_screen": false,
+      "interpretation": "reject as primary confirmatory inference candidate"
+    },
+    "empirical_bernstein_repeated_author": {
+      "first_point_estimate_screen_candidate": {
+        "G_authors": 2400,
+        "m_rows_per_author": 40,
+        "human_retained_rows": 96000,
+        "model_rows": 1800,
+        "w1": 0.8053333333333333,
+        "temporal": 1.0,
+        "full": 0.8053333333333333,
+        "fpr5": 1.0
+      },
+      "clear_typeI_failure_count": 0,
+      "screen_candidate_targeted_full_lower95_at_rho_0_10": 0.7928135958922997,
+      "first_targeted_G_with_full_lower95_at_least_0_80_at_rho_0_10": 2800,
+      "largest_tested_G": 2800,
+      "largest_tested_G_full_lower95_at_rho_0_20": 0.7603414875248057,
+      "interpretation": "assumption-light route is calibrated in the tested screen but requires thousands of independent human author blocks; robustness at rho=0.20 remains below the 0.80 planning-power target even at the largest tested G"
+    }
+  },
+  "scientific_conclusion": {
+    "valid_and_operationally_feasible_primary_design_found": false,
+    "independent_unit_bottleneck_supported": true,
+    "another_ad_hoc_estimator_search_authorized": false,
+    "next_decision": "supervisor-level choice between narrowing the confirmatory claim/scope and adopting a stronger explicitly justified model-based primary analysis; beta-binomial remains diagnostic/secondary under the current instruction"
+  },
+  "execution_boundary": {
+    "W0_collection_authorized": false,
+    "fresh_monitor_scoring_authorized": false,
+    "quotas_frozen": false,
+    "sampling_frozen": false,
+    "primary_inference_frozen": false
+  }
+}
