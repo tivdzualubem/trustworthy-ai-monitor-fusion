@@ -1,0 +1,78 @@
+{
+  "package": "confirmatory_redesign_review_20260920",
+  "base_checkpoint_commit": "54fbb77",
+  "w0_authorized": false,
+  "fresh_scoring_authorized": false,
+  "files": [
+    {
+      "path": "docs/external_validation_confirmatory_redesign_checkpoint_20260919.md",
+      "sha256": "b065d5c86eb38681a2506d98ab9a9bc12829f4d6bea7d6dee28ea7860f4d7fe2",
+      "bytes": 4643
+    },
+    {
+      "path": "results/external_validation_confirmatory_redesign_checkpoint_v1.json",
+      "sha256": "54c985a8a9d123db49f8dc0d887008fcfd9f942de9b9b6fca5bceb42e4dca0d0",
+      "bytes": 2897
+    },
+    {
+      "path": "results/external_validation_independent_block_feasibility_v1.json",
+      "sha256": "2db8be1c6def8826c2dfd7a7f1b96d4ec22da0c9656b0e85c0f31ee44ed56535",
+      "bytes": 14106
+    },
+    {
+      "path": "results/external_validation_independent_block_power_grid_v1.csv",
+      "sha256": "e9717b3e5d0d354e80776b1e1fa0c74c3d26ecdde3d034d1ced1b2f539ebf552",
+      "bytes": 2070
+    },
+    {
+      "path": "results/external_validation_balanced_human_block_feasibility_v1.json",
+      "sha256": "02f2cd948f8283ae12166c93e6e0116bd4facb026e3fa6a228d432119b4339bc",
+      "bytes": 38622
+    },
+    {
+      "path": "results/external_validation_balanced_human_block_screen_v1.csv",
+      "sha256": "4a626dd85e3d0e833c4d42aa1e09c6c60453ff59b4231c99f944ee42a774de93",
+      "bytes": 3318
+    },
+    {
+      "path": "results/external_validation_empirical_bernstein_block_feasibility_v1.json",
+      "sha256": "211c5751797cf23bb4d607b980ddd9f8d4056439c7fcd4139ca5ce1474bdf5cc",
+      "bytes": 36123
+    },
+    {
+      "path": "results/external_validation_empirical_bernstein_block_power_grid_v1.csv",
+      "sha256": "8ccbb3d60ddc9ed4a096f14626875ff281062c1f3459ce08204fc4539d589f10",
+      "bytes": 2171
+    },
+    {
+      "path": "review/20260920/scripts/_run_balanced_human_block_feasibility_v1.py",
+      "sha256": "b6e1e86c1d0cf25fce7381d02681964f99bd4f5c86100b834283c4ff054dcb85",
+      "bytes": 21685
+    },
+    {
+      "path": "review/20260920/scripts/_run_empirical_bernstein_block_feasibility_v1.py",
+      "sha256": "7471f9c73378ef05eb0d62f2eb9407b09f9b0359c28196749a15ec48465c6b27",
+      "bytes": 19894
+    },
+    {
+      "path": "review/20260920/scripts/run_external_validation_balanced_human_block_feasibility_v1.sh",
+      "sha256": "02c768d500f1c22dc7088db0bcfa3acbede50dbb553fbb4db7c11a4b5417e19c",
+      "bytes": 22320
+    },
+    {
+      "path": "review/20260920/scripts/run_external_validation_empirical_bernstein_block_feasibility_v1.sh",
+      "sha256": "004eb1941509534baf7db00cc1a51f1c8b1ac391ffb4f857f41707d7e2325386",
+      "bytes": 20641
+    },
+    {
+      "path": "review/20260920/scripts/run_external_validation_independent_block_feasibility_v1.sh",
+      "sha256": "7c88988de1fcb952d137287a434f38f87de8a0c2f291a79b69d3623d8602ab3f",
+      "bytes": 15468
+    },
+    {
+      "path": "review/20260920/scripts/run_external_validation_redesign_checkpoint_package_v1.sh",
+      "sha256": "d915a6ffcc6a3981267324d0f7acab71ebc179b576c873a18079ca35800f07ee",
+      "bytes": 13149
+    }
+  ]
+}
