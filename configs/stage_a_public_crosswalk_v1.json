@@ -1,0 +1,27 @@
+{
+  "crosswalk_id": "stage_a_public_crosswalk_v1",
+  "ontology": "external_validation_common_ontology_v1",
+  "principle": "Source labels are screening hints only. A base intent enters the selected set only after an explicit row-level review against the frozen C1-C8 definition.",
+  "source_label_hints": {
+    "violence": "C1",
+    "physical harm": "C1",
+    "cyberattack": "C4",
+    "cyber abuse": "C4",
+    "privacy": "C8"
+  },
+  "ambiguous_examples": [
+    "illegal activity", "harmful content", "weapons", "chemical or biological",
+    "sexual content", "harassment", "misinformation", "other"
+  ],
+  "eligibility_rule": [
+    "The text is a concrete harmful request or behavior, not a benign or defensive discussion.",
+    "A reviewer assigns exactly one primary C1-C8 category based on the text and records a short rationale; mixed or unclear cases are excluded.",
+    "The source label is recorded but never overrides the text-level judgment.",
+    "Duplicate or near-duplicate underlying intents are retained at most once across sources.",
+    "Severity is reviewed separately after selection and is never inferred from source category."
+  ],
+  "target_total_min": 100,
+  "target_total_max": 200,
+  "target_per_category": 13,
+  "selection_seed": 20260921
+}
