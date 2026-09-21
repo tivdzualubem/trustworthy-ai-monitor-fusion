@@ -1,0 +1,1847 @@
+{
+  "artifact_sha256": {
+    "build_stage_a_review_queue.py": "554defbe2f6b3b8f58fe95faa3059b535ccfe90d8eadb59b5e5853217bc22c3a",
+    "external_validation_common_ontology_v1.json": "fade559bceb672322cc2a0017ef2cb42b6b6e85fd88fc9246bb9d550bf7e1118",
+    "source_audit.json": "a0f635631f3638acdfa74b8902bad88fdb7273374af117b25b3711964c251952",
+    "stage_a_public_crosswalk_v1.json": "7ec7df2b61c67c6b3419340df4bbf300e77f3a0b3b92f29f7a4fa047f26b0664",
+    "stage_a_review_screening_v1.json": "b7d11d9188ab871df82354cbc9dce68d9eaf97ca8ed0293ad25897a4df912d07"
+  },
+  "by_category": {
+    "C1": {
+      "overlap_nominations_withheld": 23,
+      "queue_source_composition": {
+        "jailbreakbench": 5,
+        "wildguardtest": 20
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:1633",
+        "wildguard:158",
+        "wildguard:1623",
+        "wildguard:163",
+        "wildguard:165",
+        "wildguard:1626",
+        "jbb:25",
+        "wildguard:1624",
+        "wildguard:173",
+        "jbb:28",
+        "wildguard:1641",
+        "jbb:27",
+        "wildguard:168",
+        "wildguard:1646",
+        "jbb:23",
+        "wildguard:166",
+        "wildguard:216",
+        "wildguard:352",
+        "wildguard:217",
+        "wildguard:258",
+        "wildguard:226",
+        "wildguard:344",
+        "wildguard:225",
+        "wildguard:287",
+        "jbb:94",
+        "wildguard:349",
+        "wildguard:242",
+        "wildguard:1412",
+        "wildguard:232"
+      ],
+      "screened_matches_before_overlap": 77,
+      "screened_source_composition": {
+        "jailbreakbench": 11,
+        "wildguardtest": 66
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 54
+    },
+    "C2": {
+      "overlap_nominations_withheld": 17,
+      "queue_source_composition": {
+        "jailbreakbench": 5,
+        "wildguardtest": 20
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:196",
+        "wildguard:231",
+        "wildguard:195",
+        "wildguard:396",
+        "wildguard:1595",
+        "wildguard:1410",
+        "wildguard:246",
+        "wildguard:280"
+      ],
+      "screened_matches_before_overlap": 50,
+      "screened_source_composition": {
+        "jailbreakbench": 10,
+        "wildguardtest": 40
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 33
+    },
+    "C3": {
+      "overlap_nominations_withheld": 18,
+      "queue_source_composition": {
+        "jailbreakbench": 4,
+        "wildguardtest": 21
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [],
+      "screened_matches_before_overlap": 43,
+      "screened_source_composition": {
+        "jailbreakbench": 6,
+        "wildguardtest": 37
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 25
+    },
+    "C4": {
+      "overlap_nominations_withheld": 9,
+      "queue_source_composition": {
+        "jailbreakbench": 6,
+        "wildguardtest": 19
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:71",
+        "wildguard:68",
+        "wildguard:65",
+        "wildguard:84",
+        "wildguard:91",
+        "wildguard:95",
+        "wildguard:61",
+        "wildguard:53",
+        "jbb:19",
+        "wildguard:46",
+        "wildguard:52",
+        "wildguard:76",
+        "wildguard:49",
+        "wildguard:80",
+        "wildguard:86",
+        "wildguard:78",
+        "wildguard:79",
+        "wildguard:62",
+        "jbb:16",
+        "wildguard:48",
+        "jbb:14",
+        "wildguard:63",
+        "wildguard:50",
+        "wildguard:83",
+        "wildguard:70",
+        "wildguard:89",
+        "jbb:13",
+        "wildguard:77",
+        "wildguard:69",
+        "wildguard:981",
+        "wildguard:238",
+        "wildguard:197",
+        "wildguard:178",
+        "wildguard:479",
+        "wildguard:207",
+        "wildguard:1525",
+        "jbb:40",
+        "wildguard:395",
+        "wildguard:265",
+        "wildguard:202",
+        "wildguard:243"
+      ],
+      "screened_matches_before_overlap": 75,
+      "screened_source_composition": {
+        "jailbreakbench": 12,
+        "wildguardtest": 63
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 66
+    },
+    "C5": {
+      "overlap_nominations_withheld": 2,
+      "queue_source_composition": {
+        "beavertails_evaluation": 18,
+        "wildguardtest": 7
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "beavertails_evaluation:test:38",
+        "beavertails_evaluation:test:402",
+        "beavertails_evaluation:test:626",
+        "beavertails_evaluation:test:164",
+        "beavertails_evaluation:test:500",
+        "beavertails_evaluation:test:472",
+        "beavertails_evaluation:test:486",
+        "beavertails_evaluation:test:24",
+        "beavertails_evaluation:test:178",
+        "beavertails_evaluation:test:570",
+        "beavertails_evaluation:test:66",
+        "beavertails_evaluation:test:444",
+        "beavertails_evaluation:test:584",
+        "beavertails_evaluation:test:318",
+        "beavertails_evaluation:test:430",
+        "beavertails_evaluation:test:696",
+        "beavertails_evaluation:test:514",
+        "beavertails_evaluation:test:682",
+        "beavertails_evaluation:test:654",
+        "beavertails_evaluation:test:234",
+        "beavertails_evaluation:test:612",
+        "beavertails_evaluation:test:150",
+        "beavertails_evaluation:test:374",
+        "beavertails_evaluation:test:346",
+        "beavertails_evaluation:test:668",
+        "beavertails_evaluation:test:332",
+        "beavertails_evaluation:test:192",
+        "beavertails_evaluation:test:528",
+        "beavertails_evaluation:test:598",
+        "beavertails_evaluation:test:136",
+        "beavertails_evaluation:test:220",
+        "beavertails_evaluation:test:80"
+      ],
+      "screened_matches_before_overlap": 59,
+      "screened_source_composition": {
+        "beavertails_evaluation": 50,
+        "jailbreakbench": 1,
+        "wildguardtest": 8
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 57
+    },
+    "C6": {
+      "overlap_nominations_withheld": 10,
+      "queue_source_composition": {
+        "jailbreakbench": 1,
+        "wildguardtest": 24
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:327",
+        "wildguard:323",
+        "wildguard:723",
+        "wildguard:1660",
+        "wildguard:320",
+        "wildguard:134",
+        "wildguard:144",
+        "wildguard:310",
+        "wildguard:619",
+        "wildguard:1461",
+        "jbb:4",
+        "wildguard:137",
+        "wildguard:118",
+        "wildguard:131",
+        "wildguard:1446",
+        "wildguard:1485",
+        "wildguard:313",
+        "jbb:2",
+        "wildguard:331",
+        "jbb:3",
+        "wildguard:126",
+        "wildguard:1448",
+        "wildguard:1664",
+        "wildguard:130",
+        "wildguard:1616",
+        "wildguard:115",
+        "wildguard:1513",
+        "wildguard:1134",
+        "wildguard:945",
+        "wildguard:138",
+        "wildguard:136",
+        "wildguard:838",
+        "jbb:5",
+        "jbb:8",
+        "wildguard:314",
+        "jbb:1",
+        "wildguard:149",
+        "wildguard:1383",
+        "wildguard:1437",
+        "wildguard:128",
+        "wildguard:1581",
+        "wildguard:135",
+        "wildguard:152",
+        "wildguard:157",
+        "wildguard:143",
+        "jbb:7",
+        "wildguard:1436",
+        "wildguard:318",
+        "wildguard:150",
+        "wildguard:1433",
+        "wildguard:1593",
+        "wildguard:329",
+        "wildguard:1459",
+        "wildguard:1458",
+        "wildguard:1455",
+        "wildguard:307",
+        "wildguard:1036",
+        "wildguard:156",
+        "wildguard:326",
+        "wildguard:311",
+        "wildguard:1499",
+        "wildguard:321",
+        "wildguard:1386",
+        "wildguard:132",
+        "wildguard:317",
+        "wildguard:1454",
+        "wildguard:330",
+        "wildguard:1438",
+        "wildguard:148",
+        "wildguard:1449",
+        "wildguard:1558",
+        "wildguard:328",
+        "wildguard:142",
+        "wildguard:119",
+        "wildguard:312",
+        "wildguard:1022",
+        "wildguard:1444",
+        "wildguard:127",
+        "wildguard:125",
+        "wildguard:1440",
+        "wildguard:122",
+        "wildguard:1441",
+        "wildguard:1023",
+        "wildguard:607",
+        "wildguard:1684",
+        "wildguard:141",
+        "wildguard:120",
+        "wildguard:1443",
+        "wildguard:146",
+        "wildguard:319",
+        "wildguard:308",
+        "wildguard:324",
+        "wildguard:322",
+        "wildguard:325",
+        "wildguard:1451",
+        "jbb:6",
+        "wildguard:1652",
+        "wildguard:1235",
+        "wildguard:1220"
+      ],
+      "screened_matches_before_overlap": 134,
+      "screened_source_composition": {
+        "jailbreakbench": 10,
+        "wildguardtest": 124
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 124
+    },
+    "C7": {
+      "overlap_nominations_withheld": 8,
+      "queue_source_composition": {
+        "jailbreakbench": 7,
+        "wildguardtest": 18
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:1617",
+        "wildguard:1325",
+        "jbb:61",
+        "wildguard:1615",
+        "wildguard:1599",
+        "wildguard:1331",
+        "wildguard:1246",
+        "wildguard:1318",
+        "wildguard:112",
+        "wildguard:1618",
+        "wildguard:97",
+        "wildguard:1244",
+        "wildguard:111",
+        "wildguard:96",
+        "wildguard:1600",
+        "wildguard:1320",
+        "jbb:62",
+        "wildguard:1328",
+        "wildguard:1614",
+        "wildguard:819",
+        "wildguard:1621",
+        "wildguard:100",
+        "wildguard:1620",
+        "wildguard:1613",
+        "wildguard:417"
+      ],
+      "screened_matches_before_overlap": 58,
+      "screened_source_composition": {
+        "jailbreakbench": 10,
+        "wildguardtest": 48
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 50
+    },
+    "C8": {
+      "overlap_nominations_withheld": 14,
+      "queue_source_composition": {
+        "jailbreakbench": 1,
+        "wildguardtest": 24
+      },
+      "queued_candidates": 25,
+      "reserve_candidate_ids": [
+        "wildguard:357",
+        "wildguard:865",
+        "wildguard:1717",
+        "wildguard:864",
+        "wildguard:364",
+        "wildguard:1463",
+        "wildguard:366",
+        "wildguard:1029",
+        "wildguard:1486",
+        "wildguard:360",
+        "wildguard:655",
+        "wildguard:1481",
+        "wildguard:374",
+        "wildguard:378",
+        "wildguard:867",
+        "wildguard:382",
+        "wildguard:362",
+        "wildguard:369",
+        "jbb:79",
+        "wildguard:368",
+        "wildguard:881",
+        "wildguard:638",
+        "wildguard:377",
+        "wildguard:1474",
+        "wildguard:862",
+        "wildguard:371",
+        "wildguard:1488",
+        "wildguard:876",
+        "wildguard:869",
+        "wildguard:870",
+        "wildguard:1477",
+        "wildguard:875",
+        "wildguard:873",
+        "wildguard:866",
+        "wildguard:859",
+        "wildguard:1489",
+        "wildguard:1160",
+        "wildguard:880",
+        "wildguard:373",
+        "wildguard:1476",
+        "wildguard:874",
+        "wildguard:1034",
+        "wildguard:1462",
+        "wildguard:361",
+        "wildguard:379",
+        "wildguard:1472",
+        "wildguard:1465",
+        "wildguard:358",
+        "wildguard:370",
+        "wildguard:1480",
+        "jbb:76",
+        "wildguard:1263",
+        "jbb:72",
+        "wildguard:882",
+        "wildguard:871",
+        "wildguard:879",
+        "wildguard:365",
+        "wildguard:198",
+        "wildguard:903",
+        "wildguard:984",
+        "wildguard:1494",
+        "wildguard:1430",
+        "wildguard:906"
+      ],
+      "screened_matches_before_overlap": 102,
+      "screened_source_composition": {
+        "jailbreakbench": 10,
+        "wildguardtest": 92
+      },
+      "shortfall_to_20": 0,
+      "unambiguous_screening_pool": 88
+    }
+  },
+  "c3_previous_probe": {
+    "additional_C3_nominations_beyond_probe": [
+      "jbb:46",
+      "wildguard:1396",
+      "wildguard:1405",
+      "wildguard:1580",
+      "wildguard:188",
+      "wildguard:222",
+      "wildguard:29"
+    ],
+    "additional_ids": [],
+    "candidates": [
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "jbb:0",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='heroin'"
+          },
+          "C6": {
+            "priority": 1,
+            "reason": "source_label:jailbreakbench:Harassment/Discrimination"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "554051ff533c57778314043049c32b3b85f11bb1ad394e85065175f959ca282e"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "jbb:42",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "f094ba8f41dc780c1727ef881d97e83d088d7e03f43430e93bc2221c186037a6"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "jbb:63",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          },
+          "C7": {
+            "priority": 0,
+            "reason": "source_label:jailbreakbench:Sexual/Adult content; text:sexual_harm='rape'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "9ffff4edadd76d35ac833fced492f88a35d0e73d2ac6b186e0c85d8afe9dc1b7"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "jbb:82",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='opioids'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "6b91de679448deaa3ed4aa444281b42f8fa3c93290a765023de8e111368f00fb"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "jbb:89",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='heroin'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "2b805aae9befcd9b2dca43418e5e36a0fc671a8f0cd9012aeb2734b4c9f59a6a"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:1079",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='murder'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poisoned'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "24d6000155dd0c4a9789a14096c56a733959dcf407b81697c715fd5c1151bc63"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:113",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          },
+          "C7": {
+            "priority": 1,
+            "reason": "source_label:wildguardtest:sexual_content"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "9d8c6847a21ea72108a7c6613dacbcefb1bfa04a2bfd18acf3d7a7c48d29aec5"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1301",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='toxins'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "2b0f5d69d15ee5c8f6c2298e86f6acdf4d171c1ec4ad1c45f6dc8fd11a0e4ef8"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:1382",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='weapons'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "afbc454a13b8236dd9db22f6019afce435fb96f52a78641021efc4c1c267dd50"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1388",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='cannabis'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "436129dddbeec74277665779d630e3d5d0df2f2981c4c77229bbbc2c614eb5f6"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1403",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "b13448c6c987e14d8088fcfab82c0de4822f32d040feed11dcd61f7fb96b5f51"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1541",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "725007cfaadce50e6fd5577aa3ce92c8498087aa35873968e6e363d5cce9d203"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1551",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='marijuana'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "1b5336a7ed580049e2b40cf373f52f52c60c83eb1d15632c3efc79bca01ac663"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1559",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "7a0cc3bc4821ecc957d80e508664883dafba94eebb8964ee92a6487d0e585b22"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1582",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "48e303a7928c1ebd62fdefa06bf0973412230488aee80d86d41b8d7f9e0dbf8e"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1583",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "1bbe57d6a2bf09b3ac3a7bc4bf8c61604556fb07f24c2c504b15a7a08b6c200f"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:1585",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='cannabis'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "3ba00b22f04ff3aef84feb97244e634148317e33cf23a5e46a5ec5116ad89857"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:159",
+        "evidence": {
+          "C1": {
+            "priority": 0,
+            "reason": "source_label:wildguardtest:violence_and_physical_harm; text:physical_violence_weapons='poison'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poison'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "14b896f6fc1f77855f6942bde7fa4c4f2d87f9bc708c15c7e451f8cf85cb73fa"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:160",
+        "evidence": {
+          "C1": {
+            "priority": 1,
+            "reason": "source_label:wildguardtest:violence_and_physical_harm"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "50f72b8a5d91df187da2fd5dc0c984a655ec1e5c0373e3e09b71da81a5b097a4"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:162",
+        "evidence": {
+          "C1": {
+            "priority": 1,
+            "reason": "source_label:wildguardtest:violence_and_physical_harm"
+          },
+          "C2": {
+            "priority": 2,
+            "reason": "text:nonviolent_wrongdoing='money laundering'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "e6186b87cd2769355de98cbdd8133ec51df54646e192890950c06970d4d45390"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:164",
+        "evidence": {
+          "C1": {
+            "priority": 1,
+            "reason": "source_label:wildguardtest:violence_and_physical_harm"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='illegal substances'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "f5ed9c2d218ab9fbd3cb0841bc3ffe500976c7284b1defaa2e55527cfd235a35"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:1640",
+        "evidence": {
+          "C1": {
+            "priority": 1,
+            "reason": "source_label:wildguardtest:violence_and_physical_harm"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "4a8664f5af9f5f2031431ac788566ddecefd90adbde95e60f8a608399458fd1b"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:193",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "1b293e7064a10cde766ff6841c640b06326b829f62f3a4c7bf6d672be4bb9a37"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:199",
+        "evidence": {
+          "C2": {
+            "priority": 0,
+            "reason": "source_label:wildguardtest:fraud_assisting_illegal_activities; text:nonviolent_wrongdoing='fraudulent'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drug'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "87a6f1cf7720d94ac355ff2b70f442f05afa0913eb47027ffb341cd3d640fc16"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:208",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "4b1baa3549a7eb7d01f2f44c4c857261bdb8ef7f7ff4ad4e866bed5c5659bd5b"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:224",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "8b6daf86d07f56102b259e01ca5fbf390c8a693167191ade07db7a339003525a"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:239",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "6843dbf92d54448cb7c00862ba34af27803a034061e9a354ee4a305596b5f7d1"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:335",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poisoning'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poisoning'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "47bd6f70d017ead8316f329c40d51930021e0bec842227f8dba0fbe130e1e01d"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:385",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poison'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poison'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "b1065f2669d8da76da95cbee85716bd5558871befc8c4cf65ca8e8248936beb1"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:386",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poisons'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poisons'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "a09256520608ec645a31d0788ac4a8cf28b9ea196ce46a4e4c0c7b644b062f71"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:391",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poison'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poison'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "e78e590372cf1f913dece5f1126470b9668bc0d8b8fc8329a53defe20d5553ab"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:400",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "4d953c8fd583080d6a0a87a91df41d533b8d4bd11e641f314796774d21fafd2c"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:403",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "a4a60e1135319e942ef97c251d6369626874cc0d93e41ee47bf4738ad0a2731e"
+      },
+      {
+        "ambiguity_flag": "",
+        "candidate_id": "wildguard:404",
+        "evidence": {
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='drugs'"
+          }
+        },
+        "in_main_queue": true,
+        "text_hash": "61ad33b2ecb66fc013d54a353764b0f3f4063fac9d94756fae86257a76dd2e58"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:432",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poison'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poison'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "7ad78ced59fe23213251ba28fff9c802b966947b45e2e0e15f141156658f14ec"
+      },
+      {
+        "ambiguity_flag": "multiple_category_signals",
+        "candidate_id": "wildguard:958",
+        "evidence": {
+          "C1": {
+            "priority": 2,
+            "reason": "text:physical_violence_weapons='poison'"
+          },
+          "C3": {
+            "priority": 2,
+            "reason": "text:drug_or_hazardous_substance='poison'"
+          }
+        },
+        "in_main_queue": false,
+        "text_hash": "013eba16e7475e5872127ebb2e77bca18f781be3dd95a97e34074b0f60a6585a"
+      }
+    ],
+    "exact_ids_reproduced": true,
+    "missing_reported_ids": [],
+    "overlap_withheld_count": 17,
+    "queued_count": 19,
+    "reported_count": 36,
+    "reproduced_count": 36,
+    "source_label_counts": {
+      "jailbreakbench | Expert advice": 2,
+      "jailbreakbench | Fraud/Deception": 1,
+      "jailbreakbench | Harassment/Discrimination": 1,
+      "jailbreakbench | Sexual/Adult content": 1,
+      "wildguardtest | defamation_encouraging_unethical_or_unsafe_actions": 4,
+      "wildguardtest | fraud_assisting_illegal_activities": 5,
+      "wildguardtest | mental_health_over-reliance_crisis": 5,
+      "wildguardtest | others": 11,
+      "wildguardtest | sexual_content": 1,
+      "wildguardtest | violence_and_physical_harm": 5
+    }
+  },
+  "categories_below_20": [],
+  "duplicate_details": [],
+  "exact_text_duplicates_removed": 0,
+  "execution_boundaries": {
+    "base_intent_selection_authorized": false,
+    "final_category_assignment_performed": false,
+    "fresh_confirmatory_scoring_authorized": false,
+    "guard_scoring_authorized": false,
+    "pair_generation_authorized": false,
+    "prospective_primary_design_frozen": false,
+    "row_level_review_performed": false,
+    "scope": "development/public candidate nomination only",
+    "semantic_equivalence_review_performed": false,
+    "severity_review_performed": false,
+    "w0_authorized": false
+  },
+  "input_candidate_count": 899,
+  "input_sha256": "467d1feae20541247153ea986f8b0eb67e36f62256e2a1d6ecb0c4aedca5e71e",
+  "input_source_counts": {
+    "beavertails_evaluation": 50,
+    "jailbreakbench": 100,
+    "wildguardtest": 749
+  },
+  "input_source_label_counts": {
+    "beavertails_evaluation | self_harm": 50,
+    "jailbreakbench | Disinformation": 10,
+    "jailbreakbench | Economic harm": 10,
+    "jailbreakbench | Expert advice": 10,
+    "jailbreakbench | Fraud/Deception": 10,
+    "jailbreakbench | Government decision-making": 10,
+    "jailbreakbench | Harassment/Discrimination": 10,
+    "jailbreakbench | Malware/Hacking": 10,
+    "jailbreakbench | Physical harm": 10,
+    "jailbreakbench | Privacy": 10,
+    "jailbreakbench | Sexual/Adult content": 10,
+    "wildguardtest | causing_material_harm_by_disseminating_misinformation": 45,
+    "wildguardtest | copyright_violations": 30,
+    "wildguardtest | cyberattack": 48,
+    "wildguardtest | defamation_encouraging_unethical_or_unsafe_actions": 46,
+    "wildguardtest | disseminating_false_or_misleading_information_encouraging_disinformation_campaigns": 43,
+    "wildguardtest | fraud_assisting_illegal_activities": 60,
+    "wildguardtest | mental_health_over-reliance_crisis": 45,
+    "wildguardtest | others": 98,
+    "wildguardtest | private_information_individual": 81,
+    "wildguardtest | sensitive_information_organization_government": 49,
+    "wildguardtest | sexual_content": 47,
+    "wildguardtest | social_stereotypes_and_unfair_discrimination": 76,
+    "wildguardtest | toxic_language_hate_speech": 41,
+    "wildguardtest | violence_and_physical_harm": 40
+  },
+  "limitations": [
+    "Screening signals may be incidental, benign, defensive, mixed, or in the wrong primary category; review remains mandatory.",
+    "No text-level screen establishes distinct underlying intents. independent_intent_group remains blank for reviewer assignment.",
+    "The queue is a purposive screen, not a representative sample or a prospective allocation freeze.",
+    "The existing selection --decisions interface still requires the full candidate snapshot. Do not fabricate exclusions for unreviewed rows or pass this subset directly to that interface."
+  ],
+  "no_screening_signal_count": 353,
+  "overlap_candidates_withheld": 49,
+  "overlap_details": [
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:0",
+      "evidence": {
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='heroin'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:jailbreakbench:Harassment/Discrimination"
+        }
+      },
+      "text_hash": "554051ff533c57778314043049c32b3b85f11bb1ad394e85065175f959ca282e"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:26",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:jailbreakbench:Physical harm"
+        },
+        "C5": {
+          "priority": 2,
+          "reason": "text:self_harm='suicide'"
+        }
+      },
+      "text_hash": "0972aedee3547b705114b31a882606b3db3ef64972414af1e77807bc381faf67"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:63",
+      "evidence": {
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drug'"
+        },
+        "C7": {
+          "priority": 0,
+          "reason": "source_label:jailbreakbench:Sexual/Adult content; text:sexual_harm='rape'"
+        }
+      },
+      "text_hash": "9ffff4edadd76d35ac833fced492f88a35d0e73d2ac6b186e0c85d8afe9dc1b7"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:70",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C8": {
+          "priority": 1,
+          "reason": "source_label:jailbreakbench:Privacy"
+        }
+      },
+      "text_hash": "bec908e1dd189b70e33391187d634e9a8d53fb94ce87d50617a514d7ea616afd"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:73",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='fraudulent'"
+        },
+        "C8": {
+          "priority": 0,
+          "reason": "source_label:jailbreakbench:Privacy; text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "e769a66af17bc438d661b0a0e1e25382afb5c8b7587dcced929bdb0467ba457a"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:74",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='steal'"
+        },
+        "C8": {
+          "priority": 1,
+          "reason": "source_label:jailbreakbench:Privacy"
+        }
+      },
+      "text_hash": "d53fb1a10dc3d16a7433a8cd7bb63253ec38dbf1d5970771929f39beb753ecde"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:75",
+      "evidence": {
+        "C4": {
+          "priority": 2,
+          "reason": "text:cyber_abuse='phishing'"
+        },
+        "C8": {
+          "priority": 1,
+          "reason": "source_label:jailbreakbench:Privacy"
+        }
+      },
+      "text_hash": "68ece9fcc5ae46ce944df6cd298deff1b01a8936a33833030eda027d6cccfde5"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:77",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='steal'"
+        },
+        "C8": {
+          "priority": 0,
+          "reason": "source_label:jailbreakbench:Privacy; text:personal_privacy='private information'"
+        }
+      },
+      "text_hash": "82a5a7526f71accde79e927d0198dab9603cc8e6caf428f3f77369a437550ffe"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "jbb:78",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='scam'"
+        },
+        "C8": {
+          "priority": 0,
+          "reason": "source_label:jailbreakbench:Privacy; text:personal_privacy='social security number'"
+        }
+      },
+      "text_hash": "a673be36d7e25d2838cc2fc8150b1cdb2f6eebe111b9203837c2c7b91c11bece"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:103",
+      "evidence": {
+        "C6": {
+          "priority": 2,
+          "reason": "text:targeted_hate_harassment='hate speech'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "441ff07a31993362fc4b98b39298c45eb31c0e17deb6a99c905760d4ab0ca7f2"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:104",
+      "evidence": {
+        "C5": {
+          "priority": 2,
+          "reason": "text:self_harm='self-harm'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "c459b368345ae00e6f9d209a305954b9a46bf6676f0ace78c6e42eebfcdedf9d"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:105",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='explosives'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "66ccce6eb1b0b4d0dc72ea85be1384c4b321a380abf65108d3f8fe3e75ce7829"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1079",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='murder'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poisoned'"
+        }
+      },
+      "text_hash": "24d6000155dd0c4a9789a14096c56a733959dcf407b81697c715fd5c1151bc63"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:110",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='explosive'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "e8ea1e05765a3b7342720c264ae3d19c444e2a48bc7d23bd2e00332a07d491e6"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:113",
+      "evidence": {
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drugs'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "9d8c6847a21ea72108a7c6613dacbcefb1bfa04a2bfd18acf3d7a7c48d29aec5"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1382",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='weapons'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drugs'"
+        }
+      },
+      "text_hash": "afbc454a13b8236dd9db22f6019afce435fb96f52a78641021efc4c1c267dd50"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1390",
+      "evidence": {
+        "C2": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:fraud_assisting_illegal_activities; text:nonviolent_wrongdoing='fraud'"
+        },
+        "C4": {
+          "priority": 2,
+          "reason": "text:cyber_abuse='phishing'"
+        }
+      },
+      "text_hash": "beffbb016247c099150e0a1f909f1437a03a6929fe1f11a4b38e5c824f9b0bf0"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1464",
+      "evidence": {
+        "C4": {
+          "priority": 2,
+          "reason": "text:cyber_abuse='unauthorized access'"
+        },
+        "C8": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:private_information_individual"
+        }
+      },
+      "text_hash": "2a8237d891b7a069ae29cd13ddb7ca361aa85fdf62cbdc2869afb6fe732bcc58"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:147",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='murder'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:toxic_language_hate_speech"
+        }
+      },
+      "text_hash": "45a7c716359da2b722413f110f6bdd7947afedeb67fd2efd7b5db0ac07444d66"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1473",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='murder'"
+        },
+        "C8": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:private_information_individual; text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "82a0e53e167e46d82445bb9e8cade7d51b373acaf576ac4cce8f59c9cdcf41c2"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:151",
+      "evidence": {
+        "C4": {
+          "priority": 2,
+          "reason": "text:cyber_abuse='security vulnerabilities'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:toxic_language_hate_speech"
+        }
+      },
+      "text_hash": "d93d4f57fda37adfae2ce26c907381a7d82c2bb37976d808a1070e62f903f5c4"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:153",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:toxic_language_hate_speech"
+        },
+        "C8": {
+          "priority": 2,
+          "reason": "text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "8c9c9125512d8083e6045c0fec0c75efb5fcb0bdf3fcaef77f5c2c649b98ad18"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:154",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:toxic_language_hate_speech"
+        },
+        "C8": {
+          "priority": 2,
+          "reason": "text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "4921b7b4c89ec17966f1e6fcc55e17c66ef585fe8717ddde88a9b9453fdd1e78"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1588",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C8": {
+          "priority": 2,
+          "reason": "text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "b5d928a04c0ec926095a8cab36d5391425dad1f38caaa2dc2242be7c08d0aca2"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:159",
+      "evidence": {
+        "C1": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm; text:physical_violence_weapons='poison'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poison'"
+        }
+      },
+      "text_hash": "14b896f6fc1f77855f6942bde7fa4c4f2d87f9bc708c15c7e451f8cf85cb73fa"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:160",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drugs'"
+        }
+      },
+      "text_hash": "50f72b8a5d91df187da2fd5dc0c984a655ec1e5c0373e3e09b71da81a5b097a4"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1611",
+      "evidence": {
+        "C6": {
+          "priority": 2,
+          "reason": "text:targeted_hate_harassment='bullying'"
+        },
+        "C7": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:sexual_content; text:sexual_harm='sexually explicit'"
+        }
+      },
+      "text_hash": "9df5eb322a34fa39a21f3458a9b5ee620ea97afc9996e9ea41b00ec0e359f5fc"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:162",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='money laundering'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drug'"
+        }
+      },
+      "text_hash": "e6186b87cd2769355de98cbdd8133ec51df54646e192890950c06970d4d45390"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1625",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='gun'"
+        },
+        "C6": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:toxic_language_hate_speech"
+        }
+      },
+      "text_hash": "b67f5b6c4bc056b3d31888075f1e665cf6d7c36e3b576815e028238ba0535b34"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1628",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C6": {
+          "priority": 2,
+          "reason": "text:targeted_hate_harassment='harassment'"
+        }
+      },
+      "text_hash": "3a0f31d0b07b87763eb6f99b463a80fe0bb1009f3633f14450e84f4cabe82359"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:164",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='illegal substances'"
+        }
+      },
+      "text_hash": "f5ed9c2d218ab9fbd3cb0841bc3ffe500976c7284b1defaa2e55527cfd235a35"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1640",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drugs'"
+        }
+      },
+      "text_hash": "4a8664f5af9f5f2031431ac788566ddecefd90adbde95e60f8a608399458fd1b"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:1644",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='embezzling'"
+        }
+      },
+      "text_hash": "1758e8680344f4bae448ecaaeca62b73e1be8a676f2551f7331c321220ad99a2"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:167",
+      "evidence": {
+        "C1": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:violence_and_physical_harm"
+        },
+        "C6": {
+          "priority": 2,
+          "reason": "text:targeted_hate_harassment='harassing'"
+        }
+      },
+      "text_hash": "43a3e0cd523f4b06ec47daf469234a3ca4fe74f39d0b19bfca2177ba41fd9f2c"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:191",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='murder'"
+        },
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='embezzlement'"
+        }
+      },
+      "text_hash": "abb1632e89ca7d2d738f03cab10a2b4ee3e890de087012486b92e2ce7819da2d"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:199",
+      "evidence": {
+        "C2": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:fraud_assisting_illegal_activities; text:nonviolent_wrongdoing='fraudulent'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='drug'"
+        }
+      },
+      "text_hash": "87a6f1cf7720d94ac355ff2b70f442f05afa0913eb47027ffb341cd3d640fc16"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:29",
+      "evidence": {
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='illegal substances'"
+        },
+        "C8": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:private_information_individual"
+        }
+      },
+      "text_hash": "acbdfdfd356c090d2cf83b7789d6f8a079659eca765f4f545814513bf6b8793c"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:335",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poisoning'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poisoning'"
+        }
+      },
+      "text_hash": "47bd6f70d017ead8316f329c40d51930021e0bec842227f8dba0fbe130e1e01d"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:385",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poison'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poison'"
+        }
+      },
+      "text_hash": "b1065f2669d8da76da95cbee85716bd5558871befc8c4cf65ca8e8248936beb1"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:386",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poisons'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poisons'"
+        }
+      },
+      "text_hash": "a09256520608ec645a31d0788ac4a8cf28b9ea196ce46a4e4c0c7b644b062f71"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:391",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poison'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poison'"
+        }
+      },
+      "text_hash": "e78e590372cf1f913dece5f1126470b9668bc0d8b8fc8329a53defe20d5553ab"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:43",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='fraudulent'"
+        },
+        "C4": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:cyberattack; text:cyber_abuse='phishing'"
+        }
+      },
+      "text_hash": "4445610bd68ea40e60e643c7601ddf87a02e629850bcc0e48a01c43448d70bd5"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:432",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poison'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poison'"
+        }
+      },
+      "text_hash": "7ad78ced59fe23213251ba28fff9c802b966947b45e2e0e15f141156658f14ec"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:56",
+      "evidence": {
+        "C4": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:cyberattack"
+        },
+        "C8": {
+          "priority": 2,
+          "reason": "text:personal_privacy='personal data'"
+        }
+      },
+      "text_hash": "886ff69d60476c277e150d72348ea3558425bfc6613b634759835ba18188e2c4"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:72",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C4": {
+          "priority": 0,
+          "reason": "source_label:wildguardtest:cyberattack; text:cyber_abuse='malware'"
+        }
+      },
+      "text_hash": "98685d333bc8031cbd5afa15bff967ab64ff96d9f6dbe3cf23195b893bc17626"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:88",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='steal'"
+        },
+        "C4": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:cyberattack"
+        }
+      },
+      "text_hash": "50249cf05448fc8c8f813753b2bdd20786e447e1896267eab72aecefd9d8b9cb"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:886",
+      "evidence": {
+        "C2": {
+          "priority": 2,
+          "reason": "text:nonviolent_wrongdoing='theft'"
+        },
+        "C8": {
+          "priority": 2,
+          "reason": "text:personal_privacy='personal information'"
+        }
+      },
+      "text_hash": "c033f314a25597e9cbcf984e7ced27cc3776097e2232ac593c36afe4f135eff3"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:958",
+      "evidence": {
+        "C1": {
+          "priority": 2,
+          "reason": "text:physical_violence_weapons='poison'"
+        },
+        "C3": {
+          "priority": 2,
+          "reason": "text:drug_or_hazardous_substance='poison'"
+        }
+      },
+      "text_hash": "013eba16e7475e5872127ebb2e77bca18f781be3dd95a97e34074b0f60a6585a"
+    },
+    {
+      "ambiguity_flag": "multiple_category_signals",
+      "candidate_id": "wildguard:98",
+      "evidence": {
+        "C4": {
+          "priority": 2,
+          "reason": "text:cyber_abuse='hack into'"
+        },
+        "C7": {
+          "priority": 1,
+          "reason": "source_label:wildguardtest:sexual_content"
+        }
+      },
+      "text_hash": "9ea270afab9e5db6c85d16a409c64e683563535c8e26ca04d73e0befd3600348"
+    }
+  ],
+  "overlap_nominations_withheld": 101,
+  "public_screening_sources": {
+    "beavertails_evaluation": {
+      "candidate_role": "public/reference base-intent candidate; human formulation provenance not established",
+      "category_hint": "C5",
+      "data_file": "v1/test.jsonl.xz",
+      "expected_category_rows": 50,
+      "expected_split_rows": 700,
+      "license": "cc-by-nc-4.0",
+      "license_evidence_url": "https://huggingface.co/datasets/PKU-Alignment/BeaverTails-Evaluation/blob/a93205d9ba6cc9dc398a34466da3602abddd2d40/README.md",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "repo_id": "PKU-Alignment/BeaverTails-Evaluation",
+      "review_rule": "self_harm is a screening hint only. Include only after explicit row-level review against frozen C5; exclude mixed, ambiguous, benign, defensive, or other-primary-category cases. Severity remains a separate later review and is not inferred from source category.",
+      "revision": "a93205d9ba6cc9dc398a34466da3602abddd2d40",
+      "scope": "development/public only",
+      "source_category": "self_harm",
+      "source_category_id": 10,
+      "split": "test",
+      "text_field": "prompt"
+    }
+  },
+  "queue_count": 200,
+  "queue_sha256": "e2b0c230710b32ccc90e26313ec43ac27d1d89ecf8b33c7d801c7bf3d92851e7",
+  "screening_id": "stage_a_review_screening_v1",
+  "seed": 20260921,
+  "source_provenance": {
+    "jailbreakbench": {
+      "configuration": "judge_comparison",
+      "gated": false,
+      "held_out_attack_family": "GCG",
+      "last_modified": "2024-09-26T11:05:44+00:00",
+      "license": "mit",
+      "private": false,
+      "repo_id": "JailbreakBench/JBB-Behaviors",
+      "revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+      "subset": "adversarial_indices_0_199",
+      "type": "huggingface_dataset"
+    },
+    "wildguardmix": {
+      "configuration": "wildguardtest",
+      "gated": "auto",
+      "last_modified": "2024-06-29T06:29:47+00:00",
+      "license": "odc-by",
+      "private": false,
+      "repo_id": "allenai/wildguardmix",
+      "revision": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1",
+      "split": "test",
+      "type": "huggingface_dataset"
+    },
+    "xstest": {
+      "license": "CC-BY-4.0",
+      "revision": "d7bb5bd738c1fcbc36edd83d5e7d1b71a3e2d84d",
+      "selected_file": "model_completions/xstest_v2_completions_gpt4.csv",
+      "selected_subset": "safe_prompts_only",
+      "type": "git",
+      "url": "https://github.com/paul-rottger/xstest.git"
+    }
+  },
+  "status": "awaiting_explicit_row_level_review; no accepted intents",
+  "unique_candidate_count": 899
+}

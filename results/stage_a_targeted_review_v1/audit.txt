@@ -1,0 +1,30 @@
+Stage-A targeted review queue (screening only)
+Input: 899; unique: 899; queued: 200
+Exact text duplicates removed: 0; overlapping candidates withheld: 49
+C1: screened=77 singleton=54 queued=25 sources={'jailbreakbench': 5, 'wildguardtest': 20}
+C2: screened=50 singleton=33 queued=25 sources={'jailbreakbench': 5, 'wildguardtest': 20}
+C3: screened=43 singleton=25 queued=25 sources={'jailbreakbench': 4, 'wildguardtest': 21}
+C4: screened=75 singleton=66 queued=25 sources={'jailbreakbench': 6, 'wildguardtest': 19}
+C5: screened=59 singleton=57 queued=25 sources={'beavertails_evaluation': 18, 'wildguardtest': 7}
+C6: screened=134 singleton=124 queued=25 sources={'jailbreakbench': 1, 'wildguardtest': 24}
+C7: screened=58 singleton=50 queued=25 sources={'jailbreakbench': 7, 'wildguardtest': 18}
+C8: screened=102 singleton=88 queued=25 sources={'jailbreakbench': 1, 'wildguardtest': 24}
+Categories below 20: []
+Original C3 probe: 36; exact IDs reproduced=True
+Review decisions, categories, rationales, reviewers and independence groups remain blank.
+All generation/scoring/W0/confirmation gates remain blocked; no semantic or severity review.
+scope: development/public candidate nomination only
+row_level_review_performed: False
+final_category_assignment_performed: False
+base_intent_selection_authorized: False
+pair_generation_authorized: False
+semantic_equivalence_review_performed: False
+severity_review_performed: False
+guard_scoring_authorized: False
+w0_authorized: False
+fresh_confirmatory_scoring_authorized: False
+prospective_primary_design_frozen: False
+Screening signals may be incidental, benign, defensive, mixed, or in the wrong primary category; review remains mandatory.
+No text-level screen establishes distinct underlying intents. independent_intent_group remains blank for reviewer assignment.
+The queue is a purposive screen, not a representative sample or a prospective allocation freeze.
+The existing selection --decisions interface still requires the full candidate snapshot. Do not fabricate exclusions for unreviewed rows or pass this subset directly to that interface.
