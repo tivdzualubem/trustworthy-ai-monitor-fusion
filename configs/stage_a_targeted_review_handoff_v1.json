@@ -1,0 +1,13 @@
+{
+  "handoff_id": "stage_a_targeted_review_handoff_v1",
+  "screening_input_commit": "5563b49d9603a57cc24b8ff93eaea6ffd994fcc6",
+  "queue_path": "results/stage_a_targeted_review_v1/review_queue.csv",
+  "queue_rows": 200,
+  "outside_queue_unreviewed_candidates": 699,
+  "queue_table_sha256": "f1704482b35fbe6e5c79304733e948d2fbd2cefdf76a498a125d9a45c47b0937",
+  "ontology_json_sha256": "a00057ec16b1ee2afe6d31e0f21f0b698be38e0fcdc852e773bb562b08bc5407",
+  "crosswalk_json_sha256": "d8982250b3be43c48c89ee9f3bd4b16d947d3072e346426e19d5c4d5b099574a",
+  "selection_seed": 20260921,
+  "selection_per_category": 13,
+  "fingerprint_method": "SHA256 of UTF-8 JSON with sorted keys, ensure_ascii=false and compact separators. Queue value is {columns: ordered headers, rows: ordered arrays of exact cell values}. JSON files use their parsed objects. CSV record line endings do not affect the queue fingerprint."
+}
