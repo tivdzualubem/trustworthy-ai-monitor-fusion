@@ -9,6 +9,26 @@
     "cyber abuse": "C4",
     "privacy": "C8"
   },
+  "public_screening_sources": {
+    "beavertails_evaluation": {
+      "repo_id": "PKU-Alignment/BeaverTails-Evaluation",
+      "revision": "a93205d9ba6cc9dc398a34466da3602abddd2d40",
+      "data_file": "v1/test.jsonl.xz",
+      "split": "test",
+      "text_field": "prompt",
+      "source_category": "self_harm",
+      "source_category_id": 10,
+      "category_hint": "C5",
+      "expected_split_rows": 700,
+      "expected_category_rows": 50,
+      "license": "cc-by-nc-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "license_evidence_url": "https://huggingface.co/datasets/PKU-Alignment/BeaverTails-Evaluation/blob/a93205d9ba6cc9dc398a34466da3602abddd2d40/README.md",
+      "scope": "development/public only",
+      "candidate_role": "public/reference base-intent candidate; human formulation provenance not established",
+      "review_rule": "self_harm is a screening hint only. Include only after explicit row-level review against frozen C5; exclude mixed, ambiguous, benign, defensive, or other-primary-category cases. Severity remains a separate later review and is not inferred from source category."
+    }
+  },
   "ambiguous_examples": [
     "illegal activity", "harmful content", "weapons", "chemical or biological",
     "sexual content", "harassment", "misinformation", "other"

@@ -33,6 +33,43 @@ def key(text: str) -> str:
     return hashlib.sha256(norm(text).casefold().encode("utf-8")).hexdigest()
 
 
+def beavertails_candidates(source: dict) -> pd.DataFrame:
+    public = load_dataset(
+        source["repo_id"], split=source["split"], revision=source["revision"],
+        data_files={source["split"]: source["data_file"]},
+    ).to_pandas()
+    required = {source["text_field"], "category", "category_id"}
+    if required - set(public):
+        raise ValueError(f"BeaverTails columns missing: {sorted(required - set(public))}")
+    if len(public) != source["expected_split_rows"]:
+        raise ValueError("Unexpected BeaverTails split size")
+    # Preserve the zero-based row in the pinned source file before filtering.
+    public["source_row_index"] = range(len(public))
+    public = public.loc[public.category.eq(source["source_category"])].copy()
+    if len(public) != source["expected_category_rows"] or not public.category_id.eq(
+        source["source_category_id"]
+    ).all():
+        raise ValueError("Unexpected BeaverTails screening category count or ID")
+    if not public[source["text_field"]].map(lambda s: isinstance(s, str) and bool(norm(s))).all():
+        raise ValueError("BeaverTails screening prompts must be nonempty strings")
+    return pd.DataFrame({
+        "candidate_id": public.source_row_index.map(lambda i: f"beavertails_evaluation:{source['split']}:{i}"),
+        "source": "beavertails_evaluation",
+        "revision": source["revision"],
+        "source_label": public.category,
+        "text": public[source["text_field"]],
+        "source_repo_id": source["repo_id"],
+        "source_split": source["split"],
+        "source_data_file": source["data_file"],
+        "source_row_index": public.source_row_index,
+        "source_category_id": public.category_id,
+        "source_license": source["license"],
+        "source_license_url": source["license_url"],
+        "source_license_evidence_url": source["license_evidence_url"],
+        "candidate_role": source["candidate_role"],
+    })
+
+
 def candidates() -> pd.DataFrame:
     provenance = json.loads(SOURCE_AUDIT.read_text(encoding="utf-8"))
     rev = provenance["sources"]["jailbreakbench"]["revision"]
@@ -56,6 +93,12 @@ def candidates() -> pd.DataFrame:
                      provenance["sources"]["wildguardmix"]["revision"],
                      norm(row["harm_category"]), norm(row["prompt"])))
     frame = pd.DataFrame(rows, columns=["candidate_id", "source", "revision", "source_label", "text"])
+    cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+    frame = pd.concat([
+        frame, beavertails_candidates(cfg["public_screening_sources"]["beavertails_evaluation"])
+    ], ignore_index=True)
+    for column in ["source_row_index", "source_category_id"]:
+        frame[column] = frame[column].astype("Int64")
     frame = frame.loc[frame.text.ne("")].copy()
     frame["text_hash"] = frame.text.map(key)
     frame = frame.sort_values(["source", "candidate_id"]).drop_duplicates("text_hash")
@@ -73,6 +116,12 @@ def main() -> None:
     frame = candidates()
     hints = {k.casefold(): v for k, v in cfg["source_label_hints"].items()}
     frame["category_hint"] = frame.source_label.map(lambda s: hints.get(s.casefold(), ""))
+    source = cfg["public_screening_sources"]["beavertails_evaluation"]
+    # This source-specific hint never fills reviewed_category or review_decision.
+    frame.loc[
+        frame.source.eq("beavertails_evaluation") & frame.source_label.eq(source["source_category"]),
+        "category_hint",
+    ] = source["category_hint"]
     OUT.mkdir(parents=True, exist_ok=True)
     selected_path = OUT / "selected_base_intents.csv"
     if selected_path.exists():
@@ -84,11 +133,16 @@ def main() -> None:
     report = {
         "crosswalk_id": cfg["crosswalk_id"],
         "candidate_count": len(frame),
+        "source_counts": frame.source.value_counts().sort_index().to_dict(),
+        "public_screening_sources": cfg["public_screening_sources"],
         "source_label_counts": frame.groupby(["source", "source_label"]).size().to_dict(),
         "hint_counts": frame.category_hint.value_counts().to_dict(),
         "w0_authorized": False,
         "fresh_confirmatory_scoring_authorized": False,
         "pair_generation_authorized": False,
+        "guard_scoring_authorized": False,
+        "semantic_equivalence_review_status": "not_started",
+        "severity_review_status": "not_started",
         "selection_status": "awaiting_row_level_review",
     }
     if args.decisions:
@@ -108,6 +162,9 @@ def main() -> None:
         included = reviewed.loc[reviewed.review_decision.eq("include")].copy()
         if not included.reviewed_category.isin(categories).all():
             raise ValueError("Included cases require a valid C1-C8 category")
+        if (included.source.eq("beavertails_evaluation") &
+                included.reviewed_category.ne(source["category_hint"])).any():
+            raise ValueError("BeaverTails C5 screening cases with another primary category must be excluded")
         for col in ["review_rationale", "reviewer", "independent_intent_group"]:
             if included[col].str.strip().eq("").any():
                 raise ValueError(f"Included cases require {col}")
