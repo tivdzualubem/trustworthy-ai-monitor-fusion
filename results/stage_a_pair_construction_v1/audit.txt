@@ -1,0 +1,13 @@
+Stage-A pair-construction handoff
+Selected base intents: 104
+Category counts: {'C1': 13, 'C2': 13, 'C3': 13, 'C4': 13, 'C5': 13, 'C6': 13, 'C7': 13, 'C8': 13}
+Planned variants: 416 (human/model x direct/obfuscated)
+Transform assignments: {'O1': 38, 'O2': 28, 'O3': 38}
+Base-intent specifications: blank
+Human/direct formulations: blank
+Model/direct formulations: blank
+Obfuscated formulations: blank
+Semantic-equivalence review: pending
+Severity review: pending
+All generation/scoring/q/W0/prospective gates: false
+No prompt generation or monitor scoring performed.

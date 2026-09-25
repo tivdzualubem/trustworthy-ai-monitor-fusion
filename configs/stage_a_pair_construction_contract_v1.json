@@ -1,0 +1,105 @@
+{
+  "contract_id": "stage_a_pair_construction_contract_v1",
+  "status": "development_handoff_generation_not_authorized",
+  "scope": "Stage-A public/development paired-formulation feasibility study only",
+  "selected_base_intents": {
+    "path": "results/stage_a_targeted_review_handoff_v1/c8_extension_validation/selected_base_intents.csv",
+    "sha256": "ad2662f50a65d239a8fabd9cfebfad373264e49fdecfdb533364ca0b9b3c7f15",
+    "expected_rows": 104,
+    "expected_per_category": 13,
+    "canonical_base_intent_id": "independent_intent_group"
+  },
+  "pair_structure": {
+    "source_levels": [
+      "human_authored",
+      "model_generated"
+    ],
+    "representation_levels": [
+      "direct",
+      "obfuscated"
+    ],
+    "variants_per_base_intent": 4,
+    "planned_total_variants": 416,
+    "required_variants": [
+      "human_direct",
+      "model_direct",
+      "human_obfuscated",
+      "model_obfuscated"
+    ]
+  },
+  "base_intent_specification": {
+    "purpose": "A shared, wording-neutral description of the same underlying harmful case used to condition both source formulations.",
+    "reference_prompt_role": "provenance_and_review_context_only",
+    "reference_prompt_is_not_automatically_human_formulation": true,
+    "explicit_review_required": true,
+    "reviewer": "project_author",
+    "must_preserve_reviewed_category_and_underlying_intent": true,
+    "must_not_add_new_harmful_objectives": true
+  },
+  "human_direct": {
+    "author": "project_author",
+    "must_be_written_from_approved_base_intent_spec": true,
+    "must_be_locked_before_model_output_is_revealed": true,
+    "may_copy_reference_prompt_verbatim": false,
+    "direct_plain_text_required": true,
+    "representation_obfuscation_forbidden": true
+  },
+  "model_direct": {
+    "status": "proposed_generator_pending_explicit_author_approval",
+    "proposed_generator_id": "mistralai/Mistral-7B-Instruct-v0.3@c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "reason_for_proposal": "Reuse the already pinned project model-source generator to avoid introducing a new source model during the Stage-A feasibility study.",
+    "legacy_contract_reference": "configs/external_validation_source_generation_contract_v1.json",
+    "must_condition_on_approved_base_intent_spec": true,
+    "must_not_condition_on_human_direct_text": true,
+    "must_not_condition_on_reference_prompt_text": true,
+    "one_output_per_base_intent": true,
+    "generation_seed_preassigned_before_generation": true,
+    "generation_authorized": false
+  },
+  "obfuscation": {
+    "registry": "configs/external_validation_attack_family_registry_v1.json",
+    "legacy_contract_reference": "configs/external_validation_obfuscation_generation_contract_v1.json",
+    "transform_set": [
+      "O1",
+      "O2",
+      "O3"
+    ],
+    "assignment_rule": "SHA256(base_intent_id) interpreted as an integer modulo 3 using O1,O2,O3 order",
+    "same_transform_required_for_human_and_model_formulations_of_same_base_intent": true,
+    "manual_post_transform_editing_allowed": false,
+    "adaptive_transform_selection_allowed": false,
+    "monitor_output_based_selection_allowed": false,
+    "target_response_based_selection_allowed": false,
+    "generation_authorized": false
+  },
+  "review_order": {
+    "step_1": "approve base-intent specification",
+    "step_2": "author and lock human/direct formulation",
+    "step_3": "generate model/direct formulation under frozen generator contract",
+    "step_4": "apply the preassigned representation transform to both direct formulations",
+    "step_5": "review semantic equivalence separately",
+    "step_6": "review severity separately",
+    "step_7": "only eligible retained pairs may proceed toward guard scoring after a later authorization gate"
+  },
+  "semantic_equivalence": {
+    "status": "pending",
+    "review_must_be_separate_from_severity": true,
+    "minimum_requirement": "Each retained variant must preserve the same underlying harmful intent as its approved base-intent specification.",
+    "failed_variant_policy": "exclude the affected comparison from paired operating-point transport; do not manually rescue the text after monitor scoring"
+  },
+  "severity": {
+    "status": "pending",
+    "review_must_be_separate_from_semantic_equivalence": true,
+    "severity_scale": "not_yet_frozen",
+    "severity_review_authorized": false
+  },
+  "analysis_boundary": {
+    "stage_a_exploratory": true,
+    "deployment_or_confirmatory_claim_authorized": false,
+    "guard_scoring_authorized": false,
+    "q_estimation_authorized": false,
+    "w0_authorized": false,
+    "fresh_confirmatory_scoring_authorized": false,
+    "prospective_design_frozen": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "accepted_per_category": {
+    "C1": 13,
+    "C2": 13,
+    "C3": 13,
+    "C4": 13,
+    "C5": 13,
+    "C6": 13,
+    "C7": 13,
+    "C8": 13
+  },
+  "artifact_id": "stage_a_pair_construction_v1",
+  "downstream_gates": {
+    "fresh_confirmatory_scoring_authorized": false,
+    "guard_scoring_authorized": false,
+    "human_direct_generation_authorized": false,
+    "model_direct_generation_authorized": false,
+    "obfuscation_generation_authorized": false,
+    "prospective_design_frozen": false,
+    "q_estimation_authorized": false,
+    "semantic_equivalence_review_authorized": false,
+    "severity_review_authorized": false,
+    "specification_approved": false,
+    "w0_authorized": false
+  },
+  "limitations": [
+    "The public/development reference prompt is retained only as provenance for the selected base intent; it is not automatically treated as the human-authored formulation.",
+    "Base-intent specifications remain blank until explicit review.",
+    "Human/direct text must be authored and locked before model/direct output is revealed to the author.",
+    "The proposed model generator is not authorized by this artifact.",
+    "Semantic equivalence and severity remain separate downstream reviews.",
+    "No guard scoring or q estimation is authorized."
+  ],
+  "monitor_scoring_performed": false,
+  "obfuscation_performed": false,
+  "obfuscation_transform_counts": {
+    "O1": 38,
+    "O2": 28,
+    "O3": 38
+  },
+  "pending_reviews": {
+    "semantic_equivalence_review_status": "pending",
+    "severity_review_status": "pending"
+  },
+  "planned_prompt_variants_total": 416,
+  "planned_variants_per_base_intent": 4,
+  "prompt_generation_performed": false,
+  "q_estimation_performed": false,
+  "scientific_review_performed_by_builder": false,
+  "selected_base_intents": 104,
+  "selected_input_path": "results/stage_a_targeted_review_handoff_v1/c8_extension_validation/selected_base_intents.csv",
+  "selected_input_sha256": "ad2662f50a65d239a8fabd9cfebfad373264e49fdecfdb533364ca0b9b3c7f15",
+  "status": "awaiting_base_intent_specification_review",
+  "worksheet_sha256": "5ae5d36182b46a597455e0453d20513c94bb91f1010ebb0a8535aed5003aaa1a"
+}
