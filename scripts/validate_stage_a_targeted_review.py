@@ -35,6 +35,75 @@ GATES = {
     "fresh_confirmatory_scoring_authorized": False,
     "prospective_design_frozen": False,
 }
+# Author-approved equivalences, independent of labels submitted in a worksheet.
+C5_EQUIVALENCES = (
+    ("wildguard:1546", "wildguard:1556", "wildguard:229", "wildguard:236"),
+    ("beavertails_evaluation:test:276", "beavertails_evaluation:test:206"),
+    ("beavertails_evaluation:test:416", "beavertails_evaluation:test:290"),
+    ("beavertails_evaluation:test:52", "beavertails_evaluation:test:360"),
+)
+EXTENSION_WORKSHEET = Path("results/stage_a_targeted_review_handoff_v1/c5_reserve_reviewer_worksheet.csv")
+RESERVE_AUDIT = Path("results/stage_a_targeted_review_v1/audit.json")
+
+
+def load_extension(path: Path, root: Path, contract: dict, columns: list[str],
+                   frozen: list[dict], reviews: list[dict]) -> tuple[list[dict], dict]:
+    """Verify a separately approved, fixed reserve batch; never expand the queue."""
+    ext = json.loads(path.read_text(encoding="utf-8"))
+    if ext["extension_id"] != "stage_a_c5_reserve_review_extension_v1":
+        raise ValueError("Unknown reserve extension contract")
+    if (ext["reviewer"], ext["selection_seed"], ext["selection_per_category"]) != ("project_author", 20260921, 13):
+        raise ValueError("Extension reviewer, seed, or quota changed")
+    if ext["downstream_gates"] != GATES or any(ext[k] != v for k, v in PENDING.items()):
+        raise ValueError("Extension must leave all downstream gates closed and reviews pending")
+    if ext["queue_table_sha256"] != contract["queue_table_sha256"]:
+        raise ValueError("Extension frozen queue fingerprint mismatch")
+    audit = json.loads((root / RESERVE_AUDIT).read_text(encoding="utf-8"))
+    if canonical_hash(audit) != ext["reserve_audit_json_sha256"]:
+        raise ValueError("Extension reserve audit fingerprint mismatch")
+    source = json.loads((root / CROSSWALK).read_text(encoding="utf-8"))["public_screening_sources"]["beavertails_evaluation"]
+    if ext["source_metadata"] != source or not re.fullmatch(r"[0-9a-f]{64}", ext["pinned_source_file_sha256"]):
+        raise ValueError("Extension pinned source metadata mismatch")
+    if ext["worksheet_path"] != EXTENSION_WORKSHEET.as_posix():
+        raise ValueError("Unexpected extension worksheet path")
+    ecolumns, rows, raw = read_table(root / EXTENSION_WORKSHEET)
+    if ecolumns != columns or table_hash(ecolumns, rows) != ext["approved_extension_table_sha256"]:
+        raise ValueError("Approved extension table fingerprint mismatch or incomplete extension")
+    ids = [r["candidate_id"] for r in rows]
+    if len(ids) != 9 or len(set(ids)) != 9 or ids != ext["approved_candidate_ids"]:
+        raise ValueError("Extension requires exactly the nine approved reserve IDs")
+    if not set(ids) <= set(audit["by_category"]["C5"]["reserve_candidate_ids"]) or set(ids) & {r["candidate_id"] for r in frozen}:
+        raise ValueError("Extension candidates must be C5 reserve IDs outside the frozen queue")
+    c3 = [r for r in reviews if r["proposed_screen_category"] == "C3"]
+    if table_hash(columns, c3) != ext["preserved_c3_table_sha256"]:
+        raise ValueError("Approved C3 review content changed")
+    for row in rows:
+        idx = row["source_row_index"]
+        expected = {
+            "source": "beavertails_evaluation", "revision": source["revision"],
+            "source_repo_id": source["repo_id"], "source_split": source["split"],
+            "source_data_file": source["data_file"], "source_label": source["source_category"],
+            "source_category_id": str(source["source_category_id"]),
+            "source_license": source["license"], "candidate_role": source["candidate_role"],
+            "reviewer": "project_author", "reviewed_category": "C5", "proposed_screen_category": "C5",
+        }
+        if any(row[k] != v for k, v in expected.items()) or row["candidate_id"] != f"beavertails_evaluation:{source['split']}:{idx}":
+            raise ValueError("Extension BeaverTails provenance or review restriction violated")
+        if hashlib.sha256(normalized(row["text"]).encode()).hexdigest() != row["text_hash"]:
+            raise ValueError("Extension text hash mismatch")
+    for row in reviews + rows:
+        cid = row["candidate_id"]
+        if row["proposed_screen_category"] == "C5" and row["review_decision"] == "include":
+            if (row["independent_intent_group"] != ext["approved_intent_groups"].get(cid)
+                    or row["reviewer"] != "project_author" or row["reviewed_category"] != "C5"):
+                raise ValueError(f"{cid}: inclusion differs from author-approved C5 intent contract")
+    return rows, {
+        "extension_id": ext["extension_id"], "extension_contract_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "extension_worksheet_sha256": hashlib.sha256(raw).hexdigest(),
+        "extension_reviewed_count": len(rows), "extension_candidate_ids": ids,
+        "pinned_source_file_sha256": ext["pinned_source_file_sha256"],
+        "extension_provenance": "Pinned source verified before author-approved decisions were transcribed; approved table fingerprint verified on every validation.",
+    }
 
 
 def canonical_hash(value: object) -> str:
@@ -156,7 +225,14 @@ def assess(columns: list[str], frozen: list[dict], review_columns: list[str],
     duplicates = {key: value for key, value in groups.items() if len(value) > 1}
     for key, value in sorted(duplicates.items()):
         errors.append(f"Duplicate independent_intent_group {key!r}: {', '.join(value)}")
-    eligible = [r for r in included if normalized(r["independent_intent_group"]) not in duplicates]
+    duplicate_ids = set()
+    for equivalent in C5_EQUIVALENCES:
+        present = sorted(set(equivalent) & {r["candidate_id"] for r in included})
+        if len(present) > 1:
+            errors.append(f"Author-approved duplicate C5 intents: {', '.join(present)}")
+            duplicate_ids.update(present)
+    eligible = [r for r in included if normalized(r["independent_intent_group"]) not in duplicates
+                and r["candidate_id"] not in duplicate_ids]
     counts = Counter(r["reviewed_category"] for r in eligible)
     report["accepted_counts_by_reviewed_category"] = {c: counts[c] for c in CATEGORIES}
     report["category_has_at_least_13"] = {c: counts[c] >= 13 for c in CATEGORIES}
@@ -188,7 +264,9 @@ def write_report(out: Path, report: dict) -> None:
             f"Accepted counts: {report.get('accepted_counts_by_reviewed_category', {})}",
             f"At least 13/category: {report.get('category_has_at_least_13', {})}",
             f"Category differences recorded: {len(report.get('category_differences', []))}",
-            "No decisions are created for the 699 candidates outside this queue.",
+            f"Separately reviewed reserve rows: {report.get('extension_reviewed_count', 0)}",
+            "Original frozen queue remains 200 rows; reserve review is recorded separately.",
+            f"Outside queue still unreviewed: {report.get('outside_queue_unreviewed_candidates', 699)}",
             *[f"{k}: {v}" for k, v in PENDING.items()], *[f"{k}: {v}" for k, v in GATES.items()],
             "See validation.json for errors and exact category-difference records.",
         ]) + "\n",
@@ -200,13 +278,16 @@ def write_report(out: Path, report: dict) -> None:
         temp.replace(path)
 
 
-def validate(worksheet: Path, out: Path, root: Path = ROOT) -> int:
+def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: Path | None = None) -> int:
     selection = out / "selected_base_intents.csv"
     temp_selection = selection.with_suffix(".csv.tmp")
     # Protect the worksheet and immutable inputs even if CLI paths are mistaken.
     protected = {worksheet.resolve(), (root / CONTRACT).resolve(), (root / ONTOLOGY).resolve(),
                  (root / CROSSWALK).resolve(),
                  (root / "results/stage_a_targeted_review_v1/review_queue.csv").resolve()}
+    protected.update({(root / RESERVE_AUDIT).resolve(), (root / EXTENSION_WORKSHEET).resolve()})
+    if extension_contract is not None:
+        protected.add(extension_contract.resolve())
     outputs = [selection, temp_selection] + [out / name for name in
                ["validation.json", "validation.json.tmp", "validation.txt", "validation.txt.tmp"]]
     if any(path.resolve() in protected for path in outputs):
@@ -224,11 +305,26 @@ def validate(worksheet: Path, out: Path, root: Path = ROOT) -> int:
     try:
         contract, columns, frozen, _ = load_frozen(root)
         review_columns, reviews, raw = read_table(worksheet)
-        report, selected = assess(columns, frozen, review_columns, reviews, contract["selection_seed"])
+        # Validate the original worksheet independently before combining references.
+        original_report, _ = assess(columns, frozen, review_columns, reviews, contract["selection_seed"])
+        extension_rows, extension_info = [], {}
+        if extension_contract is not None:
+            extension_rows, extension_info = load_extension(extension_contract, root, contract, columns, frozen, reviews)
+        extension_reference = [dict(row, **dict.fromkeys(REVIEW_FIELDS, "")) for row in extension_rows]
+        report, selected = assess(columns, frozen + extension_reference, review_columns,
+                                  reviews + extension_rows, contract["selection_seed"])
+        if original_report["errors"]:
+            report["errors"] = list(dict.fromkeys(original_report["errors"] + report["errors"]))
+            report.update(status="blocked_invalid_worksheet", selected_count=0)
+            report.pop("selected_candidate_ids", None)
+            selected = []
+        report.update(extension_info)
+        report.update(frozen_queue_row_count=len(frozen), worksheet_row_count=len(reviews),
+                      combined_review_row_count=len(reviews) + len(extension_rows))
         report.update(handoff_id=contract["handoff_id"], queue_table_sha256=contract["queue_table_sha256"],
                       worksheet_sha256=hashlib.sha256(raw).hexdigest(),
                       selection_seed=contract["selection_seed"], selection_per_category=13,
-                      outside_queue_unreviewed_candidates=contract["outside_queue_unreviewed_candidates"])
+                      outside_queue_unreviewed_candidates=contract["outside_queue_unreviewed_candidates"] - len(extension_rows))
         if selected:
             with temp_selection.open("w", encoding="utf-8", newline="") as f:
                 writer = csv.DictWriter(f, fieldnames=list(selected[0]), lineterminator="\n")
@@ -252,13 +348,15 @@ def main() -> None:
     parser.add_argument("action", choices=["prepare", "validate"])
     parser.add_argument("--worksheet", type=Path, default=HANDOFF / "reviewer_worksheet.csv")
     parser.add_argument("--out-dir", type=Path, default=HANDOFF / "validation")
+    parser.add_argument("--extension-contract", type=Path,
+                        help="Explicitly opt in to the separately approved C5 reserve batch")
     args = parser.parse_args()
     try:
         if args.action == "prepare":
             prepare(args.worksheet)
             print(f"Created blank reviewer worksheet: {args.worksheet}")
         else:
-            code = validate(args.worksheet, args.out_dir)
+            code = validate(args.worksheet, args.out_dir, extension_contract=args.extension_contract)
             print((args.out_dir / "validation.txt").read_text(encoding="utf-8"), end="")
             raise SystemExit(code)
     except (OSError, ValueError, KeyError, TypeError, csv.Error) as exc:
