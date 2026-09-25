@@ -75,7 +75,7 @@ class C5ExtensionTests(unittest.TestCase):
         code, report = self.run_validation()
         self.assertEqual(code, 2)
         self.assertEqual(report['accepted_counts_by_reviewed_category']['C5'], 16)
-        self.assertEqual(report['accepted_counts_by_reviewed_category']['C3'], 15)
+        self.assertEqual(report['accepted_counts_by_reviewed_category']['C3'], 16)
         self.assertEqual(report['extension_reviewed_count'], 9)
         self.assertEqual(report['worksheet_row_count'], 200)
         self.assertEqual(report['combined_review_row_count'], 209)
