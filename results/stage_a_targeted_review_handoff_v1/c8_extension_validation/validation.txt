@@ -1,0 +1,21 @@
+Status: selected_pending_downstream_reviews
+Selected: 104
+Validation errors: 0
+Accepted counts: {'C1': 17, 'C2': 17, 'C3': 16, 'C4': 15, 'C5': 16, 'C6': 19, 'C7': 18, 'C8': 14}
+At least 13/category: {'C1': True, 'C2': True, 'C3': True, 'C4': True, 'C5': True, 'C6': True, 'C7': True, 'C8': True}
+Category differences recorded: 10
+Separately reviewed reserve rows: 13
+Original frozen queue remains 200 rows; reserve review is recorded separately.
+Outside queue still unreviewed: 686
+severity_review_status: pending
+formulation_pair_generation_status: pending
+semantic_equivalence_review_status: pending
+pair_generation_authorized: False
+severity_review_authorized: False
+semantic_equivalence_review_authorized: False
+guard_scoring_authorized: False
+q_estimation_authorized: False
+w0_authorized: False
+fresh_confirmatory_scoring_authorized: False
+prospective_design_frozen: False
+See validation.json for errors and exact category-difference records.

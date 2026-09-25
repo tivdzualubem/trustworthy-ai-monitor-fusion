@@ -1,0 +1,87 @@
+{
+  "approval": "Author explicitly approved exactly four independent C8 reserve intents; no additional C8 reserve decisions authorized.",
+  "approved_candidate_ids": [
+    "wildguard:357",
+    "jbb:76",
+    "wildguard:1477",
+    "wildguard:906"
+  ],
+  "approved_extension_table_sha256": "7f3ec778ad2ca3e06ba802c78f1e30e30fd23213ba7c299b1483d153b6dfb434",
+  "approved_intent_groups": {
+    "jbb:71": "base_intent__c8__jbb_71",
+    "jbb:76": "c8-nonconsensual-location-tracking",
+    "wildguard:1477": "c8-private-personal-banking-history",
+    "wildguard:1490": "base_intent__c8__wildguard_1490",
+    "wildguard:1701": "base_intent__c8__wildguard_1701",
+    "wildguard:357": "c8-unauthorized-private-communications",
+    "wildguard:363": "base_intent__c8__wildguard_363",
+    "wildguard:375": "base_intent__c8__wildguard_375",
+    "wildguard:376": "base_intent__c8__wildguard_376",
+    "wildguard:380": "base_intent__c8__wildguard_380",
+    "wildguard:868": "base_intent__c8__wildguard_868",
+    "wildguard:872": "base_intent__c8__wildguard_872",
+    "wildguard:877": "base_intent__c8__wildguard_877",
+    "wildguard:906": "c8-bulk-customer-financial-identity-exposure"
+  },
+  "base_commit": "3f0e6a4922da2ed4d23c373d03e366798385aacd",
+  "category": "C8",
+  "downstream_gates": {
+    "fresh_confirmatory_scoring_authorized": false,
+    "guard_scoring_authorized": false,
+    "pair_generation_authorized": false,
+    "prospective_design_frozen": false,
+    "q_estimation_authorized": false,
+    "semantic_equivalence_review_authorized": false,
+    "severity_review_authorized": false,
+    "w0_authorized": false
+  },
+  "extension_id": "stage_a_c8_reserve_review_extension_v1",
+  "formulation_pair_generation_status": "pending",
+  "other_c8_reserve_rows": "remain unreviewed",
+  "preserved_c3_table_sha256": "f417e31d44a442f36c4c4f6605c06b56801d35e70e849a0d85423782ac7ad155",
+  "preserved_c5_sha256": {
+    "configs/stage_a_c5_reserve_review_extension_v1.json": "ffaff10c573230aeb57104b314f47e24e9bc50ed219267a5965702fcde1eeb07",
+    "results/stage_a_targeted_review_handoff_v1/c5_reserve_reviewer_worksheet.csv": "86c4c7fd357159e5bd895747c35cae247eea08778524d241605f06770cac8820"
+  },
+  "preserved_worksheet_file_sha256": "1dadb3aa7a8df73a60ec152acf3a5c75eb739d32e2d3604023f5887cdea4eb88",
+  "preserved_worksheet_table_sha256": "7058cb4bd7d55d255bef1875bc6b362537da9616e749b7033221edee229bca6f",
+  "queue_file_sha256": "e2b0c230710b32ccc90e26313ec43ac27d1d89ecf8b33c7d801c7bf3d92851e7",
+  "queue_table_sha256": "f1704482b35fbe6e5c79304733e948d2fbd2cefdf76a498a125d9a45c47b0937",
+  "reserve_audit_json_sha256": "160f4d0a632c52c520594f8577faaf24111187838c3091764e22966a5cb980ee",
+  "reviewer": "project_author",
+  "scope": "public/development base-intent candidates only; human formulation provenance not established",
+  "selection_per_category": 13,
+  "selection_seed": 20260921,
+  "semantic_equivalence_review_status": "pending",
+  "severity_review_status": "pending",
+  "source_audit_json_sha256": "cb716028bf8e5530f90dfc6471e352cf476e53c1ea071482dc8eaf7bf965dc0a",
+  "source_provenance": {
+    "jailbreakbench": {
+      "configuration": "judge_comparison",
+      "gated": false,
+      "held_out_attack_family": "GCG",
+      "last_modified": "2024-09-26T11:05:44+00:00",
+      "license": "mit",
+      "private": false,
+      "repo_id": "JailbreakBench/JBB-Behaviors",
+      "revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+      "subset": "adversarial_indices_0_199",
+      "type": "huggingface_dataset"
+    },
+    "wildguardmix": {
+      "configuration": "wildguardtest",
+      "gated": "auto",
+      "last_modified": "2024-06-29T06:29:47+00:00",
+      "license": "odc-by",
+      "private": false,
+      "repo_id": "allenai/wildguardmix",
+      "revision": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1",
+      "split": "test",
+      "type": "huggingface_dataset"
+    }
+  },
+  "source_snapshot_path": "results/stage_a_public_selection_v1/review_template.csv",
+  "source_snapshot_table_sha256": "7ffdb1b4bbcbbbbdf5dafb72cef3dec9b50fe1b5082bbabc38c3390370d554d6",
+  "source_verification": "Exact IDs, texts, text hashes, source labels and revisions checked against the existing candidate snapshot and source audit; source provenance matches the targeted-review reserve audit. No source retrieval or monitor outcomes used.",
+  "worksheet_path": "results/stage_a_targeted_review_handoff_v1/c8_reserve_reviewer_worksheet.csv"
+}

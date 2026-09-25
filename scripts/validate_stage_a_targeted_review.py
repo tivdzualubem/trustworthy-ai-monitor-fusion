@@ -46,12 +46,68 @@ EXTENSION_WORKSHEET = Path("results/stage_a_targeted_review_handoff_v1/c5_reserv
 RESERVE_AUDIT = Path("results/stage_a_targeted_review_v1/audit.json")
 
 
+EXTENSION_SPECS = {
+    "stage_a_c5_reserve_review_extension_v1": ("C5", 9, EXTENSION_WORKSHEET),
+    "stage_a_c8_reserve_review_extension_v1": (
+        "C8", 4, Path("results/stage_a_targeted_review_handoff_v1/c8_reserve_reviewer_worksheet.csv")),
+}
+CANDIDATE_SNAPSHOT = Path("results/stage_a_public_selection_v1/review_template.csv")
+SOURCE_AUDIT = Path("data/metadata/source_audit.json")
+C5_CONTRACT = Path("configs/stage_a_c5_reserve_review_extension_v1.json")
+
+
+def check_beavertails(ext: dict, root: Path, rows: list[dict]) -> None:
+    source = json.loads((root / CROSSWALK).read_text(encoding="utf-8"))["public_screening_sources"]["beavertails_evaluation"]
+    if ext["source_metadata"] != source or not re.fullmatch(r"[0-9a-f]{64}", ext["pinned_source_file_sha256"]):
+        raise ValueError("Extension pinned source metadata mismatch")
+    for row in rows:
+        expected = {
+            "source": "beavertails_evaluation", "revision": source["revision"],
+            "source_repo_id": source["repo_id"], "source_split": source["split"],
+            "source_data_file": source["data_file"], "source_label": source["source_category"],
+            "source_category_id": str(source["source_category_id"]),
+            "source_license": source["license"], "candidate_role": source["candidate_role"],
+        }
+        if any(row[k] != v for k, v in expected.items()) or row["candidate_id"] != f"beavertails_evaluation:{source['split']}:{row['source_row_index']}":
+            raise ValueError("Extension BeaverTails provenance restriction violated")
+
+
+def check_snapshot(ext: dict, root: Path, rows: list[dict], audit: dict) -> None:
+    """Check the existing pinned public candidate snapshot, without retrieving outcomes."""
+    if ext["source_snapshot_path"] != CANDIDATE_SNAPSHOT.as_posix():
+        raise ValueError("Unexpected candidate snapshot path")
+    scolumns, snapshot, _ = read_table(root / CANDIDATE_SNAPSHOT)
+    if table_hash(scolumns, snapshot) != ext["source_snapshot_table_sha256"]:
+        raise ValueError("Pinned candidate snapshot fingerprint mismatch")
+    source_audit = json.loads((root / SOURCE_AUDIT).read_text(encoding="utf-8"))
+    if canonical_hash(source_audit) != ext["source_audit_json_sha256"]:
+        raise ValueError("Pinned source audit fingerprint mismatch")
+    sources = {k: source_audit["sources"][k] for k in ("jailbreakbench", "wildguardmix")}
+    if ext["source_provenance"] != sources or any(sources[k] != audit["source_provenance"][k] for k in sources):
+        raise ValueError("Pinned JBB/WildGuard source provenance mismatch")
+    lookup = {r["candidate_id"]: r for r in snapshot}
+    if len(lookup) != len(snapshot):
+        raise ValueError("Duplicate candidate snapshot IDs")
+    for row in rows:
+        base = lookup[row["candidate_id"]]
+        if any(row[k] != base[k] for k in scolumns if k not in REVIEW_FIELDS):
+            raise ValueError("Extension differs from exact pinned candidate text/provenance")
+        key = {"jailbreakbench": "jailbreakbench", "wildguardtest": "wildguardmix"}[row["source"]]
+        source = sources[key]
+        if (row["revision"] != source["revision"] or row["source_repo_id"] != source["repo_id"]
+                or row["source_license"] != source["license"]
+                or row["source_split"] != source.get("split", "")
+                or row["candidate_role"] != "public/development base-intent candidate; human formulation provenance not established"):
+            raise ValueError("Extension pinned source provenance mismatch")
+
+
 def load_extension(path: Path, root: Path, contract: dict, columns: list[str],
-                   frozen: list[dict], reviews: list[dict]) -> tuple[list[dict], dict]:
-    """Verify a separately approved, fixed reserve batch; never expand the queue."""
+                   frozen: list[dict], reviews: list[dict], review_raw: bytes | None = None) -> tuple[list[dict], dict]:
+    """Verify one fixed approved batch with shared review and integrity rules."""
     ext = json.loads(path.read_text(encoding="utf-8"))
-    if ext["extension_id"] != "stage_a_c5_reserve_review_extension_v1":
+    if ext["extension_id"] not in EXTENSION_SPECS:
         raise ValueError("Unknown reserve extension contract")
+    category, expected_count, worksheet = EXTENSION_SPECS[ext["extension_id"]]
     if (ext["reviewer"], ext["selection_seed"], ext["selection_per_category"]) != ("project_author", 20260921, 13):
         raise ValueError("Extension reviewer, seed, or quota changed")
     if ext["downstream_gates"] != GATES or any(ext[k] != v for k, v in PENDING.items()):
@@ -61,49 +117,60 @@ def load_extension(path: Path, root: Path, contract: dict, columns: list[str],
     audit = json.loads((root / RESERVE_AUDIT).read_text(encoding="utf-8"))
     if canonical_hash(audit) != ext["reserve_audit_json_sha256"]:
         raise ValueError("Extension reserve audit fingerprint mismatch")
-    source = json.loads((root / CROSSWALK).read_text(encoding="utf-8"))["public_screening_sources"]["beavertails_evaluation"]
-    if ext["source_metadata"] != source or not re.fullmatch(r"[0-9a-f]{64}", ext["pinned_source_file_sha256"]):
-        raise ValueError("Extension pinned source metadata mismatch")
-    if ext["worksheet_path"] != EXTENSION_WORKSHEET.as_posix():
+    if ext["worksheet_path"] != worksheet.as_posix():
         raise ValueError("Unexpected extension worksheet path")
-    ecolumns, rows, raw = read_table(root / EXTENSION_WORKSHEET)
+    ecolumns, rows, raw = read_table(root / worksheet)
     if ecolumns != columns or table_hash(ecolumns, rows) != ext["approved_extension_table_sha256"]:
         raise ValueError("Approved extension table fingerprint mismatch or incomplete extension")
     ids = [r["candidate_id"] for r in rows]
-    if len(ids) != 9 or len(set(ids)) != 9 or ids != ext["approved_candidate_ids"]:
-        raise ValueError("Extension requires exactly the nine approved reserve IDs")
-    if not set(ids) <= set(audit["by_category"]["C5"]["reserve_candidate_ids"]) or set(ids) & {r["candidate_id"] for r in frozen}:
-        raise ValueError("Extension candidates must be C5 reserve IDs outside the frozen queue")
+    if len(ids) != expected_count or len(set(ids)) != expected_count or ids != ext["approved_candidate_ids"]:
+        raise ValueError(f"Extension requires exactly {expected_count} approved reserve IDs")
+    if not set(ids) <= set(audit["by_category"][category]["reserve_candidate_ids"]) or set(ids) & {r["candidate_id"] for r in frozen}:
+        raise ValueError(f"Extension candidates must be {category} reserve IDs outside the frozen queue")
     c3 = [r for r in reviews if r["proposed_screen_category"] == "C3"]
     if table_hash(columns, c3) != ext["preserved_c3_table_sha256"]:
         raise ValueError("Approved C3 review content changed")
+    if category == "C8":
+        if table_hash(columns, reviews) != ext["preserved_worksheet_table_sha256"]:
+            raise ValueError("Completed author-reviewed worksheet changed")
+        if review_raw is not None and hashlib.sha256(review_raw).hexdigest() != ext["preserved_worksheet_file_sha256"]:
+            raise ValueError("Completed author-reviewed worksheet bytes changed")
+        if hashlib.sha256((root / contract["queue_path"]).read_bytes()).hexdigest() != ext["queue_file_sha256"]:
+            raise ValueError("Frozen queue bytes changed")
+        # Pin the previously approved extension without requiring it to be active.
+        if set(ext["preserved_c5_sha256"]) != {C5_CONTRACT.as_posix(), EXTENSION_WORKSHEET.as_posix()}:
+            raise ValueError("Missing C5 preservation fingerprints")
+        for relative, digest in ext["preserved_c5_sha256"].items():
+            if hashlib.sha256((root / relative).read_bytes()).hexdigest() != digest:
+                raise ValueError("Previously approved C5 extension changed")
+        check_snapshot(ext, root, rows, audit)
+    else:
+        check_beavertails(ext, root, rows)
     for row in rows:
-        idx = row["source_row_index"]
-        expected = {
-            "source": "beavertails_evaluation", "revision": source["revision"],
-            "source_repo_id": source["repo_id"], "source_split": source["split"],
-            "source_data_file": source["data_file"], "source_label": source["source_category"],
-            "source_category_id": str(source["source_category_id"]),
-            "source_license": source["license"], "candidate_role": source["candidate_role"],
-            "reviewer": "project_author", "reviewed_category": "C5", "proposed_screen_category": "C5",
-        }
-        if any(row[k] != v for k, v in expected.items()) or row["candidate_id"] != f"beavertails_evaluation:{source['split']}:{idx}":
-            raise ValueError("Extension BeaverTails provenance or review restriction violated")
+        if (row["review_decision"] != "include" or row["reviewer"] != "project_author"
+                or row["reviewed_category"] != category or row["proposed_screen_category"] != category
+                or not row["review_rationale"].strip()):
+            raise ValueError("Extension author-approved review restriction violated")
         if hashlib.sha256(normalized(row["text"]).encode()).hexdigest() != row["text_hash"]:
             raise ValueError("Extension text hash mismatch")
     for row in reviews + rows:
         cid = row["candidate_id"]
-        if row["proposed_screen_category"] == "C5" and row["review_decision"] == "include":
+        if row["proposed_screen_category"] == category and row["review_decision"] == "include":
             if (row["independent_intent_group"] != ext["approved_intent_groups"].get(cid)
-                    or row["reviewer"] != "project_author" or row["reviewed_category"] != "C5"):
-                raise ValueError(f"{cid}: inclusion differs from author-approved C5 intent contract")
-    return rows, {
-        "extension_id": ext["extension_id"], "extension_contract_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                    or row["reviewer"] != "project_author" or row["reviewed_category"] != category):
+                raise ValueError(f"{cid}: inclusion differs from author-approved {category} intent contract")
+    info = {
+        "extension_id": ext["extension_id"], "extension_category": category,
+        "extension_contract_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "extension_worksheet_sha256": hashlib.sha256(raw).hexdigest(),
         "extension_reviewed_count": len(rows), "extension_candidate_ids": ids,
-        "pinned_source_file_sha256": ext["pinned_source_file_sha256"],
         "extension_provenance": "Pinned source verified before author-approved decisions were transcribed; approved table fingerprint verified on every validation.",
     }
+    if category == "C5":
+        info["pinned_source_file_sha256"] = ext["pinned_source_file_sha256"]
+    else:
+        info["source_snapshot_table_sha256"] = ext["source_snapshot_table_sha256"]
+    return rows, info
 
 
 def canonical_hash(value: object) -> str:
@@ -249,7 +316,7 @@ def assess(columns: list[str], frozen: list[dict], review_columns: list[str],
         pool = sorted((r for r in eligible if r["reviewed_category"] == category),
                       key=lambda r: (order_key(r["independent_intent_group"], seed), r["candidate_id"]))
         selected.extend(dict(r, selection_order_key=order_key(r["independent_intent_group"], seed),
-                             selection_status="pending_downstream_reviews", **PENDING, **GATES) for r in pool[:13])
+                             selection_status="selected_pending_downstream_reviews", **PENDING, **GATES) for r in pool[:13])
     report.update(status="selected_pending_downstream_reviews", selected_count=len(selected),
                   selected_candidate_ids=[r["candidate_id"] for r in selected])
     return report, selected
@@ -278,7 +345,8 @@ def write_report(out: Path, report: dict) -> None:
         temp.replace(path)
 
 
-def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: Path | None = None) -> int:
+def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: Path | list[Path] | None = None) -> int:
+    paths = [] if extension_contract is None else ([extension_contract] if isinstance(extension_contract, Path) else list(extension_contract))
     selection = out / "selected_base_intents.csv"
     temp_selection = selection.with_suffix(".csv.tmp")
     # Protect the worksheet and immutable inputs even if CLI paths are mistaken.
@@ -286,8 +354,9 @@ def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: 
                  (root / CROSSWALK).resolve(),
                  (root / "results/stage_a_targeted_review_v1/review_queue.csv").resolve()}
     protected.update({(root / RESERVE_AUDIT).resolve(), (root / EXTENSION_WORKSHEET).resolve()})
-    if extension_contract is not None:
-        protected.add(extension_contract.resolve())
+    protected.update(path.resolve() for path in paths)
+    protected.update((root / spec[2]).resolve() for spec in EXTENSION_SPECS.values())
+    protected.update((root / path).resolve() for path in (CANDIDATE_SNAPSHOT, SOURCE_AUDIT, C5_CONTRACT))
     outputs = [selection, temp_selection] + [out / name for name in
                ["validation.json", "validation.json.tmp", "validation.txt", "validation.txt.tmp"]]
     if any(path.resolve() in protected for path in outputs):
@@ -307,9 +376,15 @@ def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: 
         review_columns, reviews, raw = read_table(worksheet)
         # Validate the original worksheet independently before combining references.
         original_report, _ = assess(columns, frozen, review_columns, reviews, contract["selection_seed"])
-        extension_rows, extension_info = [], {}
-        if extension_contract is not None:
-            extension_rows, extension_info = load_extension(extension_contract, root, contract, columns, frozen, reviews)
+        extension_rows, extensions, seen_ids, seen_extensions = [], [], set(), set()
+        for path in sorted(paths, key=lambda p: str(p.resolve())):
+            rows, info = load_extension(path, root, contract, columns, frozen, reviews, raw)
+            if info["extension_id"] in seen_extensions or seen_ids.intersection(info["extension_candidate_ids"]):
+                raise ValueError("Duplicate extension contract or overlapping extension candidates")
+            seen_extensions.add(info["extension_id"])
+            seen_ids.update(info["extension_candidate_ids"])
+            extension_rows.extend(rows)
+            extensions.append(info)
         extension_reference = [dict(row, **dict.fromkeys(REVIEW_FIELDS, "")) for row in extension_rows]
         report, selected = assess(columns, frozen + extension_reference, review_columns,
                                   reviews + extension_rows, contract["selection_seed"])
@@ -318,7 +393,11 @@ def validate(worksheet: Path, out: Path, root: Path = ROOT, extension_contract: 
             report.update(status="blocked_invalid_worksheet", selected_count=0)
             report.pop("selected_candidate_ids", None)
             selected = []
-        report.update(extension_info)
+        # Keep legacy single-extension metadata while reporting each batch separately.
+        if len(extensions) == 1:
+            report.update(extensions[0])
+        report.update(extensions=extensions, extension_reviewed_count=len(extension_rows),
+                      extension_candidate_ids=[r["candidate_id"] for r in extension_rows])
         report.update(frozen_queue_row_count=len(frozen), worksheet_row_count=len(reviews),
                       combined_review_row_count=len(reviews) + len(extension_rows))
         report.update(handoff_id=contract["handoff_id"], queue_table_sha256=contract["queue_table_sha256"],
@@ -348,8 +427,8 @@ def main() -> None:
     parser.add_argument("action", choices=["prepare", "validate"])
     parser.add_argument("--worksheet", type=Path, default=HANDOFF / "reviewer_worksheet.csv")
     parser.add_argument("--out-dir", type=Path, default=HANDOFF / "validation")
-    parser.add_argument("--extension-contract", type=Path,
-                        help="Explicitly opt in to the separately approved C5 reserve batch")
+    parser.add_argument("--extension-contract", type=Path, action="append",
+                        help="Opt in to an approved reserve batch; repeat for multiple contracts")
     args = parser.parse_args()
     try:
         if args.action == "prepare":
