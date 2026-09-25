@@ -1,0 +1,68 @@
+{
+  "contract_id": "stage_a_human_direct_authoring_contract_v1",
+  "status": "human_authoring_authorized_model_generation_not_authorized",
+  "scope": "Stage-A public/development paired-formulation feasibility study only",
+  "source_specifications": {
+    "path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
+    "sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59",
+    "expected_rows": 104,
+    "expected_rows_per_category": 13,
+    "approval_required": true
+  },
+  "blinding": {
+    "author_uses_authoring_worksheet_only": true,
+    "reference_prompt_hidden_during_authoring": true,
+    "reference_source_hidden_during_authoring": true,
+    "reviewed_category_hidden_during_authoring": true,
+    "selected_candidate_id_hidden_during_authoring": true,
+    "model_generator_and_seed_hidden_during_authoring": true,
+    "obfuscation_transform_hidden_during_authoring": true,
+    "mapping_record_kept_separately_for_reproducibility": true,
+    "purpose": "Reduce wording carryover and source-context leakage while the human formulation is authored from the shared approved intent specification."
+  },
+  "human_direct_authoring_rules": {
+    "author": "project_author",
+    "input": "approved base_intent_spec only",
+    "one_self_contained_user_request": true,
+    "natural_english_plain_text": true,
+    "direct_representation_required": true,
+    "encoding_or_character_obfuscation_forbidden": true,
+    "evaluation_or_benchmark_framing_forbidden": true,
+    "roleplay_or_fictional_wrapper_forbidden_unless_explicitly_required_by_the_approved_specification": true,
+    "copying_reference_prompt_forbidden": true,
+    "must_preserve_underlying_harmful_intent": true,
+    "must_not_add_new_harmful_objectives": true,
+    "must_not_add_operational_details_not_present_in_the_approved_specification": true,
+    "must_not_add_new_named_targets_or_victims": true,
+    "must_not_deliberately_increase_or_reduce_severity": true,
+    "monitor_or_target_outputs_must_not_be_consulted": true
+  },
+  "review_and_lock": {
+    "allowed_review_decisions": [
+      "include",
+      "needs_revision"
+    ],
+    "reviewer": "project_author",
+    "lock_requires_include_decision": true,
+    "lock_requires_nonempty_text": true,
+    "lock_requires_text_sha256": true,
+    "locked_human_text_immutable_before_and_during_model_generation": true,
+    "any_post_lock_change_invalidates_later_model_or_scoring_artifacts": true,
+    "model_output_must_not_be_generated_or_revealed_before_all_eligible_human_direct_rows_are_locked": true
+  },
+  "scientific_boundary": {
+    "human_direct_authoring_authorized": true,
+    "human_direct_text_currently_generated": false,
+    "model_direct_generation_authorized": false,
+    "obfuscation_generation_authorized": false,
+    "semantic_equivalence_review_authorized": false,
+    "semantic_equivalence_review_status": "pending",
+    "severity_review_authorized": false,
+    "severity_review_status": "pending",
+    "guard_scoring_authorized": false,
+    "q_estimation_authorized": false,
+    "w0_authorized": false,
+    "fresh_confirmatory_scoring_authorized": false,
+    "prospective_design_frozen": false
+  }
+}
