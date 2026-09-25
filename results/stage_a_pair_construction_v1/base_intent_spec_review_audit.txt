@@ -1,0 +1,17 @@
+Stage-A base-intent specification review finalization
+Rows: 104
+Categories: 13 each for C1-C8
+Final decisions: 104 include
+Author-approved specifications: 104
+Resolved candidate: wildguard:380
+Final worksheet SHA256: 3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59
+Human/model/obfuscated formulation text: blank
+Semantic-equivalence review: pending
+Severity review: pending
+Human/model/obfuscation generation authorization: false
+Guard scoring authorization: false
+q estimation authorization: false
+W0 authorization: false
+Fresh confirmatory scoring authorization: false
+Prospective design frozen: false
+No formulation generation or scoring performed.

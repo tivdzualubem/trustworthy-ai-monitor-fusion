@@ -1,0 +1,28 @@
+{
+  "artifact_id": "stage_a_base_intent_spec_review_audit_v1",
+  "author_approved_rows": 104,
+  "category_counts": {
+    "C1": 13,
+    "C2": 13,
+    "C3": 13,
+    "C4": 13,
+    "C5": 13,
+    "C6": 13,
+    "C7": 13,
+    "C8": 13
+  },
+  "downstream_generation_and_scoring_gates_false": true,
+  "final_decision_counts": {
+    "include": 104
+  },
+  "final_sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59",
+  "formulation_fields_blank": true,
+  "resolved_candidate": "wildguard:380",
+  "rows": 104,
+  "semantic_equivalence_review_pending": true,
+  "severity_review_pending": true,
+  "source_sha256": "5ae5d36182b46a597455e0453d20513c94bb91f1010ebb0a8535aed5003aaa1a",
+  "specification_approved_true_rows": 104,
+  "status": "author_approved_generation_not_authorized",
+  "work_review_sha256": "9f003efaf362eee29782a353d0bd120c7287e5a976bddf8372053fba8842302d"
+}
