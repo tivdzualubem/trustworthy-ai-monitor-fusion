@@ -10,7 +10,7 @@
     "human_direct_lock_status",
     "human_direct_text_hash"
   ],
-  "author_facing_worksheet_sha256": "8b32f54917e1230a68c80cbdeb687f8cf5805283161decc7c01365ba9a41abf0",
+  "author_facing_worksheet_sha256": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04",
   "authoring_order_rule": "ascending SHA256('stage_a_human_direct_authoring_v1|' + base_intent_id)",
   "authoring_rules": {
     "author": "project_author",
@@ -41,7 +41,24 @@
     "C8": 13
   },
   "guard_scoring_performed": false,
-  "human_direct_text_nonblank_rows": 0,
+  "human_direct_lock": {
+    "author": "project_author",
+    "author_request_sha256": "4705d3229aecc97c8cac326a026bb40076e4efd12f61ca236fac0691d24ad3ad",
+    "blinded_map_sha256": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94",
+    "condition": "human/direct",
+    "handoff_commit": "f901e88df1bd9d1586d59c9e3a045aeb72c4d3ed",
+    "locked_rows": 104,
+    "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_worksheet.csv",
+    "previous_worksheet_sha256": "8b32f54917e1230a68c80cbdeb687f8cf5805283161decc7c01365ba9a41abf0",
+    "review_basis": "project_author completed manual authoring and approved the final fidelity-aligned formulations.",
+    "reviewer": "project_author",
+    "rows": 104,
+    "sha256": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04",
+    "text_transfer": "Final H001-H104 human/direct formulations approved by project_author; no post-approval rewriting or donor retrieval.",
+    "validation_command": "python scripts/validate_stage_a_human_direct_lock.py"
+  },
+  "human_direct_locked_rows": 104,
+  "human_direct_text_nonblank_rows": 104,
   "model_direct_text_generated": false,
   "obfuscation_performed": false,
   "q_estimation_performed": false,
@@ -50,7 +67,7 @@
     "fresh_confirmatory_scoring_authorized": false,
     "guard_scoring_authorized": false,
     "human_direct_authoring_authorized": true,
-    "human_direct_text_currently_generated": false,
+    "human_direct_text_currently_generated": true,
     "model_direct_generation_authorized": false,
     "obfuscation_generation_authorized": false,
     "prospective_design_frozen": false,
@@ -65,5 +82,5 @@
   "severity_review_status": "pending",
   "source_specification_path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
   "source_specification_sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59",
-  "status": "human_authoring_ready_model_generation_not_authorized"
+  "status": "human_direct_locked_model_generation_not_authorized"
 }

@@ -54,7 +54,7 @@ def test_contract_authorizes_only_human_authoring():
     c = json.loads(CONTRACT.read_text(encoding="utf-8"))
     b = c["scientific_boundary"]
     assert b["human_direct_authoring_authorized"] is True
-    assert b["human_direct_text_currently_generated"] is False
+    assert b["human_direct_text_currently_generated"] is True
     assert b["model_direct_generation_authorized"] is False
     assert b["obfuscation_generation_authorized"] is False
     assert b["semantic_equivalence_review_authorized"] is False
@@ -66,10 +66,14 @@ def test_contract_authorizes_only_human_authoring():
     assert b["prospective_design_frozen"] is False
 
 
-def test_builder_creates_blinded_blank_authoring_handoff():
+def test_builder_creates_blinded_blank_authoring_handoff(tmp_path):
+    worksheet = tmp_path / "human_direct_authoring_worksheet.csv"
+    mapping_path = tmp_path / "human_direct_authoring_map.csv"
+    locked_before = WORKSHEET.read_bytes()
     source_before = SOURCE.read_bytes()
     subprocess.run(
-        [sys.executable, str(ROOT / "scripts/build_stage_a_human_direct_authoring_handoff.py")],
+        [sys.executable, str(ROOT / "scripts/build_stage_a_human_direct_authoring_handoff.py"),
+         "--output-dir", str(tmp_path)],
         cwd=ROOT,
         check=True,
         capture_output=True,
@@ -77,8 +81,8 @@ def test_builder_creates_blinded_blank_authoring_handoff():
     )
     assert SOURCE.read_bytes() == source_before
 
-    work = read_csv(WORKSHEET)
-    mapping = read_csv(MAP)
+    work = read_csv(worksheet)
+    mapping = read_csv(mapping_path)
 
     assert len(work) == len(mapping) == 104
     assert len({r["authoring_item_id"] for r in work}) == 104
@@ -97,14 +101,16 @@ def test_builder_creates_blinded_blank_authoring_handoff():
     assert all(r["human_direct_lock_status"] == "pending" for r in work)
     assert all(r["human_direct_text_hash"] == "" for r in work)
 
-    first_work = WORKSHEET.read_bytes()
-    first_map = MAP.read_bytes()
+    first_work = worksheet.read_bytes()
+    first_map = mapping_path.read_bytes()
     subprocess.run(
-        [sys.executable, str(ROOT / "scripts/build_stage_a_human_direct_authoring_handoff.py")],
+        [sys.executable, str(ROOT / "scripts/build_stage_a_human_direct_authoring_handoff.py"),
+         "--output-dir", str(tmp_path)],
         cwd=ROOT,
         check=True,
         capture_output=True,
         text=True,
     )
-    assert WORKSHEET.read_bytes() == first_work
-    assert MAP.read_bytes() == first_map
+    assert worksheet.read_bytes() == first_work
+    assert WORKSHEET.read_bytes() == locked_before
+    assert mapping_path.read_bytes() == first_map

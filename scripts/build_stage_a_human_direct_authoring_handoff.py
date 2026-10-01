@@ -5,6 +5,7 @@ monitor outputs, or q estimates.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 from collections import Counter
 import hashlib
@@ -38,7 +39,7 @@ def authoring_order_key(base_intent_id: str) -> str:
     ).hexdigest()
 
 
-def main() -> None:
+def main(out: Path = OUT) -> None:
     if sha256_file(SOURCE) != EXPECTED_SOURCE_SHA:
         raise ValueError("Approved specification artifact fingerprint mismatch")
 
@@ -71,7 +72,19 @@ def main() -> None:
 
     ordered = sorted(src, key=lambda r: authoring_order_key(r["base_intent_id"]))
 
-    OUT.mkdir(parents=True, exist_ok=True)
+    # Never reset completed or partially reviewed authoring to a blank template.
+    existing = out / "human_direct_authoring_worksheet.csv"
+    if out.resolve() == OUT.resolve() and contract.get("human_direct_lock"):
+        raise ValueError("Refusing to overwrite locked human/direct authoring")
+    if existing.exists():
+        with existing.open(encoding="utf-8", newline="") as f:
+            previous = list(csv.DictReader(f))
+        protected = ["human_direct_text", "human_direct_review_decision",
+                     "human_direct_review_rationale", "human_direct_text_hash"]
+        if any(any(r.get(k) for k in protected) or
+               r.get("human_direct_lock_status", "pending") != "pending" for r in previous):
+            raise ValueError("Refusing to overwrite nonblank human/direct authoring")
+    out.mkdir(parents=True, exist_ok=True)
 
     authoring_rows = []
     map_rows = []
@@ -104,7 +117,7 @@ def main() -> None:
             }
         )
 
-    authoring_path = OUT / "human_direct_authoring_worksheet.csv"
+    authoring_path = out / "human_direct_authoring_worksheet.csv"
     with authoring_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(
             f, fieldnames=list(authoring_rows[0]), lineterminator="\n"
@@ -112,7 +125,7 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(authoring_rows)
 
-    map_path = OUT / "human_direct_authoring_map.csv"
+    map_path = out / "human_direct_authoring_map.csv"
     with map_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(map_rows[0]), lineterminator="\n")
         writer.writeheader()
@@ -155,13 +168,14 @@ def main() -> None:
         "guard_scoring_performed": False,
         "q_estimation_performed": False,
         "authoring_rules": contract["human_direct_authoring_rules"],
-        "scientific_boundary": contract["scientific_boundary"],
+        "scientific_boundary": {**contract["scientific_boundary"],
+                                "human_direct_text_currently_generated": False},
     }
-    (OUT / "audit.json").write_text(
+    (out / "audit.json").write_text(
         json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
 
-    (OUT / "audit.txt").write_text(
+    (out / "audit.txt").write_text(
         "\n".join(
             [
                 "Stage-A human/direct authoring handoff",
@@ -188,8 +202,10 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print((OUT / "audit.txt").read_text(encoding="utf-8"), end="")
+    print((out / "audit.txt").read_text(encoding="utf-8"), end="")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=OUT)
+    main(parser.parse_args().output_dir)

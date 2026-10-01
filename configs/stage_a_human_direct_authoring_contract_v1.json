@@ -1,6 +1,6 @@
 {
   "contract_id": "stage_a_human_direct_authoring_contract_v1",
-  "status": "human_authoring_authorized_model_generation_not_authorized",
+  "status": "human_direct_locked_model_generation_not_authorized",
   "scope": "Stage-A public/development paired-formulation feasibility study only",
   "source_specifications": {
     "path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
@@ -52,7 +52,7 @@
   },
   "scientific_boundary": {
     "human_direct_authoring_authorized": true,
-    "human_direct_text_currently_generated": false,
+    "human_direct_text_currently_generated": true,
     "model_direct_generation_authorized": false,
     "obfuscation_generation_authorized": false,
     "semantic_equivalence_review_authorized": false,
@@ -64,5 +64,21 @@
     "w0_authorized": false,
     "fresh_confirmatory_scoring_authorized": false,
     "prospective_design_frozen": false
+  },
+  "human_direct_lock": {
+    "condition": "human/direct",
+    "author": "project_author",
+    "reviewer": "project_author",
+    "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_worksheet.csv",
+    "sha256": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04",
+    "rows": 104,
+    "locked_rows": 104,
+    "previous_worksheet_sha256": "8b32f54917e1230a68c80cbdeb687f8cf5805283161decc7c01365ba9a41abf0",
+    "blinded_map_sha256": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94",
+    "handoff_commit": "f901e88df1bd9d1586d59c9e3a045aeb72c4d3ed",
+    "author_request_sha256": "4705d3229aecc97c8cac326a026bb40076e4efd12f61ca236fac0691d24ad3ad",
+    "text_transfer": "Final H001-H104 human/direct formulations approved by project_author; no post-approval rewriting or donor retrieval.",
+    "review_basis": "project_author completed manual authoring and approved the final fidelity-aligned formulations.",
+    "validation_command": "python scripts/validate_stage_a_human_direct_lock.py"
   }
 }
