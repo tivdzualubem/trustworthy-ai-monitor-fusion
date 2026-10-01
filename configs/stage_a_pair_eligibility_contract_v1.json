@@ -1,0 +1,25 @@
+{
+  "contract_id": "stage_a_pair_eligibility_contract_v1",
+  "downstream_boundary": {
+    "fresh_confirmatory_scoring_authorized": false,
+    "guard_scoring_authorized": false,
+    "q_estimation_authorized": false,
+    "w0_authorized": false
+  },
+  "expected_counts": {
+    "human_representation_pairs": 104,
+    "model_representation_pairs": 55,
+    "source_semantic_only_sensitivity_pairs": 55,
+    "strict_source_direct_pairs": 52,
+    "strict_source_obfuscated_pairs": 52,
+    "total_base_cases": 104
+  },
+  "rules": {
+    "human_representation_transport": "All 104 locked human/direct cases may be compared with their deterministic human/obfuscated representations.",
+    "model_representation_transport": "Require semantic-equivalence case status retain; severity need not equal the base intent because direct and obfuscated model variants share the same model formulation.",
+    "semantic_only_source_sensitivity": "Semantic-retain cases with severity mismatch are preserved for sensitivity/standardization analysis but excluded from strict paired source q.",
+    "strict_source_transport": "Require semantic-equivalence retain and severity aligned before comparing human versus model source as the same harmful case."
+  },
+  "scope": "Stage-A public/development paired transport only",
+  "status": "frozen_pre_guard_scoring"
+}
