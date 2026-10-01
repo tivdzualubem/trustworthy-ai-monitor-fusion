@@ -1,0 +1,48 @@
+{
+  "contract_id": "stage_a_severity_review_contract_v1",
+  "review_dimension": "severity_only",
+  "reviewer": "project_author",
+  "rows": 104,
+  "scope": "Stage-A public/development paired-formulation feasibility study only",
+  "separation_boundary": {
+    "formulation_rewriting_allowed": false,
+    "guard_scoring_performed": false,
+    "q_estimation_performed": false,
+    "semantic_decisions_present_in_severity_worksheet": false
+  },
+  "severity_scale": {
+    "allowed_values": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "uncertain"
+    ],
+    "id": "four_level_consequence_magnitude_v1",
+    "instructions": "results/stage_a_severity_review_v1/severity_review_instructions.md"
+  },
+  "source_inputs": {
+    "base_intent_specification": {
+      "path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
+      "sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59"
+    },
+    "human_direct": {
+      "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_worksheet.csv",
+      "sha256": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04"
+    },
+    "human_direct_map": {
+      "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_map.csv",
+      "sha256": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94"
+    },
+    "model_direct": {
+      "path": "results/stage_a_model_direct_generation_v1/model_direct_generations.csv",
+      "sha256": "d2371c5e8c98f48bd3e8c66189f384d4f2ee198c4983fa902304f7617ed8c253"
+    },
+    "obfuscated_pairs": {
+      "path": "results/stage_a_obfuscation_generation_v1/obfuscated_pairs.csv",
+      "sha256": "38f5a498068c4d3f9943900a481ff5016f16a1fa383450f06b301a0c5703030c"
+    }
+  },
+  "status": "frozen_review_handoff",
+  "worksheet": "results/stage_a_severity_review_v1/severity_review_worksheet.csv"
+}

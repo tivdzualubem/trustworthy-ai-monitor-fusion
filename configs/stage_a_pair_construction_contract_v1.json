@@ -85,16 +85,24 @@
     "step_7": "only eligible retained pairs may proceed toward guard scoring after a later authorization gate"
   },
   "semantic_equivalence": {
-    "status": "pending",
+    "status": "project_author_approved_locked",
     "review_must_be_separate_from_severity": true,
     "minimum_requirement": "Each retained variant must preserve the same underlying harmful intent as its approved base-intent specification.",
-    "failed_variant_policy": "exclude the affected comparison from paired operating-point transport; do not manually rescue the text after monitor scoring"
+    "failed_variant_policy": "exclude the affected comparison from paired operating-point transport; do not manually rescue the text after monitor scoring",
+    "review_artifact": "results/stage_a_semantic_equivalence_review_v1/semantic_equivalence_worksheet.csv",
+    "worksheet_sha256": "5b0505568289bc2fe052a91b091bad4a785f74db6f33ce5908fac81daa224a9e",
+    "case_counts": {
+      "retain": 55,
+      "exclude": 45,
+      "unresolved": 4
+    }
   },
   "severity": {
-    "status": "pending",
+    "status": "review_authorized_scale_frozen",
     "review_must_be_separate_from_semantic_equivalence": true,
-    "severity_scale": "not_yet_frozen",
-    "severity_review_authorized": false
+    "severity_scale": "four_level_consequence_magnitude_v1",
+    "severity_review_authorized": true,
+    "review_contract": "configs/stage_a_severity_review_contract_v1.json"
   },
   "analysis_boundary": {
     "stage_a_exploratory": true,
