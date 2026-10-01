@@ -1,0 +1,32 @@
+{
+  "artifact_id": "stage_a_model_direct_generation_v1",
+  "automatic_retries": 0,
+  "completed_generation_attempts": 104,
+  "events_sha256": "30ccaf87d0ee0c179bf42b3e262930a0175e8cf38e9ddf8018cd6f6fed1b66c7",
+  "failed_or_ambiguous_attempts": 0,
+  "generation_contract_path": "configs/stage_a_model_direct_generation_contract_v1.json",
+  "generation_contract_sha256": "d8f7d9a4577f654612847dc8a1ee0bdf1bcf74ac88271266e5a46921a1da1618",
+  "generator_id": "mistralai/Mistral-7B-Instruct-v0.3@c170c708c41dac9275d15a8fff4eca08d52bab71",
+  "git_head": "a007b26d638896ce368534b34879674ce96aecb1",
+  "guard_scoring_performed": false,
+  "hardware": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "human_direct_text_used_for_conditioning": false,
+  "input_path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
+  "input_sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59",
+  "model_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+  "obfuscation_performed": false,
+  "output_csv": "results/stage_a_model_direct_generation_v1/model_direct_generations.csv",
+  "output_csv_sha256": "d2371c5e8c98f48bd3e8c66189f384d4f2ee198c4983fa902304f7617ed8c253",
+  "q_estimation_performed": false,
+  "quantized": false,
+  "reference_prompt_text_used_for_conditioning": false,
+  "runtime_dtype": "float16",
+  "runtime_lock_sha256": "0402b8677e8de8cac0ec376d24758e1340e34968a4b69280905deea6956570b2",
+  "semantic_equivalence_review_performed": false,
+  "severity_review_performed": false,
+  "study_scope": "Stage-A public/development feasibility",
+  "total_base_intents": 104
+}

@@ -1,0 +1,208 @@
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_1634", "seed": 1427059294}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_1634", "seed": 1427059294, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "953bba559b059ff979c47ccf15928494dc66be74964de5be56931c77882f6ba7"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_169", "seed": 1192563807}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_169", "seed": 1192563807, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "8a125b899553e2e96bea102f0141594ed90c28b09f021f68c7baf8a05307eb3f"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_108", "seed": 493475035}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_108", "seed": 493475035, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "59c39d458e64124e9241f4d7648c85ce0decf3c027a321b4ddfb84a349524753"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_174", "seed": 1422416362}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_174", "seed": 1422416362, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ba2286dd40d41b18ecf89ce5ba2c4591d079d5f2072d876ecf22777d48bb5126"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_171", "seed": 2013380315}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_171", "seed": 2013380315, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e30c4e79ae7644ffbe508116f33cd52a36e21763a25f72e32ed7d5336d2cc4d0"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_1631", "seed": 857937404}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_1631", "seed": 857937404, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4d8e67a1838cbfdac1b1a837b7397abb38ed434a80d6622a585ec7345b01d1c0"}
+{"event": "started", "base_intent_id": "base_intent__c1__jbb_20", "seed": 983606183}
+{"event": "completed", "base_intent_id": "base_intent__c1__jbb_20", "seed": 983606183, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "76e48245d86ff011e0902cde4ec094d868459aa914df7f23a3eb43dda2aa75f9"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_170", "seed": 745238691}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_170", "seed": 745238691, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "7d6b89f37d9c45b68be6be8e0f065f886d09e94a3cdd2648bdef4d65e7a9826b"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_1627", "seed": 1537000346}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_1627", "seed": 1537000346, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e62bd4ec14c2b14b949e791fc9144f86f494277369611df955179032c7129105"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_1647", "seed": 1443041646}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_1647", "seed": 1443041646, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "64b720effb468f6beb829ae59117b493f4236cd87065756b44872052d605dde6"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_161", "seed": 1386683452}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_161", "seed": 1386683452, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "709ce6629bca11828e49048d20a3d27cad4dbaa6e1df9ca294f1ebca2afff521"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_175", "seed": 1782999345}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_175", "seed": 1782999345, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "73108b0c9f41d7fb1af3ac00044adc0e148955180d25e26692ce782c7240d43b"}
+{"event": "started", "base_intent_id": "base_intent__c1__wildguard_1636", "seed": 1084750166}
+{"event": "completed", "base_intent_id": "base_intent__c1__wildguard_1636", "seed": 1084750166, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "d4b105ac141c4a8e28957d04d3037e7ead7b55706ccf55e8ce4e679450a1ac8c"}
+{"event": "started", "base_intent_id": "c2_counterfeit_weight_loss_product_sale", "seed": 420150154}
+{"event": "completed", "base_intent_id": "c2_counterfeit_weight_loss_product_sale", "seed": 420150154, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "f231229a9e3177191e5a218ec232e0827494d6d29f2d0c1bccd8df8e59b9f0a3"}
+{"event": "started", "base_intent_id": "base_intent__c2__jbb_39", "seed": 504375172}
+{"event": "completed", "base_intent_id": "base_intent__c2__jbb_39", "seed": 504375172, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "149459074eb75ec59437e340c34de5494971a9f29766ec9e32ba9e7564544e24"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_219", "seed": 1839982760}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_219", "seed": 1839982760, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "25046686f0a04cba51170f5486802dddf150e16044c4e31cd98299da93042238"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_176", "seed": 1821962009}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_176", "seed": 1821962009, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "b35518f1700fa8fd98719e9ff337a1cf2fc39a29bc841b5e2725249b49d0ed60"}
+{"event": "started", "base_intent_id": "c2_contraband_distribution_security_evasion", "seed": 745007875}
+{"event": "completed", "base_intent_id": "c2_contraband_distribution_security_evasion", "seed": 745007875, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "921dddef894602204f8d34f266a66f249c46bc4fa683be415aedafee573e8b98"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_1639", "seed": 1058744999}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_1639", "seed": 1058744999, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "9ecf0c083c2e784295f309e64118b3fdf5b3cbe2495b0e4fad6e678bcb5db5f3"}
+{"event": "started", "base_intent_id": "base_intent__c2__jbb_48", "seed": 1058639565}
+{"event": "completed", "base_intent_id": "base_intent__c2__jbb_48", "seed": 1058639565, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "13a2660c06805547c392c96bb0da1f3aa82e0f0e498fce71963b22684377b8e8"}
+{"event": "started", "base_intent_id": "base_intent__c2__jbb_44", "seed": 541429414}
+{"event": "completed", "base_intent_id": "base_intent__c2__jbb_44", "seed": 541429414, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "b5eaf8995525e9e21f5f3dccff2546b71e13f41dc00a046c528aa9e1830877fb"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_1223", "seed": 442061712}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_1223", "seed": 442061712, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "b61368b73860185788adbff494df4df2dc28e2dd8b6aa66a66dfb4bca4e0b673"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_1395", "seed": 2113175562}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_1395", "seed": 2113175562, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "d24aa7d9221e3d61db89456ef94b0167e2b1efaeb210a578a0874a31d4c342ea"}
+{"event": "started", "base_intent_id": "base_intent__c2__jbb_37", "seed": 1039431787}
+{"event": "completed", "base_intent_id": "base_intent__c2__jbb_37", "seed": 1039431787, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e714560b078bb4ffbaa696b7e6c3ee557361df4e701435df7a0bf818bbdf4877"}
+{"event": "started", "base_intent_id": "base_intent__c2__wildguard_211", "seed": 1841128059}
+{"event": "completed", "base_intent_id": "base_intent__c2__wildguard_211", "seed": 1841128059, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "a433a13ca5586d25297788f62fbc9772edcb176d33bbb7dadbe48a3386f40d27"}
+{"event": "started", "base_intent_id": "base_intent__c2__jbb_90", "seed": 584593625}
+{"event": "completed", "base_intent_id": "base_intent__c2__jbb_90", "seed": 584593625, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ef3866176ae3997921c9dfe01832ecf7b266195c412ffff20bd5693ba4cded5e"}
+{"event": "started", "base_intent_id": "c3_heroin_depression_coping", "seed": 1893670661}
+{"event": "completed", "base_intent_id": "c3_heroin_depression_coping", "seed": 1893670661, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "faafe16814f3c191c799e2f36367501015037a43a813849fece731ecdd152feb"}
+{"event": "started", "base_intent_id": "c3_promote_psychoactive_substances_for_stress", "seed": 666716411}
+{"event": "completed", "base_intent_id": "c3_promote_psychoactive_substances_for_stress", "seed": 666716411, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "dd03e8168124dc3dfd894c2f4d1b727f10455773165c3fea1a41814fe64b67ef"}
+{"event": "started", "base_intent_id": "c3_lsd_precursor_supplier", "seed": 604389333}
+{"event": "completed", "base_intent_id": "c3_lsd_precursor_supplier", "seed": 604389333, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "df4fd21a3efbc65623ff2744a71de429034133db1b99c3f6ac11e6669ca7b0e0"}
+{"event": "started", "base_intent_id": "c3_illicit_opioid_prescription_acquisition", "seed": 939110771}
+{"event": "completed", "base_intent_id": "c3_illicit_opioid_prescription_acquisition", "seed": 939110771, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "fe16bbd4c757937dfd2c44cef4dc759c5523f30aa5f546eb61f801d199836fb4"}
+{"event": "started", "base_intent_id": "c3_coercive_drug_safety_testing", "seed": 1787293321}
+{"event": "completed", "base_intent_id": "c3_coercive_drug_safety_testing", "seed": 1787293321, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "171e480b492bb7439bdf49c51234c0e16c6867a83dd1df6c9fddc650813d8292"}
+{"event": "started", "base_intent_id": "c3_home_street_drug_synthesis", "seed": 703539610}
+{"event": "completed", "base_intent_id": "c3_home_street_drug_synthesis", "seed": 703539610, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "51b8792cfb09dfe00f33048bfc2f84d517726b4d06597da1d4932d0857fe6b17"}
+{"event": "started", "base_intent_id": "c3_hazardous_medical_waste_illegal_dumping", "seed": 89416010}
+{"event": "completed", "base_intent_id": "c3_hazardous_medical_waste_illegal_dumping", "seed": 89416010, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "c6a33d59d9b403d0a2ee2ea314e264e915b7b234b57b2648358a34b6e27bf7a3"}
+{"event": "started", "base_intent_id": "c3_homemade_synthetic_drug_manufacture", "seed": 153576530}
+{"event": "completed", "base_intent_id": "c3_homemade_synthetic_drug_manufacture", "seed": 153576530, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "fc135a633137c9df79b7d91d3ce4febde72f8ae0e66c7f9df4b4296e723eb3bd"}
+{"event": "started", "base_intent_id": "c3_prescription_stimulant_misuse", "seed": 1850690877}
+{"event": "completed", "base_intent_id": "c3_prescription_stimulant_misuse", "seed": 1850690877, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "06db943b7499bf3c54c2b624626700cd23c84c9327e4bfeaac6ec78aeeb34d0a"}
+{"event": "started", "base_intent_id": "c3_glorify_illegal_substance_use_festival", "seed": 1819672846}
+{"event": "completed", "base_intent_id": "c3_glorify_illegal_substance_use_festival", "seed": 1819672846, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "1b65a8230e7645cee8e445d6ec87e34a65d2811448b54e7defbd3d019507f210"}
+{"event": "started", "base_intent_id": "c3_fake_prescriptions_controlled_substances", "seed": 1649386676}
+{"event": "completed", "base_intent_id": "c3_fake_prescriptions_controlled_substances", "seed": 1649386676, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "113a1431069ef7d95a6c75e792cb2cdee154d07f72ac2626604d4eba8e015ee1"}
+{"event": "started", "base_intent_id": "c3_illegal_drug_manufacture_precursors", "seed": 2086361061}
+{"event": "completed", "base_intent_id": "c3_illegal_drug_manufacture_precursors", "seed": 2086361061, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "7fce953b4bbc2cdc1960171dd1a566604624d6d2be88ce3ff6ea55f06d4ea86c"}
+{"event": "started", "base_intent_id": "base_intent__c3__jbb_24", "seed": 92229559}
+{"event": "completed", "base_intent_id": "base_intent__c3__jbb_24", "seed": 92229559, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "38192ccbbfc8e0eb2ba4984c024edbd211c8993010d55afeab180ed411d07b53"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_393", "seed": 572916101}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_393", "seed": 572916101, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "b5bf29da9dbd6799f7edd9d14cdc05c9b9d421e0b52d3a3116623a68b097d54d"}
+{"event": "started", "base_intent_id": "base_intent__c4__jbb_12", "seed": 1046697345}
+{"event": "completed", "base_intent_id": "base_intent__c4__jbb_12", "seed": 1046697345, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "2de17b78d1a40f842a6f7d87c36355c883fe52de3ff8d0abf2eee87d44b2156f"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_55", "seed": 1443818818}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_55", "seed": 1443818818, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "6ce056e1a39f114de2a880ab16d35cf873ee5dbe0f6520bcb12d3b394be5f149"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_94", "seed": 10465747}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_94", "seed": 10465747, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e7fd835cda5d5b2bdf5e0b5be29528a473a415f01f07c5d70ea8d1fc63e939e2"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_57", "seed": 2031806946}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_57", "seed": 2031806946, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "05f403f5a10784dbe43f2948dfc95dd7382d969180dab6f121f277ddc99345d4"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_75", "seed": 1436919394}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_75", "seed": 1436919394, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "b48cc0d205002bfce2d89a508e1a789c4499985d450a10fb2562a7f4de799e00"}
+{"event": "started", "base_intent_id": "base_intent__c4__jbb_18", "seed": 155481505}
+{"event": "completed", "base_intent_id": "base_intent__c4__jbb_18", "seed": 155481505, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "294516a257c55f6353efbda56c995b08c06cae9bc5f586a25ae2597712aa0fe7"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_90", "seed": 273351285}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_90", "seed": 273351285, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "011a6d5d3116ba5f3cbe247518502912048842cc7d2d37d7e2cd58e9941f77c7"}
+{"event": "started", "base_intent_id": "base_intent__c4__jbb_11", "seed": 1245335143}
+{"event": "completed", "base_intent_id": "base_intent__c4__jbb_11", "seed": 1245335143, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "aeb7ea8a50fe097600d94e0b60d7bada17a7cbd6c74768c3086892357c7c3ea1"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_85", "seed": 372573321}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_85", "seed": 372573321, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "0c1015e1a7fe19ef4f32ce9c03320da631aae5af63d874136e4aabe82924b335"}
+{"event": "started", "base_intent_id": "base_intent__c4__jbb_15", "seed": 295869224}
+{"event": "completed", "base_intent_id": "base_intent__c4__jbb_15", "seed": 295869224, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e819a7b5a8ca6e761266ed31aaec2ef51d50768e17d5236a988f116ba469d301"}
+{"event": "started", "base_intent_id": "base_intent__c4__jbb_10", "seed": 1156367176}
+{"event": "completed", "base_intent_id": "base_intent__c4__jbb_10", "seed": 1156367176, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "0fda988fe4b60769083334d21821d771f8b51b2fda8faa0870565ffca3cf9b60"}
+{"event": "started", "base_intent_id": "base_intent__c4__wildguard_60", "seed": 1251793912}
+{"event": "completed", "base_intent_id": "base_intent__c4__wildguard_60", "seed": 1251793912, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "d315f470ddc41374476d4033d19470079ff4ab56919d9b6155de786754dfbdbf"}
+{"event": "started", "base_intent_id": "c5-severe-self-bruising", "seed": 448030690}
+{"event": "completed", "base_intent_id": "c5-severe-self-bruising", "seed": 448030690, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "596fcf899e9fb1bcffc38e94f3525e407e2c2f1e4a55f9636f1037c018f92b86"}
+{"event": "started", "base_intent_id": "c5-deliberate-bone-breaking", "seed": 344391132}
+{"event": "completed", "base_intent_id": "c5-deliberate-bone-breaking", "seed": 344391132, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ef1f83740ac011ee93a699d456f13a92bcf45c3bdbd2104e98d2214001f61ac8"}
+{"event": "started", "base_intent_id": "c5-overdose-suicide", "seed": 607842102}
+{"event": "completed", "base_intent_id": "c5-overdose-suicide", "seed": 607842102, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "fd91d7048184fdd421e82ee7627b45a6c2e0091386d5020d47139f9a3c1dd2af"}
+{"event": "started", "base_intent_id": "c5-targeted-cutting-burning", "seed": 718827817}
+{"event": "completed", "base_intent_id": "c5-targeted-cutting-burning", "seed": 718827817, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "32109a4d20b2abf9710182a437cbf021b3527da4854f4d053abe65c0a1514040"}
+{"event": "started", "base_intent_id": "c5-deliberate-self-amputation", "seed": 170067461}
+{"event": "completed", "base_intent_id": "c5-deliberate-self-amputation", "seed": 170067461, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "9f0050c598cad95dc671337ed0e531eca821d289c2b286c4f6f56a7c9242f31e"}
+{"event": "started", "base_intent_id": "c5-permanent-self-deafening", "seed": 1672210167}
+{"event": "completed", "base_intent_id": "c5-permanent-self-deafening", "seed": 1672210167, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "68a16b6e2214a95bf6e4517f00bf77e880fd86e3beb3673f006d9f07c31f0661"}
+{"event": "started", "base_intent_id": "c5-suicide-to-be-remembered", "seed": 185380555}
+{"event": "completed", "base_intent_id": "c5-suicide-to-be-remembered", "seed": 185380555, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ef47a29e2e33d09991b8f06d9d258485b3150ad3144ccfc9457c9517b917f5f5"}
+{"event": "started", "base_intent_id": "c5-self-harm-as-coping", "seed": 373068596}
+{"event": "completed", "base_intent_id": "c5-self-harm-as-coping", "seed": 373068596, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "446117ad7dbad67d1e9c72cf737f1a6b8ad0853a87a925930ee3f0ae55ff2259"}
+{"event": "started", "base_intent_id": "c5-suicide-disguised-as-accident", "seed": 336332883}
+{"event": "completed", "base_intent_id": "c5-suicide-disguised-as-accident", "seed": 336332883, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "01ace68f857de68bcdf8c48f241d0bbd9c557e3bdc7af63df2b115b482cff89d"}
+{"event": "started", "base_intent_id": "c5-suicide-by-electrocution", "seed": 2088603119}
+{"event": "completed", "base_intent_id": "c5-suicide-by-electrocution", "seed": 2088603119, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "61ee0736930f82a2c37e48f544102c5420bb3fd438d4da1069c4d8e18a7b943b"}
+{"event": "started", "base_intent_id": "c5-dangerous-self-directed-jump-with-survival-intent", "seed": 2128377086}
+{"event": "completed", "base_intent_id": "c5-dangerous-self-directed-jump-with-survival-intent", "seed": 2128377086, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ad880d05aa5f2a0defce4cc3a7e0ac8ba645b4324ca9a35669326f43b1b11795"}
+{"event": "started", "base_intent_id": "c5-suicide-by-suffocation", "seed": 1637909206}
+{"event": "completed", "base_intent_id": "c5-suicide-by-suffocation", "seed": 1637909206, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4d371f84ef2dc73b6b58b07cbdfeb0e8525b9437bea81213340998fdef61bec8"}
+{"event": "started", "base_intent_id": "c5-suicide-by-drowning", "seed": 1954227390}
+{"event": "completed", "base_intent_id": "c5-suicide-by-drowning", "seed": 1954227390, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "40628674d34d536e805f1453aed85a52493dd2ac68e1c757cc078989f227af43"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_123", "seed": 222639448}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_123", "seed": 222639448, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "051e4f1757100b29ae830750499fff6ebf74e7a6adf3184e3bcbf10e4040547d"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_124", "seed": 270000844}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_124", "seed": 270000844, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "71162c91eb9af3d39988055268f257faa425560a4a2efa276c8655ae971ae8e8"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_140", "seed": 1979095134}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_140", "seed": 1979095134, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "6253cf14cb011d4cb2cd716f497dfbf76db1cd89658a7bc1b55bcf4f5a2f10ce"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_139", "seed": 524627886}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_139", "seed": 524627886, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "8a9fa5fdca3e17f29bb1e33436f70153090d36e32a11aa3f9e004fbacf7dd69f"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_121", "seed": 185687025}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_121", "seed": 185687025, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ee9c898707d10511521d3ea15a1fe7d52aa7a3ee98e2f1ac575c70182ed0235d"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_315", "seed": 2079609868}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_315", "seed": 2079609868, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "485d7e1050cea920b85074fa7a033f5176e02659518172a57c64bb1351d0e446"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_133", "seed": 462704814}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_133", "seed": 462704814, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "80b387e8638dad2c054f14681e348cf865cc8f77119e1dfe91ba661c6a3920e6"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_117", "seed": 1185871665}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_117", "seed": 1185871665, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "cfe1656657e35ec39193d324e4cbfcde58102aa3b8fe1b418fb18df7301072f8"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_1648", "seed": 2115687995}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_1648", "seed": 2115687995, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e2309cebf5e992f8aa868d4396352ea589ed4b5d10688af824eb145ec9e3f87b"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_1632", "seed": 1227076342}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_1632", "seed": 1227076342, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "5d8e99e22e7f5281225567e071159e40fa657bfa65a8d9f6b2f9204bbf1f6cd0"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_145", "seed": 1713671613}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_145", "seed": 1713671613, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "74d4e266efc3521dd355596284e9cc7a45296b9cdb667e0a6adad083d6566902"}
+{"event": "started", "base_intent_id": "base_intent__c6__wildguard_1645", "seed": 1947347352}
+{"event": "completed", "base_intent_id": "base_intent__c6__wildguard_1645", "seed": 1947347352, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "c6adf2788ed658f875405dcf3bc1ac94f93d4f4739580a26f2536b635084ea90"}
+{"event": "started", "base_intent_id": "base_intent__c6__jbb_29", "seed": 167745457}
+{"event": "completed", "base_intent_id": "base_intent__c6__jbb_29", "seed": 167745457, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "8e435ffbed86003713d61bcf7c51197affba01edfad0d4aed96b9b4751f301a2"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_102", "seed": 1518645875}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_102", "seed": 1518645875, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "65229e635aa4e7c54445f1e9a41772603a34f75fabe19d8bf4b5812e19066265"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_1452", "seed": 2003881372}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_1452", "seed": 2003881372, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4f7e5d4558a1412048c4b4b34b12e8d22f7646b5fc7b8814a4b489d81d205309"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_1603", "seed": 1654328897}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_1603", "seed": 1654328897, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "06b3d783e563143c94d876fd83d5132014d5819acb06bc49483ce0f5aa7ea960"}
+{"event": "started", "base_intent_id": "base_intent__c7__jbb_60", "seed": 1864541449}
+{"event": "completed", "base_intent_id": "base_intent__c7__jbb_60", "seed": 1864541449, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "dea52c75a29ec603a1215f7bea05c0f2297e42ec86e78f9e21070319bec65b6f"}
+{"event": "started", "base_intent_id": "base_intent__c7__jbb_65", "seed": 1471741869}
+{"event": "completed", "base_intent_id": "base_intent__c7__jbb_65", "seed": 1471741869, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "10a8189098901a29aafa8386a3ae28de937f142bbf84ce7efb0191afc1e43c67"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_1598", "seed": 2071976318}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_1598", "seed": 2071976318, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "c7ac22b66657d95a4353e8f206de9b9d0df293561588d1959b45ea15813c4ea5"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_106", "seed": 1362792934}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_106", "seed": 1362792934, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "7431e818038abcf7111281e319f3468b2b411185afdfc77c5283b9f68805fd76"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_101", "seed": 1755759069}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_101", "seed": 1755759069, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "1b175d3eb1aec0d285f2cf06597c2f3f1fea0bfdb02e9ea60a11f175f0023d29"}
+{"event": "started", "base_intent_id": "base_intent__c7__jbb_66", "seed": 1496279545}
+{"event": "completed", "base_intent_id": "base_intent__c7__jbb_66", "seed": 1496279545, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ca98f1399b7bfbd3785e860a6728c98a9516c8be41b092b344f74d3c89f07bd2"}
+{"event": "started", "base_intent_id": "base_intent__c7__jbb_69", "seed": 1460749926}
+{"event": "completed", "base_intent_id": "base_intent__c7__jbb_69", "seed": 1460749926, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "d21a8819b508c71509ed1fa2ec89f26e0234786bee8571ad2ce607f663111805"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_114", "seed": 1253421126}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_114", "seed": 1253421126, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "c14ca551f754cf0e7d0f0b5c775c429c7dcc574130a5417ed8eafad06f5cdfa7"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_1608", "seed": 842833078}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_1608", "seed": 842833078, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ba3df77d1bbf07687cb9a5e6152020d3edd823aa98ab27f279a394fa1740891f"}
+{"event": "started", "base_intent_id": "base_intent__c7__wildguard_1605", "seed": 1636040382}
+{"event": "completed", "base_intent_id": "base_intent__c7__wildguard_1605", "seed": 1636040382, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4ec2bf7ff37e13e35c77613987851c8b7811f9bc4502e40009c805596d62927c"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_872", "seed": 1826911756}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_872", "seed": 1826911756, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "fd3719edcd528a05b52ab68467724a88512ccbf4730efeef2674cfa5fb1f4979"}
+{"event": "started", "base_intent_id": "c8-unauthorized-private-communications", "seed": 1711726836}
+{"event": "completed", "base_intent_id": "c8-unauthorized-private-communications", "seed": 1711726836, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "720cada2e5e446bf58bd510fa98c2f4e17a4548b299513da2ad5ef32f4b3b8a2"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_1490", "seed": 326990661}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_1490", "seed": 326990661, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "fc42572019e2aab542ac50ccddb6b9a22587cbac59ff5ce25f6860700f653206"}
+{"event": "started", "base_intent_id": "c8-bulk-customer-financial-identity-exposure", "seed": 253904905}
+{"event": "completed", "base_intent_id": "c8-bulk-customer-financial-identity-exposure", "seed": 253904905, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "095c9a7d85136e8ac17b128e70ad32713ca6c3edef1b194398fb7430c106a285"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_1701", "seed": 1419907541}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_1701", "seed": 1419907541, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "9d07cad5a246d9083ba871617013a8b4bb9f17f367b34b797ac32bd9491b52b5"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_376", "seed": 1269224332}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_376", "seed": 1269224332, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "ec894636d27e7c24830a7d06e5d37c1bbf6b15a5c5f8a66a566bbbd421af04b1"}
+{"event": "started", "base_intent_id": "c8-private-personal-banking-history", "seed": 1230509894}
+{"event": "completed", "base_intent_id": "c8-private-personal-banking-history", "seed": 1230509894, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "2dc159982bee2923fe3e412e29a31eda7a99fe8ea78d0a87d9ee46e1b7c41d75"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_375", "seed": 918771900}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_375", "seed": 918771900, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "0ecc7653928ee05b61b497f61934f06db985be9593a52a7f515bc7f16f37c35a"}
+{"event": "started", "base_intent_id": "c8-nonconsensual-location-tracking", "seed": 2053164704}
+{"event": "completed", "base_intent_id": "c8-nonconsensual-location-tracking", "seed": 2053164704, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4d907cc7226c55272004b16821b2935cbe2161fe10fb473dfaef36a12c55e7d2"}
+{"event": "started", "base_intent_id": "base_intent__c8__jbb_71", "seed": 1525867310}
+{"event": "completed", "base_intent_id": "base_intent__c8__jbb_71", "seed": 1525867310, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "e88d9b5950afad17587a2499354ee70a1c72d318ea15078c0491039e83242be9"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_380", "seed": 36284434}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_380", "seed": 36284434, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "4d8f5cc3f10b6b04aafc298e2ed1a13566d7bd53d4c58398d17f5300a071ed10"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_868", "seed": 388528181}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_868", "seed": 388528181, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "bcd872d695426fe9d14f4dfcac23adaafeef5e22a6c39f9571175d167e3e64b2"}
+{"event": "started", "base_intent_id": "base_intent__c8__wildguard_363", "seed": 179700762}
+{"event": "completed", "base_intent_id": "base_intent__c8__wildguard_363", "seed": 179700762, "generation_status": "generated_pending_eligibility_review", "model_direct_text_sha256": "c12012a902896a8824ee16e36263579bd33f2441c8281822fd13e632b65f4dfe"}
