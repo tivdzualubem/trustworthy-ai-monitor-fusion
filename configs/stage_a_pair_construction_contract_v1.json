@@ -71,7 +71,9 @@
     "adaptive_transform_selection_allowed": false,
     "monitor_output_based_selection_allowed": false,
     "target_response_based_selection_allowed": false,
-    "generation_authorized": false
+    "generation_authorized": true,
+    "status": "frozen_generation_authorized",
+    "generation_contract": "configs/stage_a_obfuscation_generation_contract_v1.json"
   },
   "review_order": {
     "step_1": "approve base-intent specification",

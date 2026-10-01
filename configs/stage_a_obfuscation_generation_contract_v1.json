@@ -1,0 +1,73 @@
+{
+  "assignment": {
+    "adaptive_selection_allowed": false,
+    "expected_counts": {
+      "O1": 38,
+      "O2": 28,
+      "O3": 38
+    },
+    "monitor_output_based_selection_allowed": false,
+    "same_transform_for_human_and_model": true,
+    "source": "preassigned obfuscation_transform_id in approved pair worksheet",
+    "target_response_based_selection_allowed": false,
+    "verification_rule": "SHA256(base_intent_id) interpreted as integer modulo 3 using O1,O2,O3 order"
+  },
+  "contract_id": "stage_a_obfuscation_generation_contract_v1",
+  "downstream_boundary": {
+    "fresh_confirmatory_scoring_authorized": false,
+    "guard_scoring_authorized": false,
+    "q_estimation_authorized": false,
+    "semantic_equivalence_review_authorized": false,
+    "severity_review_authorized": false,
+    "w0_authorized": false
+  },
+  "execution": {
+    "exactly_one_transform_per_direct_text": true,
+    "human_and_model_direct_text_must_remain_unchanged": true,
+    "human_input": "locked human/direct text",
+    "manual_post_transform_editing_allowed": false,
+    "model_input": "frozen model/direct text",
+    "transform_stacking_allowed": false
+  },
+  "output": {
+    "expected_rows": 104,
+    "one_human_obfuscated_per_base_intent": true,
+    "one_model_obfuscated_per_base_intent": true,
+    "path": "results/stage_a_obfuscation_generation_v1/obfuscated_pairs.csv"
+  },
+  "scope": "Stage-A public/development paired-formulation feasibility study only",
+  "source_inputs": {
+    "approved_pair_worksheet": {
+      "path": "results/stage_a_pair_construction_v1/base_intent_spec_worksheet_author_approved.csv",
+      "rows": 104,
+      "sha256": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59"
+    },
+    "human_direct_map": {
+      "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_map.csv",
+      "rows": 104,
+      "sha256": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94"
+    },
+    "human_direct_worksheet": {
+      "path": "results/stage_a_human_direct_authoring_v1/human_direct_authoring_worksheet.csv",
+      "required_status": "locked",
+      "rows": 104,
+      "sha256": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04"
+    },
+    "model_direct_generations": {
+      "path": "results/stage_a_model_direct_generation_v1/model_direct_generations.csv",
+      "rows": 104,
+      "sha256": "d2371c5e8c98f48bd3e8c66189f384d4f2ee198c4983fa902304f7617ed8c253"
+    }
+  },
+  "status": "frozen_pre_generation",
+  "transform_registry": {
+    "implementation": "src/monitor_fusion/external_validation/attack_transforms.py",
+    "path": "configs/external_validation_attack_family_registry_v1.json",
+    "sha256": "2068b0e427bff465103b8d8cf71d544439c63633b7d0d7bc06007dd25c40d740",
+    "transform_ids": [
+      "O1",
+      "O2",
+      "O3"
+    ]
+  }
+}
