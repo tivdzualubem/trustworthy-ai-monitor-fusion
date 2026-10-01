@@ -1,0 +1,23 @@
+{
+  "artifact_id": "stage_a_semantic_equivalence_review_v1",
+  "case_counts": {
+    "exclude": 45,
+    "retain": 55,
+    "unresolved": 4
+  },
+  "decision_scope": "semantic_equivalence_only",
+  "formulations_rewritten_during_review": false,
+  "guard_scoring_performed": false,
+  "q_estimation_performed": false,
+  "reviewer": "project_author",
+  "rows": 104,
+  "severity_review_performed": false,
+  "status": "project_author_approved_locked",
+  "unresolved_semantic_review_ids": [
+    "SE004",
+    "SE020",
+    "SE074",
+    "SE099"
+  ],
+  "worksheet_sha256": "5b0505568289bc2fe052a91b091bad4a785f74db6f33ce5908fac81daa224a9e"
+}
