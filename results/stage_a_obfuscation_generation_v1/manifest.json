@@ -1,0 +1,31 @@
+{
+  "adaptive_transform_selection": false,
+  "artifact_id": "stage_a_obfuscation_generation_v1",
+  "git_head": "f05c42cb890712506276b37b0f72a5a5c3bd8cce",
+  "guard_scoring_performed": false,
+  "human_obfuscated_rows": 104,
+  "manual_post_transform_editing": false,
+  "model_obfuscated_rows": 104,
+  "output_csv": "results/stage_a_obfuscation_generation_v1/obfuscated_pairs.csv",
+  "output_csv_sha256": "38f5a498068c4d3f9943900a481ff5016f16a1fa383450f06b301a0c5703030c",
+  "q_estimation_performed": false,
+  "rows": 104,
+  "same_transform_for_human_and_model": true,
+  "scope": "Stage-A public/development paired-formulation feasibility study only",
+  "semantic_equivalence_review_performed": false,
+  "severity_review_performed": false,
+  "source_hashes": {
+    "approved_pair_worksheet": "3f962a4d4fac01029046286e978ad2852e80647abc27f3114c8ba6a8700b1e59",
+    "generation_contract": "cfbaa9402de7f94cd40b2060cbec312f0a0f750e7b3fe6f417be686e7b87e765",
+    "human_direct_map": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94",
+    "human_direct_worksheet": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04",
+    "model_direct_generations": "d2371c5e8c98f48bd3e8c66189f384d4f2ee198c4983fa902304f7617ed8c253",
+    "transform_registry": "2068b0e427bff465103b8d8cf71d544439c63633b7d0d7bc06007dd25c40d740"
+  },
+  "status": "generated_pending_semantic_and_severity_review",
+  "transform_counts": {
+    "O1": 38,
+    "O2": 28,
+    "O3": 38
+  }
+}
