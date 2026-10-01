@@ -98,11 +98,22 @@
     }
   },
   "severity": {
-    "status": "review_authorized_scale_frozen",
+    "status": "project_author_approved_locked",
     "review_must_be_separate_from_semantic_equivalence": true,
     "severity_scale": "four_level_consequence_magnitude_v1",
     "severity_review_authorized": true,
-    "review_contract": "configs/stage_a_severity_review_contract_v1.json"
+    "review_contract": "configs/stage_a_severity_review_contract_v1.json",
+    "review_artifact": "results/stage_a_severity_review_v1/severity_review_worksheet.csv",
+    "worksheet_sha256": "525b32d462bbab7dd269c9b26fd99e361b43676220fdf3ce4a5cd0545816f1cd",
+    "case_counts": {
+      "aligned": 59,
+      "mismatch": 43,
+      "unresolved": 2
+    },
+    "unresolved_severity_review_ids": [
+      "SV074",
+      "SV099"
+    ]
   },
   "analysis_boundary": {
     "stage_a_exploratory": true,

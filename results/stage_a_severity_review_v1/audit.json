@@ -1,0 +1,22 @@
+{
+  "artifact_id": "stage_a_severity_review_v1",
+  "case_counts": {
+    "aligned": 59,
+    "mismatch": 43,
+    "unresolved": 2
+  },
+  "formulations_rewritten_during_review": false,
+  "guard_scoring_performed": false,
+  "q_estimation_performed": false,
+  "review_dimension": "severity_only",
+  "reviewer": "project_author",
+  "rows": 104,
+  "semantic_equivalence_reassessed": false,
+  "severity_scale": "four_level_consequence_magnitude_v1",
+  "status": "project_author_approved_locked",
+  "unresolved_severity_review_ids": [
+    "SV074",
+    "SV099"
+  ],
+  "worksheet_sha256": "525b32d462bbab7dd269c9b26fd99e361b43676220fdf3ce4a5cd0545816f1cd"
+}
