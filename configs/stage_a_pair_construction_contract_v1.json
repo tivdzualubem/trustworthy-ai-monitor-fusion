@@ -45,7 +45,7 @@
     "representation_obfuscation_forbidden": true
   },
   "model_direct": {
-    "status": "proposed_generator_pending_explicit_author_approval",
+    "status": "generator_frozen_generation_authorized",
     "proposed_generator_id": "mistralai/Mistral-7B-Instruct-v0.3@c170c708c41dac9275d15a8fff4eca08d52bab71",
     "reason_for_proposal": "Reuse the already pinned project model-source generator to avoid introducing a new source model during the Stage-A feasibility study.",
     "legacy_contract_reference": "configs/external_validation_source_generation_contract_v1.json",
@@ -54,7 +54,8 @@
     "must_not_condition_on_reference_prompt_text": true,
     "one_output_per_base_intent": true,
     "generation_seed_preassigned_before_generation": true,
-    "generation_authorized": false
+    "generation_authorized": true,
+    "generation_contract": "configs/stage_a_model_direct_generation_contract_v1.json"
   },
   "obfuscation": {
     "registry": "configs/external_validation_attack_family_registry_v1.json",
