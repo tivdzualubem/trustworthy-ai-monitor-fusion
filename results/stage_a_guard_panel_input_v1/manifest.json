@@ -1,0 +1,27 @@
+{
+  "artifact_id": "stage_a_guard_panel_input_v1",
+  "base_intents": 104,
+  "guard_count": 4,
+  "guard_scoring_performed": false,
+  "inputs": {
+    "human_direct_authoring_map.csv": "97d4b5cee6fd6eb4aa305d839078c45b2d48189b05e322fb2236203f968acc94",
+    "human_direct_authoring_worksheet.csv": "9d21312869d2b7d5192af7e22356efc522d8b005abe96cdbc004a95c51859d04",
+    "model_direct_generations.csv": "d2371c5e8c98f48bd3e8c66189f384d4f2ee198c4983fa902304f7617ed8c253",
+    "obfuscated_pairs.csv": "38f5a498068c4d3f9943900a481ff5016f16a1fa383450f06b301a0c5703030c",
+    "pair_eligibility.csv": "c1e6b24306911fe7d8b41265b6f0e230712ede6720ec9474f26069617ad08ef3",
+    "semantic_equivalence_worksheet.csv": "5b0505568289bc2fe052a91b091bad4a785f74db6f33ce5908fac81daa224a9e",
+    "severity_review_worksheet.csv": "525b32d462bbab7dd269c9b26fd99e361b43676220fdf3ce4a5cd0545816f1cd",
+    "stage_a_guard_panel_prompt_contract_v1.json": "6e3f9dc7352bc39e1179f2a6536a1208ed6f2beb342778c58d7f71943acd9ab4"
+  },
+  "output_csv_sha256": "bb71dc13e3f63f73e8e1d8de8bda51da0431766d593843b5695d7c0eb8a21c11",
+  "planned_monitor_prompt_scores": 1664,
+  "q_estimation_performed": false,
+  "rows": 416,
+  "status": "frozen_pre_preflight",
+  "variant_counts": {
+    "human_direct": 104,
+    "human_obfuscated": 104,
+    "model_direct": 104,
+    "model_obfuscated": 104
+  }
+}
