@@ -1,0 +1,50 @@
+{
+  "stage_a_status": "four_guard_scoring_complete",
+  "input_rows": 416,
+  "files": {
+    "scores/llama_guard_3_1b_scores.csv": {
+      "sha256": "0b799460f2fb448b28b2b94a3923d87a33912430d1b1fdf6c6a63cae5726daa2",
+      "bytes": 33125
+    },
+    "scores/shieldgemma_2b_scores.meta.json": {
+      "sha256": "992a5f5563a303ad1609dde7347e96e24848cd80e246ec720e38685288a10ad2",
+      "bytes": 358
+    },
+    "scores/granite_guardian_3_3_8b_scores.meta.json": {
+      "sha256": "54885f189ac2a1dad012843fa937fd4ab55f2d53ffbc19c9b9aeea72e6cc1988",
+      "bytes": 367
+    },
+    "scores/granite_guardian_3_3_8b_scores.csv": {
+      "sha256": "c535600de65f194b45060b81ed369d88da9ac150a787d65972bcde445ddcdcc7",
+      "bytes": 43880
+    },
+    "scores/llama_guard_3_1b_scores.meta.json": {
+      "sha256": "e2f03327fafc4d1ba15f57cbbeb8898ec66f4f70a3c3ab7b0172c2d239482bc0",
+      "bytes": 463
+    },
+    "scores/qwen3guard_gen_4b_scores.csv": {
+      "sha256": "ea0831fb4984de0b0a16970afc123834887eb63363872e47b5e608c840a9ea4d",
+      "bytes": 58507
+    },
+    "scores/shieldgemma_2b_scores.csv": {
+      "sha256": "343f10db00271086d67f99f304abfe1fd59c7c3c029cb6c97023ce41107a9a56",
+      "bytes": 109392
+    },
+    "scores/qwen3guard_gen_4b_scores.meta.json": {
+      "sha256": "8b2c120a7b71eb006f5006879f7bb1f9bd9baac326993c4fe56d8ee26a729503",
+      "bytes": 361
+    },
+    "inputs/stage_a_guard_panel_prompts.csv": {
+      "sha256": "bb71dc13e3f63f73e8e1d8de8bda51da0431766d593843b5695d7c0eb8a21c11",
+      "bytes": 153561
+    },
+    "contract/stage_a_guard_panel_prompt_contract_v1.json": {
+      "sha256": "98d8a6bf85685a33a88943076e1d2788d36a4a74eda17e79a9b6e70e57b12b4d",
+      "bytes": 15275
+    },
+    "code/run_stage_a_guard_panel_kaggle.py": {
+      "sha256": "0b24ee4ba54f62ea7d55e4f0fa2ab8924e0f2d874e27bc5130b6072f90022ec4",
+      "bytes": 31277
+    }
+  }
+}

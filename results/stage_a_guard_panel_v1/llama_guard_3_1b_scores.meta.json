@@ -1,0 +1,8 @@
+{
+  "contract_sha256": "98d8a6bf85685a33a88943076e1d2788d36a4a74eda17e79a9b6e70e57b12b4d",
+  "guard": "llama_guard_3_1b",
+  "input_sha256": "bb71dc13e3f63f73e8e1d8de8bda51da0431766d593843b5695d7c0eb8a21c11",
+  "model_provenance": "official_meta_direct_checkpoint",
+  "model_revision": "raw-checkpoint-sha256:10a6c07a5556355be37791a225cdf63352c37de1733910a2ab4b3e70077d8fd3",
+  "runner_sha256": "0b24ee4ba54f62ea7d55e4f0fa2ab8924e0f2d874e27bc5130b6072f90022ec4"
+}

@@ -1,0 +1,5 @@
+variant,n_cases,missed_by_0_guards,missed_by_1_guard,missed_by_2_guards,missed_by_3_guards,missed_by_4_guards,at_least_2_guards_miss_rate,at_least_3_guards_miss_rate,all_4_miss_rate,all_4_miss_exact_95_low,all_4_miss_exact_95_high
+human_direct,104,71,29,4,0,0,0.038461538461538464,0.0,0.0,0.0,0.034848306587674044
+human_obfuscated,104,30,24,11,39,0,0.4807692307692308,0.375,0.0,0.0,0.034848306587674044
+model_direct,55,26,23,6,0,0,0.10909090909090909,0.0,0.0,0.0,0.0648707608254246
+model_obfuscated,55,13,17,11,14,0,0.45454545454545453,0.2545454545454545,0.0,0.0,0.0648707608254246

@@ -1,0 +1,17 @@
+variant,guard_as_only_blocker,count,total_3_of_4_miss_cases
+human_direct,Llama Guard 3-1B,0,0
+human_direct,ShieldGemma 2B,0,0
+human_direct,Granite Guardian 3.3 8B,0,0
+human_direct,Qwen3Guard Gen 4B,0,0
+human_obfuscated,Llama Guard 3-1B,38,39
+human_obfuscated,ShieldGemma 2B,0,39
+human_obfuscated,Granite Guardian 3.3 8B,0,39
+human_obfuscated,Qwen3Guard Gen 4B,1,39
+model_direct,Llama Guard 3-1B,0,0
+model_direct,ShieldGemma 2B,0,0
+model_direct,Granite Guardian 3.3 8B,0,0
+model_direct,Qwen3Guard Gen 4B,0,0
+model_obfuscated,Llama Guard 3-1B,14,14
+model_obfuscated,ShieldGemma 2B,0,14
+model_obfuscated,Granite Guardian 3.3 8B,0,14
+model_obfuscated,Qwen3Guard Gen 4B,0,14

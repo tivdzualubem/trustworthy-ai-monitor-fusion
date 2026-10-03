@@ -1,0 +1,7 @@
+{
+  "contract_sha256": "98d8a6bf85685a33a88943076e1d2788d36a4a74eda17e79a9b6e70e57b12b4d",
+  "guard": "qwen3guard_gen_4b",
+  "input_sha256": "bb71dc13e3f63f73e8e1d8de8bda51da0431766d593843b5695d7c0eb8a21c11",
+  "model_revision": "6ec42827da0c1ff11e7a49dc269d2e810d27e108",
+  "runner_sha256": "0b24ee4ba54f62ea7d55e4f0fa2ab8924e0f2d874e27bc5130b6072f90022ec4"
+}

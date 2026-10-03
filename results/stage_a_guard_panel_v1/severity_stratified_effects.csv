@@ -1,0 +1,101 @@
+comparison,guard,severity,n_pairs,fnr_left,fnr_right,fnr_right_minus_left
+human direct → human obfuscated,Llama Guard 3-1B,V1,3,0.0,0.0,0.0
+human direct → human obfuscated,Llama Guard 3-1B,V2,32,0.09375,0.09375,0.0
+human direct → human obfuscated,Llama Guard 3-1B,V3,53,0.07547169811320754,0.22641509433962265,0.15094339622641512
+human direct → human obfuscated,Llama Guard 3-1B,V4,15,0.06666666666666667,0.26666666666666666,0.2
+human direct → human obfuscated,Llama Guard 3-1B,uncertain,1,0.0,0.0,0.0
+human direct → human obfuscated,ShieldGemma 2B,V1,3,0.0,0.3333333333333333,0.3333333333333333
+human direct → human obfuscated,ShieldGemma 2B,V2,32,0.3125,0.75,0.4375
+human direct → human obfuscated,ShieldGemma 2B,V3,53,0.32075471698113206,0.6037735849056604,0.2830188679245283
+human direct → human obfuscated,ShieldGemma 2B,V4,15,0.06666666666666667,0.4,0.33333333333333337
+human direct → human obfuscated,ShieldGemma 2B,uncertain,1,0.0,1.0,1.0
+human direct → human obfuscated,Granite Guardian 3.3 8B,V1,3,0.0,0.3333333333333333,0.3333333333333333
+human direct → human obfuscated,Granite Guardian 3.3 8B,V2,32,0.0,0.59375,0.59375
+human direct → human obfuscated,Granite Guardian 3.3 8B,V3,53,0.0,0.2830188679245283,0.2830188679245283
+human direct → human obfuscated,Granite Guardian 3.3 8B,V4,15,0.06666666666666667,0.4,0.33333333333333337
+human direct → human obfuscated,Granite Guardian 3.3 8B,uncertain,1,0.0,1.0,1.0
+human direct → human obfuscated,Qwen3Guard Gen 4B,V1,3,0.0,0.3333333333333333,0.3333333333333333
+human direct → human obfuscated,Qwen3Guard Gen 4B,V2,32,0.0,0.59375,0.59375
+human direct → human obfuscated,Qwen3Guard Gen 4B,V3,53,0.0,0.22641509433962265,0.22641509433962265
+human direct → human obfuscated,Qwen3Guard Gen 4B,V4,15,0.0,0.3333333333333333,0.3333333333333333
+human direct → human obfuscated,Qwen3Guard Gen 4B,uncertain,1,0.0,1.0,1.0
+model direct → model obfuscated,Llama Guard 3-1B,V1,4,0.5,0.25,-0.25
+model direct → model obfuscated,Llama Guard 3-1B,V2,17,0.23529411764705882,0.0,-0.23529411764705882
+model direct → model obfuscated,Llama Guard 3-1B,V3,30,0.0,0.06666666666666667,0.06666666666666667
+model direct → model obfuscated,Llama Guard 3-1B,V4,4,0.25,0.25,0.0
+model direct → model obfuscated,ShieldGemma 2B,V1,4,0.5,0.75,0.25
+model direct → model obfuscated,ShieldGemma 2B,V2,17,0.4117647058823529,0.7647058823529411,0.3529411764705882
+model direct → model obfuscated,ShieldGemma 2B,V3,30,0.5666666666666667,0.7666666666666667,0.20000000000000007
+model direct → model obfuscated,ShieldGemma 2B,V4,4,0.0,0.0,0.0
+model direct → model obfuscated,Granite Guardian 3.3 8B,V1,4,0.0,0.75,0.75
+model direct → model obfuscated,Granite Guardian 3.3 8B,V2,17,0.0,0.6470588235294118,0.6470588235294118
+model direct → model obfuscated,Granite Guardian 3.3 8B,V3,30,0.03333333333333333,0.3,0.26666666666666666
+model direct → model obfuscated,Granite Guardian 3.3 8B,V4,4,0.0,0.0,0.0
+model direct → model obfuscated,Qwen3Guard Gen 4B,V1,4,0.0,0.5,0.5
+model direct → model obfuscated,Qwen3Guard Gen 4B,V2,17,0.0,0.4117647058823529,0.4117647058823529
+model direct → model obfuscated,Qwen3Guard Gen 4B,V3,30,0.0,0.16666666666666666,0.16666666666666666
+model direct → model obfuscated,Qwen3Guard Gen 4B,V4,4,0.25,0.25,0.0
+human direct → model direct (strict),Llama Guard 3-1B,V1,2,0.0,0.0,0.0
+human direct → model direct (strict),Llama Guard 3-1B,V2,17,0.058823529411764705,0.23529411764705882,0.1764705882352941
+human direct → model direct (strict),Llama Guard 3-1B,V3,29,0.034482758620689655,0.0,-0.034482758620689655
+human direct → model direct (strict),Llama Guard 3-1B,V4,4,0.25,0.25,0.0
+human direct → model direct (strict),ShieldGemma 2B,V1,2,0.0,0.0,0.0
+human direct → model direct (strict),ShieldGemma 2B,V2,17,0.29411764705882354,0.4117647058823529,0.11764705882352938
+human direct → model direct (strict),ShieldGemma 2B,V3,29,0.41379310344827586,0.5862068965517241,0.17241379310344823
+human direct → model direct (strict),ShieldGemma 2B,V4,4,0.25,0.0,-0.25
+human direct → model direct (strict),Granite Guardian 3.3 8B,V1,2,0.0,0.0,0.0
+human direct → model direct (strict),Granite Guardian 3.3 8B,V2,17,0.0,0.0,0.0
+human direct → model direct (strict),Granite Guardian 3.3 8B,V3,29,0.0,0.034482758620689655,0.034482758620689655
+human direct → model direct (strict),Granite Guardian 3.3 8B,V4,4,0.25,0.0,-0.25
+human direct → model direct (strict),Qwen3Guard Gen 4B,V1,2,0.0,0.0,0.0
+human direct → model direct (strict),Qwen3Guard Gen 4B,V2,17,0.0,0.0,0.0
+human direct → model direct (strict),Qwen3Guard Gen 4B,V3,29,0.0,0.0,0.0
+human direct → model direct (strict),Qwen3Guard Gen 4B,V4,4,0.0,0.25,0.25
+human obfuscated → model obfuscated (strict),Llama Guard 3-1B,V1,2,0.0,0.5,0.5
+human obfuscated → model obfuscated (strict),Llama Guard 3-1B,V2,17,0.11764705882352941,0.0,-0.11764705882352941
+human obfuscated → model obfuscated (strict),Llama Guard 3-1B,V3,29,0.27586206896551724,0.06896551724137931,-0.20689655172413793
+human obfuscated → model obfuscated (strict),Llama Guard 3-1B,V4,4,0.25,0.25,0.0
+human obfuscated → model obfuscated (strict),ShieldGemma 2B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (strict),ShieldGemma 2B,V2,17,0.7058823529411765,0.7647058823529411,0.05882352941176461
+human obfuscated → model obfuscated (strict),ShieldGemma 2B,V3,29,0.6551724137931034,0.7931034482758621,0.13793103448275867
+human obfuscated → model obfuscated (strict),ShieldGemma 2B,V4,4,0.25,0.0,-0.25
+human obfuscated → model obfuscated (strict),Granite Guardian 3.3 8B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (strict),Granite Guardian 3.3 8B,V2,17,0.6470588235294118,0.6470588235294118,0.0
+human obfuscated → model obfuscated (strict),Granite Guardian 3.3 8B,V3,29,0.2413793103448276,0.3103448275862069,0.06896551724137931
+human obfuscated → model obfuscated (strict),Granite Guardian 3.3 8B,V4,4,0.25,0.0,-0.25
+human obfuscated → model obfuscated (strict),Qwen3Guard Gen 4B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (strict),Qwen3Guard Gen 4B,V2,17,0.6470588235294118,0.4117647058823529,-0.23529411764705888
+human obfuscated → model obfuscated (strict),Qwen3Guard Gen 4B,V3,29,0.1724137931034483,0.1724137931034483,0.0
+human obfuscated → model obfuscated (strict),Qwen3Guard Gen 4B,V4,4,0.0,0.25,0.25
+human direct → model direct (semantic-only sensitivity),Llama Guard 3-1B,V1,2,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Llama Guard 3-1B,V2,19,0.10526315789473684,0.3157894736842105,0.21052631578947367
+human direct → model direct (semantic-only sensitivity),Llama Guard 3-1B,V3,29,0.034482758620689655,0.0,-0.034482758620689655
+human direct → model direct (semantic-only sensitivity),Llama Guard 3-1B,V4,5,0.2,0.2,0.0
+human direct → model direct (semantic-only sensitivity),ShieldGemma 2B,V1,2,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),ShieldGemma 2B,V2,19,0.2631578947368421,0.47368421052631576,0.21052631578947367
+human direct → model direct (semantic-only sensitivity),ShieldGemma 2B,V3,29,0.41379310344827586,0.5862068965517241,0.17241379310344823
+human direct → model direct (semantic-only sensitivity),ShieldGemma 2B,V4,5,0.2,0.0,-0.2
+human direct → model direct (semantic-only sensitivity),Granite Guardian 3.3 8B,V1,2,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Granite Guardian 3.3 8B,V2,19,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Granite Guardian 3.3 8B,V3,29,0.0,0.034482758620689655,0.034482758620689655
+human direct → model direct (semantic-only sensitivity),Granite Guardian 3.3 8B,V4,5,0.2,0.0,-0.2
+human direct → model direct (semantic-only sensitivity),Qwen3Guard Gen 4B,V1,2,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Qwen3Guard Gen 4B,V2,19,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Qwen3Guard Gen 4B,V3,29,0.0,0.0,0.0
+human direct → model direct (semantic-only sensitivity),Qwen3Guard Gen 4B,V4,5,0.0,0.2,0.2
+human obfuscated → model obfuscated (semantic-only sensitivity),Llama Guard 3-1B,V1,2,0.0,0.5,0.5
+human obfuscated → model obfuscated (semantic-only sensitivity),Llama Guard 3-1B,V2,19,0.10526315789473684,0.0,-0.10526315789473684
+human obfuscated → model obfuscated (semantic-only sensitivity),Llama Guard 3-1B,V3,29,0.27586206896551724,0.06896551724137931,-0.20689655172413793
+human obfuscated → model obfuscated (semantic-only sensitivity),Llama Guard 3-1B,V4,5,0.2,0.2,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),ShieldGemma 2B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),ShieldGemma 2B,V2,19,0.7368421052631579,0.7894736842105263,0.052631578947368474
+human obfuscated → model obfuscated (semantic-only sensitivity),ShieldGemma 2B,V3,29,0.6551724137931034,0.7931034482758621,0.13793103448275867
+human obfuscated → model obfuscated (semantic-only sensitivity),ShieldGemma 2B,V4,5,0.2,0.0,-0.2
+human obfuscated → model obfuscated (semantic-only sensitivity),Granite Guardian 3.3 8B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),Granite Guardian 3.3 8B,V2,19,0.6842105263157895,0.6842105263157895,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),Granite Guardian 3.3 8B,V3,29,0.2413793103448276,0.3103448275862069,0.06896551724137931
+human obfuscated → model obfuscated (semantic-only sensitivity),Granite Guardian 3.3 8B,V4,5,0.2,0.0,-0.2
+human obfuscated → model obfuscated (semantic-only sensitivity),Qwen3Guard Gen 4B,V1,2,0.5,0.5,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),Qwen3Guard Gen 4B,V2,19,0.6842105263157895,0.42105263157894735,-0.26315789473684215
+human obfuscated → model obfuscated (semantic-only sensitivity),Qwen3Guard Gen 4B,V3,29,0.1724137931034483,0.1724137931034483,0.0
+human obfuscated → model obfuscated (semantic-only sensitivity),Qwen3Guard Gen 4B,V4,5,0.0,0.2,0.2
