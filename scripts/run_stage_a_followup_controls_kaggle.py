@@ -46,6 +46,17 @@ def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def release_cuda_memory(torch_module) -> None:
+    """Release unreferenced CUDA allocations on every visible GPU."""
+    gc.collect()
+    if not torch_module.cuda.is_available():
+        return
+    for device_index in range(torch_module.cuda.device_count()):
+        with torch_module.cuda.device(device_index):
+            torch_module.cuda.empty_cache()
+    gc.collect()
+
+
 def validate_input(contract: dict, input_path: Path) -> pd.DataFrame:
     expected_blob = contract["source"]["input_blob_sha"]
     observed_blob = git_blob_sha(input_path)
@@ -213,6 +224,9 @@ def score_all(
         )
     finally:
         base.cleanup_llama_raw(generator)
+        del llama_one
+        del generator
+        release_cuda_memory(torch)
 
     # ShieldGemma 2B: identical official guideline chat-template scoring.
     c = guard_cfg["monitors"]["shieldgemma_2b"]
@@ -275,6 +289,10 @@ def score_all(
         )
     )
     base.cleanup(model, tok)
+    del shield_one
+    del model
+    del tok
+    release_cuda_memory(torch)
 
     # Granite Guardian 3.3 8B: same official guardian-config pathway.
     c = guard_cfg["monitors"]["granite_guardian_3_3_8b"]
@@ -339,6 +357,10 @@ def score_all(
         )
     )
     base.cleanup(model, tok)
+    del granite_one
+    del model
+    del tok
+    release_cuda_memory(torch)
 
     # Qwen3Guard Gen 4B: identical prompt-moderation chat-template path.
     c = guard_cfg["monitors"]["qwen3guard_gen_4b"]
@@ -404,6 +426,10 @@ def score_all(
         )
     )
     base.cleanup(model, tok)
+    del qwen_one
+    del model
+    del tok
+    release_cuda_memory(torch)
 
     return frames
 
