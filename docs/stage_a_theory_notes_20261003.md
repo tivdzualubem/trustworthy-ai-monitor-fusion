@@ -132,9 +132,11 @@ The corresponding first-order efficiency ratio is
 {p_L(1-p_L)+p_R(1-p_R)}.
 \]
 
-This is a design approximation rather than a replacement for the final exact power calculation. It makes the key point explicit: pairing reduces the information requirement only when the within-case decisions are sufficiently concordant. If (q) is small, the numerator can be much smaller than the independent Bernoulli variance. If (q) approaches the scale of the marginal variance terms, the advantage becomes limited.
+This is a design approximation rather than a replacement for the final exact power calculation. The key point is that `q` cannot be interpreted in isolation. Pairing is efficient only when the paired variance component `q-Delta^2` is small relative to the independent Bernoulli variance `p_L(1-p_L)+p_R(1-p_R)`.
 
-Stage-A therefore uses (q) as an empirical feasibility diagnostic rather than as a safety metric. The observed values indicate potentially useful pairing for some direct-source comparisons, particularly Granite Guardian and Qwen3Guard, but not uniformly across guards and not after representation shift.
+In the strict direct-source Stage-A comparison, the plug-in paired/independent variance ratios are approximately 0.296 for ShieldGemma, 0.534 for Llama Guard, 1.000 for Qwen3Guard, and 1.020 for Granite Guardian. Thus ShieldGemma shows the largest paired variance reduction despite having a larger `q` than Granite or Qwen. Granite and Qwen have very small marginal non-intercept probabilities, so their independent-sample variances are already small and their low discordance does not produce a pairing advantage.
+
+Stage-A therefore retains `q` as a descriptive discordance statistic, while paired-sampling efficiency is assessed with the paired-versus-independent variance ratio.
 
 ## 3. Common-mode and defense-in-depth reliability
 
@@ -172,7 +174,7 @@ That factorization is not valid when guards share failure modes or when difficul
 
 A useful development-stage diagnostic is to compare observed joint miss patterns with the independence picture, while avoiding a parametric common-cause model before there is enough evidence to support one. In particular, high rates of two-of-four or three-of-four misses reveal dependence structure even when no all-four failure is observed in a limited sample.
 
-Stage-A shows precisely this pattern under obfuscation: simultaneous three-of-four misses become frequent, with ShieldGemma, Granite Guardian, and Qwen3Guard often failing on the same cases while Llama Guard remains the sole blocker. This is evidence of near-common-mode vulnerability under the tested representation shifts and evidence that Llama Guard contributes failure diversity in this sample.
+Stage-A shows that the apparent near-common-mode pattern is not uniform across the tested transformations. It is concentrated primarily in the O3 Base64 condition: all 38 human O3 cases have exactly three native-policy non-intercepts with Llama Guard as the sole blocker, and 14 of 19 eligible model O3 cases have the same three-of-four pattern. O1 produces very little panel concurrence and O2 produces a weaker intermediate signal. The current evidence therefore supports a Base64-specific panel phenomenon, not a general common-mode failure claim across obfuscations.
 
 The result should not be interpreted as an identified architectural cause, a deployment-wide common-cause probability, or proof that the four-guard panel is safe. No all-four miss was observed in Stage-A, but zero observed events only yields an upper confidence bound; it does not establish a zero population failure probability.
 
