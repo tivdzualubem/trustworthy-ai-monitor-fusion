@@ -1,0 +1,73 @@
+{
+  "screen_id": "external_validation_cluster_design_envelope_screen_v1",
+  "status": "screen_complete_not_frozen",
+  "outer_repetitions_per_task": 1000,
+  "inner_null_repetitions": 199,
+  "design_summary": [
+    {
+      "envelope": "tight",
+      "G_per_cell": 20,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 0.8799999999999999
+    },
+    {
+      "envelope": "tight",
+      "G_per_cell": 40,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.24
+    },
+    {
+      "envelope": "tight",
+      "G_per_cell": 60,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.0799999999999998
+    },
+    {
+      "envelope": "moderate",
+      "G_per_cell": 20,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 0.8599999999999999
+    },
+    {
+      "envelope": "moderate",
+      "G_per_cell": 40,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.24
+    },
+    {
+      "envelope": "moderate",
+      "G_per_cell": 60,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.4000000000000001
+    },
+    {
+      "envelope": "wider",
+      "G_per_cell": 20,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.0
+    },
+    {
+      "envelope": "wider",
+      "G_per_cell": 40,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.32
+    },
+    {
+      "envelope": "wider",
+      "G_per_cell": 60,
+      "screen_admissible": true,
+      "clear_failure_count": 0,
+      "worst_alpha_ratio": 1.4000000000000001
+    }
+  ],
+  "next_step": "High-repetition confirmation only for the narrowest feasible screen-admissible envelope/G region, adding the two-point generator. If none survives, do not continue estimator hunting; the confirmatory architecture requires supervisor-level redesign.",
+  "csv": "results/external_validation_cluster_design_envelope_screen_v1.csv"
+}

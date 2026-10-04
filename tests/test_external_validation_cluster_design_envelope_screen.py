@@ -33,5 +33,5 @@ def test_envelopes_are_bounded_and_centered_near_twenty():
 
 def test_screen_is_not_a_freeze():
     cfg = load()
-    assert cfg["status"] == "simulation_design_screen_not_frozen"
+    assert cfg["status"] == "screen_complete_tight_envelope_advances_to_power_typeI_grid_not_frozen"
     assert cfg["W0_remains_blocked"] is True
