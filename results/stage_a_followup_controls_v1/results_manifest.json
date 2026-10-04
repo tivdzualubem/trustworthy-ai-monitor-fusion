@@ -1,0 +1,21 @@
+{
+  "W0_used": false,
+  "analysis": {
+    "condition_summary_rows": 40,
+    "llama_s8_summary_rows": 10,
+    "paired_transition_rows": 40,
+    "panel_concurrence_rows": 5
+  },
+  "artifact_id": "stage_a_followup_controls_results_v1",
+  "development_followup_only": true,
+  "fresh_confirmatory_scoring_performed": false,
+  "guard_contract_sha256": "98d8a6bf85685a33a88943076e1d2788d36a4a74eda17e79a9b6e70e57b12b4d",
+  "guards": 4,
+  "input_git_blob_sha": "efe658a869bc2d585ac5a207f4e50c2455968220",
+  "input_sha256": "aea60e385ec4056ce57b4094d29350c7ea0c30a47d91dd8bd72972c98ca9efc7",
+  "monitor_prompt_scores": 1520,
+  "rows": 380,
+  "runtime_lock_sha256": "0402b8677e8de8cac0ec376d24758e1340e34968a4b69280905deea6956570b2",
+  "status": "complete",
+  "threshold_retuning_performed": false
+}
