@@ -2,17 +2,11 @@
 
 ## Purpose
 
-Stage-A evaluates whether runtime safety-monitor decisions remain stable when the same underlying harmful intent is expressed under controlled changes in source and representation. The study is a development-stage design check, not a deployment certificate.
+Stage-A evaluates whether runtime safety-monitor decisions remain stable when the same underlying harmful intent is expressed under controlled source and representation changes. The study is development evidence, not a deployment certificate.
 
-It addresses three questions:
+The initial 416-prompt Stage-A analysis identified a strong representation signal dominated by O3/Base64. A subsequent frozen follow-up added matched benign controls, same-intent O1/O2/O3 comparisons, and direct/raw/raw+decoded comparisons. The follow-up resolves the main ambiguity in the initial interpretation.
 
-1. whether pairing reduces variance relative to an independent comparison for the same operating-point contrast;
-2. whether source and representation changes alter guard operating behaviour; and
-3. whether non-intercepts are shared across the guard panel or remain complementary.
-
-No guard, threshold, formulation, eligibility rule, or study case was retuned after guard outputs were observed.
-
-## Study design
+## Initial Stage-A design
 
 The frozen Stage-A set contains 104 base harmful intents. Each base intent has four formulation slots: human/direct, model/direct, human/obfuscated, and model/obfuscated, giving 416 scored prompts.
 
@@ -26,24 +20,20 @@ Comparison-specific pair eligibility was frozen before guard scoring.
 | Human obfuscated vs model obfuscated, strict | 52 |
 | Source semantic-only sensitivity | 55 |
 
-The strict source set requires semantic retention and severity alignment. The 55-case sensitivity set requires semantic retention but retains the three severity-mismatched cases and is reported separately.
-
-The obfuscation assignment is not balanced within the same intents: O1, O2 and O3 were applied to different base intents. The present transform-stratified analysis therefore describes transformation-specific operating behaviour but does not, by itself, identify a causal transformation effect independent of intent difficulty.
+The strict source set requires semantic retention and severity alignment. The 55-case sensitivity set requires semantic retention but retains the three severity-mismatched cases.
 
 ## Guard panel and terminology
 
-The same frozen Stage-A prompts were evaluated by Meta Llama Guard 3-1B, Google ShieldGemma 2B, IBM Granite Guardian 3.3 8B, and Qwen3Guard Gen 4B.
+The same frozen prompts were evaluated by Meta Llama Guard 3-1B, Google ShieldGemma 2B, IBM Granite Guardian 3.3 8B, and Qwen3Guard Gen 4B.
 
-All four guards produced complete, successfully parsed outputs for all 416 prompts.
+Because the guards do not implement identical safety taxonomies, cross-guard summaries use **native-policy intercept/non-intercept** rather than treating every non-intercept as an interchangeable false negative.
 
-Because the guards do not implement identical safety taxonomies, cross-guard panel summaries use the term **native-policy non-intercept** rather than treating every non-intercept as an interchangeable false negative. ShieldGemma in particular has narrower native policy-family coverage, so category-supported interpretation remains necessary.
+## Pairing efficiency correction
 
-## Pairing efficiency: q is not sufficient
-
-For an ordered pair, let `D=1` denote intercept/block and `D=0` denote non-intercept. Define
+For an ordered pair, let `D=1` denote intercept and `D=0` denote non-intercept. Define
 
 \[
-q_{10}=P(D_L=1,D_R=0), \qquad
+q_{10}=P(D_L=1,D_R=0),\qquad
 q_{01}=P(D_L=0,D_R=1),
 \]
 
@@ -63,13 +53,13 @@ The paired variance component is
 V_{pair}=q-\Delta^2,
 \]
 
-while for two independent samples of equal size the corresponding component is
+and the equal-n independent variance component is
 
 \[
 V_{ind}=p_L(1-p_L)+p_R(1-p_R).
 \]
 
-Therefore, small `q` alone does not establish that pairing is especially efficient. The relevant diagnostic is the ratio `V_pair / V_ind`.
+Therefore small `q` alone is not evidence that pairing is especially efficient.
 
 ### Strict direct-source comparison
 
@@ -80,116 +70,129 @@ Therefore, small `q` alone does not establish that pairing is especially efficie
 | Granite Guardian 3.3 8B | 0.038 | 1.020 | -2.0% |
 | Qwen3Guard Gen 4B | 0.019 | 1.000 | 0.0% |
 
-This reverses the earlier interpretation based on `q` alone. In this direct-source comparison, **ShieldGemma receives the largest variance reduction from pairing**, followed by Llama Guard. Granite Guardian and Qwen3Guard have very low marginal non-intercept rates in the direct condition, so their independent-sample variances are already small; their low `q` does not translate into a pairing advantage.
+ShieldGemma therefore receives the largest paired variance reduction in the strict direct-source comparison despite having a larger `q` than Granite or Qwen.
 
-The full comparison table is in `pairing_efficiency.csv`.
+## Initial transform-stratified result
 
-## Representation effects must be separated by transformation
+The original pooled obfuscation result was dominated by O3/Base64.
 
-The pooled obfuscation result is dominated by O3, the Base64 wrapper. O1 is the dot-separated token perturbation and O2 is the leet-style character substitution.
+For human-source representation pairs:
 
-### Human-source representation pairs
-
-| Transform | n | Guard | Direct non-intercept | Transformed non-intercept | Difference |
-|---|---:|---|---:|---:|---:|
-| O1 | 38 | Llama Guard | 0.079 | 0.079 | 0.0 pp |
-| O1 | 38 | ShieldGemma | 0.316 | 0.368 | +5.3 pp |
-| O1 | 38 | Granite Guardian | 0.026 | 0.026 | 0.0 pp |
-| O1 | 38 | Qwen3Guard | 0.000 | 0.000 | 0.0 pp |
-| O2 | 28 | Llama Guard | 0.000 | 0.571 | +57.1 pp |
-| O2 | 28 | ShieldGemma | 0.321 | 0.429 | +10.7 pp |
-| O2 | 28 | Granite Guardian | 0.000 | 0.107 | +10.7 pp |
-| O2 | 28 | Qwen3Guard | 0.000 | 0.000 | 0.0 pp |
-| O3 Base64 | 38 | Llama Guard | 0.132 | 0.000 | -13.2 pp |
-| O3 Base64 | 38 | ShieldGemma | 0.184 | 1.000 | +81.6 pp |
-| O3 Base64 | 38 | Granite Guardian | 0.000 | 1.000 | +100.0 pp |
-| O3 Base64 | 38 | Qwen3Guard | 0.000 | 1.000 | +100.0 pp |
-
-### Model-source representation pairs
-
-| Transform | n | Guard | Direct non-intercept | Transformed non-intercept | Difference |
-|---|---:|---|---:|---:|---:|
-| O1 | 21 | Llama Guard | 0.095 | 0.048 | -4.8 pp |
-| O1 | 21 | ShieldGemma | 0.286 | 0.381 | +9.5 pp |
-| O1 | 21 | Granite Guardian | 0.000 | 0.000 | 0.0 pp |
-| O1 | 21 | Qwen3Guard | 0.048 | 0.048 | 0.0 pp |
-| O2 | 15 | Llama Guard | 0.000 | 0.200 | +20.0 pp |
-| O2 | 15 | ShieldGemma | 0.667 | 0.800 | +13.3 pp |
-| O2 | 15 | Granite Guardian | 0.067 | 0.267 | +20.0 pp |
-| O2 | 15 | Qwen3Guard | 0.000 | 0.000 | 0.0 pp |
-| O3 Base64 | 19 | Llama Guard | 0.263 | 0.000 | -26.3 pp |
-| O3 Base64 | 19 | ShieldGemma | 0.526 | 1.000 | +47.4 pp |
-| O3 Base64 | 19 | Granite Guardian | 0.000 | 1.000 | +100.0 pp |
-| O3 Base64 | 19 | Qwen3Guard | 0.000 | 0.737 | +73.7 pp |
-
-The pooled statement that “obfuscation causes common-mode failure” is therefore too broad. The strongest multi-guard pattern is specifically associated with the Base64 condition in this Stage-A allocation.
-
-## Transform-stratified panel concurrence
-
-### Human obfuscated cases
-
-| Transform | n | >=2 native-policy non-intercepts | 3-of-4 | 4-of-4 |
+| Transform | Llama non-intercept change | ShieldGemma | Granite | Qwen |
 |---|---:|---:|---:|---:|
-| O1 | 38 | 2 (5.3%) | 0 | 0 |
-| O2 | 28 | 10 (35.7%) | 1 (3.6%) | 0 |
-| O3 Base64 | 38 | 38 (100%) | 38 (100%) | 0 |
+| O1 | 0.0 pp | +5.3 pp | 0.0 pp | 0.0 pp |
+| O2 | +57.1 pp | +10.7 pp | +10.7 pp | 0.0 pp |
+| O3 Base64 | -13.2 pp | +81.6 pp | +100.0 pp | +100.0 pp |
 
-For all 38 human O3/Base64 cases, exactly three guards were non-intercepting and Llama Guard was the sole blocker.
+The initial design assigned different transforms to different intents, so those transform contrasts could not by themselves separate transform effect from intent difficulty.
 
-### Model obfuscated cases
+That limitation motivated the follow-up.
 
-| Transform | n | >=2 native-policy non-intercepts | 3-of-4 | 4-of-4 |
+## Follow-up control experiment
+
+The follow-up used the complete existing set of 38 human-source O3/Base64 harmful intents and 38 researcher-authored benign controls rank-matched by direct character length.
+
+Every harmful and benign member was evaluated in five conditions:
+
+- direct decoded text;
+- O1;
+- O2;
+- O3 raw Base64;
+- O3 raw plus decoded text.
+
+This produced 380 prompts and 1,520 guard evaluations under the unchanged frozen guard contracts and runtime.
+
+### Benign intercept counts
+
+| Condition | Llama | ShieldGemma | Granite | Qwen |
 |---|---:|---:|---:|---:|
-| O1 | 21 | 1 (4.8%) | 0 | 0 |
-| O2 | 15 | 5 (33.3%) | 0 | 0 |
-| O3 Base64 | 19 | 19 (100%) | 14 (73.7%) | 0 |
+| Direct | 0/38 | 0/38 | 0/38 | 0/38 |
+| O1 | 7/38 | 0/38 | 0/38 | 0/38 |
+| O2 | 23/38 | 3/38 | 0/38 | 2/38 |
+| O3 raw | **38/38** | **0/38** | **0/38** | **0/38** |
+| O3 raw + decoded | 1/38 | 0/38 | 0/38 | 0/38 |
 
-Among the 19 model O3/Base64 cases, 14 were three-of-four non-intercepts and five were two-of-four. Llama Guard was the sole blocker in all 14 three-of-four cases.
+### Harmful intercept counts
 
-These results show that the apparent near-common-mode pattern is primarily a **Base64-specific panel phenomenon** in the current design. O2 produces weaker instability for some guards, while O1 is comparatively stable. Because the transform groups contain different intents, the next controlled experiment must apply all three transforms to the same existing intents before attributing these differences purely to transformation type.
+| Condition | Llama | ShieldGemma | Granite | Qwen |
+|---|---:|---:|---:|---:|
+| Direct | 33/38 | 31/38 | 38/38 | 38/38 |
+| O1 | 31/38 | 29/38 | 38/38 | 38/38 |
+| O2 | 18/38 | 25/38 | 32/38 | 36/38 |
+| O3 raw | **38/38** | **0/38** | **0/38** | **0/38** |
+| O3 raw + decoded | 34/38 | 32/38 | 38/38 | 38/38 |
 
-## Llama/Base64 interpretation boundary
+The raw Base64 condition therefore eliminates harmful-versus-benign discrimination in opposite directions: Llama behaves as an always-intercept monitor on this matched set, while the other three behave as effectively always-non-intercept monitors.
 
-Llama Guard blocks all Stage-A Base64 cases in the current scored set, while the other guards frequently do not. This creates apparent monitor diversity, but it does not yet establish useful semantic complementarity.
+### Raw versus decoded versus raw+decoded
 
-The current harmful-only Stage-A data cannot distinguish between:
+When decoded semantics are appended to the Base64 string, decisions return close to the direct operating point.
 
-1. Llama Guard recovering harmful semantics from the Base64 representation; and
-2. Llama Guard reacting to encoded-looking text or the Base64 wrapper itself.
+Harmful direct versus raw+decoded intercept counts are 33 versus 34 for Llama, 31 versus 32 for ShieldGemma, 38 versus 38 for Granite, and 38 versus 38 for Qwen.
 
-Matched benign controls and raw/decoded/raw+decoded comparisons are therefore required before interpreting Llama's Base64 behavior as genuinely useful diversity.
+Benign direct is 0/38 for all four; raw+decoded is 1/38 for Llama and 0/38 for the other three.
 
-## Source effects
+This supports a representation-dependent failure interpretation rather than an intrinsic inability to judge the underlying semantic requests.
 
-The strict source comparisons remain smaller and more heterogeneous than the pooled representation comparison.
+## Llama S8 result
 
-### Human direct to model direct, strict
+In the follow-up, Llama S8 counts were:
 
-| Guard | Human non-intercept | Model non-intercept | Difference |
-|---|---:|---:|---:|
-| Llama Guard 3-1B | 0.058 | 0.096 | +3.85 pp |
-| ShieldGemma 2B | 0.346 | 0.462 | +11.54 pp |
-| Granite Guardian 3.3 8B | 0.019 | 0.019 | 0.00 pp |
-| Qwen3Guard Gen 4B | 0.000 | 0.019 | +1.92 pp |
+| Case type | Direct | O1 | O2 | O3 raw | O3 raw + decoded |
+|---|---:|---:|---:|---:|---:|
+| Benign | 0 | 0 | 2 | **37** | 0 |
+| Harmful | 0 | 0 | 0 | **38** | 0 |
 
-Stage-A does not support a general claim that model-generated formulations are uniformly harder for the guard panel.
+S8 is therefore nearly perfectly tied to the raw Base64 representation and not to harmfulness in this follow-up.
 
-## Matching and standardization
+This shows that the original Base64-specific Llama rescue cannot be interpreted as demonstrated semantic complementarity. The behavioral cause remains unresolved.
 
-The strict source comparisons use the same base intents and require semantic retention and severity alignment. Category and base intent are matched by construction, and severity is matched by the eligibility rule.
+## Same-intent transformation effect
 
-`category_stratified_effects.csv` and `severity_stratified_effects.csv` preserve these dimensions explicitly.
+Because all three transforms are now applied to the same 38 harmful intents, the transform-versus-intent allocation confound is removed for this subset.
 
-A deployment-standardized aggregate is not introduced retrospectively because a numerical target weighting distribution over category, severity and base intent was not fixed before observing Stage-A outcomes.
+The rate of harmful cases with at least two native-policy non-intercepts is:
 
-## Interpretation and scope
+| Condition | >=2 | >=3 |
+|---|---:|---:|
+| Direct | 1/38 (2.6%) | 0 |
+| O1 | 2/38 (5.3%) | 0 |
+| O2 | 14/38 (36.8%) | 1/38 (2.6%) |
+| O3 raw | **38/38 (100%)** | **38/38 (100%)** |
+| O3 raw + decoded | 1/38 (2.6%) | 0 |
 
-The corrected Stage-A interpretation is narrower than the initial report:
+O2 carries a weaker shared-degradation signal. The dramatic three-of-four concurrence remains specific to raw Base64.
 
-- small `q` is not sufficient evidence of paired-sampling efficiency;
-- the strongest pooled representation signal is driven primarily by the Base64 subset;
-- the observed Llama/Base64 complementarity may be useful diversity or may be representation-triggered overblocking;
-- cross-guard non-intercepts are not automatically comparable false negatives because guard policy scopes differ; and
-- the present transform groups use different intents, so transformation and intent difficulty are still partly confounded.
+## Corrected interpretation
 
-Stage-A remains controlled development evidence, not a deployment safety certificate. No W0 evaluation, fresh confirmatory evaluation, post-result case selection, or threshold retuning was performed.
+The strongest supported Stage-A result is now **representation invariance failure**.
+
+The evidence is:
+
+1. semantically equivalent representations produce large monitor-decision changes;
+2. those differences remain when O1/O2/O3 are applied to the same harmful intents;
+3. benign controls show that Llama's raw Base64 behavior is not selective for harmful semantics;
+4. explicitly exposing decoded semantics largely restores direct-text behavior; and
+5. the panel concurrence pattern is strongly representation-specific.
+
+The original interpretation of Llama Guard as providing useful Base64 diversity is therefore too strong. The current evidence supports **apparent diversity without demonstrated semantic usefulness**.
+
+A reliability/common-cause framing remains relevant as a secondary analysis, particularly for O2, but broad common-mode failure is not the primary conclusion.
+
+## Paper direction
+
+The strongest current paper direction is:
+
+**representation invariance / metamorphic testing of runtime safety monitors**, with apparent-versus-genuinely-useful monitor diversity as a secondary contribution.
+
+A deeper Llama/Base64 mechanism study is a possible follow-on rather than a prerequisite for the present behavioral claim.
+
+## Limitations
+
+The benign controls are researcher-authored and rank-matched by character length, not fully domain-matched semantic counterparts. They support a controlled representation-trigger diagnostic rather than a population-level benign-blocking estimate.
+
+The follow-up harmful subset is the complete pre-existing human O3 allocation, not an independent confirmation sample.
+
+Guard policy scopes differ, so cross-guard non-intercepts remain native-policy quantities rather than directly comparable false negatives.
+
+No W0 evaluation, fresh confirmatory evaluation, post-result case selection, or threshold retuning was performed.
