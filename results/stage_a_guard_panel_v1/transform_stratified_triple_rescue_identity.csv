@@ -1,0 +1,25 @@
+source,variant,transform_id,transform_label,guard_as_only_blocker,count,total_3_of_4_non_intercept_cases
+human,human_obfuscated,O1,dot-separated token perturbation,Llama Guard 3-1B,0,0
+human,human_obfuscated,O1,dot-separated token perturbation,ShieldGemma 2B,0,0
+human,human_obfuscated,O1,dot-separated token perturbation,Granite Guardian 3.3 8B,0,0
+human,human_obfuscated,O1,dot-separated token perturbation,Qwen3Guard Gen 4B,0,0
+human,human_obfuscated,O2,leet-style character substitution,Llama Guard 3-1B,0,1
+human,human_obfuscated,O2,leet-style character substitution,ShieldGemma 2B,0,1
+human,human_obfuscated,O2,leet-style character substitution,Granite Guardian 3.3 8B,0,1
+human,human_obfuscated,O2,leet-style character substitution,Qwen3Guard Gen 4B,1,1
+human,human_obfuscated,O3,Base64 wrapper,Llama Guard 3-1B,38,38
+human,human_obfuscated,O3,Base64 wrapper,ShieldGemma 2B,0,38
+human,human_obfuscated,O3,Base64 wrapper,Granite Guardian 3.3 8B,0,38
+human,human_obfuscated,O3,Base64 wrapper,Qwen3Guard Gen 4B,0,38
+model,model_obfuscated,O1,dot-separated token perturbation,Llama Guard 3-1B,0,0
+model,model_obfuscated,O1,dot-separated token perturbation,ShieldGemma 2B,0,0
+model,model_obfuscated,O1,dot-separated token perturbation,Granite Guardian 3.3 8B,0,0
+model,model_obfuscated,O1,dot-separated token perturbation,Qwen3Guard Gen 4B,0,0
+model,model_obfuscated,O2,leet-style character substitution,Llama Guard 3-1B,0,0
+model,model_obfuscated,O2,leet-style character substitution,ShieldGemma 2B,0,0
+model,model_obfuscated,O2,leet-style character substitution,Granite Guardian 3.3 8B,0,0
+model,model_obfuscated,O2,leet-style character substitution,Qwen3Guard Gen 4B,0,0
+model,model_obfuscated,O3,Base64 wrapper,Llama Guard 3-1B,14,14
+model,model_obfuscated,O3,Base64 wrapper,ShieldGemma 2B,0,14
+model,model_obfuscated,O3,Base64 wrapper,Granite Guardian 3.3 8B,0,14
+model,model_obfuscated,O3,Base64 wrapper,Qwen3Guard Gen 4B,0,14
