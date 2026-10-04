@@ -1,0 +1,71 @@
+{
+  "artifact_id": "stage_a_followup_controls_contract_v1",
+  "status": "authorized_pre_scoring_followup_control_experiment",
+  "purpose": "Resolve the Base64-specific Stage-A signal with matched benign controls, raw/decoded/raw+decoded comparisons, and same-intent O1/O2/O3 transforms.",
+  "scope": "development_followup_only",
+  "source": {
+    "stage_a_prompt_path": "results/stage_a_guard_panel_v1/stage_a_guard_panel_prompts.csv",
+    "stage_a_prompt_blob_sha": "6a5ed5987c804943f9efb3d749877079a693f1c9",
+    "benign_bank_path": "data/stage_a_followup/benign_controls_v1.csv",
+    "benign_bank_blob_sha": "1e02cf5f7c313970e0a4213af0c59e23b048bbbc",
+    "input_path": "results/stage_a_followup_controls_v1/followup_prompts.csv",
+    "input_blob_sha": "efe658a869bc2d585ac5a207f4e50c2455968220"
+  },
+  "design": {
+    "harmful_anchor_count": 38,
+    "benign_control_count": 38,
+    "pair_count": 38,
+    "case_types": [
+      "harmful",
+      "benign"
+    ],
+    "conditions": [
+      "direct_decoded",
+      "O1",
+      "O2",
+      "O3_raw",
+      "O3_raw_plus_decoded"
+    ],
+    "expected_rows": 380,
+    "expected_rows_per_case_type": 190,
+    "expected_rows_per_condition": 76,
+    "same_harmful_intents_receive_all_transforms": true,
+    "benign_matching": "rank-matched by direct character length",
+    "transformation_semantics": {
+      "direct_decoded": "plain direct text; for the Base64 mechanism comparison this is the decoded semantic request",
+      "O1": "dot-separated token perturbation",
+      "O2": "leet-style character substitution",
+      "O3_raw": "Base64 wrapper only",
+      "O3_raw_plus_decoded": "the same Base64 wrapper followed by the decoded direct text"
+    }
+  },
+  "guards": {
+    "contract_path": "configs/stage_a_guard_panel_prompt_contract_v1.json",
+    "use_identical_frozen_guard_contract": true,
+    "no_threshold_retuning": true,
+    "no_prompt_retuning": true
+  },
+  "analysis_plan": {
+    "primary_questions": [
+      "Does Llama Guard block benign O3/Base64 controls, and if so does it emit S8?",
+      "For harmful cases, do decisions on O3_raw move toward direct_decoded when decoded text is explicitly supplied as O3_raw_plus_decoded?",
+      "Do O1, O2 and O3 produce different decisions when applied to the same harmful intents?",
+      "Is the apparent four-guard diversity under Base64 useful semantic complementarity or representation-triggered overblocking?"
+    ],
+    "primary_outputs": [
+      "condition_summary.csv",
+      "llama_s8_summary.csv",
+      "paired_transition_summary.csv",
+      "panel_concurrence_summary.csv",
+      "combined_scores.csv"
+    ],
+    "terminology": "Use native-policy intercept/non-intercept across heterogeneous guard taxonomies; use false-positive/false-negative terminology only within supported, explicitly labeled policy scope."
+  },
+  "boundaries": {
+    "W0_used": false,
+    "fresh_confirmatory_scoring": false,
+    "deployment_certificate_claim": false,
+    "post_result_case_selection": false,
+    "threshold_retuning": false
+  }
+}
