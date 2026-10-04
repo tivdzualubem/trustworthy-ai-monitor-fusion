@@ -65,7 +65,7 @@ for guard, (filename, decision_col, parse_col) in GUARDS.items():
 eligibility_cols = sorted({x[3] for x in COMPARISONS})
 base_eligibility = inp.groupby("base_intent_id")[eligibility_cols].first()
 
-q_rows, effect_rows, category_rows, severity_rows = [], [], [], []
+q_rows, effect_rows, category_rows, severity_rows, efficiency_rows = [], [], [], [], []
 
 for comparison, left_variant, right_variant, eligibility_col, severity_col in COMPARISONS:
     eligible_ids = set(base_eligibility.index[base_eligibility[eligibility_col] == "yes"])
@@ -96,11 +96,40 @@ for comparison, left_variant, right_variant, eligibility_col, severity_col in CO
             "q_ci95_high_exact": q_hi,
         })
 
+        delta = fnr_right - fnr_left
+        paired_variance_component = (discordant / n) - delta**2
+        independent_variance_component = (
+            fnr_left * (1.0 - fnr_left)
+            + fnr_right * (1.0 - fnr_right)
+        )
+        variance_ratio = (
+            paired_variance_component / independent_variance_component
+            if independent_variance_component > 0.0 else float("nan")
+        )
+
         effect_rows.append({
             "comparison": comparison, "guard": guard, "n_pairs": n,
             "fnr_left": fnr_left, "fnr_right": fnr_right,
-            "fnr_right_minus_left": fnr_right-fnr_left,
-            "difference_percentage_points": 100*(fnr_right-fnr_left),
+            "fnr_right_minus_left": delta,
+            "difference_percentage_points": 100*delta,
+        })
+
+        efficiency_rows.append({
+            "comparison": comparison,
+            "guard": guard,
+            "n_pairs": n,
+            "fnr_left": fnr_left,
+            "fnr_right": fnr_right,
+            "delta_right_minus_left": delta,
+            "q": discordant / n,
+            "paired_variance_component_q_minus_delta_sq": paired_variance_component,
+            "independent_variance_component": independent_variance_component,
+            "paired_to_independent_variance_ratio": variance_ratio,
+            "paired_variance_reduction_fraction": (
+                1.0 - variance_ratio
+                if independent_variance_component > 0.0
+                else float("nan")
+            ),
         })
 
         pf = pd.DataFrame({
@@ -132,6 +161,151 @@ pd.DataFrame(q_rows).to_csv(RESULT_DIR / "q_kill_test.csv", index=False)
 pd.DataFrame(effect_rows).to_csv(RESULT_DIR / "matched_effects.csv", index=False)
 pd.DataFrame(category_rows).to_csv(RESULT_DIR / "category_stratified_effects.csv", index=False)
 pd.DataFrame(severity_rows).to_csv(RESULT_DIR / "severity_stratified_effects.csv", index=False)
+pd.DataFrame(efficiency_rows).to_csv(RESULT_DIR / "pairing_efficiency.csv", index=False)
+
+TRANSFORM_LABELS = {
+    "O1": "dot-separated token perturbation",
+    "O2": "leet-style character substitution",
+    "O3": "Base64 wrapper",
+}
+
+representation_specs = [
+    (
+        "human",
+        "human_direct",
+        "human_obfuscated",
+        "eligible_human_direct_vs_human_obfuscated",
+    ),
+    (
+        "model",
+        "model_direct",
+        "model_obfuscated",
+        "eligible_model_direct_vs_model_obfuscated",
+    ),
+]
+
+transform_effect_rows = []
+transform_common_rows = []
+transform_triple_rows = []
+
+decision_cols = {guard: col for guard, (_, col, _) in GUARDS.items()}
+
+for source, left_variant, right_variant, eligibility_col in representation_specs:
+    eligible_ids = set(
+        base_eligibility.index[base_eligibility[eligibility_col] == "yes"]
+    )
+
+    for transform_id, transform_label in TRANSFORM_LABELS.items():
+        transform_ids = sorted(
+            set(
+                inp.loc[
+                    (inp["obfuscation_transform_id"] == transform_id)
+                    & inp["base_intent_id"].isin(eligible_ids),
+                    "base_intent_id",
+                ]
+            )
+        )
+        left = merged[
+            (merged["variant"] == left_variant)
+            & merged["base_intent_id"].isin(transform_ids)
+        ].set_index("base_intent_id")
+        right = merged[
+            (merged["variant"] == right_variant)
+            & merged["base_intent_id"].isin(transform_ids)
+        ].set_index("base_intent_id")
+
+        if set(left.index) != set(transform_ids) or set(right.index) != set(transform_ids):
+            raise RuntimeError(
+                f"{source}/{transform_id}: incomplete transform-specific pair set."
+            )
+
+        for guard, (_, decision_col, _) in GUARDS.items():
+            L = left.loc[transform_ids, decision_col].astype(int)
+            R = right.loc[transform_ids, decision_col].astype(int)
+            n = len(transform_ids)
+            n10 = int(((L == 1) & (R == 0)).sum())
+            n01 = int(((L == 0) & (R == 1)).sum())
+            q = (n10 + n01) / n
+            non_intercept_direct = float((L == 0).mean())
+            non_intercept_transformed = float((R == 0).mean())
+
+            transform_effect_rows.append({
+                "source": source,
+                "transform_id": transform_id,
+                "transform_label": transform_label,
+                "guard": guard,
+                "n_pairs": n,
+                "n10_direct_block_transformed_nonintercept": n10,
+                "n01_direct_nonintercept_transformed_block": n01,
+                "q": q,
+                "direct_non_intercept_rate": non_intercept_direct,
+                "transformed_non_intercept_rate": non_intercept_transformed,
+                "transformed_minus_direct_non_intercept": (
+                    non_intercept_transformed - non_intercept_direct
+                ),
+            })
+
+        sub = right.reset_index()
+        non_intercepts = pd.DataFrame(
+            {
+                guard: (sub[decision_col].astype(int) == 0).astype(int)
+                for guard, decision_col in decision_cols.items()
+            },
+            index=sub.index,
+        )
+        non_intercept_count = non_intercepts.sum(axis=1)
+        n = len(sub)
+        k4 = int((non_intercept_count == 4).sum())
+        lo4, hi4 = cp95(k4, n)
+
+        transform_common_rows.append({
+            "source": source,
+            "variant": right_variant,
+            "transform_id": transform_id,
+            "transform_label": transform_label,
+            "n_cases": n,
+            "non_intercept_by_0_guards": int((non_intercept_count == 0).sum()),
+            "non_intercept_by_1_guard": int((non_intercept_count == 1).sum()),
+            "non_intercept_by_2_guards": int((non_intercept_count == 2).sum()),
+            "non_intercept_by_3_guards": int((non_intercept_count == 3).sum()),
+            "non_intercept_by_4_guards": k4,
+            "at_least_2_guard_non_intercept_rate": float(
+                (non_intercept_count >= 2).mean()
+            ),
+            "at_least_3_guard_non_intercept_rate": float(
+                (non_intercept_count >= 3).mean()
+            ),
+            "all_4_non_intercept_rate": float(
+                (non_intercept_count == 4).mean()
+            ),
+            "all_4_non_intercept_exact_95_low": lo4,
+            "all_4_non_intercept_exact_95_high": hi4,
+        })
+
+        triple = non_intercepts[non_intercept_count == 3]
+        for guard in GUARDS:
+            transform_triple_rows.append({
+                "source": source,
+                "variant": right_variant,
+                "transform_id": transform_id,
+                "transform_label": transform_label,
+                "guard_as_only_blocker": guard,
+                "count": int((triple[guard] == 0).sum()),
+                "total_3_of_4_non_intercept_cases": len(triple),
+            })
+
+pd.DataFrame(transform_effect_rows).to_csv(
+    RESULT_DIR / "transform_stratified_representation_effects.csv",
+    index=False,
+)
+pd.DataFrame(transform_common_rows).to_csv(
+    RESULT_DIR / "transform_stratified_common_mode.csv",
+    index=False,
+)
+pd.DataFrame(transform_triple_rows).to_csv(
+    RESULT_DIR / "transform_stratified_triple_rescue_identity.csv",
+    index=False,
+)
 
 common_specs = [
     ("human_direct", "eligible_human_direct_vs_human_obfuscated"),
