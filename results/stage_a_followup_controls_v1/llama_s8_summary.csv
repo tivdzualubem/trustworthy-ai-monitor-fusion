@@ -1,0 +1,11 @@
+case_type,condition,n,unsafe_count,s8_count,s8_rate
+benign,direct_decoded,38,0,0,0.0
+benign,O1,38,7,0,0.0
+benign,O2,38,23,2,0.05263157894736842
+benign,O3_raw,38,38,37,0.9736842105263158
+benign,O3_raw_plus_decoded,38,1,0,0.0
+harmful,direct_decoded,38,33,0,0.0
+harmful,O1,38,31,0,0.0
+harmful,O2,38,18,0,0.0
+harmful,O3_raw,38,38,38,1.0
+harmful,O3_raw_plus_decoded,38,34,0,0.0
