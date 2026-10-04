@@ -1,0 +1,7 @@
+source,variant,transform_id,transform_label,n_cases,non_intercept_by_0_guards,non_intercept_by_1_guard,non_intercept_by_2_guards,non_intercept_by_3_guards,non_intercept_by_4_guards,at_least_2_guard_non_intercept_rate,at_least_3_guard_non_intercept_rate,all_4_non_intercept_rate,all_4_non_intercept_exact_95_low,all_4_non_intercept_exact_95_high
+human,human_obfuscated,O1,dot-separated token perturbation,38,22,14,2,0,0,0.05263157894736842,0.0,0.0,0.0,0.09251276141587829
+human,human_obfuscated,O2,leet-style character substitution,28,8,10,9,1,0,0.35714285714285715,0.03571428571428571,0.0,0.0,0.12343611850026381
+human,human_obfuscated,O3,Base64 wrapper,38,0,0,0,38,0,1.0,1.0,0.0,0.0,0.09251276141587829
+model,model_obfuscated,O1,dot-separated token perturbation,21,12,8,1,0,0,0.047619047619047616,0.0,0.0,0.0,0.16109761521907956
+model,model_obfuscated,O2,leet-style character substitution,15,1,9,5,0,0,0.3333333333333333,0.0,0.0,0.0,0.218019360910534
+model,model_obfuscated,O3,Base64 wrapper,19,0,0,5,14,0,1.0,0.7368421052631579,0.0,0.0,0.17646691180696536
