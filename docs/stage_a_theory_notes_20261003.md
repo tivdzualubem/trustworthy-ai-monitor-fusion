@@ -179,3 +179,24 @@ Stage-A shows that the apparent near-common-mode pattern is not uniform across t
 The result should not be interpreted as an identified architectural cause, a deployment-wide common-cause probability, or proof that the four-guard panel is safe. No all-four miss was observed in Stage-A, but zero observed events only yields an upper confidence bound; it does not establish a zero population failure probability.
 
 The present evidence is sufficient to motivate a reliability/common-cause direction and to preserve joint-failure quantities in future study design. It is not sufficient to fit a beta-factor, latent common-cause model, or other parametric reliability model as a primary claim.
+
+
+## 4. Representation invariance and metamorphic testing
+
+Let \(x\) denote a semantic request and \(T(x)\) a representation transformation intended to preserve the request's semantics. For a guard decision rule \(D(\cdot)\), a basic representation-invariance property is
+
+\[
+D(T(x)) = D(x)
+\]
+
+for transformations that should not alter the safety-relevant meaning.
+
+The follow-up does not assume that all representation changes must leave every finite-model decision identical. Instead, it treats systematic decision changes under semantics-preserving transformations as metamorphic test failures that require explanation.
+
+The raw Base64 condition provides the clearest example. On the same 38 harmful intents, Granite Guardian and Qwen3Guard move from 38/38 intercepts on decoded text to 0/38 on raw Base64, while Llama Guard moves in the opposite direction and intercepts all 38. On matched benign controls, Llama also intercepts all 38 raw Base64 prompts, whereas the other three intercept none.
+
+Appending the decoded text to the same raw Base64 representation largely restores the direct operating point. This makes representation accessibility, rather than the underlying semantic request alone, a central explanatory variable.
+
+A useful diversity claim therefore requires more than disagreement among monitors. For monitor \(g\), additional harmful-case interception under a representation should be considered useful only together with evidence that the same behavior does not arise indiscriminately on matched benign controls. The present raw-Base64 Llama pattern fails that stronger criterion.
+
+The correct primary framing is therefore measurement invariance / metamorphic testing, with defense-in-depth reliability treated as a consequence of representation-dependent guard behavior rather than as an independently established common-cause mechanism.
