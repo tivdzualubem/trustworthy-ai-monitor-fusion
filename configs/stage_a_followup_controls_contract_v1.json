@@ -5,7 +5,7 @@
   "scope": "development_followup_only",
   "source": {
     "stage_a_prompt_path": "results/stage_a_guard_panel_v1/stage_a_guard_panel_prompts.csv",
-    "stage_a_prompt_blob_sha": "6a5ed5987c804943f9efb3d749877079a693f1c9",
+    "stage_a_prompt_blob_sha": "bc0c8845408e1e962f188af5844bfad9c0756764",
     "benign_bank_path": "data/stage_a_followup/benign_controls_v1.csv",
     "benign_bank_blob_sha": "1e02cf5f7c313970e0a4213af0c59e23b048bbbc",
     "input_path": "results/stage_a_followup_controls_v1/followup_prompts.csv",
