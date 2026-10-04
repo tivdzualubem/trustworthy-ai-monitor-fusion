@@ -1,0 +1,6 @@
+condition,n,mean_native_policy_nonintercept_count,at_least_2_nonintercept_count,at_least_2_nonintercept_rate,at_least_3_nonintercept_count,at_least_3_nonintercept_rate,all_4_nonintercept_count,all_4_nonintercept_rate
+direct_decoded,38,0.3157894736842105,1,0.02631578947368421,0,0.0,0,0.0
+O1,38,0.42105263157894735,2,0.05263157894736842,0,0.0,0,0.0
+O2,38,1.0789473684210527,14,0.3684210526315789,1,0.02631578947368421,0,0.0
+O3_raw,38,3.0,38,1.0,38,1.0,0,0.0
+O3_raw_plus_decoded,38,0.2631578947368421,1,0.02631578947368421,0,0.0,0,0.0
