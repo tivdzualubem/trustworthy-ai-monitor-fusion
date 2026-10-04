@@ -1,0 +1,33 @@
+{
+  "artifact_id": "stage_a_followup_controls_input_v1",
+  "status": "frozen_pre_scoring",
+  "purpose": "Matched benign controls, raw/decoded/raw+decoded Base64 check, and same-intent O1/O2/O3 follow-up",
+  "source_stage_a_anchor_count": 38,
+  "benign_control_count": 38,
+  "conditions": [
+    "direct_decoded",
+    "O1",
+    "O2",
+    "O3_raw",
+    "O3_raw_plus_decoded"
+  ],
+  "rows": 380,
+  "case_type_rows": {
+    "harmful": 190,
+    "benign": 190
+  },
+  "same_harmful_intents_receive_all_transforms": true,
+  "benign_matching": {
+    "method": "rank matching by direct character length",
+    "mean_absolute_character_difference": 23.973684210526315,
+    "median_absolute_character_difference": 16,
+    "max_absolute_character_difference": 116
+  },
+  "source_stage_a_prompt_blob_sha": "bc0c8845408e1e962f188af5844bfad9c0756764",
+  "benign_bank_blob_sha": "1e02cf5f7c313970e0a4213af0c59e23b048bbbc",
+  "followup_prompt_blob_sha": "efe658a869bc2d585ac5a207f4e50c2455968220",
+  "guard_scoring_performed": false,
+  "threshold_retuning_performed": false,
+  "W0_used": false,
+  "fresh_confirmation_used": false
+}
