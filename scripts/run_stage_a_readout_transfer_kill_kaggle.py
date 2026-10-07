@@ -115,7 +115,7 @@ def llama_features(generator, c, prompt: str):
     return score, int(parsed["decision"]), h, raw
 
 
-def run_llama(probe, o3, cfg, outdir):
+def run_llama(probe, o3, cfg, outdir, checkpoint_context):
     import torch
 
     c = cfg["monitors"]["llama_guard_3_1b"]
@@ -132,13 +132,14 @@ def run_llama(probe, o3, cfg, outdir):
                 "native_score":
                     "restricted first-step P(unsafe) over unsafe/safe verdict logits",
             },
+            checkpoint_context=checkpoint_context,
         )
     finally:
         base.cleanup_llama_raw(generator)
         release_cuda(torch)
 
 
-def run_shield(probe, o3, cfg, outdir):
+def run_shield(probe, o3, cfg, outdir, checkpoint_context):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -224,6 +225,7 @@ def run_shield(probe, o3, cfg, outdir):
                 "native_score":
                     "maximum frozen-guideline P(Yes)",
             },
+            checkpoint_context=checkpoint_context,
         )
     finally:
         base.cleanup(model, tok)
@@ -274,7 +276,7 @@ def granite_native_from_generate(model, tok, x, c):
     return score, int(parsed["decision"]), raw
 
 
-def run_granite(probe, o3, cfg, outdir):
+def run_granite(probe, o3, cfg, outdir, checkpoint_context):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -347,13 +349,14 @@ def run_granite(probe, o3, cfg, outdir):
                 "native_score":
                     "restricted generated-step P(yes) over frozen yes/no token sets",
             },
+            checkpoint_context=checkpoint_context,
         )
     finally:
         base.cleanup(model, tok)
         release_cuda(torch)
 
 
-def run_qwen(probe, o3, cfg, outdir):
+def run_qwen(probe, o3, cfg, outdir, checkpoint_context):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -435,10 +438,97 @@ def run_qwen(probe, o3, cfg, outdir):
                 "native_score":
                     "frozen ordinal Safe=0, Controversial=0.5, Unsafe=1",
             },
+            checkpoint_context=checkpoint_context,
         )
     finally:
         base.cleanup(model, tok)
         release_cuda(torch)
+
+
+def _checkpoint_probe(path, probe, records):
+    ordered_ids = [
+        str(x)
+        for x in probe["experiment_example_id"].tolist()
+        if str(x) in records
+    ]
+    if not ordered_ids:
+        return
+    tmp = path.with_suffix(".tmp.npz")
+    np.savez_compressed(
+        tmp,
+        experiment_example_id=np.asarray(ordered_ids, dtype="U"),
+        native_score=np.asarray(
+            [records[x][0] for x in ordered_ids],
+            dtype=np.float64,
+        ),
+        native_decision=np.asarray(
+            [records[x][1] for x in ordered_ids],
+            dtype=np.int8,
+        ),
+        hidden=np.stack(
+            [records[x][2] for x in ordered_ids]
+        ).astype(np.float32),
+    )
+    tmp.replace(path)
+
+
+def _load_probe_checkpoint(path):
+    if not path.exists():
+        return {}
+    z = np.load(path, allow_pickle=False)
+    ids = z["experiment_example_id"].astype(str)
+    scores = z["native_score"].astype(float)
+    decisions = z["native_decision"].astype(int)
+    hidden = np.asarray(z["hidden"], dtype=np.float32)
+    if not (
+        len(ids)
+        == len(scores)
+        == len(decisions)
+        == hidden.shape[0]
+    ):
+        raise RuntimeError(f"Malformed probe checkpoint: {path}")
+    if len(ids) != len(set(ids)):
+        raise RuntimeError(f"Duplicate ids in probe checkpoint: {path}")
+    return {
+        str(ids[i]): (
+            float(scores[i]),
+            int(decisions[i]),
+            hidden[i],
+        )
+        for i in range(len(ids))
+    }
+
+
+def _checkpoint_o3(path, o3, records):
+    order = {
+        str(x): i
+        for i, x in enumerate(o3["experiment_example_id"].tolist())
+    }
+    rows = sorted(
+        records.values(),
+        key=lambda r: order[str(r["experiment_example_id"])],
+    )
+    tmp = path.with_suffix(".tmp.csv")
+    pd.DataFrame(rows).to_csv(
+        tmp,
+        index=False,
+        lineterminator="\n",
+    )
+    tmp.replace(path)
+
+
+def _load_o3_checkpoint(path):
+    if not path.exists():
+        return {}
+    df = pd.read_csv(path, keep_default_na=False)
+    if "experiment_example_id" not in df.columns:
+        raise RuntimeError(f"Malformed O3 checkpoint: {path}")
+    if df["experiment_example_id"].duplicated().any():
+        raise RuntimeError(f"Duplicate ids in O3 checkpoint: {path}")
+    return {
+        str(r["experiment_example_id"]): r
+        for r in df.to_dict("records")
+    }
 
 
 def run_guard_loop(
@@ -448,6 +538,7 @@ def run_guard_loop(
     outdir,
     score_one,
     meta_extra=None,
+    checkpoint_context=None,
 ):
     fixtures = [
         (
@@ -500,62 +591,115 @@ def run_guard_loop(
     features_dir.mkdir(parents=True, exist_ok=True)
     scores_dir.mkdir(parents=True, exist_ok=True)
 
-    cache = {}
-    probe_ids = []
-    probe_scores = []
-    probe_decisions = []
-    probe_hidden = []
+    probe_path = features_dir / f"{guard}_probe_features.npz"
+    o3_path = scores_dir / f"{guard}_o3_ablation_scores.csv"
+    checkpoint_meta_path = (
+        features_dir / f"{guard}_checkpoint.meta.json"
+    )
 
-    for j, r in enumerate(probe.itertuples(index=False), 1):
+    checkpoint_context = dict(checkpoint_context or {})
+    checkpoint_context["guard"] = guard
+
+    if checkpoint_meta_path.exists():
+        existing_context = json.loads(
+            checkpoint_meta_path.read_text(encoding="utf-8")
+        )
+        if existing_context != checkpoint_context:
+            raise RuntimeError(
+                f"Refusing mixed-provenance checkpoint resume for {guard}"
+            )
+    elif probe_path.exists() or o3_path.exists():
+        raise RuntimeError(
+            f"Checkpoint data exist without provenance metadata for {guard}"
+        )
+    else:
+        checkpoint_meta_path.write_text(
+            json.dumps(
+                checkpoint_context,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+    probe_records = _load_probe_checkpoint(probe_path)
+    o3_records = _load_o3_checkpoint(o3_path)
+
+    expected_probe_ids = set(
+        probe["experiment_example_id"].astype(str)
+    )
+    expected_o3_ids = set(
+        o3["experiment_example_id"].astype(str)
+    )
+
+    if not set(probe_records).issubset(expected_probe_ids):
+        raise RuntimeError(
+            f"Probe checkpoint provenance mismatch for {guard}"
+        )
+    if not set(o3_records).issubset(expected_o3_ids):
+        raise RuntimeError(
+            f"O3 checkpoint provenance mismatch for {guard}"
+        )
+
+    cache = {}
+    newly_scored_probe = 0
+    newly_scored_o3 = 0
+
+    for r in probe.itertuples(index=False):
+        ex_id = str(r.experiment_example_id)
+        if ex_id in probe_records:
+            continue
+
         prompt = str(r.prompt_text)
         if prompt not in cache:
             cache[prompt] = score_one(prompt)
 
         score, decision, h, _raw = cache[prompt]
-        probe_ids.append(str(r.experiment_example_id))
-        probe_scores.append(float(score))
-        probe_decisions.append(int(decision))
-        probe_hidden.append(
-            np.asarray(h, dtype=np.float32)
+        probe_records[ex_id] = (
+            float(score),
+            int(decision),
+            np.asarray(h, dtype=np.float32),
         )
+        newly_scored_probe += 1
 
-        if j % 16 == 0:
+        if newly_scored_probe % 8 == 0:
+            _checkpoint_probe(
+                probe_path,
+                probe,
+                probe_records,
+            )
             print(
                 guard,
-                "probe",
-                j,
+                "probe checkpoint",
+                len(probe_records),
                 "/",
                 len(probe),
                 flush=True,
             )
 
-    np.savez_compressed(
-        features_dir / f"{guard}_probe_features.npz",
-        experiment_example_id=np.asarray(
-            probe_ids,
-            dtype="U",
-        ),
-        native_score=np.asarray(
-            probe_scores,
-            dtype=np.float64,
-        ),
-        native_decision=np.asarray(
-            probe_decisions,
-            dtype=np.int8,
-        ),
-        hidden=np.stack(probe_hidden).astype(np.float32),
+    _checkpoint_probe(
+        probe_path,
+        probe,
+        probe_records,
     )
+    if set(probe_records) != expected_probe_ids:
+        raise RuntimeError(
+            f"Incomplete probe features for {guard}"
+        )
 
-    o3_rows = []
-    for j, r in enumerate(o3.itertuples(index=False), 1):
+    for r in o3.itertuples(index=False):
+        ex_id = str(r.experiment_example_id)
+        if ex_id in o3_records:
+            continue
+
         prompt = str(r.prompt_text)
         if prompt not in cache:
             cache[prompt] = score_one(prompt)
 
         score, decision, _h, raw = cache[prompt]
-        o3_rows.append({
-            "experiment_example_id":
-                str(r.experiment_example_id),
+        o3_records[ex_id] = {
+            "experiment_example_id": ex_id,
             "semantic_case_id": str(r.semantic_case_id),
             "pair_id": str(r.pair_id),
             "case_type": str(r.case_type),
@@ -564,29 +708,54 @@ def run_guard_loop(
             "native_score": float(score),
             "native_decision": int(decision),
             "raw_output": str(raw),
-        })
+        }
+        newly_scored_o3 += 1
 
-        if j % 16 == 0:
+        if newly_scored_o3 % 8 == 0:
+            _checkpoint_o3(
+                o3_path,
+                o3,
+                o3_records,
+            )
             print(
                 guard,
-                "o3",
-                j,
+                "o3 checkpoint",
+                len(o3_records),
                 "/",
                 len(o3),
                 flush=True,
             )
 
-    pd.DataFrame(o3_rows).to_csv(
-        scores_dir / f"{guard}_o3_ablation_scores.csv",
-        index=False,
-        lineterminator="\n",
+    _checkpoint_o3(
+        o3_path,
+        o3,
+        o3_records,
     )
+    if set(o3_records) != expected_o3_ids:
+        raise RuntimeError(
+            f"Incomplete O3 scores for {guard}"
+        )
+
+    final_probe = _load_probe_checkpoint(probe_path)
+    hidden_dims = sorted({
+        int(v[2].size)
+        for v in final_probe.values()
+    })
+    if len(hidden_dims) != 1:
+        raise RuntimeError(
+            f"Inconsistent hidden dimensions for {guard}"
+        )
 
     meta = {
         "guard": guard,
-        "probe_rows": len(probe_ids),
-        "o3_rows": len(o3_rows),
-        "unique_prompts_scored": len(cache),
+        "probe_rows": len(probe_records),
+        "o3_rows": len(o3_records),
+        "hidden_dim": hidden_dims[0],
+        "new_probe_rows_scored_this_run":
+            newly_scored_probe,
+        "new_o3_rows_scored_this_run":
+            newly_scored_o3,
+        "checkpoint_interval_rows": 8,
         "preflight": preflight,
     }
     if meta_extra:
@@ -595,7 +764,12 @@ def run_guard_loop(
     (
         outdir / f"{guard}_manifest.json"
     ).write_text(
-        json.dumps(meta, indent=2, sort_keys=True) + "\n",
+        json.dumps(
+            meta,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
         encoding="utf-8",
     )
     return meta
@@ -734,6 +908,18 @@ def main():
         "qwen3guard_gen_4b": run_qwen,
     }
 
+    checkpoint_context = {
+        "runner_sha256": base.sha(Path(__file__)),
+        "contract_sha256": base.sha(args.contract),
+        "guard_contract_sha256":
+            base.sha(args.guard_contract),
+        "runtime_lock_sha256": base.sha(args.runtime_lock),
+        "runtime_registry_sha256": base.sha(args.registry),
+        "source_sha256": builder.sha256(args.source),
+        "probe_input_sha256": builder.sha256(probe_path),
+        "o3_ablation_input_sha256": builder.sha256(o3_path),
+    }
+
     manifests = []
     for g in selected:
         manifests.append(
@@ -742,6 +928,7 @@ def main():
                 o3,
                 guard_cfg,
                 args.workdir,
+                checkpoint_context,
             )
         )
 
