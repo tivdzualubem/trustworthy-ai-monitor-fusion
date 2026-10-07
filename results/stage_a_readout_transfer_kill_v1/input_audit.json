@@ -1,0 +1,40 @@
+{
+  "artifact_id": "stage_a_readout_transfer_kill_inputs_v1",
+  "fold_assignment_unit": "pair_id",
+  "fold_counts_by_case_type": {
+    "0": {
+      "benign": 8,
+      "harmful": 8
+    },
+    "1": {
+      "benign": 8,
+      "harmful": 8
+    },
+    "2": {
+      "benign": 8,
+      "harmful": 8
+    },
+    "3": {
+      "benign": 7,
+      "harmful": 7
+    },
+    "4": {
+      "benign": 7,
+      "harmful": 7
+    }
+  },
+  "generated_from_outcomes": false,
+  "n_folds": 5,
+  "o3_ablation_git_blob_sha": "ff98bb9aedbe5603c49b7897fd7fe8de901697e5",
+  "o3_ablation_rows": 304,
+  "o3_ablation_sha256": "a425e3cea9b097da4006fd1b9f90e202ef96a774efba39b74851111f4b2594de",
+  "outcome_columns_used_for_split": false,
+  "pair_ids": 38,
+  "probe_git_blob_sha": "d8cb85f2d24ee41239b2738d74065ca912ec6e2b",
+  "probe_rows": 152,
+  "probe_sha256": "e9d4c6047c19cc75c1d3b1badd6abc0fa6cf3c234507efd96353597dfd044a8b",
+  "semantic_cases": 76,
+  "source_git_blob_sha": "efe658a869bc2d585ac5a207f4e50c2455968220",
+  "source_sha256": "aea60e385ec4056ce57b4094d29350c7ea0c30a47d91dd8bd72972c98ca9efc7",
+  "status": "frozen_pre_scoring_inputs"
+}
