@@ -46,7 +46,7 @@
     "llama_guard": "P(unsafe) from safe/unsafe verdict logits at the first generation step",
     "shieldgemma": "maximum P(Yes) over the four frozen official guidelines",
     "granite_guardian": "P(yes) against P(no) at the generated verdict-token step using the frozen yes/no token-id sets",
-    "qwen3guard": "1-P(Safe) from normalized teacher-forced likelihoods of the canonical native Safety labels Safe, Controversial, and Unsafe",
+    "qwen3guard": "frozen native ordinal safety score already defined by the Stage-A contract: Safe=0.0, Controversial=0.5, Unsafe=1.0",
     "default_decision": "unchanged frozen native guard decision"
   },
   "probe": {
