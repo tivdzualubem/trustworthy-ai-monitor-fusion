@@ -66,7 +66,7 @@ Extract a continuous frozen-model score without fitting to study outcomes:
 - Llama Guard: `P(unsafe)` from first-step safe/unsafe verdict logits.
 - ShieldGemma: maximum `P(Yes)` over the four official frozen guideline prompts.
 - Granite Guardian: `P(yes)` versus `P(no)` at the generated verdict-token step using the frozen yes/no token-id sets.
-- Qwen3Guard: `1-P(Safe)` from normalized teacher-forced likelihoods of the canonical native Safety labels `Safe`, `Controversial`, and `Unsafe`.
+- Qwen3Guard: the frozen native ordinal safety score already defined by the Stage-A contract: `Safe=0.0`, `Controversial=0.5`, `Unsafe=1.0`.
 
 The native score is used for rank discrimination and for testing whether a representation-specific scalar threshold recovers O2 performance. Thresholds are fitted on training folds only.
 
