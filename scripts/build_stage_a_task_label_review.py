@@ -77,7 +77,10 @@ def main():
     # Reviewer input: omit case_type, proxy labels, categories, and predictions.
     policy = []
     transform = []
+    review_keys = []
     for case in sorted(by_case):
+        blind = "B" + hashlib.sha256(case.encode("utf-8")).hexdigest()[:16]
+        review_keys.append({"blind_case_id":blind,"semantic_case_id":case})
         p = by_case[case]
         a = p["direct"]
         o = p["O2"]
@@ -89,8 +92,8 @@ def main():
         for guard in GUARDS:
             for rep in ["direct", "O2"]:
                 policy.append({
-                    "review_id": f"{case}::{guard}::{rep}",
-                    "semantic_case_id":case,"guard":guard,"representation":rep,
+                    "review_id": f"{blind}::{guard}::{rep}",
+                    "blind_case_id":blind,"guard":guard,"representation":rep,
                     "prompt_text":p[rep]["prompt_text"],
                     "reviewer_id":"","policy_label":"","policy_guideline":"",
                     "label_rationale":"","review_status":"pending"
@@ -98,8 +101,8 @@ def main():
         for cond in CONDITIONS:
             variant = (o["prompt_text"] if cond == "O2" else same[cond]["prompt_text"])
             transform.append({
-                "review_id":f"{case}::{cond}",
-                "semantic_case_id":case,"condition":cond,
+                "review_id":f"{blind}::{cond}",
+                "blind_case_id":blind,"condition":cond,
                 "direct_text":a["prompt_text"],"transformed_text":variant,
                 "reviewer_id":"","meaning_preserved":"","label_preserved":"",
                 "review_rationale":"","review_status":"pending"
@@ -107,6 +110,7 @@ def main():
 
     if len(policy) != 608 or len(transform) != 304:
         raise RuntimeError("Review row counts incorrect")
+    save(args.outdir/"review_key_private.csv",list(review_keys[0]),review_keys)
     save(args.outdir/"blind_native_policy_review.csv",list(policy[0]),policy)
     save(args.outdir/"blind_transformation_review.csv",list(transform[0]),transform)
     print("policy_rows:",len(policy),"transformation_rows:",len(transform))
