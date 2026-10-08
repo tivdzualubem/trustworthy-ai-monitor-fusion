@@ -1,0 +1,38 @@
+{
+  "annotation_provenance": "GPT-6 AI-assisted first pass; researcher-reviewed and approved; not independent annotation.",
+  "approval_basis": "User explicitly reported reviewing and approving AI-draft judgments in ChatGPT on 2026-10-08; no item-level corrections supplied.",
+  "approved_files_sha256": {
+    "policy_review_researcher_approved.csv": "c122cbf29a0cab61ee0202907f7ea37b3e31d908272dc901ac9e8f7ee96a57e4",
+    "transformation_review_researcher_approved.csv": "5c4abc3e79e1ebeee8cd947c800f9544434bb7b1a7f27258c09277d05447aab3"
+  },
+  "audit_id": "stage_a_phase2_researcher_approved_ai_assisted_v1",
+  "do_not_claim": [
+    "independent multi-rater annotation",
+    "inter-annotator agreement",
+    "native-model semantic understanding",
+    "response-level outcome labels",
+    "confirmatory validation"
+  ],
+  "frozen_experiment_modified": false,
+  "frozen_readout_transfer_signal": "false for all four guards; unchanged",
+  "interpretation": "Exploratory prompt-moderation policy review only. Uncertain/out-of-scope cases must not be coerced into binary labels or used as independently verified truth.",
+  "original_ai_draft_sha256": {
+    "policy": "f0818dc94c8d59b004714e06d0621e71eb72bd48011434ee938161f2ff6af25b",
+    "transformation": "ae6f2089f2d968e3bf24d544d936f9c0434bfbbdf38d4b6af958441c6141113e"
+  },
+  "original_blind_sha256": {
+    "policy": "4f15be5d418682587e6d60bead3d3902b27eab262495094ea980dae303fb0bd8",
+    "transformation": "8fb6f11d03a9e86cc85396391d7d2eb3e9813d381b93f016543ee8ed432b6356"
+  },
+  "policy_label_counts": {
+    "not_violation": 304,
+    "out_of_scope": 14,
+    "uncertain": 62,
+    "violation": 228
+  },
+  "signoff_date": "2026-10-08",
+  "transformation_label_preserved_counts": {
+    "uncertain": 228,
+    "yes": 76
+  }
+}
