@@ -1,0 +1,11 @@
+{
+  "contract_sha256": "5838a6e614fecd60365883cf9646d7768625bc3ec9539cee4dcd50ad58c03ab2",
+  "guard": "granite_guardian_3_3_8b",
+  "guard_contract_sha256": "98d8a6bf85685a33a88943076e1d2788d36a4a74eda17e79a9b6e70e57b12b4d",
+  "o3_ablation_input_sha256": "a425e3cea9b097da4006fd1b9f90e202ef96a774efba39b74851111f4b2594de",
+  "probe_input_sha256": "e9d4c6047c19cc75c1d3b1badd6abc0fa6cf3c234507efd96353597dfd044a8b",
+  "runner_sha256": "3928bb565eb50bc19c396f00fe47c5efab90405ac7edf233ad5ad209fab7d9bf",
+  "runtime_lock_sha256": "0402b8677e8de8cac0ec376d24758e1340e34968a4b69280905deea6956570b2",
+  "runtime_registry_sha256": "f53b4aa38cf04c2c0a10673d957256d7527cc9a25b002e123d2fff835a7fa343",
+  "source_sha256": "aea60e385ec4056ce57b4094d29350c7ea0c30a47d91dd8bd72972c98ca9efc7"
+}

@@ -1,0 +1,100 @@
+{
+  "artifact_id": "stage_a_readout_transfer_repository_restore_v1",
+  "files": {
+    "README.md": {
+      "sha256": "d06528aa1de55f65d4488382571e08840350c4b803d5d8fd340d5b3b2415d450",
+      "size_bytes": 3017
+    },
+    "analysis/native_thresholds.csv": {
+      "sha256": "457a30e1c40790b1029f1e07138fe606917740f352c9f3f7f8180c1056aee9a5",
+      "size_bytes": 1094
+    },
+    "analysis/o3_ablation_summary.csv": {
+      "sha256": "241518dc517a1ead2212d0ab563dd96e2025da80b6b9d32d4ce1f445c71a211c",
+      "size_bytes": 2347
+    },
+    "analysis/oof_predictions.csv": {
+      "sha256": "15b3cedc834d13cb9b1258f0b8b3d79719f1115ccaa68dd2c465718e849e8ca7",
+      "size_bytes": 264917
+    },
+    "analysis/probe_metrics.csv": {
+      "sha256": "f19b506ef269b4f5d3e8e5799f8e24ab8861dd9f2c1505493ecbdb5af88a8460",
+      "size_bytes": 3679
+    },
+    "analysis/screening_decision.csv": {
+      "sha256": "c163e061ce45efbec211e9d0ee999bd965b6c545da5e56f04d95b63f91b4a1ed",
+      "size_bytes": 711
+    },
+    "features/granite_guardian_3_3_8b_checkpoint.meta.json": {
+      "sha256": "6c64cb3e13908bcf8de89971608a53f159d9277fda1be79cc192224fe757e5c6",
+      "size_bytes": 779
+    },
+    "features/granite_guardian_3_3_8b_probe_features.npz": {
+      "sha256": "6d3f0094682dc96628d4de47f352b05768b9345d548565ffa1341d6687bb2dd1",
+      "size_bytes": 1472130
+    },
+    "features/llama_guard_3_1b_checkpoint.meta.json": {
+      "sha256": "cc53d384f087214f2a2154460342f6bd62209b1fb8ca3bf42f5c4d9d102c6536",
+      "size_bytes": 772
+    },
+    "features/llama_guard_3_1b_probe_features.npz": {
+      "sha256": "c122d56e9754ff3bd3d1f8f3a4a289cb9f021765a3c2720b802fdf274c68302c",
+      "size_bytes": 589256
+    },
+    "features/qwen3guard_gen_4b_checkpoint.meta.json": {
+      "sha256": "634a85bfa0aedf4cb1737dfbe953d59c1ed2d39fea1d36e6c832e203e1e82923",
+      "size_bytes": 773
+    },
+    "features/qwen3guard_gen_4b_probe_features.npz": {
+      "sha256": "c08c65836338ba8aa3698fa3d714ac108724918a0d45ff43be3820d9326e0277",
+      "size_bytes": 920702
+    },
+    "features/shieldgemma_2b_checkpoint.meta.json": {
+      "sha256": "ec90c7cbc57476ad394a5dbe33b4239338f8c1e1e597de8d7b1ad10623b72365",
+      "size_bytes": 770
+    },
+    "features/shieldgemma_2b_probe_features.npz": {
+      "sha256": "734d0658c8bf67501448b0e163a50749f63b293cbc3e38b1e69190d65caabd9b",
+      "size_bytes": 3309351
+    },
+    "gpu_manifest.json": {
+      "sha256": "9568e0d30fcd1468148f6d0efe78dc1b2fa36b2a7c169ac940aebe933e7d9d8f",
+      "size_bytes": 5474
+    },
+    "granite_guardian_3_3_8b_manifest.json": {
+      "sha256": "0af86860e468b64d77428f1a795b83f71a8b04a6d93e416dd348a810315c55ae",
+      "size_bytes": 777
+    },
+    "llama_guard_3_1b_manifest.json": {
+      "sha256": "e071a6c6515ed6cf01264feddc6029870f021d03e783dc3994c8248f1b0e42a8",
+      "size_bytes": 738
+    },
+    "o3_scores/granite_guardian_3_3_8b_o3_ablation_scores.csv": {
+      "sha256": "905232c2f13065f5a24423bffd342c26d17829b17805e1896a6a644ef0768cc1",
+      "size_bytes": 41463
+    },
+    "o3_scores/llama_guard_3_1b_o3_ablation_scores.csv": {
+      "sha256": "60c2ec5f25c22a040fb9eb0ef6ee7aae1eb98346f0dfa60106c9ffd8722554ed",
+      "size_bytes": 31710
+    },
+    "o3_scores/qwen3guard_gen_4b_o3_ablation_scores.csv": {
+      "sha256": "ff53e534092fbf03e65985ff70d7c3c79abc6eec7eef347d73e6897e040d7037",
+      "size_bytes": 35379
+    },
+    "o3_scores/shieldgemma_2b_o3_ablation_scores.csv": {
+      "sha256": "ea447196376b3256ccb7224b82952c1f27926275fa20e722f71099b68a51370f",
+      "size_bytes": 85023
+    },
+    "qwen3guard_gen_4b_manifest.json": {
+      "sha256": "4d313e9b490989fb08eb0af3ab521867c2a88bf0ee17ccd22afd43f177bcf793",
+      "size_bytes": 713
+    },
+    "shieldgemma_2b_manifest.json": {
+      "sha256": "c96cff6afc08c23b0cc82aedd8d7abf2f668866d2d8c53cac9ed6f40d699801d",
+      "size_bytes": 1027
+    }
+  },
+  "frozen_screen_unchanged": true,
+  "input_commit_sha": "82275073e44109cf16f42b8a4506e5f019946816",
+  "original_scoring_archive": "stage_a_readout_transfer_kill_v1.zip"
+}
