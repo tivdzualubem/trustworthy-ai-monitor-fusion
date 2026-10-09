@@ -1,0 +1,30 @@
+{
+  "O2_equivalence_assessments": 38,
+  "O2_label_preserved_yes": 38,
+  "artifact_id": "stage_a_phase3c_policy_review_researcher_approved_v1",
+  "boundaries": [
+    "All AI-first-pass uncertain policy labels remain uncertain and are not converted to not_violation.",
+    "O2 equivalence means intended message when source mapping is known, not model decoding.",
+    "Previous harmful-anchor label review remains separately approved and unchanged.",
+    "No fresh native scoring; no response-level FNR; no strong causal mechanism claim."
+  ],
+  "date": "2026-10-09",
+  "original_frozen_readout_screen_modified": false,
+  "original_readout_screen_status": "0_of_4_failed_unchanged",
+  "policy_assessments": 304,
+  "policy_counts": {
+    "not_violation": 286,
+    "uncertain": 18
+  },
+  "researcher_review_count": 1,
+  "response_level_harm_labels_created": false,
+  "reviewer_count_independent": 0,
+  "scope": "New 38 hard-benign cases x direct/O2 x 4 guard policies only; not independent confirmation.",
+  "scored_native_guards_on_new_hard_benign": false,
+  "signoff_basis": "User explicitly stated they opened, thoroughly reviewed, and approved every item of the preceding policy-review ZIP.",
+  "signoff_text": "i reviewed them all in the zip and i approve them all after thorough review. also answer this in 2lines  then  ontinue with project just to be in line with the profesor, that we are directly following his feedback and no dirft because we will have to report back to him when we are done with what he requested.",
+  "source_draft_package_sha256": "47b96c9e6fd699956eae72dec6afd7f27aaf0f1cfdffe86a9da733203e937611",
+  "source_prompt_approved_package_sha256": "b258af4f44e0f5f9514b2a1a0aefea2b37683c22566830abd446f324a08b9ba8",
+  "status": "researcher_approved_AI_assisted_exploratory_not_independent",
+  "uncertain_policy_assessments_remain_uncertain": 18
+}

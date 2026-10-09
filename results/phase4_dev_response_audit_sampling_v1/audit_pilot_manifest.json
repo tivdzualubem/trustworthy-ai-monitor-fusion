@@ -1,0 +1,45 @@
+{
+  "Y": "historical development response-level label under older audit provenance, not newly independent truth",
+  "artifact_id": "phase4_dev_response_audit_sampling_v1",
+  "boundary_protocol_sha256": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+  "budgets": [
+    40,
+    80,
+    160
+  ],
+  "data_source": "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet",
+  "decision_value_protocol_sha256": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+  "development_rows_per_setup": 1687,
+  "fold_source": "reports/decision_value_real_data/development_outer_fold_assignments.csv",
+  "fold_source_sha256": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd",
+  "label_cost": "one human audit per selected unique example; original historical labels simulated as hidden until sampled",
+  "methods": [
+    "uniform",
+    "proportional_stratified",
+    "score_tilted_stratified",
+    "allowed_only"
+  ],
+  "not_implemented": "Published active-testing algorithms and optional-monitor acquisition are later comparisons, NOT claimed here.",
+  "numpy": "2.5.0",
+  "observed_D": "archived cross-fitted base_prediction (trained model; NOT a single frozen native guard)",
+  "optional_score_use": "NONE; no unpurchased optional-monitor score informs sampling",
+  "pandas": "3.0.3",
+  "primary_estimand": "development finite-pool p_miss = mean(Y*(1-D))",
+  "protected_split_rows_read": false,
+  "python": "3.12.13",
+  "raw_rows_exported": false,
+  "repetitions": 200,
+  "risk_boundary": "No fresh W0 data, sealed rows, model inference, prompt-only Stage-A, or confirmatory inference",
+  "sampling_unit": "development_example_id",
+  "scope_limit": "No native-guard deployment FNR claims. Existing labels and scores may have historical selection/provenance limitations.",
+  "secondary_estimands": "FNR and FPR are ratios; allowed-only design cannot estimate them",
+  "seed": 20261009,
+  "setups": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "source_branch": "stage-a-paired-transport-20260921",
+  "source_sha256": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec",
+  "status": "development_only_exploratory_sampling_feasibility",
+  "variance_note": "Normal design-based finite-population CI may undercover for rare outcomes; coverage is empirical, not a certificate"
+}

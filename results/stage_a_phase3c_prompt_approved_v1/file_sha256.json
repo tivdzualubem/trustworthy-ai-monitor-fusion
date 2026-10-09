@@ -1,0 +1,11 @@
+{
+  "O2_equivalence_review_pending.csv": "3c0aaad1b116b46b30e07e1b050bc254af71d3b78f5f191d480ff0a8fb3a8a5d",
+  "README.md": "eb91aec54f3356f8170f474b7bbc2350afb3fdd49e00c372c778c067fa47e0ae",
+  "draft_pilot_prompts_direct_O2.csv": "3a6a31dbc14d68d90ffebf2f5b39b69577b5f6473876b3037ba61cb32e223f16",
+  "hard_benign_researcher_review.csv": "480f07ca6b080b4b25cfbd1dad4a93f67a46942fbb58a6d934808a07c12a5c63",
+  "lexical_fold_metrics.csv": "49c289763d6350e16d917adb02cd034591dd87d829aa768e290b828b039517d9",
+  "lexical_oof_predictions.csv": "4d9752d931704306a11e7cd8da119a630d59bb13180da2daa49b80b7c6ccdf1e",
+  "lexical_summary_metrics.csv": "ee683c7127907907ca7ea6edef7b16bad4547ee4ba0a395e67c18a53ff6de150",
+  "manifest.json": "0e141310d5ceac1e21f4cf0cd99f0c4ea22321f93a0b710a08ee77fa84bfa62d",
+  "native_policy_review_pending.csv": "499038e2988825478c5087ca7a4fa2cb814facab6555247ef6c66a8752312067"
+}

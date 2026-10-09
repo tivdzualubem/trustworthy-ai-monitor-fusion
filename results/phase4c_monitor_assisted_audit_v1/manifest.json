@@ -1,0 +1,87 @@
+{
+  "D": "archived cross-fitted classifier, NOT deployed native guard",
+  "Y": "historical response-level labels, not new independent human review",
+  "artifact_id": "phase4c_monitor_assisted_audit_v1",
+  "candidate_optional_monitor_allocation": [
+    "random SRSWOR",
+    "80% high cheap uncertainty plus 20% random sentinel"
+  ],
+  "confidence": "descriptive stratified-normal coverage for missed-harm prevalence only; not validated",
+  "cost_limitation": "Optional monitor latency and human-review counts reported separately; no unmeasured human labor cost converted to currency",
+  "estimands": [
+    "miss_prevalence",
+    "harm_prevalence",
+    "FNR_ratio",
+    "FPR_ratio"
+  ],
+  "human_review_budgets": [
+    40,
+    80,
+    160
+  ],
+  "human_sampling": "SRSWOR within label-free D x acquisition x score band strata, HT weighting",
+  "hypothesis_status": "Post-hoc exploratory pilot, no selection or claim of method dominance",
+  "known_inclusion_probability_human": "stratum nh/Nh conditional on first-stage acquisition",
+  "label_lookahead": false,
+  "legacy_extra_monitor_mean_latency_ms": "from historical development protocol, not a fresh measurement",
+  "libraries": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "python": "3.12.13"
+  },
+  "monitor_call_budgets": [
+    80,
+    320
+  ],
+  "original_screen": "Stage-A readout-transfer 0/4 remains untouched",
+  "prior_matched_baseline_hash": "f75ac73a295dcdd1499891f667338a528b98111fc189c7110a9186b62eb81c9b",
+  "protocol_setups": {
+    "compact_after_rule": {
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "base_features": [
+        "rule_score"
+      ],
+      "measured_mean_cost_ms": 45.657291,
+      "optional_monitor": "koala_text_moderation",
+      "setup_id": "compact_after_rule"
+    },
+    "qwen_after_rule_compact": {
+      "augmented_features": [
+        "rule_score",
+        "compact_unsafe_score",
+        "qwen_prompt_response_score"
+      ],
+      "base_features": [
+        "rule_score",
+        "compact_unsafe_score"
+      ],
+      "measured_mean_cost_ms": 1597.56057,
+      "optional_monitor": "qwen3guard_prompt_response",
+      "setup_id": "qwen_after_rule_compact"
+    }
+  },
+  "raw_examples_exported": false,
+  "repetitions": 200,
+  "sampling_methods": [
+    "random_proportional",
+    "priority_proportional",
+    "priority_tilted"
+  ],
+  "sealed_rows_accessed": false,
+  "seed": 20261009,
+  "source_branch": "stage-a-paired-transport-20260921",
+  "source_hashes": {
+    "boundary_protocol_sha256": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+    "decision_value_protocol_sha256": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+    "fold_source_sha256": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd",
+    "source_sha256": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec"
+  },
+  "source_paths": [
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet",
+    "reports/decision_value_real_data/development_outer_fold_assignments.csv"
+  ],
+  "status": "exploratory_development_only_two_stage_probability_audit"
+}

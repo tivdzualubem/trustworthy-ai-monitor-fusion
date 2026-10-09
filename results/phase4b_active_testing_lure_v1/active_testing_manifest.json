@@ -1,0 +1,51 @@
+{
+  "D": "historical cross-fitted base_prediction NOT a single native guard decision",
+  "Y": "historical development response-level harmfulness, simulated labels revealed only after review",
+  "artifact_id": "phase4b_active_testing_lure_v1",
+  "authors_reference_implementation": "https://github.com/jlko/active-testing/blob/main/activetesting/risk_estimators.py",
+  "budgets": [
+    40,
+    80,
+    160
+  ],
+  "estimator": "Kossen et al. 2021 LURE Eq. 4 adapted to z=Y*(1-D), Y and (1-Y)*D; finite-pool linear means",
+  "input_sha256": {
+    "boundary_protocol_sha256": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+    "decision_value_protocol_sha256": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+    "fold_source_sha256": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd",
+    "source_sha256": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec"
+  },
+  "library_reference": "https://proceedings.mlr.press/v139/kossen21a.html",
+  "limitations": "FNR/FPR plug-in ratios generally biased; LURE normal CIs not supplied; no new independent response annotations",
+  "methods": [
+    "lure_fixed_cheap_rank",
+    "lure_adaptive_beta"
+  ],
+  "optional_monitor_scores_used": false,
+  "positive_q": true,
+  "prior_aggregate_baseline": "results/phase4_dev_response_audit_sampling_v1/audit_method_comparison.csv",
+  "prior_aggregate_sha256": "efc578b508f9ce25b00cef00f172badc414e6904155ecd9d0e670838f43828da",
+  "probability_mixture_uniform": 0.2,
+  "proposal_adaptive": "four D/uncertainty strata, Beta(2,8) with purchased-label updates only",
+  "proposal_fixed": "score rank x allowed/blocked multiplier; rank NOT a calibrated probability",
+  "raw_examples_exported": false,
+  "repetitions": 200,
+  "sampling_unit": "development response example, once per setup",
+  "sealed_rows_accessed": false,
+  "seed": 20261009,
+  "setups": [
+    "compact_after_rule",
+    "qwen_after_rule_compact"
+  ],
+  "source_branch": "stage-a-paired-transport-20260921",
+  "source_paths": [
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet",
+    "reports/decision_value_real_data/development_outer_fold_assignments.csv"
+  ],
+  "status": "development_only_exploratory_published_estimator_adaptation",
+  "version": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "python": "3.12.13"
+  }
+}

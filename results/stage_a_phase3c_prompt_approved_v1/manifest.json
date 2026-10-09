@@ -1,0 +1,30 @@
+{
+  "O2_meaning_and_label_review": "pending",
+  "artifact_id": "stage_a_phase3c_hard_benign_v1",
+  "baseline_models": [
+    "word_1_2_TFIDF_L2_LogReg_C1_liblinear",
+    "char_2_5_TFIDF_L2_LogReg_C1_liblinear"
+  ],
+  "direct_cases": 76,
+  "direct_plus_O2_rows": 152,
+  "evaluation": "38 source harmful anchors + 38 new benign candidate texts, 5 original pair folds; all labels provisional case-role labels",
+  "guard_specific_label_comparisons": "not valid until reviews",
+  "hidden_probes": "not fitted for new data",
+  "lexical_overlap": {
+    "char_improved": 38,
+    "word_improved": 38
+  },
+  "native_guard_scoring": "not performed",
+  "native_policy_review": "pending",
+  "new_benign_status": "candidate_only_not_native_policy_ground_truth",
+  "normalization": "None; raw O2 substitution is retained",
+  "numpy_version": "2.5.0",
+  "original_frozen_screen_sha256": "c163e061ce45efbec211e9d0ee999bd965b6c545da5e56f04d95b63f91b4a1ed",
+  "original_prompt_sha256": "e9d4c6047c19cc75c1d3b1badd6abc0fa6cf3c234507efd96353597dfd044a8b",
+  "pair_ids": 38,
+  "pandas_version": "3.0.3",
+  "python_version": "3.12.13",
+  "same_pair_five_fold_leakage_control": true,
+  "sklearn_version": "1.9.0",
+  "status": "AI_draft_unreviewed_exploratory_cpu_text_only"
+}

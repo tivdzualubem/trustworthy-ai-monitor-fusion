@@ -1,0 +1,47 @@
+{
+  "artifact_id": "phase4d_optional_score_falsification_v1",
+  "design_arms": [
+    "cheap_only",
+    "acquisition_indicator",
+    "permuted_optional",
+    "real_optional"
+  ],
+  "development_population_totals": {
+    "compact_after_rule": {
+      "FNR": 0.7869415807560137,
+      "miss": 0.13574392412566685
+    },
+    "qwen_after_rule_compact": {
+      "FNR": 0.7835051546391752,
+      "miss": 0.13515115589804386
+    }
+  },
+  "historical_fixed_decision": "base_prediction cross-fitted classifier, NOT a deployed native guard",
+  "human_review_budgets": [
+    80,
+    160
+  ],
+  "no_protected_rows_accessed": true,
+  "no_raw_records_exported": true,
+  "optional_monitor_call_cost": "historical protocol mean milliseconds per check; not newly measured",
+  "optional_monitor_calls": [
+    80,
+    320
+  ],
+  "original_stage_a_screen": "0 of 4 signals remains unchanged",
+  "paired_MC_bootstrap_draws": 1000,
+  "repetitions": 400,
+  "response_labels": "historical development labels, NOT independent adjudication",
+  "review_cost": "not monetized",
+  "sampling": "80% high cheap-uncertainty priority + 20% random, identical acquired indices across comparator arms",
+  "seed": 20261009,
+  "selection_status": "posthoc falsification motivated by observing Phase 4C results, not confirmatory",
+  "source_branch": "stage-a-paired-transport-20260921",
+  "source_sha256": {
+    "configs/decision_value_real_data_protocol_v1.json": "7c82846f9de712a56260d74fbc1901b084262f2a7a745007547a75eab3d5f914",
+    "configs/exact_cost_risk_cascade_protocol_v2.json": "96a0bfdf1a0954d9313ecd7a2ae1272a07f0df4ba6197eede2f0e0afd9f1c1c7",
+    "reports/decision_value_real_data/cross_fitted_decision_value_targets.parquet": "0041158b10e7ee0dd1189a0611c5b07f18a44d88355e3c150ac044e4112fe6ec",
+    "reports/decision_value_real_data/development_outer_fold_assignments.csv": "62a2d8df0ba55b047d7e4685488b4d4d0ef77d480bcdb26cc34e5586e935d2dd"
+  },
+  "status": "posthoc_development_only_optional_score_ablation"
+}
