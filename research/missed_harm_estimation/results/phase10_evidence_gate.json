@@ -1,0 +1,233 @@
+{
+  "formal_status": {
+    "Y_identified_from_existing_reviewers": false,
+    "estimand": "A=P(Y=1,D=0) (post-response, pre-delivery historical monitor)",
+    "full_cost_validated": false,
+    "full_published_baselines_verified": false,
+    "gold_adjudication_or_error_bounds_validated": false,
+    "native_deployment_or_fresh_confirmatory_data_available": false,
+    "prospective_blinded_study_prepared": true
+  },
+  "not_github_commit_ready": true,
+  "phase5_old_labels": {
+    "amppi_restricted_substudy": [
+      {
+        "A_RMSE": 0.0281896037199,
+        "fraction_over_budget": 0.0,
+        "mean_total_cost_seconds": 4920.0,
+        "method": "blocked_allowed_srs"
+      },
+      {
+        "A_RMSE": 0.0325460351311,
+        "fraction_over_budget": 0.41,
+        "mean_total_cost_seconds": 4900.2,
+        "method": "cheap_only_active_ppi"
+      },
+      {
+        "A_RMSE": 0.0509501774687,
+        "fraction_over_budget": 0.49,
+        "mean_total_cost_seconds": 4951.66133908,
+        "method": "restricted_amppi_2predictor"
+      }
+    ],
+    "budget_count": 160,
+    "caveats": [
+      "Y historical unverified labels",
+      "D cross-fitted historical, not native deployment",
+      "Phase5B2 is a mean specialization, not full StratPPI CI",
+      "Phase5B3 is a restricted AM-PPI adaptation, not faithful author implementation",
+      "Phase5B3 30sec cost is hypothetical; some designs overspend"
+    ],
+    "methods": {
+      "allowed_only_srs": {
+        "A_RMSE": 0.0236899257612,
+        "calibration_labels": 0
+      },
+      "stratppi_allowed70_pilot_lambda": {
+        "A_RMSE": 0.0355165474021,
+        "calibration_labels": 32
+      },
+      "stratppi_proportional_fixed1": {
+        "A_RMSE": 0.0254238709097,
+        "calibration_labels": 0
+      },
+      "stratppi_proportional_pilot_lambda": {
+        "A_RMSE": 0.0293612084673,
+        "calibration_labels": 32
+      }
+    },
+    "qwen_effect_allowed_harm_reduction_cases": 1,
+    "qwen_effect_rate_per_historical_case": 0.0005927682276229994,
+    "setup": "qwen_after_rule_compact"
+  },
+  "phase8b_synthetic": {
+    "development_footprint_1687": {
+      "correlated_with_abstention": {
+        "majority_delta_rmse_ci95": [
+          -0.03807937780816807,
+          -0.02928142124541219
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.8125,
+        "majority_rmse": 0.059974649687351646,
+        "srs_latent_ci_coverage_diagnostic_only": 0.14583333333333334,
+        "srs_rmse": 0.09370124896010146,
+        "strat_delta_rmse_ci95": [
+          -0.0033620654526306257,
+          0.004102530820368485
+        ],
+        "stratified_rmse": 0.09417982831565222
+      },
+      "noisy_correlated": {
+        "majority_delta_rmse_ci95": [
+          -0.022966387667493995,
+          -0.016875530538053168
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.79375,
+        "majority_rmse": 0.050743146969688895,
+        "srs_latent_ci_coverage_diagnostic_only": 0.11875,
+        "srs_rmse": 0.07087597580685348,
+        "strat_delta_rmse_ci95": [
+          0.0011346018646026957,
+          0.010675674403213393
+        ],
+        "stratified_rmse": 0.07654074185660041
+      },
+      "noisy_independent": {
+        "majority_delta_rmse_ci95": [
+          -0.01645527196685851,
+          -0.01122588700651069
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.9916666666666667,
+        "majority_rmse": 0.02259385910608464,
+        "srs_latent_ci_coverage_diagnostic_only": 0.5770833333333333,
+        "srs_rmse": 0.036445055481663824,
+        "strat_delta_rmse_ci95": [
+          -0.0021439669830599127,
+          0.003087791107541547
+        ],
+        "stratified_rmse": 0.036849029624406275
+      },
+      "perfect_binary": {
+        "majority_delta_rmse_ci95": [
+          0.008093200654553726,
+          0.013793493947196584
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.9875,
+        "majority_rmse": 0.022893361233092015,
+        "srs_latent_ci_coverage_diagnostic_only": 0.9854166666666667,
+        "srs_rmse": 0.012295714458065115,
+        "strat_delta_rmse_ci95": [
+          -0.006937004472503442,
+          -0.004143215495353961
+        ],
+        "stratified_rmse": 0.006762841599140693
+      }
+    },
+    "phase6_5000": {
+      "correlated_with_abstention": {
+        "majority_delta_rmse_ci95": [
+          -0.0353323284652538,
+          -0.02733962348898592
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.8875000000000001,
+        "majority_rmse": 0.049374166314166024,
+        "srs_latent_ci_coverage_diagnostic_only": 0.17083333333333334,
+        "srs_rmse": 0.08066847108605102,
+        "strat_delta_rmse_ci95": [
+          -0.003620145377589943,
+          0.003765304011073653
+        ],
+        "stratified_rmse": 0.08099701824478744
+      },
+      "noisy_correlated": {
+        "majority_delta_rmse_ci95": [
+          -0.018604936802903652,
+          -0.01415868015402366
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.875,
+        "majority_rmse": 0.04436155140688432,
+        "srs_latent_ci_coverage_diagnostic_only": 0.12083333333333333,
+        "srs_rmse": 0.06091371763652037,
+        "strat_delta_rmse_ci95": [
+          -0.0011907981365005351,
+          0.006223567119517255
+        ],
+        "stratified_rmse": 0.06338527068103914
+      },
+      "noisy_independent": {
+        "majority_delta_rmse_ci95": [
+          -0.011231813700495124,
+          -0.007083934155230576
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.99375,
+        "majority_rmse": 0.02137168275966846,
+        "srs_latent_ci_coverage_diagnostic_only": 0.6520833333333333,
+        "srs_rmse": 0.030572976509808964,
+        "strat_delta_rmse_ci95": [
+          0.0009944579426965257,
+          0.004850322170283162
+        ],
+        "stratified_rmse": 0.0334041946790645
+      },
+      "perfect_binary": {
+        "majority_delta_rmse_ci95": [
+          0.006849042006063095,
+          0.009743714902430766
+        ],
+        "majority_latent_ci_coverage_diagnostic_only": 0.9958333333333333,
+        "majority_rmse": 0.019734349872064284,
+        "srs_latent_ci_coverage_diagnostic_only": 0.99375,
+        "srs_rmse": 0.011457360010254743,
+        "strat_delta_rmse_ci95": [
+          -0.00596839409907817,
+          -0.003249156000009871
+        ],
+        "stratified_rmse": 0.006841488824862072
+      }
+    }
+  },
+  "phase9b_real_review": {
+    "r4_active_seconds": 4054.4610000000002,
+    "r4_share_of_active_seconds": 0.25588480762351573,
+    "real_active_seconds": 15844.867999999999,
+    "real_wall_seconds": 23638.04916138557,
+    "selected_r4_n": 48,
+    "three_reviewers_primary_n": 288,
+    "weighted_reviewer_endpoints": [
+      {
+        "approx_normal_ci95": [
+          0.009588178906387808,
+          0.10120717658020517
+        ],
+        "design_se_approx": 0.023372193284137085,
+        "harmful_endpoint_A": 0.05539767774329649,
+        "reviewer": "R1"
+      },
+      {
+        "approx_normal_ci95": [
+          0.2188354782049543,
+          0.4043975494459402
+        ],
+        "design_se_approx": 0.04733726307168007,
+        "harmful_endpoint_A": 0.31161651382544725,
+        "reviewer": "R2"
+      },
+      {
+        "approx_normal_ci95": [
+          0.0554275483380728,
+          0.18893592319161795
+        ],
+        "design_se_approx": 0.034058258891210495,
+        "harmful_endpoint_A": 0.12218173576484537,
+        "reviewer": "R3"
+      }
+    ]
+  },
+  "provenance": {
+    "phase5b1_blocked_allowed_baselines_v1.zip": "b3571b1d9e61ad65cb3bf4daa9ba4845206760f06e74facc1409d75cdcec0132",
+    "phase5b2_stratppi_mean_development_v1.zip": "ac57a045b12acb85a09860c9da495b12fc45a3ee4a18fed344003d05d5a9d358",
+    "phase5b3_amppi_restricted_v1(1).zip": "331441e6422ff80046ec69870f75bbefd396d952a42be4225ab97efee2183711",
+    "phase8b_population_robustness_20261112.json": "981bdc062e518f4ee5efae6615d217cb2c4249c5dc844b8d3d6faf5120dd93fc",
+    "phase9b_audit_20261112.json": "0baf4ca75c22c1d3175849aa68a8e7eb449f26114eb05d961f82600821322d9c"
+  }
+}

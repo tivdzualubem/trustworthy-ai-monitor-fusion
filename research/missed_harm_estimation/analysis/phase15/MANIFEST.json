@@ -1,0 +1,39 @@
+{
+  "package": "Trustworthy_AI_Phase15_Prospective_Reference_20261113",
+  "created_for": "Research internal audited reference-validation setup",
+  "verified_test_count": 9,
+  "source_phase14_uploaded_geometry_files": [
+    "phase14_development.json",
+    "phase14_phase6.json"
+  ],
+  "files": {
+    "METHOD_FIDELITY_AND_CLAIMS.md": {
+      "sha256": "8027d455d44f3615bde8e79f90f070ad2f49ea76f5f5b65e0d2810734a60230c",
+      "bytes": 2994
+    },
+    "README.md": {
+      "sha256": "5758998edb53da9b8ef9eeea346efd8ab8f976876b4428bcdba1aac92c769f4a",
+      "bytes": 8944
+    },
+    "close_phase14.py": {
+      "sha256": "7be6f5336b1dcf31cb2fab7b5d7e4cd8589721b07be0b98b9fd5f8c0138c973a",
+      "bytes": 3485
+    },
+    "exact_finite_population_interval.py": {
+      "sha256": "4128b3fcdc53fb27f56dad83d63ea6e64f3e4fc041c58b5c2035b0a2cab9f927",
+      "bytes": 2063
+    },
+    "phase14_verified_closure.json": {
+      "sha256": "686bd49803624042374858e6b7c0e7b3fae9b54a740bc3f6a1290e1c1f4a31ca",
+      "bytes": 5100
+    },
+    "phase15_reference_study.py": {
+      "sha256": "818ca08d8f1f263cf0db10001c25be59bd4f7a0e60eb0d74ec29fd563b656e47",
+      "bytes": 19675
+    },
+    "test_phase15.py": {
+      "sha256": "12242638070adcf20dce67abfadb87807ad12f55bba08f4a93ac3dd6508a5230",
+      "bytes": 6847
+    }
+  }
+}

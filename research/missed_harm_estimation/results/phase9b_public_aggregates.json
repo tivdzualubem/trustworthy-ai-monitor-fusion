@@ -1,0 +1,19 @@
+{
+  "study": "PHASE9B_HISTORICAL_REVIEW_PUBLIC_AGGREGATES",
+  "distinct_cases": 96,
+  "primary_ratings": 288,
+  "selected_fourth_ratings": 48,
+  "total_reviews": 336,
+  "primary_groups": {
+    "contains_uncertain": 18,
+    "two_to_one_binary": 21,
+    "unanimous_binary": 57
+  },
+  "fleiss_kappa": 0.30819507290095516,
+  "mean_active_seconds": 47.15734523809523,
+  "total_active_seconds": 15844.867999999999,
+  "total_wall_seconds": 23638.04916138557,
+  "R4_active_seconds": 4054.4610000000002,
+  "policy_truth_verified": false,
+  "limits": "Aggregate vote behavior and recorded cost only. No case-level data or reference-truth assertion."
+}

@@ -1,0 +1,1743 @@
+{
+  "budget_human_active_seconds": 4800.0,
+  "confidence_interval_scope": "Between independently generated synthetic populations (bootstrap). Not frequentist guarantees for real safety labels.",
+  "geometries": {
+    "development_footprint_1687": {
+      "latent_true_missed_harm_prevalence": 0.02015411973918198,
+      "paired_contrasts_vs_allowed_srs": {
+        "correlated_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.006196051324448688,
+              7.005506775709e-05
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.003079499290774876,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.0020481943273243965,
+              0.0035057993259009555
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0005874413230674003,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.0033620654526306257,
+              0.004102530820368485
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00047857935555076225,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.035193033095236435,
+              -0.025900601989299277
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.030867219183498176,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.03807937780816807,
+              -0.02928142124541219
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.03372659927274981,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_correlated|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.003167076638453767,
+              0.0016770625912924352
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.0008698262927109152,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.004001808333551417,
+              0.002662080859177017
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.000732067769531039,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.0011346018646026957,
+              0.010675674403213393
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00566476604974693,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.014225198035206044,
+              -0.0051344368260581525
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.00992080324555774,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.022966387667493995,
+              -0.016875530538053168
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.020132828837164586,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_independent|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0005563895475455074,
+              0.004792520717613653
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0017901456467963317,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.0008143720447671713,
+              0.0032618337661759343
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0012924197503854096,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.0021439669830599127,
+              0.003087791107541547
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0004039741427424512,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.010550260197117387,
+              -0.004518526453997693
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.007783610194667372,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.01645527196685851,
+              -0.01122588700651069
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.013851196375579185,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0028532819808925183,
+              0.001388416724794355
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.0008786919244011884,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.002430220696091789,
+              0.0015390003547568107
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.0004859425730636205,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.0024589867567077405,
+              0.003293792131609058
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00041589093925184506,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.03612481294613183,
+              -0.030511946832627104
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.03343023204123406,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.03765074717369711,
+              -0.03199328318713147
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.03484791814748442,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "perfect_binary|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0011824085108766767,
+              0.0013240372104522753
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 9.225918094824849e-05,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.002789347069692048,
+              0.00015578304351197893
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.0013684590528571534,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.006937004472503442,
+              -0.004143215495353961
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.0055328728589244215,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.013194580901461727,
+              0.01873325497369522
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.01589172909465822,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.008093200654553726,
+              0.013793493947196584
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0105976467750269,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        }
+      },
+      "proxy_population_diagnostics": {
+        "fraction_of_populations_with_all_harm_in_proxy_positive": 0.0,
+        "harmful_allowed": {
+          "max": 34,
+          "mean": 34.0,
+          "min": 34
+        },
+        "harmful_allowed_in_proxy_negative": {
+          "max": 9,
+          "mean": 5.1875,
+          "min": 2
+        },
+        "harmful_allowed_in_proxy_positive": {
+          "max": 32,
+          "mean": 28.8125,
+          "min": 25
+        },
+        "near_census_fraction_diagnostic": "Each run resamples the proxy-positive stratum. Inspect its size against roughly half the selected allowed_proxy_stratified_equal responses; do not assume a single population is representative.",
+        "proxy_negative_allowed": {
+          "max": 1512,
+          "mean": 1503.75,
+          "min": 1494
+        },
+        "proxy_positive_allowed": {
+          "max": 63,
+          "mean": 53.25,
+          "min": 45
+        }
+      },
+      "summary": {
+        "correlated_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.08816456806341999,
+              0.09281306875041018
+            ],
+            "max_reserved_seconds": 4799.914,
+            "max_spent_seconds": 4799.914,
+            "mean_ci_width": 0.18338890535467306,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.19374999999999998,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.96875,
+            "mean_distinct_cases": 117.30000000000001,
+            "mean_point_identification_width": 0.05739976156137143,
+            "mean_reserved_seconds": 4766.3734,
+            "mean_reviewer_actions": 117.30000000000001,
+            "mean_spent_seconds": 4766.3734,
+            "pooled_rmse_vs_latent_Y": 0.09062174966932658,
+            "rmse_across_populations_max": 0.09852073925178165,
+            "rmse_across_populations_min": 0.08182403828028036
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.09228262724502742,
+              0.09635656954154355
+            ],
+            "max_reserved_seconds": 4799.872999999999,
+            "max_spent_seconds": 4799.872999999999,
+            "mean_ci_width": 0.2346806461173681,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9166666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 116.82708333333332,
+            "mean_point_identification_width": 0.058359371498606975,
+            "mean_reserved_seconds": 4769.979002083333,
+            "mean_reviewer_actions": 116.82708333333332,
+            "mean_spent_seconds": 4769.979002083333,
+            "pooled_rmse_vs_latent_Y": 0.09428869028316886,
+            "rmse_across_populations_max": 0.10393351956408356,
+            "rmse_across_populations_min": 0.08611401029059339
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.09136371867688123,
+              0.09675909189576187
+            ],
+            "max_reserved_seconds": 4799.894000000001,
+            "max_spent_seconds": 4799.894000000001,
+            "mean_ci_width": 0.22873073503260227,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.25625,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 117.03333333333333,
+            "mean_point_identification_width": 0.05859388349160376,
+            "mean_reserved_seconds": 4768.887704166667,
+            "mean_reviewer_actions": 117.03333333333333,
+            "mean_spent_seconds": 4768.887704166667,
+            "pooled_rmse_vs_latent_Y": 0.09417982831565222,
+            "rmse_across_populations_max": 0.10504586704164323,
+            "rmse_across_populations_min": 0.08289371228354026
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.0916017124692073,
+              0.0957010439503131
+            ],
+            "max_reserved_seconds": 4799.989,
+            "max_spent_seconds": 4799.989,
+            "mean_ci_width": 0.17989527761312,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.14583333333333334,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9854166666666667,
+            "mean_distinct_cases": 117.39791666666667,
+            "mean_point_identification_width": 0.05835782925648225,
+            "mean_reserved_seconds": 4769.054052083335,
+            "mean_reviewer_actions": 117.39791666666667,
+            "mean_spent_seconds": 4769.054052083335,
+            "pooled_rmse_vs_latent_Y": 0.09370124896010146,
+            "rmse_across_populations_max": 0.09909443644261853,
+            "rmse_across_populations_min": 0.08600400427962329
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.05856839741310536,
+              0.06736477931056581
+            ],
+            "max_reserved_seconds": 4799.843,
+            "max_spent_seconds": 4214.545,
+            "mean_ci_width": 0.2564130112625963,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9083333333333334,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9895833333333334,
+            "mean_distinct_cases": 22.670833333333334,
+            "mean_point_identification_width": 0.010403337093591787,
+            "mean_reserved_seconds": 4679.1232687500005,
+            "mean_reviewer_actions": 76.07291666666666,
+            "mean_spent_seconds": 3441.9536375,
+            "pooled_rmse_vs_latent_Y": 0.06283402977660328,
+            "rmse_across_populations_max": 0.08221647293341881,
+            "rmse_across_populations_min": 0.04666550071674539
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.05658038545222436,
+              0.06355455839694694
+            ],
+            "max_reserved_seconds": 4799.946999999999,
+            "max_spent_seconds": 4799.946999999999,
+            "mean_ci_width": 0.20776032404663114,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8125,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 38.59583333333333,
+            "mean_point_identification_width": 0.02314098699166667,
+            "mean_reserved_seconds": 4728.4230145833335,
+            "mean_reviewer_actions": 115.7875,
+            "mean_spent_seconds": 4728.4230145833335,
+            "pooled_rmse_vs_latent_Y": 0.059974649687351646,
+            "rmse_across_populations_max": 0.07634810338859248,
+            "rmse_across_populations_min": 0.0471558670790747
+          }
+        },
+        "noisy_correlated|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.06800129512593141,
+              0.07185949368530299
+            ],
+            "max_reserved_seconds": 4799.904000000003,
+            "max_spent_seconds": 4799.904000000003,
+            "mean_ci_width": 0.11832518277020351,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.12708333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 116.88125,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4766.400922916668,
+            "mean_reviewer_actions": 116.88125,
+            "mean_spent_seconds": 4766.400922916668,
+            "pooled_rmse_vs_latent_Y": 0.07000614951414257,
+            "rmse_across_populations_max": 0.07630928267130441,
+            "rmse_across_populations_min": 0.06306132682068208
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.06731717548903016,
+              0.07296395406468727
+            ],
+            "max_reserved_seconds": 4799.702000000001,
+            "max_spent_seconds": 4799.702000000001,
+            "mean_ci_width": 0.16616898834222488,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8729166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 117.26041666666666,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.152443750001,
+            "mean_reviewer_actions": 117.26041666666666,
+            "mean_spent_seconds": 4767.152443750001,
+            "pooled_rmse_vs_latent_Y": 0.07014390803732244,
+            "rmse_across_populations_max": 0.08097134643527894,
+            "rmse_across_populations_min": 0.061788912135110285
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.0732925038029456,
+              0.07973903810533899
+            ],
+            "max_reserved_seconds": 4799.929,
+            "max_spent_seconds": 4799.929,
+            "mean_ci_width": 0.16143919185931638,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.18541666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9875,
+            "mean_distinct_cases": 115.97291666666666,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.637352083333,
+            "mean_reviewer_actions": 115.97291666666666,
+            "mean_spent_seconds": 4767.637352083333,
+            "pooled_rmse_vs_latent_Y": 0.07654074185660041,
+            "rmse_across_populations_max": 0.08983637579556314,
+            "rmse_across_populations_min": 0.06643392988458029
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.06863814070143252,
+              0.07296078320804707
+            ],
+            "max_reserved_seconds": 4799.896000000001,
+            "max_spent_seconds": 4799.896000000001,
+            "mean_ci_width": 0.11279391424619642,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.11875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.96875,
+            "mean_distinct_cases": 116.92500000000001,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.889497916667,
+            "mean_reviewer_actions": 116.92500000000001,
+            "mean_spent_seconds": 4767.889497916667,
+            "pooled_rmse_vs_latent_Y": 0.07087597580685348,
+            "rmse_across_populations_max": 0.07742514212049362,
+            "rmse_across_populations_min": 0.06048329196680905
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.057418266502984205,
+              0.0644618433835185
+            ],
+            "max_reserved_seconds": 4799.902,
+            "max_spent_seconds": 3908.482000000001,
+            "mean_ci_width": 0.2557300928670223,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 22.6,
+            "mean_point_identification_width": 0.009896550584277916,
+            "mean_reserved_seconds": 4674.422625000001,
+            "mean_reviewer_actions": 72.50833333333333,
+            "mean_spent_seconds": 3174.7729645833333,
+            "pooled_rmse_vs_latent_Y": 0.06095517256129574,
+            "rmse_across_populations_max": 0.07304848535188625,
+            "rmse_across_populations_min": 0.04132427407399126
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.04806221616056083,
+              0.05337445356112159
+            ],
+            "max_reserved_seconds": 4799.641999999999,
+            "max_spent_seconds": 4799.641999999999,
+            "mean_ci_width": 0.17687339458605023,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.79375,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 38.5625,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4727.9376250000005,
+            "mean_reviewer_actions": 115.6875,
+            "mean_spent_seconds": 4727.9376250000005,
+            "pooled_rmse_vs_latent_Y": 0.050743146969688895,
+            "rmse_across_populations_max": 0.059270725161820435,
+            "rmse_across_populations_min": 0.04162869353533241
+          }
+        },
+        "noisy_independent|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.0363229765894877,
+              0.04034721015629057
+            ],
+            "max_reserved_seconds": 4799.805000000001,
+            "max_spent_seconds": 4799.805000000001,
+            "mean_ci_width": 0.09659652242639796,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.56875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9854166666666667,
+            "mean_distinct_cases": 116.62916666666666,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4769.73894375,
+            "mean_reviewer_actions": 116.62916666666666,
+            "mean_spent_seconds": 4769.73894375,
+            "pooled_rmse_vs_latent_Y": 0.038235201128460156,
+            "rmse_across_populations_max": 0.04875946294762474,
+            "rmse_across_populations_min": 0.032222036063273826
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.0360329011558731,
+              0.03937100152343488
+            ],
+            "max_reserved_seconds": 4799.988,
+            "max_spent_seconds": 4799.988,
+            "mean_ci_width": 0.12631273463742343,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.04791666666668,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4770.462852083334,
+            "mean_reviewer_actions": 117.04791666666668,
+            "mean_spent_seconds": 4770.462852083334,
+            "pooled_rmse_vs_latent_Y": 0.037737475232049233,
+            "rmse_across_populations_max": 0.04528040120563436,
+            "rmse_across_populations_min": 0.029241577660898743
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.034737421845799706,
+              0.0390190794635129
+            ],
+            "max_reserved_seconds": 4799.973000000003,
+            "max_spent_seconds": 4799.973000000003,
+            "mean_ci_width": 0.1221621221102549,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.66875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 116.55416666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4768.958735416667,
+            "mean_reviewer_actions": 116.55416666666667,
+            "mean_spent_seconds": 4768.958735416667,
+            "pooled_rmse_vs_latent_Y": 0.036849029624406275,
+            "rmse_across_populations_max": 0.04694987071566381,
+            "rmse_across_populations_min": 0.028729742694063812
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.03482410939670124,
+              0.038013471523324294
+            ],
+            "max_reserved_seconds": 4799.9770000000035,
+            "max_spent_seconds": 4799.9770000000035,
+            "mean_ci_width": 0.09112700059276826,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.5770833333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 117.15208333333334,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.758654166668,
+            "mean_reviewer_actions": 117.15208333333334,
+            "mean_spent_seconds": 4767.758654166668,
+            "pooled_rmse_vs_latent_Y": 0.036445055481663824,
+            "rmse_across_populations_max": 0.0419768901155528,
+            "rmse_across_populations_min": 0.030585698408190618
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.026585324906446925,
+              0.031163934567067394
+            ],
+            "max_reserved_seconds": 4799.531999999999,
+            "max_spent_seconds": 4000.514,
+            "mean_ci_width": 0.20784059474412175,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 22.762500000000003,
+            "mean_point_identification_width": 0.012281908511776012,
+            "mean_reserved_seconds": 4678.641266666667,
+            "mean_reviewer_actions": 72.99583333333334,
+            "mean_spent_seconds": 3166.949335416667,
+            "pooled_rmse_vs_latent_Y": 0.02866144528699645,
+            "rmse_across_populations_max": 0.04186900440190191,
+            "rmse_across_populations_min": 0.021993617662228033
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.020528144181436093,
+              0.024736333316093706
+            ],
+            "max_reserved_seconds": 4799.749999999998,
+            "max_spent_seconds": 4799.749999999998,
+            "mean_ci_width": 0.1353351610353685,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9916666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 38.59791666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4724.877897916667,
+            "mean_reviewer_actions": 115.79375,
+            "mean_spent_seconds": 4724.877897916667,
+            "pooled_rmse_vs_latent_Y": 0.02259385910608464,
+            "rmse_across_populations_max": 0.0329921968279171,
+            "rmse_across_populations_min": 0.01713735501116072
+          }
+        },
+        "noisy_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.05954930937885007,
+              0.06271117878123533
+            ],
+            "max_reserved_seconds": 4799.999999999999,
+            "max_spent_seconds": 4799.999999999999,
+            "mean_ci_width": 0.16678151551076864,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.6958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9875,
+            "mean_distinct_cases": 117.80208333333334,
+            "mean_point_identification_width": 0.058135250900386654,
+            "mean_reserved_seconds": 4771.231879166668,
+            "mean_reviewer_actions": 117.80208333333334,
+            "mean_spent_seconds": 4771.231879166668,
+            "pooled_rmse_vs_latent_Y": 0.06104809990024707,
+            "rmse_across_populations_max": 0.0666876713715928,
+            "rmse_across_populations_min": 0.05584097567747115
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.05920467117528565,
+              0.06357837725392416
+            ],
+            "max_reserved_seconds": 4799.960999999999,
+            "max_spent_seconds": 4799.960999999999,
+            "mean_ci_width": 0.19959247184350923,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 116.32708333333333,
+            "mean_point_identification_width": 0.05865198472324473,
+            "mean_reserved_seconds": 4767.483897916667,
+            "mean_reviewer_actions": 116.32708333333333,
+            "mean_spent_seconds": 4767.483897916667,
+            "pooled_rmse_vs_latent_Y": 0.06144084925158464,
+            "rmse_across_populations_max": 0.069907368025959,
+            "rmse_across_populations_min": 0.051859172679135736
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.05945672922142482,
+              0.06495619984874623
+            ],
+            "max_reserved_seconds": 4799.960999999998,
+            "max_spent_seconds": 4799.960999999998,
+            "mean_ci_width": 0.19901575775538433,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.6875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9854166666666667,
+            "mean_distinct_cases": 117.00833333333334,
+            "mean_point_identification_width": 0.05640419950437925,
+            "mean_reserved_seconds": 4767.864358333333,
+            "mean_reviewer_actions": 117.00833333333334,
+            "mean_spent_seconds": 4767.864358333333,
+            "pooled_rmse_vs_latent_Y": 0.062342682763900106,
+            "rmse_across_populations_max": 0.0707149459345296,
+            "rmse_across_populations_min": 0.05060176923048385
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.06006961855226524,
+              0.06363735159473323
+            ],
+            "max_reserved_seconds": 4799.8499999999985,
+            "max_spent_seconds": 4799.8499999999985,
+            "mean_ci_width": 0.1626753606006718,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.6229166666666666,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 116.75208333333333,
+            "mean_point_identification_width": 0.05851845854933397,
+            "mean_reserved_seconds": 4767.358377083334,
+            "mean_reviewer_actions": 116.75208333333333,
+            "mean_spent_seconds": 4767.358377083334,
+            "pooled_rmse_vs_latent_Y": 0.06192679182464826,
+            "rmse_across_populations_max": 0.06867558043589575,
+            "rmse_across_populations_min": 0.0534901809429258
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.026299932648807114,
+              0.030715364144118087
+            ],
+            "max_reserved_seconds": 4799.786,
+            "max_spent_seconds": 4218.038,
+            "mean_ci_width": 0.20537937166567877,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 22.706249999999997,
+            "mean_point_identification_width": 0.009635481058758225,
+            "mean_reserved_seconds": 4679.445508333333,
+            "mean_reviewer_actions": 76.13541666666666,
+            "mean_spent_seconds": 3453.6216229166666,
+            "pooled_rmse_vs_latent_Y": 0.0284965597834142,
+            "rmse_across_populations_max": 0.03882565966916313,
+            "rmse_across_populations_min": 0.021578420459246798
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.024871299380510054,
+              0.02901179317523609
+            ],
+            "max_reserved_seconds": 4799.997999999998,
+            "max_spent_seconds": 4799.997999999998,
+            "mean_ci_width": 0.16610106698280974,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9916666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 38.483333333333334,
+            "mean_point_identification_width": 0.02288376991344787,
+            "mean_reserved_seconds": 4728.367889583333,
+            "mean_reviewer_actions": 115.44999999999999,
+            "mean_spent_seconds": 4728.367889583333,
+            "pooled_rmse_vs_latent_Y": 0.02707887367716384,
+            "rmse_across_populations_max": 0.03294346590697904,
+            "rmse_across_populations_min": 0.019574676310736443
+          }
+        },
+        "perfect_binary|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.011659963763577863,
+              0.013179287215647786
+            ],
+            "max_reserved_seconds": 4799.644000000001,
+            "max_spent_seconds": 4799.644000000001,
+            "mean_ci_width": 0.06577627939142462,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 117.04791666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.9831020833335,
+            "mean_reviewer_actions": 117.04791666666667,
+            "mean_spent_seconds": 4767.9831020833335,
+            "pooled_rmse_vs_latent_Y": 0.012387973639013363,
+            "rmse_across_populations_max": 0.01582809471081944,
+            "rmse_across_populations_min": 0.010380363205649501
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.010169679043858891,
+              0.011767171439780219
+            ],
+            "max_reserved_seconds": 4799.933000000003,
+            "max_spent_seconds": 4799.933000000003,
+            "mean_ci_width": 0.07401575775538431,
+            "mean_coverage_for_latent_Y_diagnostic_only": 1.0,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 116.74791666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4766.7553625,
+            "mean_reviewer_actions": 116.74791666666667,
+            "mean_spent_seconds": 4766.7553625,
+            "pooled_rmse_vs_latent_Y": 0.010927255405207961,
+            "rmse_across_populations_max": 0.014836757453187153,
+            "rmse_across_populations_min": 0.008648438543995251
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.006092032985387854,
+              0.007446753374300801
+            ],
+            "max_reserved_seconds": 4799.826999999998,
+            "max_spent_seconds": 4799.826999999998,
+            "mean_ci_width": 0.07338717644734244,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 116.86041666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4768.218727083334,
+            "mean_reviewer_actions": 116.86041666666667,
+            "mean_spent_seconds": 4768.218727083334,
+            "pooled_rmse_vs_latent_Y": 0.006762841599140693,
+            "rmse_across_populations_max": 0.008811079096218045,
+            "rmse_across_populations_min": 0.00442027290001571
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.011198586926620029,
+              0.013345648711672459
+            ],
+            "max_reserved_seconds": 4799.910999999998,
+            "max_spent_seconds": 4799.910999999998,
+            "mean_ci_width": 0.062249308437067774,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9854166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9854166666666667,
+            "mean_distinct_cases": 117.36666666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4769.457989583334,
+            "mean_reviewer_actions": 117.36666666666667,
+            "mean_spent_seconds": 4769.457989583334,
+            "pooled_rmse_vs_latent_Y": 0.012295714458065115,
+            "rmse_across_populations_max": 0.016556487120379198,
+            "rmse_across_populations_min": 0.00867189251585512
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.02553162572669445,
+              0.030848661919523818
+            ],
+            "max_reserved_seconds": 4799.080999999999,
+            "max_spent_seconds": 3648.03,
+            "mean_ci_width": 0.19401921557004548,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9916666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 22.68125,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4674.515358333334,
+            "mean_reviewer_actions": 70.3125,
+            "mean_spent_seconds": 2959.344383333333,
+            "pooled_rmse_vs_latent_Y": 0.028187443552723335,
+            "rmse_across_populations_max": 0.03726955013009586,
+            "rmse_across_populations_min": 0.020002231095514158
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.020389481286895564,
+              0.02591707941030985
+            ],
+            "max_reserved_seconds": 4799.705999999998,
+            "max_spent_seconds": 4799.705999999998,
+            "mean_ci_width": 0.13193662319699662,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9875,
+            "mean_distinct_cases": 38.65208333333334,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4727.197927083333,
+            "mean_reviewer_actions": 115.95625,
+            "mean_spent_seconds": 4727.197927083333,
+            "pooled_rmse_vs_latent_Y": 0.022893361233092015,
+            "rmse_across_populations_max": 0.03814747182963568,
+            "rmse_across_populations_min": 0.01640297048053674
+          }
+        }
+      },
+      "synthetic_population_count": 16
+    },
+    "phase6_5000": {
+      "latent_true_missed_harm_prevalence": 0.02,
+      "paired_contrasts_vs_allowed_srs": {
+        "correlated_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0014858109119356467,
+              0.003756853383615671
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0012515886674697857,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.0016992890834202894,
+              0.002093526615979534
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00015382432338789664,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.003620145377589943,
+              0.003765304011073653
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00032854715873642526,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.031994277379285015,
+              -0.0238549752943374
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.02810513860252084,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.0353323284652538,
+              -0.02733962348898592
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.031294304771884995,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_correlated|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0009904556225722408,
+              0.005309680933364584
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.002196447444246047,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.0029667439106671667,
+              0.004851387402701313
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0009341050331070841,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.0011907981365005351,
+              0.006223567119517255
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.002471553044518765,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.014479752871502403,
+              -0.006808491746307399
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.010877868083281846,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.018604936802903652,
+              -0.01415868015402366
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.016552166229636053,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_independent|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.000552380627336221,
+              0.004695724508299581
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0024980744909945014,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.00012273210353145204,
+              0.004359025588593
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0019794647144556927,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.0009944579426965257,
+              0.004850322170283162
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.002831218169255533,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.006759907358946967,
+              -0.0014078913119502108
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.004078390854896124,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.011231813700495124,
+              -0.007083934155230576
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.009201293750140505,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "noisy_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0013237968870003975,
+              0.0044429143596772065
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0015849962565332026,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.0025895853785500127,
+              0.003740985055651652
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0005296002519561069,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.0008822783412512393,
+              0.004298616769492966
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0017251591016370152,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              -0.028947876746424683,
+              -0.023863534326972895
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.026535978553858593,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              -0.030954262186189664,
+              -0.023965407794072392
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.027320426050839904,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        },
+        "perfect_binary|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              -0.0006528405441786167,
+              0.0019734355701341577
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.0006466715392739082,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              -0.002814296629290779,
+              -0.0008825713063804288
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.001861613701149567,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              -0.00596839409907817,
+              -0.003249156000009871
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": -0.004615871185392671,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.012284947487676154,
+              0.016905168976435365
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.014536973097637714,
+            "uncertainty_unit": "independently generated synthetic population"
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.006849042006063095,
+              0.009743714902430766
+            ],
+            "interpretation": "Negative favors method; positive favors allowed SRS",
+            "rmse_difference_method_minus_allowed_srs": 0.00827698986180954,
+            "uncertainty_unit": "independently generated synthetic population"
+          }
+        }
+      },
+      "proxy_population_diagnostics": {
+        "fraction_of_populations_with_all_harm_in_proxy_positive": 0.0,
+        "harmful_allowed": {
+          "max": 100,
+          "mean": 100.0,
+          "min": 100
+        },
+        "harmful_allowed_in_proxy_negative": {
+          "max": 24,
+          "mean": 16.5,
+          "min": 9
+        },
+        "harmful_allowed_in_proxy_positive": {
+          "max": 91,
+          "mean": 83.5,
+          "min": 76
+        },
+        "near_census_fraction_diagnostic": "Each run resamples the proxy-positive stratum. Inspect its size against roughly half the selected allowed_proxy_stratified_equal responses; do not assume a single population is representative.",
+        "proxy_negative_allowed": {
+          "max": 3875,
+          "mean": 3857.5625,
+          "min": 3840
+        },
+        "proxy_positive_allowed": {
+          "max": 160,
+          "mean": 142.4375,
+          "min": 125
+        }
+      },
+      "summary": {
+        "correlated_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.07955367320225291,
+              0.08461890004123185
+            ],
+            "max_reserved_seconds": 4799.972999999999,
+            "max_spent_seconds": 4799.972999999999,
+            "mean_ci_width": 0.17594791666666665,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.2625,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9854166666666667,
+            "mean_distinct_cases": 117.24375,
+            "mean_point_identification_width": 0.050739002762691374,
+            "mean_reserved_seconds": 4766.247637500001,
+            "mean_reviewer_actions": 117.24375,
+            "mean_spent_seconds": 4766.247637500001,
+            "pooled_rmse_vs_latent_Y": 0.0819200597535208,
+            "rmse_across_populations_max": 0.0951853082413976,
+            "rmse_across_populations_min": 0.07381796317754372
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.0790412352599815,
+              0.0827745038141151
+            ],
+            "max_reserved_seconds": 4799.990000000001,
+            "max_spent_seconds": 4799.990000000001,
+            "mean_ci_width": 0.20648541666666664,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9354166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 116.89166666666667,
+            "mean_point_identification_width": 0.05031060938106221,
+            "mean_reserved_seconds": 4768.119079166667,
+            "mean_reviewer_actions": 116.89166666666667,
+            "mean_spent_seconds": 4768.119079166667,
+            "pooled_rmse_vs_latent_Y": 0.08082229540943892,
+            "rmse_across_populations_max": 0.08881256947480605,
+            "rmse_across_populations_min": 0.0738039221383694
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.07794520789731535,
+              0.0836448491424634
+            ],
+            "max_reserved_seconds": 4799.947000000002,
+            "max_spent_seconds": 4799.947000000002,
+            "mean_ci_width": 0.21235166666666666,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.4395833333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 116.53958333333333,
+            "mean_point_identification_width": 0.04823289017539184,
+            "mean_reserved_seconds": 4767.109197916667,
+            "mean_reviewer_actions": 116.53958333333333,
+            "mean_spent_seconds": 4767.109197916667,
+            "pooled_rmse_vs_latent_Y": 0.08099701824478744,
+            "rmse_across_populations_max": 0.08956546953888204,
+            "rmse_across_populations_min": 0.07043031647772603
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.0786847766276645,
+              0.0827642993407417
+            ],
+            "max_reserved_seconds": 4799.9090000000015,
+            "max_spent_seconds": 4799.9090000000015,
+            "mean_ci_width": 0.15846375000000001,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.17083333333333334,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9812500000000001,
+            "mean_distinct_cases": 116.65,
+            "mean_point_identification_width": 0.04920684709968453,
+            "mean_reserved_seconds": 4767.939191666667,
+            "mean_reviewer_actions": 116.65,
+            "mean_spent_seconds": 4767.939191666667,
+            "pooled_rmse_vs_latent_Y": 0.08066847108605102,
+            "rmse_across_populations_max": 0.0890014354135912,
+            "rmse_across_populations_min": 0.07361614768652341
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.04875637368554809,
+              0.05646666411690442
+            ],
+            "max_reserved_seconds": 4799.8550000000005,
+            "max_spent_seconds": 4230.626,
+            "mean_ci_width": 0.22249583333333334,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.95,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 22.604166666666668,
+            "mean_point_identification_width": 0.009000059265677117,
+            "mean_reserved_seconds": 4679.360629166667,
+            "mean_reviewer_actions": 75.60208333333334,
+            "mean_spent_seconds": 3429.21796875,
+            "pooled_rmse_vs_latent_Y": 0.05256333248353018,
+            "rmse_across_populations_max": 0.06686408574107873,
+            "rmse_across_populations_min": 0.039830259631463895
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.04679611304009067,
+              0.05196883327118887
+            ],
+            "max_reserved_seconds": 4799.759000000001,
+            "max_spent_seconds": 4799.759000000001,
+            "mean_ci_width": 0.18022624999999998,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8875000000000001,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 38.645833333333336,
+            "mean_point_identification_width": 0.01819145371864907,
+            "mean_reserved_seconds": 4729.4676687500005,
+            "mean_reviewer_actions": 115.9375,
+            "mean_spent_seconds": 4729.4676687500005,
+            "pooled_rmse_vs_latent_Y": 0.049374166314166024,
+            "rmse_across_populations_max": 0.05824338555374035,
+            "rmse_across_populations_min": 0.04092743029827903
+          }
+        },
+        "noisy_correlated|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.060914810887386685,
+              0.06533539225623931
+            ],
+            "max_reserved_seconds": 4799.921000000002,
+            "max_spent_seconds": 4799.921000000002,
+            "mean_ci_width": 0.11628791666666666,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.23333333333333334,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9812500000000001,
+            "mean_distinct_cases": 117.35208333333333,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4768.648514583334,
+            "mean_reviewer_actions": 117.35208333333333,
+            "mean_spent_seconds": 4768.648514583334,
+            "pooled_rmse_vs_latent_Y": 0.06311016508076642,
+            "rmse_across_populations_max": 0.07232012913085185,
+            "rmse_across_populations_min": 0.0565467836825087
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.05946350378081639,
+              0.06416682133023077
+            ],
+            "max_reserved_seconds": 4799.991,
+            "max_spent_seconds": 4799.991,
+            "mean_ci_width": 0.14881291666666668,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8812500000000001,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.20000000000002,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4770.717702083333,
+            "mean_reviewer_actions": 117.20000000000002,
+            "mean_spent_seconds": 4770.717702083333,
+            "pooled_rmse_vs_latent_Y": 0.061847822669627454,
+            "rmse_across_populations_max": 0.07047422239212114,
+            "rmse_across_populations_min": 0.05279221031213745
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.0614644765276063,
+              0.06554258490794662
+            ],
+            "max_reserved_seconds": 4799.919,
+            "max_spent_seconds": 4799.919,
+            "mean_ci_width": 0.15338416666666665,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.3645833333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 117.28958333333333,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.40341875,
+            "mean_reviewer_actions": 117.28958333333333,
+            "mean_spent_seconds": 4767.40341875,
+            "pooled_rmse_vs_latent_Y": 0.06338527068103914,
+            "rmse_across_populations_max": 0.07236958462846697,
+            "rmse_across_populations_min": 0.057142966716358934
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.05875838909841524,
+              0.06331962822552019
+            ],
+            "max_reserved_seconds": 4799.995,
+            "max_spent_seconds": 4799.995,
+            "mean_ci_width": 0.10195833333333335,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.12083333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9895833333333334,
+            "mean_distinct_cases": 116.98541666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4769.768154166668,
+            "mean_reviewer_actions": 116.98541666666667,
+            "mean_spent_seconds": 4769.768154166668,
+            "pooled_rmse_vs_latent_Y": 0.06091371763652037,
+            "rmse_across_populations_max": 0.07307893939206792,
+            "rmse_across_populations_min": 0.05266935628270937
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.04724422190501714,
+              0.053155816997956885
+            ],
+            "max_reserved_seconds": 4799.869,
+            "max_spent_seconds": 3903.973000000001,
+            "mean_ci_width": 0.21947083333333334,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9583333333333334,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 22.791666666666668,
+            "mean_point_identification_width": 0.009593461124715895,
+            "mean_reserved_seconds": 4684.033627083334,
+            "mean_reviewer_actions": 73.08541666666667,
+            "mean_spent_seconds": 3171.0052499999997,
+            "pooled_rmse_vs_latent_Y": 0.050035849553238525,
+            "rmse_across_populations_max": 0.060120821259699496,
+            "rmse_across_populations_min": 0.04218876934953264
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.04153889847438346,
+              0.047069658632962294
+            ],
+            "max_reserved_seconds": 4799.651,
+            "max_spent_seconds": 4799.651,
+            "mean_ci_width": 0.15814,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.875,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 38.608333333333334,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4728.32090625,
+            "mean_reviewer_actions": 115.82499999999999,
+            "mean_spent_seconds": 4728.32090625,
+            "pooled_rmse_vs_latent_Y": 0.04436155140688432,
+            "rmse_across_populations_max": 0.05545998296409322,
+            "rmse_across_populations_min": 0.03576414889174042
+          }
+        },
+        "noisy_independent|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.03131569707356702,
+              0.034875966115883505
+            ],
+            "max_reserved_seconds": 4799.881999999999,
+            "max_spent_seconds": 4799.881999999999,
+            "mean_ci_width": 0.09461583333333334,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.7,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9875,
+            "mean_distinct_cases": 117.07708333333332,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4766.312335416667,
+            "mean_reviewer_actions": 117.07708333333332,
+            "mean_spent_seconds": 4766.312335416667,
+            "pooled_rmse_vs_latent_Y": 0.033071051000803466,
+            "rmse_across_populations_max": 0.04036846940268429,
+            "rmse_across_populations_min": 0.026700761887880536
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.030782893531958715,
+              0.03461775603545461
+            ],
+            "max_reserved_seconds": 4799.8740000000025,
+            "max_spent_seconds": 4799.8740000000025,
+            "mean_ci_width": 0.11438291666666667,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 116.98541666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4769.559264583334,
+            "mean_reviewer_actions": 116.98541666666667,
+            "mean_spent_seconds": 4769.559264583334,
+            "pooled_rmse_vs_latent_Y": 0.03255244122426466,
+            "rmse_across_populations_max": 0.04336390885587693,
+            "rmse_across_populations_min": 0.026216458943261207
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.03140687172094981,
+              0.03545266556737274
+            ],
+            "max_reserved_seconds": 4799.993000000001,
+            "max_spent_seconds": 4799.993000000001,
+            "mean_ci_width": 0.12162208333333334,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.83125,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.175,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4770.566962500001,
+            "mean_reviewer_actions": 117.175,
+            "mean_spent_seconds": 4770.566962500001,
+            "pooled_rmse_vs_latent_Y": 0.0334041946790645,
+            "rmse_across_populations_max": 0.04060840057346667,
+            "rmse_across_populations_min": 0.027720094254013703
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.02962015413878271,
+              0.031452814805116185
+            ],
+            "max_reserved_seconds": 4799.955000000004,
+            "max_spent_seconds": 4799.955000000004,
+            "mean_ci_width": 0.08208875,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.6520833333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 117.34583333333333,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4768.788029166667,
+            "mean_reviewer_actions": 117.34583333333333,
+            "mean_spent_seconds": 4768.788029166667,
+            "pooled_rmse_vs_latent_Y": 0.030572976509808964,
+            "rmse_across_populations_max": 0.033519699110196144,
+            "rmse_across_populations_min": 0.027229415016509006
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.024073653932237267,
+              0.02890858609924075
+            ],
+            "max_reserved_seconds": 4799.718,
+            "max_spent_seconds": 3951.2200000000003,
+            "mean_ci_width": 0.18517499999999998,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9916666666666667,
+            "mean_distinct_cases": 22.63125,
+            "mean_point_identification_width": 0.011197080104402759,
+            "mean_reserved_seconds": 4682.066222916666,
+            "mean_reviewer_actions": 72.80625,
+            "mean_spent_seconds": 3189.5397979166664,
+            "pooled_rmse_vs_latent_Y": 0.02649458565491284,
+            "rmse_across_populations_max": 0.035651811360812934,
+            "rmse_across_populations_min": 0.01824790395275975
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.019764397280236712,
+              0.023113633826601476
+            ],
+            "max_reserved_seconds": 4799.741999999999,
+            "max_spent_seconds": 4799.741999999999,
+            "mean_ci_width": 0.12356625,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.99375,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 38.577083333333334,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4726.228987500001,
+            "mean_reviewer_actions": 115.73125,
+            "mean_spent_seconds": 4726.228987500001,
+            "pooled_rmse_vs_latent_Y": 0.02137168275966846,
+            "rmse_across_populations_max": 0.02889407535970336,
+            "rmse_across_populations_min": 0.018238528060625758
+          }
+        },
+        "noisy_with_abstention|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.05280497172466398,
+              0.056247324008368065
+            ],
+            "max_reserved_seconds": 4799.947999999999,
+            "max_spent_seconds": 4799.947999999999,
+            "mean_ci_width": 0.16072916666666667,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.7854166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9875,
+            "mean_distinct_cases": 116.83125000000001,
+            "mean_point_identification_width": 0.05288041958577213,
+            "mean_reserved_seconds": 4768.199558333334,
+            "mean_reviewer_actions": 116.83125000000001,
+            "mean_spent_seconds": 4768.199558333334,
+            "pooled_rmse_vs_latent_Y": 0.05445444064224876,
+            "rmse_across_populations_max": 0.06256613199059607,
+            "rmse_across_populations_min": 0.04979738868311985
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.05150648447634755,
+              0.05542478448823428
+            ],
+            "max_reserved_seconds": 4799.972000000001,
+            "max_spent_seconds": 4799.972000000001,
+            "mean_ci_width": 0.17557625,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.22708333333333,
+            "mean_point_identification_width": 0.050072900996661854,
+            "mean_reserved_seconds": 4769.735216666668,
+            "mean_reviewer_actions": 117.22708333333333,
+            "mean_spent_seconds": 4769.735216666668,
+            "pooled_rmse_vs_latent_Y": 0.053399044637671665,
+            "rmse_across_populations_max": 0.05994565583858306,
+            "rmse_across_populations_min": 0.046374474039959035
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.05309012981180725,
+              0.056075448176950586
+            ],
+            "max_reserved_seconds": 4799.998999999999,
+            "max_spent_seconds": 4799.998999999999,
+            "mean_ci_width": 0.18895,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.8916666666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 117.3625,
+            "mean_point_identification_width": 0.0493903132101187,
+            "mean_reserved_seconds": 4769.716566666667,
+            "mean_reviewer_actions": 117.3625,
+            "mean_spent_seconds": 4769.716566666667,
+            "pooled_rmse_vs_latent_Y": 0.05459460348735257,
+            "rmse_across_populations_max": 0.060566779175233905,
+            "rmse_across_populations_min": 0.04984569855579891
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.051033064431570796,
+              0.054820139830001
+            ],
+            "max_reserved_seconds": 4799.97,
+            "max_spent_seconds": 4799.97,
+            "mean_ci_width": 0.1447220833333333,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.6854166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9812500000000001,
+            "mean_distinct_cases": 116.86041666666667,
+            "mean_point_identification_width": 0.05080064613693028,
+            "mean_reserved_seconds": 4768.85669375,
+            "mean_reviewer_actions": 116.86041666666667,
+            "mean_spent_seconds": 4768.85669375,
+            "pooled_rmse_vs_latent_Y": 0.05286944438571556,
+            "rmse_across_populations_max": 0.06236712178219622,
+            "rmse_across_populations_min": 0.04820498654336449
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.024472605646507054,
+              0.028294464100767573
+            ],
+            "max_reserved_seconds": 4799.657,
+            "max_spent_seconds": 4171.817000000001,
+            "mean_ci_width": 0.18723958333333335,
+            "mean_coverage_for_latent_Y_diagnostic_only": 1.0,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 22.604166666666668,
+            "mean_point_identification_width": 0.01130108265113986,
+            "mean_reserved_seconds": 4681.652427083333,
+            "mean_reviewer_actions": 75.66874999999999,
+            "mean_spent_seconds": 3446.978958333333,
+            "pooled_rmse_vs_latent_Y": 0.026333465831856966,
+            "rmse_across_populations_max": 0.035652447161684975,
+            "rmse_across_populations_min": 0.019886466157433166
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.023481785134655396,
+              0.02778468209897909
+            ],
+            "max_reserved_seconds": 4799.555000000001,
+            "max_spent_seconds": 4799.555000000001,
+            "mean_ci_width": 0.1497925,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.99375,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 38.69583333333334,
+            "mean_point_identification_width": 0.020167841508955515,
+            "mean_reserved_seconds": 4727.1041770833335,
+            "mean_reviewer_actions": 116.0875,
+            "mean_spent_seconds": 4727.1041770833335,
+            "pooled_rmse_vs_latent_Y": 0.025549018334875655,
+            "rmse_across_populations_max": 0.03247769176881642,
+            "rmse_across_populations_min": 0.019177619437469512
+          }
+        },
+        "perfect_binary|budget_4800s": {
+          "all_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.01121978739764921,
+              0.012998353813514158
+            ],
+            "max_reserved_seconds": 4799.947000000004,
+            "max_spent_seconds": 4799.947000000004,
+            "mean_ci_width": 0.067285,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 117.04791666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4771.284756250001,
+            "mean_reviewer_actions": 117.04791666666667,
+            "mean_spent_seconds": 4771.284756250001,
+            "pooled_rmse_vs_latent_Y": 0.012104031549528651,
+            "rmse_across_populations_max": 0.016057386056045977,
+            "rmse_across_populations_min": 0.008633804174669355
+          },
+          "allowed_one_proxy_ppi_fixed_lambda1": {
+            "between_population_bootstrap_95_interval": [
+              0.008787829852974749,
+              0.010331148202564049
+            ],
+            "max_reserved_seconds": 4799.936000000001,
+            "max_spent_seconds": 4799.936000000001,
+            "mean_ci_width": 0.06731833333333333,
+            "mean_coverage_for_latent_Y_diagnostic_only": 1.0,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.1125,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.195933333333,
+            "mean_reviewer_actions": 117.1125,
+            "mean_spent_seconds": 4767.195933333333,
+            "pooled_rmse_vs_latent_Y": 0.009595746309105176,
+            "rmse_across_populations_max": 0.012205590562942743,
+            "rmse_across_populations_min": 0.006856027345735289
+          },
+          "allowed_proxy_stratified_equal": {
+            "between_population_bootstrap_95_interval": [
+              0.005884896271558518,
+              0.007903471362420705
+            ],
+            "max_reserved_seconds": 4799.948000000003,
+            "max_spent_seconds": 4799.948000000003,
+            "mean_ci_width": 0.07687708333333335,
+            "mean_coverage_for_latent_Y_diagnostic_only": 1.0,
+            "mean_coverage_for_simulated_reviewer_endpoint": 1.0,
+            "mean_distinct_cases": 117.5375,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4767.928435416667,
+            "mean_reviewer_actions": 117.5375,
+            "mean_spent_seconds": 4767.928435416667,
+            "pooled_rmse_vs_latent_Y": 0.006841488824862072,
+            "rmse_across_populations_max": 0.011067617884763396,
+            "rmse_across_populations_min": 0.0035054643831277372
+          },
+          "allowed_srs_single": {
+            "between_population_bootstrap_95_interval": [
+              0.010758073683668663,
+              0.012149915815727674
+            ],
+            "max_reserved_seconds": 4799.983000000003,
+            "max_spent_seconds": 4799.983000000003,
+            "mean_ci_width": 0.0578325,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.99375,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.99375,
+            "mean_distinct_cases": 117.35416666666667,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4769.308268750001,
+            "mean_reviewer_actions": 117.35416666666667,
+            "mean_spent_seconds": 4769.308268750001,
+            "pooled_rmse_vs_latent_Y": 0.011457360010254743,
+            "rmse_across_populations_max": 0.014117780136544335,
+            "rmse_across_populations_min": 0.009073715737254164
+          },
+          "allowed_three_plus_r4_reserve_triage": {
+            "between_population_bootstrap_95_interval": [
+              0.023773823650871787,
+              0.02824919057130954
+            ],
+            "max_reserved_seconds": 4799.354,
+            "max_spent_seconds": 3682.0570000000007,
+            "mean_ci_width": 0.17271166666666665,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9979166666666667,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9979166666666667,
+            "mean_distinct_cases": 22.70625,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4685.30604375,
+            "mean_reviewer_actions": 70.46666666666667,
+            "mean_spent_seconds": 2961.9064270833333,
+            "pooled_rmse_vs_latent_Y": 0.025994333107892457,
+            "rmse_across_populations_max": 0.035875546726989865,
+            "rmse_across_populations_min": 0.017791870259978502
+          },
+          "allowed_three_vote_majority": {
+            "between_population_bootstrap_95_interval": [
+              0.017992675103890732,
+              0.021483641782999028
+            ],
+            "max_reserved_seconds": 4799.940999999999,
+            "max_spent_seconds": 4799.940999999999,
+            "mean_ci_width": 0.1195725,
+            "mean_coverage_for_latent_Y_diagnostic_only": 0.9958333333333333,
+            "mean_coverage_for_simulated_reviewer_endpoint": 0.9958333333333333,
+            "mean_distinct_cases": 38.44375,
+            "mean_point_identification_width": 0.0,
+            "mean_reserved_seconds": 4727.5052562500005,
+            "mean_reviewer_actions": 115.33125,
+            "mean_spent_seconds": 4727.5052562500005,
+            "pooled_rmse_vs_latent_Y": 0.019734349872064284,
+            "rmse_across_populations_max": 0.0259893035717988,
+            "rmse_across_populations_min": 0.01384612909851851
+          }
+        }
+      },
+      "synthetic_population_count": 16
+    }
+  },
+  "human_review_cost_source": "OBSERVED_REVIEWER_ACTIVE_SECONDS_EMPIRICAL_RESAMPLING",
+  "limitations": [
+    "Independent synthetic population variation reduces one-seed selection artifacts but does not identify real-world reviewer error.",
+    "Proxy predictions are generated at zero accounted acquisition cost; published fair cost comparison must add proxy inference and calibration.",
+    "Reviewer durations are resampled independently of case difficulty and labels: an unverified assumption.",
+    "R4 triage reserves a fourth review for every selected case and therefore underuses actual budget.",
+    "These methods are NOT faithful full MultiPPI, AM-PPI, nor fully tuned StratPPI.",
+    "The benchmark still holds proxy sensitivity/specificity and synthetic harm prevalence fixed across populations.",
+    "No population label gold standard from real study. No prospective native-monitor certification."
+  ],
+  "population_seed_base": 20261113,
+  "population_seeds": [
+    20261113,
+    20262122,
+    20263131,
+    20264140,
+    20265149,
+    20266158,
+    20267167,
+    20268176,
+    20269185,
+    20270194,
+    20271203,
+    20272212,
+    20273221,
+    20274230,
+    20275239,
+    20276248
+  ],
+  "scientific_status": "Synthetic robustness check, not independently validated empirical risk",
+  "study": "PHASE8B_POPULATION_VARIABILITY_AUDIT",
+  "underlying_phase8a_python_sha256": "172632c0a436cbff8bdf7441d7950450dc7d83a27c44b3643f4ca53409b104a9",
+  "within_population_repetitions": 30
+}

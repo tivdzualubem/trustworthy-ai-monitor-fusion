@@ -1,0 +1,671 @@
+{
+  "study": "PHASE12B_AGGREGATE_CHECK",
+  "status": "VERIFIED_CONDITIONAL_SYNTHETIC",
+  "verified_7200_trials": true,
+  "evidence": {
+    "development": {
+      "perfect": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.013890750918303187,
+          "phase12b_rmse_Y": 0.013890750918303187,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.013890750918303187,
+          "mean_interval_width_unclipped": 0.06611652601178726,
+          "reviewer_Z_coverage": 0.98,
+          "synthetic_Y_coverage_diagnostic": 0.98,
+          "mean_cost_units": 4630.005555,
+          "mean_human_seconds": 4630.005555,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0007331402704744937,
+          "paired_bootstrap95": [
+            -0.0009578370343117908,
+            0.0021432910374915024
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.013157610647828694,
+          "phase12b_rmse_Y": 0.013157610647828694,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.013157610647828694,
+          "mean_interval_width_unclipped": 0.0639044880969792,
+          "reviewer_Z_coverage": 0.98,
+          "synthetic_Y_coverage_diagnostic": 0.98,
+          "mean_cost_units": 4631.67718,
+          "mean_human_seconds": 4631.67718,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.014484914995603311,
+          "phase12b_rmse_Y": 0.01424397672655837,
+          "change_in_rmse_Y": -0.00024093826904494214,
+          "phase12b_rmse_Z": 0.01424397672655837,
+          "mean_interval_width_unclipped": 0.3378666426518157,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4636.6209265,
+          "mean_human_seconds": 4565.5325250000005,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0010863660787296756,
+          "paired_bootstrap95": [
+            -0.000493786325222427,
+            0.0026814769200118466
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.011350662298446319,
+          "phase12b_rmse_Y": 0.011380081533331496,
+          "change_in_rmse_Y": 2.941923488517656e-05,
+          "phase12b_rmse_Z": 0.011380081533331496,
+          "mean_interval_width_unclipped": 0.48591028125009617,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4630.755971500001,
+          "mean_human_seconds": 4559.66757,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.001777529114497198,
+          "paired_bootstrap95": [
+            -0.0030144875971899665,
+            -0.000572127937655263
+          ],
+          "bootstrap_sign": "below_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.014176043263870106,
+          "phase12b_rmse_Y": 0.013852549208461259,
+          "change_in_rmse_Y": -0.0003234940554088465,
+          "phase12b_rmse_Z": 0.013852549208461259,
+          "mean_interval_width_unclipped": 0.33457579591121417,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4659.8511254035,
+          "mean_human_seconds": 4526.027035000001,
+          "mean_cheap_calls": 258.85,
+          "mean_expensive_calls": 76.37,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0006949385606325655,
+          "paired_bootstrap95": [
+            -0.0012948787960218521,
+            0.0031203060771321793
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.01576843155891384,
+          "phase12b_rmse_Y": 0.015422560181524252,
+          "change_in_rmse_Y": -0.0003458713773895894,
+          "phase12b_rmse_Z": 0.015422560181524252,
+          "mean_interval_width_unclipped": 0.6719567433544973,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4628.4112240995,
+          "mean_human_seconds": 3824.182675,
+          "mean_cheap_calls": 1573.0,
+          "mean_expensive_calls": 458.455,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0022649495336955587,
+          "paired_bootstrap95": [
+            4.3842739858053604e-05,
+            0.004377314399061735
+          ],
+          "bootstrap_sign": "above_zero"
+        }
+      },
+      "independent_errors": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.03715652401655503,
+          "phase12b_rmse_Y": 0.03715652401655503,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.022368692560235794,
+          "mean_interval_width_unclipped": 0.09590381087824504,
+          "reviewer_Z_coverage": 0.965,
+          "synthetic_Y_coverage_diagnostic": 0.66,
+          "mean_cost_units": 4630.48678,
+          "mean_human_seconds": 4630.48678,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.00044528290426813083,
+          "paired_bootstrap95": [
+            -0.004021884525278274,
+            0.0031236534695169354
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.03760180692082316,
+          "phase12b_rmse_Y": 0.03760180692082316,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.021207730467874747,
+          "mean_interval_width_unclipped": 0.09185794148521427,
+          "reviewer_Z_coverage": 0.965,
+          "synthetic_Y_coverage_diagnostic": 0.56,
+          "mean_cost_units": 4632.42196,
+          "mean_human_seconds": 4632.42196,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.04045765394755492,
+          "phase12b_rmse_Y": 0.04036829829022658,
+          "change_in_rmse_Y": -8.935565732833689e-05,
+          "phase12b_rmse_Z": 0.024367493726151455,
+          "mean_interval_width_unclipped": 0.3753827576709001,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4630.0735215,
+          "mean_human_seconds": 4558.98512,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0027664913694034204,
+          "paired_bootstrap95": [
+            -0.003383147222963914,
+            0.007996114770704478
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.04282671548560688,
+          "phase12b_rmse_Y": 0.04232113570268622,
+          "change_in_rmse_Y": -0.0005055797829206649,
+          "phase12b_rmse_Z": 0.026898233906752136,
+          "mean_interval_width_unclipped": 0.5756123115886228,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4632.9737115,
+          "mean_human_seconds": 4561.88531,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.004719328781863055,
+          "paired_bootstrap95": [
+            0.0007283153952241609,
+            0.008571650114504795
+          ],
+          "bootstrap_sign": "above_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.04072266208858721,
+          "phase12b_rmse_Y": 0.04094851533782107,
+          "change_in_rmse_Y": 0.0002258532492338608,
+          "phase12b_rmse_Z": 0.02331320843251179,
+          "mean_interval_width_unclipped": 0.32555970784965266,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4651.353351366,
+          "mean_human_seconds": 4563.46154,
+          "mean_cheap_calls": 284.515,
+          "mean_expensive_calls": 46.885,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0033467084169979053,
+          "paired_bootstrap95": [
+            -0.0009940435894597362,
+            0.008027840664126219
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.03863752953921014,
+          "phase12b_rmse_Y": 0.03767343152819551,
+          "change_in_rmse_Y": -0.0009640980110146302,
+          "phase12b_rmse_Z": 0.022623556272164905,
+          "mean_interval_width_unclipped": 0.6570492833743399,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4632.966992284,
+          "mean_human_seconds": 3825.9507,
+          "mean_cheap_calls": 1573.0,
+          "mean_expensive_calls": 460.2,
+          "paired_diff_rmse_Y_vs_allowed_srs": 7.162460737234616e-05,
+          "paired_bootstrap95": [
+            -0.003657892693023314,
+            0.003564899696150221
+          ],
+          "bootstrap_sign": "crosses_zero"
+        }
+      },
+      "correlated_errors": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.07504501256877076,
+          "phase12b_rmse_Y": 0.07504501256877076,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.028281069880112544,
+          "mean_interval_width_unclipped": 0.12107038688255678,
+          "reviewer_Z_coverage": 0.96,
+          "synthetic_Y_coverage_diagnostic": 0.1,
+          "mean_cost_units": 4631.66465,
+          "mean_human_seconds": 4631.66465,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.004278372175298598,
+          "paired_bootstrap95": [
+            -0.007898512150974514,
+            -0.0013625848909331996
+          ],
+          "bootstrap_sign": "below_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.07932338474406936,
+          "phase12b_rmse_Y": 0.07932338474406936,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.029865449235588867,
+          "mean_interval_width_unclipped": 0.11739060169455641,
+          "reviewer_Z_coverage": 0.975,
+          "synthetic_Y_coverage_diagnostic": 0.095,
+          "mean_cost_units": 4633.49789,
+          "mean_human_seconds": 4633.49789,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.07865339903728699,
+          "phase12b_rmse_Y": 0.07874016352428032,
+          "change_in_rmse_Y": 8.676448699332373e-05,
+          "phase12b_rmse_Z": 0.0332351215439415,
+          "mean_interval_width_unclipped": 0.45534254095202875,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 0.995,
+          "mean_cost_units": 4630.5222115,
+          "mean_human_seconds": 4559.43381,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.000583221219789043,
+          "paired_bootstrap95": [
+            -0.0065566931741487516,
+            0.004584288567493363
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.08392950030138342,
+          "phase12b_rmse_Y": 0.08331664887161562,
+          "change_in_rmse_Y": -0.0006128514297678023,
+          "phase12b_rmse_Z": 0.03860622575218865,
+          "mean_interval_width_unclipped": 0.737431735584591,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4634.6176815,
+          "mean_human_seconds": 4563.52928,
+          "mean_cheap_calls": 1557.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.003993264127546262,
+          "paired_bootstrap95": [
+            -0.0008182743060901022,
+            0.008703161433411225
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.07723441705308241,
+          "phase12b_rmse_Y": 0.07709185479743672,
+          "change_in_rmse_Y": -0.0001425622556456979,
+          "phase12b_rmse_Z": 0.029031230715442943,
+          "mean_interval_width_unclipped": 0.32383771447430193,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 0.995,
+          "mean_cost_units": 4649.329780522,
+          "mean_human_seconds": 4587.195470000001,
+          "mean_cheap_calls": 299.98,
+          "mean_expensive_calls": 30.32,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.0022315299466326433,
+          "paired_bootstrap95": [
+            -0.0058054982507307175,
+            0.0014434403130810438
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.07994729151418231,
+          "phase12b_rmse_Y": 0.08031301395337608,
+          "change_in_rmse_Y": 0.00036572243919376357,
+          "phase12b_rmse_Z": 0.035066126562204564,
+          "mean_interval_width_unclipped": 0.6532567645776567,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4634.4107429450005,
+          "mean_human_seconds": 3826.12439,
+          "mean_cheap_calls": 1573.0,
+          "mean_expensive_calls": 460.995,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0009896292093067166,
+          "paired_bootstrap95": [
+            -0.004869719334037169,
+            0.005472788356078755
+          ],
+          "bootstrap_sign": "crosses_zero"
+        }
+      }
+    },
+    "phase6": {
+      "perfect": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.01387830330474429,
+          "phase12b_rmse_Y": 0.01387830330474429,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.01387830330474429,
+          "mean_interval_width_unclipped": 0.06611977742095469,
+          "reviewer_Z_coverage": 0.985,
+          "synthetic_Y_coverage_diagnostic": 0.985,
+          "mean_cost_units": 4630.005555,
+          "mean_human_seconds": 4630.005555,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0009082027871289804,
+          "paired_bootstrap95": [
+            -0.0008314920875996273,
+            0.0028335455348826094
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.01297010051761531,
+          "phase12b_rmse_Y": 0.01297010051761531,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.01297010051761531,
+          "mean_interval_width_unclipped": 0.05828913470181048,
+          "reviewer_Z_coverage": 0.975,
+          "synthetic_Y_coverage_diagnostic": 0.975,
+          "mean_cost_units": 4631.67718,
+          "mean_human_seconds": 4631.67718,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.01620652136219365,
+          "phase12b_rmse_Y": 0.016603251457473676,
+          "change_in_rmse_Y": 0.00039673009528002484,
+          "phase12b_rmse_Z": 0.016603251457473676,
+          "mean_interval_width_unclipped": 0.3072274672323171,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4634.054537399999,
+          "mean_human_seconds": 4451.425375000001,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0036331509398583664,
+          "paired_bootstrap95": [
+            0.002093569848869518,
+            0.005056042459800462
+          ],
+          "bootstrap_sign": "above_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.01062761154778382,
+          "phase12b_rmse_Y": 0.010508500798365416,
+          "change_in_rmse_Y": -0.00011911074941840447,
+          "phase12b_rmse_Z": 0.010508500798365416,
+          "mean_interval_width_unclipped": 0.4446882259110392,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4630.1734123999995,
+          "mean_human_seconds": 4447.54425,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.002461599719249894,
+          "paired_bootstrap95": [
+            -0.00379360402147794,
+            -0.0008652392533462833
+          ],
+          "bootstrap_sign": "below_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.01325675963071234,
+          "phase12b_rmse_Y": 0.013174807153728525,
+          "change_in_rmse_Y": -8.195247698381501e-05,
+          "phase12b_rmse_Z": 0.013174807153728525,
+          "mean_interval_width_unclipped": 0.2868943583788369,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4660.422311558,
+          "mean_human_seconds": 4533.433845,
+          "mean_cheap_calls": 213.58,
+          "mean_expensive_calls": 73.385,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.00020470663611321487,
+          "paired_bootstrap95": [
+            -0.0023456493592407678,
+            0.002808650682262073
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.01722836470829987,
+          "phase12b_rmse_Y": 0.016288118917678864,
+          "change_in_rmse_Y": -0.0009402457906210054,
+          "phase12b_rmse_Z": 0.016288118917678864,
+          "mean_interval_width_unclipped": 0.5909319615386106,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4633.973284504999,
+          "mean_human_seconds": 3738.197445,
+          "mean_cheap_calls": 4016.0,
+          "mean_expensive_calls": 445.94,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.003318018400063554,
+          "paired_bootstrap95": [
+            0.00041844220424435563,
+            0.006056364795230709
+          ],
+          "bootstrap_sign": "above_zero"
+        }
+      },
+      "independent_errors": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.03354982184113678,
+          "phase12b_rmse_Y": 0.03354982184113678,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.021780237073954812,
+          "mean_interval_width_unclipped": 0.09236583100290272,
+          "reviewer_Z_coverage": 0.96,
+          "synthetic_Y_coverage_diagnostic": 0.74,
+          "mean_cost_units": 4630.48678,
+          "mean_human_seconds": 4630.48678,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.00022360713620742795,
+          "paired_bootstrap95": [
+            -0.004612202844780734,
+            0.00467071655250218
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.03332621470492935,
+          "phase12b_rmse_Y": 0.03332621470492935,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.02006059549797243,
+          "mean_interval_width_unclipped": 0.08109011876779754,
+          "reviewer_Z_coverage": 0.97,
+          "synthetic_Y_coverage_diagnostic": 0.625,
+          "mean_cost_units": 4632.42196,
+          "mean_human_seconds": 4632.42196,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.03590356337967928,
+          "phase12b_rmse_Y": 0.035561918055291034,
+          "change_in_rmse_Y": -0.00034164532438824696,
+          "phase12b_rmse_Z": 0.021838935264549487,
+          "mean_interval_width_unclipped": 0.35136211317887467,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4633.1689774,
+          "mean_human_seconds": 4450.539815,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0022357033503616827,
+          "paired_bootstrap95": [
+            -0.0019910989507951997,
+            0.006495725717001095
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.03637369529412843,
+          "phase12b_rmse_Y": 0.036650117623470715,
+          "change_in_rmse_Y": 0.00027642232934228794,
+          "phase12b_rmse_Z": 0.024436771470881212,
+          "mean_interval_width_unclipped": 0.5218922424908556,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4632.036562400001,
+          "mean_human_seconds": 4449.4074,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0033239029185413646,
+          "paired_bootstrap95": [
+            -0.0007662381321993586,
+            0.00752312850713318
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.03847599008727305,
+          "phase12b_rmse_Y": 0.038223462273288315,
+          "change_in_rmse_Y": -0.00025252781398473617,
+          "phase12b_rmse_Z": 0.022520162708281482,
+          "mean_interval_width_unclipped": 0.2892722421783425,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4654.2815378965,
+          "mean_human_seconds": 4559.077385,
+          "mean_cheap_calls": 344.6,
+          "mean_expensive_calls": 49.745,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0048972475683589645,
+          "paired_bootstrap95": [
+            0.0021101761278984666,
+            0.008069546319614629
+          ],
+          "bootstrap_sign": "above_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.03436679507715471,
+          "phase12b_rmse_Y": 0.03307196862467765,
+          "change_in_rmse_Y": -0.0012948264524770617,
+          "phase12b_rmse_Z": 0.020438647952277702,
+          "mean_interval_width_unclipped": 0.5735988043749486,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4630.770890277499,
+          "mean_human_seconds": 3732.2712100000003,
+          "mean_cheap_calls": 4016.0,
+          "mean_expensive_calls": 447.645,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.00025424608025170076,
+          "paired_bootstrap95": [
+            -0.0036956276338006586,
+            0.0033250857666326564
+          ],
+          "bootstrap_sign": "crosses_zero"
+        }
+      },
+      "correlated_errors": {
+        "whole_srs": {
+          "phase11_rmse_Y": 0.06640700560093807,
+          "phase12b_rmse_Y": 0.06640700560093807,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.027796719619127056,
+          "mean_interval_width_unclipped": 0.11592710625146992,
+          "reviewer_Z_coverage": 0.965,
+          "synthetic_Y_coverage_diagnostic": 0.18,
+          "mean_cost_units": 4629.5493799999995,
+          "mean_human_seconds": 4629.5493799999995,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0014498863481031549,
+          "paired_bootstrap95": [
+            -0.0026680902732924934,
+            0.005445094197652295
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "allowed_srs": {
+          "phase11_rmse_Y": 0.06495711925283491,
+          "phase12b_rmse_Y": 0.06495711925283491,
+          "change_in_rmse_Y": 0.0,
+          "phase12b_rmse_Z": 0.024813046901916814,
+          "mean_interval_width_unclipped": 0.10122414290622263,
+          "reviewer_Z_coverage": 0.955,
+          "synthetic_Y_coverage_diagnostic": 0.115,
+          "mean_cost_units": 4630.669155,
+          "mean_human_seconds": 4630.669155,
+          "mean_cheap_calls": 0.0,
+          "mean_expensive_calls": 0.0
+        },
+        "ppi_plus_tuned": {
+          "phase11_rmse_Y": 0.06819325701848415,
+          "phase12b_rmse_Y": 0.06825375186366492,
+          "change_in_rmse_Y": 6.0494845180766865e-05,
+          "phase12b_rmse_Z": 0.03035811067966335,
+          "mean_interval_width_unclipped": 0.3856164891519257,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4629.0603924,
+          "mean_human_seconds": 4446.43123,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0032966326108300054,
+          "paired_bootstrap95": [
+            -0.0002915182066156159,
+            0.006551974728983867
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "stratppi_mean": {
+          "phase11_rmse_Y": 0.06767224411520703,
+          "phase12b_rmse_Y": 0.06725068186388627,
+          "change_in_rmse_Y": -0.0004215622513207562,
+          "phase12b_rmse_Z": 0.0307050711491161,
+          "mean_interval_width_unclipped": 0.6689762059714088,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4633.3473274,
+          "mean_human_seconds": 4450.718164999999,
+          "mean_cheap_calls": 4000.0,
+          "mean_expensive_calls": 0.0,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.0022935626110513613,
+          "paired_bootstrap95": [
+            -0.0006151031802620356,
+            0.004877829463482009
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "multipppi_subset_gls": {
+          "phase11_rmse_Y": 0.06488510880434326,
+          "phase12b_rmse_Y": 0.0645835792134348,
+          "change_in_rmse_Y": -0.0003015295909084559,
+          "phase12b_rmse_Z": 0.0291692689370128,
+          "mean_interval_width_unclipped": 0.2945634613754106,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 0.985,
+          "mean_cost_units": 4647.7960960385,
+          "mean_human_seconds": 4564.19198,
+          "mean_cheap_calls": 386.725,
+          "mean_expensive_calls": 41.28,
+          "paired_diff_rmse_Y_vs_allowed_srs": -0.0003735400394001137,
+          "paired_bootstrap95": [
+            -0.0038291846298922428,
+            0.003129814317638223
+          ],
+          "bootstrap_sign": "crosses_zero"
+        },
+        "active_aipw_restricted": {
+          "phase11_rmse_Y": 0.06665907880060491,
+          "phase12b_rmse_Y": 0.06577069269837545,
+          "change_in_rmse_Y": -0.0008883861022294659,
+          "phase12b_rmse_Z": 0.02998156100666259,
+          "mean_interval_width_unclipped": 0.5702340902722439,
+          "reviewer_Z_coverage": 1.0,
+          "synthetic_Y_coverage_diagnostic": 1.0,
+          "mean_cost_units": 4631.613418602001,
+          "mean_human_seconds": 3732.7622750000005,
+          "mean_cheap_calls": 4016.0,
+          "mean_expensive_calls": 447.865,
+          "paired_diff_rmse_Y_vs_allowed_srs": 0.000813573445540533,
+          "paired_bootstrap95": [
+            -0.003291474294948148,
+            0.004781517063512455
+          ],
+          "bootstrap_sign": "crosses_zero"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "study": "phase12b_latency_provenance_v1",
+  "created_utc": "2026-11-12T20:28:58.726886+00:00",
+  "status": "HISTORICAL_INFERENCE_LATENCY_MEASURED_COST_RATIO_ASSUMED",
+  "privacy": "Public repository timing summaries only; no raw prompt/response or reviewer data",
+  "source_csv_sha256": {
+    "reports/final_v3_policy_timing/latency_summary.csv": "4820411c8da8abc2516c2a5cfc51cf3d4e62aebdc9d3c56347909b79fb1920f0",
+    "reports/final_v3_policy_timing/qwen_stage_latency_summary.csv": "17dcad6c4c28ea3339a6ba9468a485903c304b2fd4fdd57b76fcc2737814012e",
+    "reports/evaluation_measurement_pilot_v1/t4/policy_latency_summary.csv": "7c9f3715f1dbb4f7a5a6160c32d70e84fed3ca44f60e4a98b9ff4a56c4168dae"
+  },
+  "component_benchmark": {
+    "rule_filter_v1": {
+      "name": "rule_filter_v1",
+      "n": 128,
+      "mean_ms": 1.2709858984375,
+      "p95_ms": 2.5946302,
+      "mean_sec": 0.0012709858984375,
+      "p95_sec": 0.0025946302
+    },
+    "cheap_koala_text_moderation": {
+      "name": "cheap_koala_text_moderation",
+      "n": 128,
+      "mean_ms": 45.657290601562494,
+      "p95_ms": 70.65502755,
+      "mean_sec": 0.04565729060156249,
+      "p95_sec": 0.07065502755
+    },
+    "expensive_qwen3guard_official": {
+      "name": "expensive_qwen3guard_official",
+      "n": 128,
+      "mean_ms": 1597.5605696953123,
+      "p95_ms": 2431.5969614499995,
+      "mean_sec": 1.5975605696953123,
+      "p95_sec": 2.4315969614499995
+    }
+  },
+  "qwen_stage_consistency": {
+    "name": "qwen_stage_total",
+    "n": 128,
+    "mean_ms": 1597.5605696953123,
+    "p95_ms": 2431.5969614499995,
+    "mean_sec": 1.5975605696953123,
+    "p95_sec": 2.4315969614499995
+  },
+  "different_t4_policy_benchmark": {
+    "cheap_only_direct": {
+      "name": "compact_to_qwen_cheap_only",
+      "n": 363,
+      "mean_ms": 45.75743265840221,
+      "p95_ms": 80.0627336,
+      "mean_sec": 0.04575743265840221,
+      "p95_sec": 0.0800627336
+    },
+    "full_information_direct": {
+      "name": "compact_to_qwen_full_information",
+      "n": 363,
+      "mean_ms": 1523.1537853498621,
+      "p95_ms": 2233.3505818,
+      "mean_sec": 1.523153785349862,
+      "p95_sec": 2.2333505818
+    }
+  },
+  "relative_gpu_cost_per_second_to_human_cost_per_second_ASSUMED": 1.0,
+  "latency_based_budget_units": {
+    "cheap_proxy_unit": 0.04565729060156249,
+    "expensive_proxy_unit": 1.5975605696953123
+  },
+  "preserved_separate_evidence": {
+    "component_benchmark_n": 128,
+    "t4_policy_benchmark_n": 363
+  },
+  "limitations": [
+    "Measured latency is historical and may not transfer to different hardware, batch size, caching, input lengths or current software.",
+    "Unknown GPU/human economic price ratio. The chosen ratio is an explicit sensitivity parameter, NOT a measured wage or hourly hardware price.",
+    "Benchmark proxies are synthetic scores; treating them as Koala/Qwen for unit-cost scaling is a mapping assumption, not a logged predictor run.",
+    "No real policy adjudication/training/organizer time or independent gold-label verification is included.",
+    "Component timings and the 363-case T4 policy timing experiment are NOT pooled; their measurement protocols differ.",
+    "If GPU processing is parallel/async, summing GPU elapsed seconds and human attention seconds is not a wall-clock deployment latency claim.",
+    "Repricing an estimator changes its cost model; it does not improve label validity or establish a new theorem."
+  ]
+}

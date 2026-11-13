@@ -1,4 +1,21 @@
-# Trustworthy AI — Runtime Safety-Monitor Cascades
+# Trustworthy AI — Missed-Harm Estimation
+
+## Current research: estimation under uncertain human judgments
+
+We investigate estimation of the rate of harmful assistant responses allowed by a fixed post-generation safety monitor, `A = P(Y = 1, D = 0)`, with imperfect human judgments and explicit review costs.
+
+**[Research report, reproducible methods, and aggregate experimental results](research/missed_harm_estimation/README.md)**
+
+- [Technical report (PDF)](research/missed_harm_estimation/paper/Missed_Harm_Estimation_Technical_Report.pdf)
+- [Source code and tests](research/missed_harm_estimation/analysis/)
+- [Aggregate results](research/missed_harm_estimation/results/)
+- [Reproducibility and limits](research/missed_harm_estimation/docs/reproducibility.md)
+
+The study includes historical development measurements, blinded human-review summaries, synthetic evaluation of estimator specializations, and explicitly labeled methodological limits. No verified reference-truth study or author-equivalent MultiPPI/AM-PPI replication is claimed.
+
+---
+
+## Earlier runtime cascade research (archival README)
 
 This repository studies **runtime safety-monitor cascades for prompt–response systems**. The original project investigated whether inexpensive safety monitors could selectively invoke a stronger monitor while maintaining harmful-response recall, controlling false positives, and reducing runtime cost.
 

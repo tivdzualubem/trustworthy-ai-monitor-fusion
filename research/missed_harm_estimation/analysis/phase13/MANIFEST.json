@@ -1,0 +1,15 @@
+{
+  "files_sha256": {
+    "INTERVAL_VALIDATION.md": "8eceb63d1eabbdb4dfa2ce2c390b076caf16fb18d83108c757d525d277c5d85e",
+    "METHOD_FIDELITY_AUDIT.md": "e8dc23ca8b31bf0ac3f9f56537aec8c9417a6698f45ee5cd308e8c21ce098a93",
+    "README.md": "221571a42227208801db65578feef71b24e7f8ce82430c150a81e414dfdaffcc",
+    "phase11_reference_unmodified.py": "dc52aa78be6f87d639f12c22a9c2df96d9b316a57c086bb85b1ab35513baac88",
+    "phase13_methods.py": "32ee71735bd7586fb5ae304a722b5a2abe43bc49f7d24317012608ce26810d7c",
+    "phase13_reference_validity_gate.py": "1b99a871f9301d7b245747c3cfaade4082a317d3cbb391d58837971fd44ed615",
+    "phase13_targeted_interval_recheck.py": "4262543a3f56dc2e311e7925457c61988a4d85c3afc34cdb212ef9be2848e9bf",
+    "test_phase13.py": "a096973af9aea33ce792e80b3e3587d5d8e92ba66f94991db4906365555b6393",
+    "test_phase13_reference.py": "05082dcb1d006456fda5df6afb1b4e3b5b2793719734afdc85f1fbd4ecd7e134"
+  },
+  "publication_claim": "NOT_YET",
+  "study": "Phase13 targeted method fidelity and interval audit"
+}

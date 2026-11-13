@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "N": 1687,
+    "allowed_N": 1557,
+    "budget": 4800.0,
+    "cheap_cost_assumption": 0.04565729060156249,
+    "duration_n": 336,
+    "duration_source": "OBSERVED_336_BROWSER_ACTIVE_SECONDS_RESAMPLED",
+    "expensive_cost_assumption": 1.5975605696953123,
+    "generated_utc": "2026-11-13T11:01:12.810436+00:00",
+    "geometry": "development_1687",
+    "method_fidelity": "RESTRICTED_NOT_AUTHOR_MULTI_PPI",
+    "populations": 8,
+    "relative_gap_certification_threshold": 0.005,
+    "repetitions": 25,
+    "simulated_outcomes_only": true,
+    "source_sha256": "c08b57d4c111e382b15000020f77d3ed4aa4dfec90a50eb335c8d26f7c96f717",
+    "study": "PHASE14_RESTRICTED_CONTINUOUS_GLS_SOLVER_FIX"
+  },
+  "summary": {
+    "correlated_errors": {
+      "all_pilot_continuous_objectives_not_worse": true,
+      "certified_repaired": 200,
+      "difference_squared_error_Y_repaired_minus_original": 0.0,
+      "original": {
+        "fraction_below_0_5pct": 0.915,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 0.7312542366907564,
+        "max_realized_cost": 4799.9975977,
+        "mean_ci_width": 0.32383771447430193,
+        "mean_realized_cost": 4649.329780522,
+        "median_certified_relative_gap_upper": 5.857636141356837e-06,
+        "rmse_vs_reviewer_Z": 0.029031230715442943,
+        "rmse_vs_synthetic_Y": 0.07709185479743672,
+        "valid": 200
+      },
+      "original_solver_reported_success": 200,
+      "paired_total": 200,
+      "paired_valid": 200,
+      "repaired": {
+        "fraction_below_0_5pct": 1.0,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 5.631398459225056e-05,
+        "max_realized_cost": 4799.9975977,
+        "mean_ci_width": 0.32383771447430193,
+        "mean_realized_cost": 4649.329780522,
+        "median_certified_relative_gap_upper": 1.6105575662761277e-12,
+        "rmse_vs_reviewer_Z": 0.029031230715442943,
+        "rmse_vs_synthetic_Y": 0.07709185479743672,
+        "valid": 200
+      },
+      "repaired_uncertified_runs": 0
+    },
+    "independent_errors": {
+      "all_pilot_continuous_objectives_not_worse": true,
+      "certified_repaired": 200,
+      "difference_squared_error_Y_repaired_minus_original": 0.0,
+      "original": {
+        "fraction_below_0_5pct": 0.95,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 0.49960270746197827,
+        "max_realized_cost": 4799.9957324,
+        "mean_ci_width": 0.32555970784965266,
+        "mean_realized_cost": 4651.353351366,
+        "median_certified_relative_gap_upper": 4.737158092688197e-08,
+        "rmse_vs_reviewer_Z": 0.02331320843251179,
+        "rmse_vs_synthetic_Y": 0.04094851533782107,
+        "valid": 200
+      },
+      "original_solver_reported_success": 200,
+      "paired_total": 200,
+      "paired_valid": 200,
+      "repaired": {
+        "fraction_below_0_5pct": 1.0,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 4.29046064512605e-05,
+        "max_realized_cost": 4799.9957324,
+        "mean_ci_width": 0.32555970784965266,
+        "mean_realized_cost": 4651.353351366,
+        "median_certified_relative_gap_upper": 0.0,
+        "rmse_vs_reviewer_Z": 0.02331320843251179,
+        "rmse_vs_synthetic_Y": 0.04094851533782107,
+        "valid": 200
+      },
+      "repaired_uncertified_runs": 0
+    },
+    "perfect": {
+      "all_pilot_continuous_objectives_not_worse": true,
+      "certified_repaired": 200,
+      "difference_squared_error_Y_repaired_minus_original": 0.0,
+      "original": {
+        "fraction_below_0_5pct": 0.99,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 1.3618191659124361,
+        "max_realized_cost": 4799.9985731,
+        "mean_ci_width": 0.33457579591121417,
+        "mean_realized_cost": 4659.8511254035,
+        "median_certified_relative_gap_upper": 0.0,
+        "rmse_vs_reviewer_Z": 0.013852549208461259,
+        "rmse_vs_synthetic_Y": 0.013852549208461259,
+        "valid": 200
+      },
+      "original_solver_reported_success": 200,
+      "paired_total": 200,
+      "paired_valid": 200,
+      "repaired": {
+        "fraction_below_0_5pct": 1.0,
+        "hard_budget_violations": 0,
+        "max_certified_relative_gap_upper": 1.67864891859264e-06,
+        "max_realized_cost": 4799.9985731,
+        "mean_ci_width": 0.33457579591121417,
+        "mean_realized_cost": 4659.8511254035,
+        "median_certified_relative_gap_upper": 0.0,
+        "rmse_vs_reviewer_Z": 0.013852549208461259,
+        "rmse_vs_synthetic_Y": 0.013852549208461259,
+        "valid": 200
+      },
+      "repaired_uncertified_runs": 0
+    }
+  }
+}

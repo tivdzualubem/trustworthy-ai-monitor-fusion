@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-11-12T20:56:46.980115+00:00",
+  "historical_label_column_exists_not_gold": true,
+  "human_review_actions": 336,
+  "interpretation": [
+    "A reference label is not established merely by multiple opinions or historical benchmark labels.",
+    "No confidence interval based on reviewer Z is automatically a confidence interval for latent Y.",
+    "Rubric hash documents the current snapshot only; this read-only audit cannot prove which exact page a reviewer saw at a past time.",
+    "This gate is not a request for R2-only follow-up review."
+  ],
+  "policy_snapshot": {
+    "ontology_has_C1_C8": true,
+    "original_review_page_snapshot_verified": false,
+    "policy_sha256": "ceb7f3f333a9ed600e55ff9b7bfaf5541a5f42e3caeeeea8768f2b5691a77347",
+    "snapshot_found": true,
+    "system_policy_nonempty": true
+  },
+  "probability_sample_inclusion_probabilities": "NOT_VERIFIED_BY_THIS_AUDIT",
+  "prospective_target_stream": "NOT_ESTABLISHED",
+  "rater_action_counts": {
+    "R1": 96,
+    "R2": 96,
+    "R3": 96,
+    "R4": 48
+  },
+  "review_time_column_exists": true,
+  "scope": "Historical development review metadata only; no user data exported",
+  "status": "REVIEWER_REFERENCE_TRUTH_NOT_VERIFIED",
+  "study_cases": 96,
+  "verified_qualified_reference_truth": "NOT_ESTABLISHED"
+}

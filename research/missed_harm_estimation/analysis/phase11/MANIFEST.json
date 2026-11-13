@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-12",
+  "files_sha256": {
+    "ILLUSTRATIVE_REFERENCE_ONLY/phase11_aggregate_ILLUSTRATIVE.json": "8d4128127194866c375df420135ef25d456d8a0146c1c3b11d4f215235fb40ae",
+    "ILLUSTRATIVE_REFERENCE_ONLY/phase11_aggregate_ILLUSTRATIVE.md": "3f9a3d6b840aaa1c5189a35ced457f454e3bb6d18b5369e8701b9ccb25f1f31a",
+    "METHOD_FIDELITY_AND_IDENTIFICATION.md": "e053d026851b8e21cfb377409803a4803fca47f93bbd2d10402329f537604987",
+    "README.md": "1c54b83f290d695e174585cbb4683971f0842dde6b23c55787e79f54155adff7",
+    "phase11_benchmark.py": "dc52aa78be6f87d639f12c22a9c2df96d9b316a57c086bb85b1ab35513baac88",
+    "test_phase11_benchmark.py": "5dbba1ab07fad14fb4a4f192b76a70ffda2beacf228a34b976a273423e30fb9a"
+  },
+  "purpose": "Prof. Bader published-method cost-controlled screening",
+  "status": "synthetic benchmarks; method specializations; not real latent-Y validation"
+}

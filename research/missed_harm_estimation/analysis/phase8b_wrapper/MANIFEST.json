@@ -1,0 +1,20 @@
+{
+  "type": "phase8b_population_sensitivity_wrapper",
+  "privacy": "no individual labels or text access; only original Phase8A empirical durations",
+  "prior_phase8a_code_modified": false,
+  "integration_with_unmounted_user_phase8a": "requires WSL execution",
+  "files": [
+    {
+      "name": "phase8b_population_audit.py",
+      "sha256": "40f37bb5214d919bfeabb24a405ffa3eb994820a8be568b48bd930e0bbdcd6b1"
+    },
+    {
+      "name": "test_phase8b_population_audit.py",
+      "sha256": "0284538ded177bc478fc12c99736f02289b3b64ac03e8bf11e0d79e754d9fb26"
+    },
+    {
+      "name": "README.md",
+      "sha256": "c97e83348e208464d85402a6d01e07e9c2d378bad6305e965b7fea7875c8d542"
+    }
+  ]
+}

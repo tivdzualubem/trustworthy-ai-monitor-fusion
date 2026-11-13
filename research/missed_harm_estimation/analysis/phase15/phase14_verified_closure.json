@@ -1,0 +1,127 @@
+{
+  "status": "COMPLETE_RESTRICTED_SOLVER_NUMERICS_ONLY",
+  "simulations_evaluated": 1200,
+  "total_repaired_certified": 1200,
+  "hard_budget_violations": 0,
+  "not_a_replication_of_full_multiPPI": true,
+  "not_a_validated_estimate_of_true_harm": true,
+  "finding": "Higher numerical optimization accuracy did not meaningfully change synthetic latent-Y estimation error.",
+  "per_geometry": [
+    {
+      "sha256": "d1733284cd6e04124da1d49556f40f7e651c689599acec609016b8d30d8eb272",
+      "source_geometry": "development_1687",
+      "sample_design": "8 synthetic populations \u00d7 25 repetitions",
+      "configuration": {
+        "N": 1687,
+        "allowed_N": 1557,
+        "budget": 4800.0,
+        "cheap_cost_assumption": 0.04565729060156249,
+        "duration_n": 336,
+        "duration_source": "OBSERVED_336_BROWSER_ACTIVE_SECONDS_RESAMPLED",
+        "expensive_cost_assumption": 1.5975605696953123,
+        "generated_utc": "2026-11-13T11:01:12.810436+00:00",
+        "geometry": "development_1687",
+        "method_fidelity": "RESTRICTED_NOT_AUTHOR_MULTI_PPI",
+        "populations": 8,
+        "relative_gap_certification_threshold": 0.005,
+        "repetitions": 25,
+        "simulated_outcomes_only": true,
+        "source_sha256": "c08b57d4c111e382b15000020f77d3ed4aa4dfec90a50eb335c8d26f7c96f717",
+        "study": "PHASE14_RESTRICTED_CONTINUOUS_GLS_SOLVER_FIX"
+      },
+      "scenarios": [
+        {
+          "scenario": "perfect",
+          "old_rmse_Y": 0.013852549208461259,
+          "repaired_rmse_Y": 0.013852549208461259,
+          "rmse_change": 0.0,
+          "old_max_relative_gap_bound": 1.3618191659124361,
+          "new_max_relative_gap_bound": 1.67864891859264e-06,
+          "old_cost": 4659.8511254035,
+          "new_cost": 4659.8511254035,
+          "squared_error_difference": 0.0
+        },
+        {
+          "scenario": "independent_errors",
+          "old_rmse_Y": 0.04094851533782107,
+          "repaired_rmse_Y": 0.04094851533782107,
+          "rmse_change": 0.0,
+          "old_max_relative_gap_bound": 0.49960270746197827,
+          "new_max_relative_gap_bound": 4.29046064512605e-05,
+          "old_cost": 4651.353351366,
+          "new_cost": 4651.353351366,
+          "squared_error_difference": 0.0
+        },
+        {
+          "scenario": "correlated_errors",
+          "old_rmse_Y": 0.07709185479743672,
+          "repaired_rmse_Y": 0.07709185479743672,
+          "rmse_change": 0.0,
+          "old_max_relative_gap_bound": 0.7312542366907564,
+          "new_max_relative_gap_bound": 5.631398459225056e-05,
+          "old_cost": 4649.329780522,
+          "new_cost": 4649.329780522,
+          "squared_error_difference": 0.0
+        }
+      ]
+    },
+    {
+      "sha256": "fdd6e8c6074b7ff3ff05527f79b68fb78b18c032ad368f1bf838cd04a3141fca",
+      "source_geometry": "phase6_5000",
+      "sample_design": "8 synthetic populations \u00d7 25 repetitions",
+      "configuration": {
+        "N": 5000,
+        "allowed_N": 4000,
+        "budget": 4800.0,
+        "cheap_cost_assumption": 0.04565729060156249,
+        "duration_n": 336,
+        "duration_source": "OBSERVED_336_BROWSER_ACTIVE_SECONDS_RESAMPLED",
+        "expensive_cost_assumption": 1.5975605696953123,
+        "generated_utc": "2026-11-13T11:03:04.661024+00:00",
+        "geometry": "phase6_5000",
+        "method_fidelity": "RESTRICTED_NOT_AUTHOR_MULTI_PPI",
+        "populations": 8,
+        "relative_gap_certification_threshold": 0.005,
+        "repetitions": 25,
+        "simulated_outcomes_only": true,
+        "source_sha256": "c08b57d4c111e382b15000020f77d3ed4aa4dfec90a50eb335c8d26f7c96f717",
+        "study": "PHASE14_RESTRICTED_CONTINUOUS_GLS_SOLVER_FIX"
+      },
+      "scenarios": [
+        {
+          "scenario": "perfect",
+          "old_rmse_Y": 0.013174807153728525,
+          "repaired_rmse_Y": 0.013174807153728525,
+          "rmse_change": 0.0,
+          "old_max_relative_gap_bound": 0.033271889950818624,
+          "new_max_relative_gap_bound": 8.129446802253537e-05,
+          "old_cost": 4660.422311558,
+          "new_cost": 4660.422311558,
+          "squared_error_difference": 0.0
+        },
+        {
+          "scenario": "independent_errors",
+          "old_rmse_Y": 0.038223462273288315,
+          "repaired_rmse_Y": 0.038229583955680504,
+          "rmse_change": 6.121682392189187e-06,
+          "old_max_relative_gap_bound": 0.2893827864344115,
+          "new_max_relative_gap_bound": 3.109067074708018e-05,
+          "old_cost": 4654.2815378965,
+          "new_cost": 4654.844323089,
+          "squared_error_difference": 4.6802126692927394e-07
+        },
+        {
+          "scenario": "correlated_errors",
+          "old_rmse_Y": 0.0645835792134348,
+          "repaired_rmse_Y": 0.06458694321978578,
+          "rmse_change": 3.364006350980997e-06,
+          "old_max_relative_gap_bound": 0.7213925649704077,
+          "new_max_relative_gap_bound": 2.4080299105474776e-05,
+          "old_cost": 4647.7960960385,
+          "new_cost": 4647.781485705999,
+          "squared_error_difference": 4.3453045782466517e-07
+        }
+      ]
+    }
+  ]
+}
